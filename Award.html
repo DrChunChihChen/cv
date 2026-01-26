@@ -1,250 +1,279 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <!-- ===== CSS ===== -->
-        <!-- 保留原本的外部 CSS 連結 -->
-        <link rel="stylesheet" href="assets/css/styles.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <!-- ===== BOX ICONS ===== -->
-        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+    <!-- ===== CSS ===== -->
+    <!-- 保留原本的外部 CSS 連結 -->
+    <link rel="stylesheet" href="assets/css/styles.css">
 
-        <title>Elvis Chen - Portfolio</title>
-        
-        <!-- 新增區塊的樣式 (Projects & Videos) -->
-        <style>
-            /* 讓專案卡片以網格排列 */
-            .project__container {
-                row-gap: 2rem;
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-                gap: 2rem;
-            }
-            /* 卡片樣式 */
-            .project__card {
-                background-color: #fff;
-                padding: 1.5rem;
-                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-                border-radius: .5rem;
-            }
-            /* 響應式影片容器 (16:9) */
-            .video-container {
-                position: relative;
-                padding-bottom: 56.25%; 
-                height: 0;
-                overflow: hidden;
-                margin-top: 1rem;
-                border-radius: .5rem;
-                background: #000;
-            }
-            .video-container iframe {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-            }
-            /* 獎項徽章樣式 */
-            .badge {
-                display: inline-block;
-                padding: 0.25rem 0.5rem;
-                background-color: #4070f4; 
-                color: #fff;
-                font-size: 0.8rem;
-                border-radius: 4px;
-                margin-bottom: 0.5rem;
-            }
-            /* 調整列表樣式 */
-            .award-list {
-                line-height: 1.8;
-                padding-left: 1rem;
-            }
-            .award-list li {
-                margin-bottom: 0.5rem;
-            }
-        </style>
-    </head>
-    <body>
-        <!--===== HEADER =====-->
-        <header class="l-header">
-            <nav class="nav bd-grid">
-                <div>
-                    <a href="#" class="nav__logo">Elvis Chen</a>
+    <!-- ===== BOX ICONS ===== -->
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+
+    <title>Elvis Chen - Portfolio</title>
+
+    <!-- 新增區塊的樣式 (Projects & Videos) -->
+    <style>
+        /* 讓專案卡片以網格排列 */
+        .project__container {
+            row-gap: 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        /* 卡片樣式 */
+        .project__card {
+            background-color: #fff;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: .5rem;
+        }
+
+        /* 響應式影片容器 (16:9) */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            margin-top: 1rem;
+            border-radius: .5rem;
+            background: #000;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* 獎項徽章樣式 */
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            background-color: #4070f4;
+            color: #fff;
+            font-size: 0.8rem;
+            border-radius: 4px;
+            margin-bottom: 0.5rem;
+        }
+
+        /* 調整列表樣式 */
+        .award-list {
+            line-height: 1.8;
+            padding-left: 1rem;
+        }
+
+        .award-list li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <!--===== HEADER =====-->
+    <header class="l-header">
+        <nav class="nav bd-grid">
+            <div>
+                <a href="index.html" class="nav__logo">Elvis Chen</a>
+            </div>
+
+            <ul class="nav__list">
+                <li class="nav__item"><a href="index.html" class="nav__link">Home</a></li>
+                <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
+                <li class="nav__item"><a href="#portfolio" class="nav__link">Projects</a></li>
+            </ul>
+            </div>
+
+            <div class="nav__toggle" id="nav-toggle">
+                <i class='bx bx-menu'></i>
+            </div>
+        </nav>
+    </header>
+
+    <main class="l-main">
+        <!--===== HOME =====-->
+        <section class="home" id="home">
+            <div class="home__container bd-grid">
+                <h1 class="home__title"><span>HE</span><br>LLO.</h1>
+
+                <div class="home__scroll">
+                    <a href="#about" class="home__scroll-link"><i class='bx bx-up-arrow-alt'></i>Scroll down</a>
                 </div>
 
-                <div class="nav__menu" id="nav-menu">
-                    <ul class="nav__list">
-                        <li class="nav__item"><a href="#home" class="nav__link active">Home</a></li>
-                        <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
-                        <li class="nav__item"><a href="#portfolio" class="nav__link">Projects</a></li> <!-- 新增 Projects 連結 -->
-                        <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
-                    </ul>
-                </div>
+                <img src="assets/img/prefil1.jpg" alt="" class="home__img">
+            </div>
+        </section>
 
-                <div class="nav__toggle" id="nav-toggle">
-                    <i class='bx bx-menu'></i>
-                </div>
-            </nav>
-        </header>
+        <!--===== ABOUT / AWARDS =====-->
+        <section class="about section" id="about">
+            <h2 class="section-title">Awards & Honors</h2>
+            <div class="bd-grid">
+                <!-- 更新後的獎項清單 -->
+                <ol class="award-list">
+                    <li>2024-2025 指導學生團隊(七仙過海)-阿里巴巴全國電商競賽- <strong>全國第一名</strong></li>
+                    <li>2024-2025 指導學生團隊(商海裡的快樂鯰魚)-阿里巴巴全國電商競賽- <strong>全國第三名</strong></li>
+                    <li>2025 國立高雄科技大學 全國電子設計創意競賽 大數據應用組 <strong>冠軍</strong></li>
+                    <li>2023-2024 指導學生團隊(宇宙購物車)-阿里巴巴全國電商競賽- <strong>全國組二名</strong></li>
+                    <li>2022-2023 指導學生團隊(財貿超群)-阿里巴巴全國電商競賽- <strong>新興組第三名，全國第四名</strong> <a
+                            href="https://it.nutc.edu.tw/%E8%B7%A8%E5%A2%83%E9%9B%BB%E5%95%86/#four" target="_blank"
+                            style="color:#4070f4;">[照片連結]</a></li>
+                    <li>斐陶斐榮譽會員</li>
+                    <li>Highly Cited Paper in the top 1% of the academic field of Engineering.</li>
+                    <li>2018-2020 博士共同人才培育計畫</li>
+                    <li>2019 交通大學學生優良研究成果獎勵</li>
+                    <li>2019 高等教育深耕計畫 國際研討會補助</li>
+                    <li>TOEIC test certificate - Gold</li>
+                </ol>
+            </div>
+        </section>
 
-        <main class="l-main">
-            <!--===== HOME =====-->
-            <section class="home" id="home">
-                <div class="home__container bd-grid">
-                    <h1 class="home__title"><span>HE</span><br>LLO.</h1>
+        <!--===== PORTFOLIO (保留你喜歡的 YouTube Projects) =====-->
+        <section class="portfolio section" id="portfolio">
+            <h2 class="section-title">Student Projects</h2>
 
-                    <div class="home__scroll">
-                        <a href="#about" class="home__scroll-link"><i class='bx bx-up-arrow-alt' ></i>Scroll down</a>
-                    </div>
-
-                    <img src="assets/img/prefil1.jpg" alt="" class="home__img">
-                </div>
-            </section>
-
-            <!--===== ABOUT / AWARDS =====-->
-            <section class="about section" id="about">
-                <h2 class="section-title">Awards & Honors</h2>
-                <div class="bd-grid">
-                    <!-- 更新後的獎項清單 -->
-                    <ol class="award-list">
-                         <li>2024-2025 指導學生團隊(七仙過海)-阿里巴巴全國電商競賽- <strong>全國第一名</strong></li>
-                         <li>2024-2025 指導學生團隊(商海裡的快樂鯰魚)-阿里巴巴全國電商競賽- <strong>全國第三名</strong></li>
-                         <li>2025 國立高雄科技大學 全國電子設計創意競賽 大數據應用組 <strong>冠軍</strong></li>
-                         <li>2023-2024 指導學生團隊(宇宙購物車)-阿里巴巴全國電商競賽- <strong>全國組二名</strong></li>
-                         <li>2022-2023 指導學生團隊(財貿超群)-阿里巴巴全國電商競賽- <strong>新興組第三名，全國第四名</strong> <a href="https://it.nutc.edu.tw/%E8%B7%A8%E5%A2%83%E9%9B%BB%E5%95%86/#four" target="_blank" style="color:#4070f4;">[照片連結]</a></li>
-                         <li>斐陶斐榮譽會員</li>
-                         <li>Highly Cited Paper in the top 1% of the academic field of Engineering.</li>
-                         <li>2018-2020 博士共同人才培育計畫</li>
-                         <li>2019 交通大學學生優良研究成果獎勵</li>
-                         <li>2019 高等教育深耕計畫 國際研討會補助</li>
-                         <li>TOEIC test certificate - Gold</li>
-                    </ol>
-                </div>
-            </section>
-            
-            <!--===== PORTFOLIO (保留你喜歡的 YouTube Projects) =====-->
-            <section class="portfolio section" id="portfolio">
-                <h2 class="section-title">Student Projects</h2>
-                
-                <div class="project__container bd-grid">
-                    <!-- Project 1 -->
-                    <div class="project__card">
-                        <span class="badge">第十屆 全國第一名</span>
-                        <h3>七仙過海 (海峰機械)</h3>
-                        <p><strong>產品：</strong>氣動工具</p>
-                        <p style="font-size:0.9rem; margin-top:0.5rem;">AI 深度賦能：AI 影片行銷、精準視覺設計 (針對歐美市場)。</p>
-                        <div class="video-container">
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/K5Y8OemMSSI?si=7ADVZcaNL8WXENo2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                        </div>
-                    </div>
-
-                    <!-- Project 2 -->
-                    <div class="project__card">
-                        <span class="badge">第九屆 全國第二名</span>
-                        <h3>宇宙購物車 (丞桀股份)</h3>
-                        <p><strong>產品：</strong>汽車改裝零件</p>
-                        <p style="font-size:0.9rem; margin-top:0.5rem;">AI 工具應用：文案生成、MidJourney 視覺素材、市場反應測試。</p>
-                        <div class="video-container">
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/jkQWWf1IPHs?si=cLAtHax7t1X8DLlF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                        </div>
-                    </div>
-
-                    <!-- Project 3 -->
-                    <div class="project__card">
-                        <span class="badge">第十屆 全國第三名</span>
-                        <h3>商海裡的快樂鯰魚 (丞桀股份)</h3>
-                        <p><strong>產品：</strong>汽車改裝零件</p>
-                        <p style="font-size:0.9rem; margin-top:0.5rem;">數據驅動行銷：AI 分析競品、Reels 短影音行銷。</p>
-                        
-                        <p style="font-size:0.85rem; margin-top:0.8rem; font-weight:bold;">n8n 自動化系統：</p>
-                        <div class="video-container">
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/qs4nAsKuKBw?si=WpWoTAQdIL_LXcD5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                        </div>
-                        
-                        <p style="font-size:0.85rem; margin-top:0.8rem; font-weight:bold;">AI 影片行銷：</p>
-                        <div class="video-container">
-                             <iframe width="560" height="315" src="https://www.youtube.com/embed/WiIamwd8POU?si=eq6674zL-bQ-QndM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                        </div>
-                    </div>
-
-                    <!-- Project 4 -->
-                    <div class="project__card">
-                        <span class="badge">2025 全國冠軍</span>
-                        <h3>全國電子設計創意競賽</h3>
-                        <p><strong>組別：</strong>大數據應用組</p>
-                        <p style="font-size:0.9rem; margin-top:0.5rem;">參與國立高雄科技大學主辦之競賽，榮獲冠軍殊榮。</p>
-                        <div class="video-container">
-                            <!-- 使用您提供的正確 iframe 程式碼 -->
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/xRQnOSP2rSQ?si=xaXf_xeqlVYHHcwL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                        </div>
+            <div class="project__container bd-grid">
+                <!-- Project 1 -->
+                <div class="project__card">
+                    <span class="badge">第十屆 全國第一名</span>
+                    <h3>七仙過海 (海峰機械)</h3>
+                    <p><strong>產品：</strong>氣動工具</p>
+                    <p style="font-size:0.9rem; margin-top:0.5rem;">AI 深度賦能：AI 影片行銷、精準視覺設計 (針對歐美市場)。</p>
+                    <div class="video-container">
+                        <iframe width="560" height="315"
+                            src="https://www.youtube.com/embed/K5Y8OemMSSI?si=7ADVZcaNL8WXENo2"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     </div>
                 </div>
-            </section>
 
-            <!--===== CONTACT =====-->
-            <section class="contact section" id="contact">
-                <h2 class="section-title">Contact</h2>
+                <!-- Project 2 -->
+                <div class="project__card">
+                    <span class="badge">第九屆 全國第二名</span>
+                    <h3>宇宙購物車 (丞桀股份)</h3>
+                    <p><strong>產品：</strong>汽車改裝零件</p>
+                    <p style="font-size:0.9rem; margin-top:0.5rem;">AI 工具應用：文案生成、MidJourney 視覺素材、市場反應測試。</p>
+                    <div class="video-container">
+                        <iframe width="560" height="315"
+                            src="https://www.youtube.com/embed/jkQWWf1IPHs?si=cLAtHax7t1X8DLlF"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </div>
 
-                <div class="contact__container bd-grid">
-                    <div class="contact__info">
-                        <h3 class="contact__subtitle">EMAIL</h3>
-                        <span class="contact__text">elvischen@nutc.edu.tw</span>
+                <!-- Project 3 -->
+                <div class="project__card">
+                    <span class="badge">第十屆 全國第三名</span>
+                    <h3>商海裡的快樂鯰魚 (丞桀股份)</h3>
+                    <p><strong>產品：</strong>汽車改裝零件</p>
+                    <p style="font-size:0.9rem; margin-top:0.5rem;">數據驅動行銷：AI 分析競品、Reels 短影音行銷。</p>
 
-                        <h3 class="contact__subtitle">PHONE</h3>
-                        <span class="contact__text">+886-422196120</span>
-
-                        <h3 class="contact__subtitle">ADDRESS</h3>
-                        <span class="contact__text">404台中市北區三民路三段129號中正大樓7樓3705</span>
+                    <p style="font-size:0.85rem; margin-top:0.8rem; font-weight:bold;">n8n 自動化系統：</p>
+                    <div class="video-container">
+                        <iframe width="560" height="315"
+                            src="https://www.youtube.com/embed/qs4nAsKuKBw?si=WpWoTAQdIL_LXcD5"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     </div>
 
-                    <form action="" class="contact__form">
-                        <div class="contact__inputs">
-                            <input type="text" placeholder="Name" class="contact__input">
-                            <input type="mail" placeholder="Email" class="contact__input">
-                        </div>
-
-                        <textarea name="" id="" cols="0" rows="10" class="contact__input"></textarea>
-
-                        <input type="submit" value="Send" class="contact__button">
-                    </form>
-                </div>
-            </section>
-        </main>
-
-        <!--===== FOOTER =====-->
-        <footer class="footer section">
-            <div class="footer__container bd-grid">
-                <div class="footer__data">
-                    <h2 class="footer__title">Elvis Chen</h2>
-                    <p class="footer__text">I'm Dr.Chen and this is my personal website</p>
+                    <p style="font-size:0.85rem; margin-top:0.8rem; font-weight:bold;">AI 影片行銷：</p>
+                    <div class="video-container">
+                        <iframe width="560" height="315"
+                            src="https://www.youtube.com/embed/WiIamwd8POU?si=eq6674zL-bQ-QndM"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
                 </div>
 
-                <div class="footer__data">
-                    <h2 class="footer__title">EXPLORE</h2>
-                    <ul>
-                        <li><a href="#home" class="footer__link">Home</a></li>
-                        <li><a href="#about" class="footer__link">About</a></li>
-                        <li><a href="#portfolio" class="footer__link">Projects</a></li>
-                        <li><a href="#contact" class="footer__link">Contact</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer__data">
-                    <h2 class="footer__title">FOLLOW</h2>
-                    <a href="#" class="footer__social"><i class='bx bxl-facebook' ></i></a>
-                    <a href="#" class="footer__social"><i class='bx bxl-instagram' ></i></a>
-                    <a href="#" class="footer__social"><i class='bx bxl-twitter' ></i></a>
+                <!-- Project 4 -->
+                <div class="project__card">
+                    <span class="badge">2025 全國冠軍</span>
+                    <h3>全國電子設計創意競賽</h3>
+                    <p><strong>組別：</strong>大數據應用組</p>
+                    <p style="font-size:0.9rem; margin-top:0.5rem;">參與國立高雄科技大學主辦之競賽，榮獲冠軍殊榮。</p>
+                    <div class="video-container">
+                        <!-- 使用您提供的正確 iframe 程式碼 -->
+                        <iframe width="560" height="315"
+                            src="https://www.youtube.com/embed/xRQnOSP2rSQ?si=xaXf_xeqlVYHHcwL"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
                 </div>
             </div>
-        </footer>
+        </section>
 
-        <!--===== SCROLL REVEAL =====-->
-        <script src="https://unpkg.com/scrollreveal"></script>
+        <!--===== CONTACT =====-->
+        <section class="contact section" id="contact">
+            <h2 class="section-title">Contact</h2>
 
-        <!--===== MAIN JS =====-->
-        <!-- 保留原本的外部 JS 連結 -->
-        <script src="assets/js/main.js"></script>
-    </body>
+            <div class="contact__container bd-grid">
+                <div class="contact__info">
+                    <h3 class="contact__subtitle">EMAIL</h3>
+                    <span class="contact__text">elvischen@nutc.edu.tw</span>
+
+                    <h3 class="contact__subtitle">PHONE</h3>
+                    <span class="contact__text">+886-422196120</span>
+
+                    <h3 class="contact__subtitle">ADDRESS</h3>
+                    <span class="contact__text">404台中市北區三民路三段129號中正大樓7樓3705</span>
+                </div>
+
+                <form action="#" class="contact__form">
+                    <div class="contact__inputs">
+                        <input type="text" placeholder="Name" class="contact__input">
+                        <input type="email" placeholder="Email" class="contact__input">
+                    </div>
+
+                    <textarea name="message" id="message" cols="30" rows="10" class="contact__input"
+                        placeholder="Your message"></textarea>
+
+                    <input type="submit" value="Send" class="contact__button">
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!--===== FOOTER =====-->
+    <footer class="footer section">
+        <div class="footer__container bd-grid">
+            <div class="footer__data">
+                <h2 class="footer__title">Elvis Chen</h2>
+                <p class="footer__text">I'm Dr.Chen and this is my personal website</p>
+            </div>
+
+            <div class="footer__data">
+                <h2 class="footer__title">EXPLORE</h2>
+                <ul>
+                    <li><a href="index.html" class="footer__link">Home</a></li>
+                    <li><a href="#about" class="footer__link">About</a></li>
+                    <li><a href="#portfolio" class="footer__link">Projects</a></li>
+                </ul>
+            </div>
+
+            <div class="footer__data">
+                <h2 class="footer__title">FOLLOW</h2>
+                <a href="#" class="footer__social"><i class='bx bxl-facebook'></i></a>
+                <a href="#" class="footer__social"><i class='bx bxl-instagram'></i></a>
+                <a href="#" class="footer__social"><i class='bx bxl-twitter'></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!--===== SCROLL REVEAL =====-->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!--===== MAIN JS =====-->
+    <!-- 保留原本的外部 JS 連結 -->
+    <script src="assets/js/main.js"></script>
+</body>
+
 </html>
