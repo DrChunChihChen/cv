@@ -1,280 +1,294 @@
 <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en">
 
-        <!-- ===== CSS ===== -->
-        <link rel="stylesheet" href="assets/css/styles.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Academic Portfolio of Dr. Elvis Chen - Assistant Professor in International Business at NUTC.">
 
-        <!-- ===== BOX ICONS ===== -->
-        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+    <!-- ===== CSS ===== -->
+    <link rel="stylesheet" href="assets/css/styles.css">
 
-        <title>Portfolio responsive complete</title>
-    </head>
-    <body>
-        <!--===== HEADER =====-->
-        <header class="l-header">
-    <nav class="nav bd-grid">
-        <div>
-            <a href="#" class="nav__logo">Elvis Chen</a>
-        </div>
+    <!-- ===== BOX ICONS ===== -->
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
 
-        <div class="nav__menu" id="nav-menu">
-            <ul class="nav__list">
-                <li class="nav__item"><a href="#home" class="nav__link active">Home</a></li>
-                <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
-                <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
-                <li class="nav__item"><a href="#portfolio" class="nav__link">Portfolio</a></li>
-                <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>              
-          
-            </ul>
-        </div>
+    <title>Elvis Chen - Portfolio</title>
+</head>
 
-        <div class="nav__toggle" id="nav-toggle">
-            <i class='bx bx-menu'></i>
-        </div>
-    </nav>
-</header>
+<body>
+    <!--===== HEADER =====-->
+    <header class="l-header">
+        <nav class="nav bd-grid">
+            <div>
+                <a href="#" class="nav__logo">Elvis Chen</a>
+            </div>
 
-<style>
-    @media (max-width: 768px) {
-        .nav__menu {
-            display: none;
-        }
-        .nav__toggle {
-            display: block;
-        }
-        .nav__list {
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            background-color: #f2f2f2;
-            padding: 1rem;
-        }
-        .nav__item {
-            margin: 0.5rem 0;
-        }
-        .nav__link {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            color: #333;
-            text-decoration: none;
-        }
-    }
-</style>
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="#home" class="nav__link active">Home</a></li>
+                    <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
+                    <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
+                    <li class="nav__item"><a href="#portfolio" class="nav__link">Portfolio</a></li>
+                    <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+                </ul>
+            </div>
 
+            <div class="nav__toggle" id="nav-toggle">
+                <i class='bx bx-menu'></i>
+            </div>
+        </nav>
+    </header>
 
-        <main class="l-main">
-            <!--===== HOME =====-->
-            <section class="home" id="home">
-                <div class="home__container bd-grid">
-                    <h1 class="home__title"><span>HE</span><br>LLO.</h1>
+    <main class="l-main">
+        <!--===== HOME =====-->
+        <section class="home" id="home">
+            <div class="home__container bd-grid">
+                <!-- Text Content on Left -->
+                <div class="home__data">
+                    <h1 class="home__title">Hello,<br>I'm <span style="color: var(--first-color);">Elvis Chen</span>
+                    </h1>
+                    <span class="home__subtitle">Assistant Professor & Researcher</span>
+                    <a href="#about" class="home__button">Explore Profile</a>
+                </div>
 
-                    <div class="home__scroll">
-                        <a href="#about" class="home__scroll-link"><i class='bx bx-up-arrow-alt' ></i>Scroll down</a>
+                <!-- Image with Blob effect on Right -->
+                <div class="home__img">
+                    <!-- Note: Ensure the image is cut out (transparent bg) for best effect, 
+                         or using border-radius: 50% as defined in CSS. 
+                         Using the same image for now. -->
+                    <img src="assets/img/prefil1.jpg" alt="Elvis Chen"
+                        style="border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                </div>
+            </div>
+        </section>
+
+        <!--===== ABOUT =====-->
+        <section class="about section" id="about">
+            <h2 class="section-title">About Me</h2>
+
+            <div class="about__container bd-grid">
+                <div class="about__img">
+                    <img src="assets/img/Elvis_01.png" alt="Elvis Chen Portrait">
+                </div>
+
+                <div>
+                    <h2 class="about__subtitle">I'm Elvis Chen</h2>
+                    <span class="about__profession">Assistant Professor in Department of International Business at
+                        National
+                        Taichung University of Science and Technology</span>
+
+                    <div class="about__text">
+                        <p style="margin-bottom: 1rem;">👋 Hello! I am a researcher and Assistant Professor specializing
+                            in <strong>Machine Learning, Circular Economy, and Sustainability</strong>. I earned my PhD
+                            from National Yang Ming Chiao Tung University in 2020 and served as a visiting scholar at
+                            North Carolina State University.</p>
+                        <p style="margin-bottom: 1rem;">🔬 I am passionate about extracting insights from data to solve
+                            complex problems. My recent work on simulating the EU's circular economy using deep learning
+                            was funded by the National Science and Technology Council.</p>
+                        <p>😄 Outside of work, I bring humor and a passion for sports to every team I join.</p>
                     </div>
 
-                    <img src="assets/img/prefil1.jpg" alt="" class="home__img">
-                </div>
-            </section>
-
-            <!--===== ABOUT =====-->
-            <section class="about section" id="about">
-                <h2 class="section-title">About</h2>
-
-                <div class="about__container bd-grid">
-                  <div class="about__img">
-                        <img src="assets/img/Elvis_01.png" alt="" style="width: 200px; height: 200px;">
-                  </div>
-
-
-                    <div>
-                        <h2 class="about__subtitle">I'am Elvis Chen</h2>
-                        <span class="about__profession">Assistant professor in Department of International Business at National Taichung University of Science and Technology</span>
-                        <p class="about__text">
-    👋 Hello, my name is Elvis (陳俊智) and I am honored to introduce myself as a researcher and Assistant Professor in the field of machine learning, circular economy, energy economy, and sustainability at the National Taichung University of Science and Technology in Taiwan. 🎓 My passion for this field is evident in my numerous publications in reputable journals. 📚
-</p>
-
-<p class="about__text">
-    🎓 In 2020, I earned a PhD from the Management Science Department at National Yang Ming Chiao Tung University. 🌍 During my studies, I had the opportunity to gain advanced knowledge and skills as a visiting scholar at North Carolina State University, where I specialized in data analysis, machine learning, artificial intelligence, and heuristic algorithms. 💡 This experience enabled me to deepen my understanding of these subjects and apply my knowledge to make meaningful contributions in my field. 📈
-</p>
-
-<p class="about__text">
-    🔬 I am a highly analytical and resourceful problem-solver who is able to extract valuable insights from data to inform decision-making and problem-solving. 💪 This makes me an adept collaborator and a valuable asset to any project. 💼 My recently funded project, which aims to simulate the dynamic relationship between the EU's circular economy, energy consumption, environmental sustainability, and economic growth using deep learning methods, received funding from the National Science and Technology Council. 🌐
-</p>
-
-<p class="about__text">
-    😄 In addition to my professional achievements, I bring a good sense of humor and a passion for sports to any project. ⚽️ I am open to discussing potential collaborations or any other relevant topics and look forward to connecting with you. 🤝
-</p>
-
-                        <div class="about__social">
-                          <a href="https://it.nutc.edu.tw/%E5%B0%88%E4%BB%BB%E6%95%99%E5%B8%AB/" class="about__social-icon" target="_blank">
-    <i class='bx bxl-dribbble'></i> My School
-  </a>
-
-
-
-                        </div>
+                    <div class="about__social">
+                        <a href="https://it.nutc.edu.tw/%E5%B0%88%E4%BB%BB%E6%95%99%E5%B8%AB/"
+                            class="about__social-icon" target="_blank" title="My School Profile">
+                            <i class='bx bxl-dribbble'></i>
+                        </a>
+                        <span style="font-size: 0.9rem; color: var(--text-color-light);">View School Profile</span>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <!--===== SKILLS =====-->
-            <section class="skills section" id="skills">
-                <h2 class="section-title">Skills</h2>
+        <!--===== SKILLS =====-->
+        <section class="skills section" id="skills">
+            <h2 class="section-title">Skills & Expertise</h2>
 
-                <div class="skills__container bd-grid">
-                    <div class="skills__box">
-                        <h3 class="skills__subtitle">Development</h3>
+            <div class="skills__container bd-grid">
+                <!-- Skill Tags -->
+                <div>
+                    <h3 class="skills__subtitle">Development & Tools</h3>
+                    <div class="skills__data">
                         <span class="skills__name">Python</span>
                         <span class="skills__name">R</span>
                         <span class="skills__name">SAS</span>
                         <span class="skills__name">SQL</span>
                         <span class="skills__name">C++</span>
-                        <span class="skills__name">Html</span>
-                        <span class="skills__name">Css</span>
-                        <span class="skills__name">Javascript</span>
+                        <span class="skills__name">HTML5</span>
+                        <span class="skills__name">CSS3</span>
+                        <span class="skills__name">JavaScript</span>
+                    </div>
 
-                        <h3 class="skills__subtitle">Design</h3>
+                    <h3 class="skills__subtitle">Design</h3>
+                    <div class="skills__data">
                         <span class="skills__name">Gimp</span>
                         <span class="skills__name">Illustrator</span>
                         <span class="skills__name">Photoshop</span>
-                        
-                        <h3 class="skills__subtitle">Data analysis SoftWare</h3>
+                    </div>
+
+                    <h3 class="skills__subtitle">Data Analysis</h3>
+                    <div class="skills__data">
                         <span class="skills__name">Tableau</span>
                         <span class="skills__name">SPSS</span>
                         <span class="skills__name">Eviews</span>
                         <span class="skills__name">AMOS</span>
                         <span class="skills__name">SmartPLS</span>
                     </div>
+                </div>
 
-                    <div class="skills__img">
-                        <img src="assets/img/skill.jpg" alt="">
+                <!-- Skill Image -->
+                <div class="skills__img">
+                    <img src="assets/img/skill.jpg" alt="Skills visualization">
+                </div>
+            </div>
+        </section>
+
+        <!--===== PORTFOLIO =====-->
+        <section class="portfolio section" id="portfolio">
+            <h2 class="section-title">Portfolio</h2>
+
+            <div class="portfolio__container bd-grid">
+
+                <!-- Card 1 -->
+                <div class="portfolio__card">
+                    <img src="assets/img/work1-1.jpeg" alt="Selected Publications" class="portfolio__img">
+                    <div class="portfolio__link">
+                        <a href="Selected Publications & Conference.html" class="portfolio__link-name">Selected
+                            Publications</a>
+                        <span style="font-size: 0.8rem; color: #555;">Academic Research</span>
                     </div>
                 </div>
-            </section>
 
-            <!--===== PORTFOLIO =====-->
-            <section class="portfolio section" id="portfolio">
-          <h2 class="section-title">Portfolio</h2>
-
-          <div class="portfolio__container bd-grid">
-              <div class="portfolio__img">
-                  <img src="assets/img/work1-1.jpeg" alt="" style="width: 300px; height: 300px;">
-
-                  <div class="portfolio__link">
-                      <a href="Selected Publications & Conference.html" class="portfolio__link-name">Selected Publications & Conference</a>
-                  </div>
-              </div>
-              <div class="portfolio__img">
-                  <img src="assets/img/work2.jpg" alt="" style="width: 300px; height: 300px;">
-
-                  <div class="portfolio__link">
-                      <a href="Talk.html" class="portfolio__link-name">Talk</a>
-                  </div>
-              </div>
-
-              <div class="portfolio__img">
-                  <img src="assets/img/work4-1.jpeg" alt="" style="width: 300px; height: 300px;">
-
-                  <div class="portfolio__link">
-                      <a href="Project.html" class="portfolio__link-name">Project 2021.01-2023.06</a>
-                  </div>
-              </div>
-              <div class="portfolio__img">
-                  <img src="assets/img/Alibaba.jpg" alt="" style="width: 300px; height: 300px;">
-
-                  <div class="portfolio__link">
-                      <a href="Award.html" class="portfolio__link-name">Award</a>
-                  </div>
-              </div>
-              <div class="portfolio__img">
-                  <img src="assets/img/work6-1.jpeg" alt="" style="width: 300px; height: 300px;">
-
-                  <div class="portfolio__link">
-                      <a href="Teaching Material.html" class="portfolio__link-name">Teaching Material</a>
-                  </div>
-              </div>
-              <div class="portfolio__img">
-                  <img src="assets/img/work7-1.jpeg" alt="" style="width: 300px; height: 300px;">
-                  <div class="portfolio__link">
-                      <a href="How to Create an Entertaining Game using ChatGPT and AI.html" class="portfolio__link-name">How to Create an Entertaining Game using ChatGPT and AI</a>
-                  </div>
-              </div>
-          </div>
-      </section>
-
-
-            <!--===== CONTACT =====-->
-            <!--===== CONTACT =====-->
-  <section class="contact section" id="contact">
-    <h2 class="section-title">Contact</h2>
-
-    <div class="contact__container bd-grid">
-      <div class="contact__info">
-        <h3 class="contact__subtitle">EMAIL</h3>
-        <a href="mailto:elvischen@nutc.edu.tw" class="contact__text">elvischen@nutc.edu.tw</a>
-
-        <h3 class="contact__subtitle">PHONE</h3>
-        <span class="contact__text">+886-422196120</span>
-
-        <h3 class="contact__subtitle">ADDRESS</h3>
-        <span class="contact__text">404台中市北區三民路三段129號中正大樓7樓3705</span>
-      </div>
-
-      <form action="mailto:elvischen@nutc.edu.tw" method="post" class="contact__form">
-    <div class="contact__inputs">
-      <input type="text" name="name" placeholder="Name" class="contact__input">
-      <input type="email" name="email" placeholder="Email" class="contact__input">
-    </div>
-
-    <textarea name="message" id="" cols="0" rows="10" class="contact__input"></textarea>
-
-    <input type="submit" value="Send" class="contact__button">
-  </form>
-
-    </div>
-  </section>
-
-        <!--===== FOOTER =====-->
-        <footer class="footer section">
-            <div class="footer__container bd-grid">
-                <div class="footer__data">
-                    <h2 class="footer__title">Elvis Chen</h2>
-                    <p class="footer__text">I'm Dr.Chen and this is my personal website</p>
+                <!-- Card 2 -->
+                <div class="portfolio__card">
+                    <img src="assets/img/work2.jpg" alt="Talks" class="portfolio__img">
+                    <div class="portfolio__link">
+                        <a href="Talk.html" class="portfolio__link-name">Talks & Seminars</a>
+                        <span style="font-size: 0.8rem; color: #555;">Public Speaking</span>
+                    </div>
                 </div>
 
-                <div class="footer__data">
-                    <h2 class="footer__title">EXPLORE</h2>
-                    <ul>
-                        <li><a href="#home" class="footer__link">Home</a></li>
-                        <li><a href="#about" class="footer__link">About</a></li>
-                        <li><a href="#skills" class="footer__link">Skills</a></li>
-                        <li><a href="#portfolio" class="footer__link">Portfolio</a></li>
-                        <li><a href="#Contact" class="footer__link">Contact</a></li>
-                    </ul>
+                <!-- Card 3 -->
+                <div class="portfolio__card">
+                    <img src="assets/img/work4-1.jpeg" alt="Projects" class="portfolio__img">
+                    <div class="portfolio__link">
+                        <a href="Project.html" class="portfolio__link-name">Research Projects</a>
+                        <span style="font-size: 0.8rem; color: #555;">2021 - 2023</span>
+                    </div>
                 </div>
 
-                <div class="footer__data">
-                    <h2 class="footer__title">FOLLOW</h2>
-                    <a href="#" class="footer__social"><i class='bx bxl-facebook' ></i></a>
-                    <a href="#" class="footer__social"><i class='bx bxl-instagram' ></i></a>
-                    <a href="#" class="footer__social"><i class='bx bxl-twitter' ></i></a>
-                     
-                     
+                <!-- Card 4 -->
+                <div class="portfolio__card">
+                    <img src="assets/img/Alibaba.jpg" alt="Awards" class="portfolio__img">
+                    <div class="portfolio__link">
+                        <a href="Award.html" class="portfolio__link-name">Awards & Honors</a>
+                        <span style="font-size: 0.8rem; color: #555;">Competitions</span>
+                    </div>
                 </div>
-              
-               
+
+                <!-- Card 5 -->
+                <div class="portfolio__card">
+                    <img src="assets/img/work6-1.jpeg" alt="Teaching Material" class="portfolio__img">
+                    <div class="portfolio__link">
+                        <a href="Teaching Material.html" class="portfolio__link-name">Teaching Materials</a>
+                        <span style="font-size: 0.8rem; color: #555;">Educational Resources</span>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="portfolio__card">
+                    <img src="assets/img/work7-1.jpeg" alt="ChatGPT Game Project" class="portfolio__img">
+                    <div class="portfolio__link">
+                        <a href="How to Create an Entertaining Game using ChatGPT and AI.html"
+                            class="portfolio__link-name">AI Game Dev</a>
+                        <span style="font-size: 0.8rem; color: #555;">ChatGPT & AI</span>
+                    </div>
+                </div>
+
             </div>
-        </footer>
+        </section>
 
+        <!--===== CONTACT =====-->
+        <section class="contact section" id="contact">
+            <h2 class="section-title">Contact Me</h2>
 
-        <!--===== SCROLL REVEAL =====-->
-        <script src="https://unpkg.com/scrollreveal"></script>
+            <div class="contact__container bd-grid">
+                <div class="contact__info">
+                    <h3 class="contact__subtitle">EMAIL</h3>
+                    <a href="mailto:elvischen@nutc.edu.tw" class="contact__text"
+                        style="color: var(--first-color);">elvischen@nutc.edu.tw</a>
 
-        <!--===== MAIN JS =====-->
-        <script src="assets/js/main.js"></script>
-    </body>
+                    <h3 class="contact__subtitle">PHONE</h3>
+                    <span class="contact__text">+886-422196120</span>
+
+                    <h3 class="contact__subtitle">ADDRESS</h3>
+                    <span class="contact__text">404台中市北區三民路三段129號中正大樓7樓3705</span>
+                </div>
+
+                <form action="mailto:elvischen@nutc.edu.tw" method="post" enctype="text/plain" class="contact__form">
+                    <div class="contact__inputs">
+                        <input type="text" name="name" placeholder="Name" class="contact__input" required>
+                        <input type="email" name="email" placeholder="Email" class="contact__input" required>
+                    </div>
+
+                    <textarea name="message" id="" cols="0" rows="6" class="contact__input"
+                        placeholder="Your Message..." required></textarea>
+
+                    <input type="submit" value="Send Message" class="contact__button">
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!--===== FOOTER =====-->
+    <footer class="footer section">
+        <div class="footer__container bd-grid">
+            <div class="footer__data">
+                <h2 class="footer__title">Elvis Chen</h2>
+                <p class="footer__text">Assistant Professor & Researcher</p>
+            </div>
+
+            <div class="footer__data">
+                <h2 class="footer__title">EXPLORE</h2>
+                <ul>
+                    <li><a href="#home" class="footer__link">Home</a></li>
+                    <li><a href="#about" class="footer__link">About</a></li>
+                    <li><a href="#portfolio" class="footer__link">Portfolio</a></li>
+                </ul>
+            </div>
+
+            <div class="footer__data">
+                <h2 class="footer__title">FOLLOW</h2>
+                <a href="#" class="footer__social"><i class='bx bxl-facebook'></i></a>
+                <a href="#" class="footer__social"><i class='bx bxl-instagram'></i></a>
+                <a href="#" class="footer__social"><i class='bx bxl-twitter'></i></a>
+            </div>
+        </div>
+        <p style="font-size: 0.8rem; margin-top: 2rem; color: #CCC;">&copy; 2024 Elvis Chen. All rights reserved.</p>
+    </footer>
+
+    <!--===== SCROLL REVEAL =====-->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!--===== MAIN JS =====-->
+    <script src="assets/js/main.js"></script>
+
+    <!-- Simple Scroll Reveal Script to make it work immediately if main.js is missing or basic -->
+    <script>
+        const sr = ScrollReveal({
+            origin: 'top',
+            distance: '60px',
+            duration: 2000,
+            delay: 200,
+            // reset: true
+        });
+
+        sr.reveal('.home__data, .about__img, .skills__subtitle, .skills__text', {});
+        sr.reveal('.home__img, .about__subtitle, .about__text, .skills__img', { delay: 400 });
+        sr.reveal('.home__social-icon', { interval: 200 });
+        sr.reveal('.skills__data, .work__img, .contact__input', { interval: 200 });
+        sr.reveal('.portfolio__card', { interval: 200 });
+    </script>
+</body>
+
 </html>
