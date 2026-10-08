@@ -2,6 +2,8 @@
 
 [![Website](https://img.shields.io/badge/Website-Live%20Portfolio-6C63FF?style=for-the-badge&logo=google-chrome&logoColor=white)](https://drchunchihchen.github.io/cv/)
 [![ORCID](https://img.shields.io/badge/ORCID-0000--0001--6556--2221-A6CE39?style=for-the-badge&logo=orcid&logoColor=white)](https://orcid.org/0000-0001-6556-2221)
+[![YouTube Playlists](https://img.shields.io/badge/YouTube-Teaching%20Playlists-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@ElvisChen-p7z2r/playlists)
+[![USR Project](https://img.shields.io/badge/USR%20Project-小半天低碳漫遊-059669?style=for-the-badge&logo=leaflet&logoColor=white)](https://drchunchihchen.github.io/xiaobantian-carbon-tourism/#videos)
 [![Affiliation](https://img.shields.io/badge/Affiliation-NUTC%20國立臺中科技大學-blue?style=for-the-badge)](https://it.nutc.edu.tw/%E5%B0%88%E4%BB%BB%E6%95%99%E5%B8%AB/)
 
 > **Quantitative Decision Modeling for Environmental & Resource Economics via Intelligent Technologies**  
@@ -58,6 +60,19 @@
 * **全國競賽指導冠軍**：
   * 2025 高科大全國電子設計創意競賽（大數據應用組）**全國冠軍**。
   * 2024-2025 第十屆阿里巴巴 B2B 全國大專院校跨境電商競賽 **全國第一名**。
+
+---
+
+## 💻 Software Systems & USR Projects (自研系統與社會責任計畫)
+
+* **碳盤查 / 碳足跡軟體：「你說的算」**  
+  敏捷型組織溫室氣體盤查與碳足跡計算工具，支援排放係數對應與減碳情境模擬。([觀看操作示範影片](https://www.youtube.com/watch?v=epZr5-JSLLM))
+* **HelloIR 智慧校務分析與決策支援平台**  
+  結合巨量數據探勘與機器學習演算法之決策支援平台，針對高等教育治理與修業風險進行即時分析。([觀看產品介紹影片](https://www.youtube.com/watch?v=bP8hiMcb81g))
+* **國立臺中科技大學 USR 計畫 — 小半天永續低碳漫遊與遊程碳盤查實務手冊**  
+  推動南投鹿谷在地綠色生態旅遊與碳排量化評估，建置多媒體影音互動手冊網站。([專屬成果網站](https://drchunchihchen.github.io/xiaobantian-carbon-tourism/#videos))
+* **Elvis Chen 線上教學影音頻道**  
+  收錄 Python 商務程式設計、智慧商務 (BI)、機器學習與 AI 提示工程等系統化播放清單。([前往 YouTube 頻道](https://www.youtube.com/@ElvisChen-p7z2r/playlists))
 
 ---
 
