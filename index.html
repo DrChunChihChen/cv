@@ -57,30 +57,70 @@
 
         .stat-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-            gap: 1rem;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 0.85rem;
             margin: 1.5rem 0;
+        }
+
+        @media (max-width: 992px) {
+            .stat-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
         }
 
         .stat-card {
             background: #fff;
-            padding: 1rem;
+            padding: 0.85rem 0.4rem;
             border-radius: 0.5rem;
             border: 1px solid #edf2f7;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 84px;
         }
 
         .stat-card h3 {
             color: var(--first-color);
-            font-size: 1.5rem;
-            margin-bottom: 0.2rem;
+            font-size: clamp(1rem, 1.25vw, 1.22rem);
+            margin-bottom: 0.25rem;
+            white-space: nowrap !important;
+            word-break: keep-all !important;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
         }
 
         .stat-card p {
-            font-size: 0.78rem;
+            font-size: clamp(0.7rem, 0.82vw, 0.76rem);
             color: #718096;
             margin: 0;
+            line-height: 1.35;
+            word-break: break-word;
+            white-space: normal;
+            text-align: center;
+        }
+
+        .partner-badge {
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            color: #334155;
+            padding: 0.3rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+            transition: all 0.2s ease;
+        }
+
+        .partner-badge:hover {
+            border-color: var(--first-color);
+            color: var(--first-color);
+            transform: translateY(-1px);
         }
     </style>
 </head>
@@ -98,6 +138,7 @@
                     <li class="nav__item"><a href="#home" class="nav__link active">Home</a></li>
                     <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
                     <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
+                    <li class="nav__item"><a href="#laboratory" class="nav__link">Lab</a></li>
                     <li class="nav__item"><a href="Selected Publications & Conference.html" class="nav__link">Publications</a></li>
                     <li class="nav__item"><a href="Project.html" class="nav__link">Projects</a></li>
                     <li class="nav__item"><a href="Award.html" class="nav__link">Awards</a></li>
@@ -119,12 +160,19 @@
                 <div class="home__data">
                     <h1 class="home__title">Hello,<br>I'm <span style="color: var(--first-color);">Elvis Chen</span>
                     </h1>
-                    <span class="home__subtitle">Assistant Professor & Researcher | Director of Net-Zero Division</span>
+                    <div style="font-size: clamp(1.2rem, 2.3vw, 1.55rem); font-weight: 700; color: #1e293b; margin-top: -0.4rem; margin-bottom: 0.85rem; letter-spacing: 0.02em;">
+                        用AI探索商業的無限可能！
+                    </div>
+                    <span class="home__subtitle" style="margin-bottom: 1.5rem;">
+                        <span class="home__subtitle-line">國立臺中科技大學 國際貿易與經營系 副教授</span>
+                        <span class="home__subtitle-separator"> | </span>
+                        <span class="home__subtitle-line">商業智慧應用與研究中心主任</span>
+                    </span>
                     
                     <div class="hero__badges">
+                        <span class="hero__badge-item"><i class='bx bx-badge-check'></i> iPAS AI應用規劃師 / 淨零碳管理師</span>
                         <span class="hero__badge-item"><i class='bx bx-leaf'></i> 永續發展 & 淨零轉型</span>
-                        <span class="hero__badge-item"><i class='bx bx-chip'></i> 人工智慧 & 供應鏈 MRP</span>
-                        <span class="hero__badge-item"><i class='bx bx-globe'></i> USR 小半天低碳漫遊</span>
+                        <span class="hero__badge-item"><i class='bx bx-bot'></i> AI 應用 & 自動化工作流</span>
                         <span class="hero__badge-item"><i class='bx bx-trophy'></i> 全國競賽冠軍指導</span>
                     </div>
 
@@ -155,48 +203,56 @@
 
             <div class="about__container bd-grid">
                 <div class="about__img">
-                    <img src="assets/img/Elvis_01.png" alt="Elvis Chen Portrait" style="border-radius: 1rem;">
+                    <img src="assets/img/Elvis_01.png?v=20261008" alt="Dr. Chun-Chih Chen" style="border-radius: 0.75rem; width: 100%; height: auto; aspect-ratio: 324 / 478; object-fit: contain;">
                 </div>
 
                 <div>
-                    <h2 class="about__subtitle">Dr. Chun-Chih Chen (陳俊智 博士)</h2>
+                    <h2 class="about__subtitle" style="white-space: nowrap; word-break: keep-all; font-size: clamp(1.25rem, 2.3vw, 1.65rem);">Dr. Chun-Chih Chen (陳俊智 博士)</h2>
                     
                     <!-- Roles & Affiliations -->
                     <div class="about__roles">
                         <div class="about__role-item">
                             <i class='bx bxs-graduation'></i>
-                            <span><strong>國立臺中科技大學 國際貿易與經營系</strong> 專任助理教授 (2022.08 - 迄今)</span>
+                            <span><strong>國立臺中科技大學 國際貿易與經營系</strong> 專任副教授 (2025.08 - 迄今)</span>
+                        </div>
+                        <div class="about__role-item">
+                            <i class='bx bxs-building-house'></i>
+                            <span><strong>國立臺中科技大學 商業智慧應用與研究中心</strong> 主任</span>
+                        </div>
+                        <div class="about__role-item">
+                            <i class='bx bx-brain'></i>
+                            <span><strong>商業自動化多代理人實驗室</strong> 主持人</span>
                         </div>
                         <div class="about__role-item">
                             <i class='bx bxs-tree'></i>
-                            <span><strong>國立臺中科技大學 永續中心</strong> 淨零組組長 (2024.08 - 迄今)</span>
+                            <span><strong>國立臺中科技大學 永續創新與淨零推動中心</strong> 曾任淨零組組長</span>
                         </div>
                         <div class="about__role-item">
                             <i class='bx bxs-briefcase-alt-2'></i>
-                            <span><strong>台灣康寧 (Corning Taiwan)</strong> 供應鏈數位轉型顧問工程師 (2022.12 - 迄今)</span>
+                            <span><strong>台灣康寧 (Corning Taiwan)</strong> 曾任供應鏈數位轉型顧問工程師 (專案已結案)</span>
                         </div>
                         <div class="about__role-item">
                             <i class='bx bxs-cog'></i>
-                            <span><strong>快思 (Crysalis)</strong> 人工智慧顧問工程師 (2020.08 - 迄今)</span>
+                            <span><strong><a href="https://impacts.cloud/index.html" target="_blank" style="color: inherit; text-decoration: underline;">快思 (CRIS)</a></strong> 人工智慧顧問工程師 (長期產學合作)</span>
                         </div>
                     </div>
 
-                    <!-- Highlight Metrics -->
+                    <!-- Highlight Metrics (Humble & Qualitative) -->
                     <div class="stat-grid">
                         <div class="stat-card">
-                            <h3>NT$ 7.0M+</h3>
-                            <p>計畫與產學總經費</p>
+                            <h3 style="white-space: nowrap !important; word-break: keep-all !important;">專任副教授</h3>
+                            <p>國際貿易與經營系</p>
                         </div>
                         <div class="stat-card">
-                            <h3>12+ 篇</h3>
-                            <p>SCI / SSCI 頂級期刊</p>
+                            <h3 style="white-space: nowrap !important; word-break: keep-all !important;">中心主任</h3>
+                            <p>商業智慧應用與研究中心</p>
                         </div>
                         <div class="stat-card">
-                            <h3>Top 1%</h3>
-                            <p>ESI 工程領域高被引論文</p>
+                            <h3 style="white-space: nowrap !important; word-break: keep-all !important;">學術著作</h3>
+                            <p>國際期刊與專題研究</p>
                         </div>
                         <div class="stat-card">
-                            <h3>全國冠軍</h3>
+                            <h3 style="white-space: nowrap !important; word-break: keep-all !important;">全國冠軍</h3>
                             <p>指導學生獲獎殊榮</p>
                         </div>
                     </div>
@@ -207,9 +263,29 @@
                         </p>
                         <p style="margin-bottom: 1rem;">
                             🔬 <strong>整合性雙主軸研究體系：</strong>
-                            <br><strong>1. 永續發展領域：</strong>以 Q1 頂刊代表作建立「循環經濟 - 生態足跡關聯模型 (CE-EF nexus)」，深入拆解碳足跡與土地生態衝擊，解析能源轉型與脫鉤戰略，主持國科會專題計畫；兼任永續中心淨零組長，推動 USR「<a href="https://drchunchihchen.github.io/xiaobantian-carbon-tourism/#videos" target="_blank" style="color: var(--first-color); font-weight: 600;">小半天永續低碳漫遊與遊程碳盤查</a>」實務專案。
-                            <br><strong>2. 智慧轉型領域：</strong>深耕智慧製造排程優化、物料需求規劃 (MRP)、大語言模型 (LLM API) 與 AI Agent 應用。與全球玻璃領導廠商台灣康寧建立長期策略夥伴關係（主持 5 項計畫逾 208 萬元），受工研院委託執行 AI 雙軌轉型與數位師徒制計畫；並自主研發「你說的算」碳盤查/碳足跡軟體及「HelloIR」智慧決策平台。
+                            <br><strong>1. 永續發展領域：</strong>建立「循環經濟 - 生態足跡關聯模型 (CE-EF nexus)」，深入拆解碳足跡與土地生態衝擊，解析能源轉型與脫鉤戰略，主持國科會專題計畫；推動 USR「<a href="https://drchunchihchen.github.io/xiaobantian-carbon-tourism/#videos" target="_blank" style="color: var(--first-color); font-weight: 600;">小半天永續低碳漫遊與遊程碳盤查</a>」實務專案。
+                            <br><strong>2. 智慧轉型領域：</strong>深耕智慧製造排程優化、物料需求規劃 (MRP)、大語言模型 (LLM API) 與 AI Agent 應用。與<strong>台灣康寧產學 & <a href="https://impacts.cloud/index.html" target="_blank" style="color: inherit; text-decoration: underline;">快思 (CRIS)</a></strong>建立長期合作關係，受工研院委託執行 AI 雙軌轉型與數位師徒制計畫；並自主研發「你說的算」碳盤查/碳足跡軟體及「HelloIR」智慧決策平台。
                         </p>
+                        <p style="margin-bottom: 1rem;">
+                            🤖 <strong>AI 應用與自動化工作流：</strong>專精生成式 AI 實務應用、AI Agent 智慧代理人協同架構，以及企業級自動化工作流整合（n8n、Make、Python API 自動化與客製流程串接），致力協助企業解決人才與數據赤字，實現營運數位轉型。
+                        </p>
+                    </div>
+
+                    <!-- Industry & Research Partners -->
+                    <div style="margin-top: 1.25rem; padding: 1rem 1.25rem; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 0.75rem;">
+                        <div style="font-weight: 700; color: #1e293b; font-size: 0.92rem; margin-bottom: 0.65rem; display: flex; align-items: center; gap: 0.45rem;">
+                            <i class='bx bx-buildings' style="color: var(--first-color); font-size: 1.15rem;"></i>
+                            產學合作夥伴 (Industry & Research Partners)
+                        </div>
+                        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                            <span class="partner-badge"><i class='bx bxs-check-shield' style="color: var(--first-color);"></i> 台灣康寧</span>
+                            <span class="partner-badge"><i class='bx bxs-check-shield' style="color: var(--first-color);"></i> <a href="https://impacts.cloud/index.html" target="_blank" style="color: inherit; text-decoration: none;">快思 (CRIS)</a></span>
+                            <span class="partner-badge"><i class='bx bxs-check-shield' style="color: var(--first-color);"></i> 丞桀有限公司</span>
+                            <span class="partner-badge"><i class='bx bxs-check-shield' style="color: var(--first-color);"></i> 寶暉有限公司</span>
+                            <span class="partner-badge"><i class='bx bxs-check-shield' style="color: var(--first-color);"></i> 世聚</span>
+                            <span class="partner-badge"><i class='bx bxs-check-shield' style="color: var(--first-color);"></i> 海峰機械</span>
+                            <span class="partner-badge"><i class='bx bxs-check-shield' style="color: var(--first-color);"></i> 哈伯精密</span>
+                        </div>
                     </div>
 
                     <div class="about__social" style="margin-top: 1.5rem; display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
@@ -238,7 +314,28 @@
             <div class="skills__container bd-grid">
                 <!-- Skill Tags -->
                 <div>
-                    <h3 class="skills__subtitle">AI, Analytics & Modeling</h3>
+                    <h3 class="skills__subtitle" style="color: var(--first-color);"><i class='bx bx-bot'></i> AI 應用與自動化工作流 (AI & Automation Workflows)</h3>
+                    <div class="skills__data">
+                        <span class="skills__name" style="background: #eef2ff; color: #3730a3; font-weight: 600;">n8n 自動化工作流</span>
+                        <span class="skills__name" style="background: #eef2ff; color: #3730a3; font-weight: 600;">Make (Formerly Integromat)</span>
+                        <span class="skills__name" style="background: #eef2ff; color: #3730a3; font-weight: 600;">AI Agents 智慧代理人</span>
+                        <span class="skills__name" style="background: #eef2ff; color: #3730a3; font-weight: 600;">Agent 設計</span>
+                        <span class="skills__name" style="background: #eef2ff; color: #3730a3; font-weight: 600;">RAG 檢索增強生成</span>
+                        <span class="skills__name" style="background: #eef2ff; color: #3730a3; font-weight: 600;">地端AI (Local AI)</span>
+                        <span class="skills__name" style="background: #eef2ff; color: #3730a3; font-weight: 600;">LLM API 串接開發</span>
+                        <span class="skills__name" style="background: #eef2ff; color: #3730a3; font-weight: 600;">Prompt Engineering 提示工程</span>
+                        <span class="skills__name" style="background: #eef2ff; color: #3730a3; font-weight: 600;">Python 自動化腳本</span>
+                        <span class="skills__name" style="background: #eef2ff; color: #3730a3; font-weight: 600;">Dify / Flowise 知識庫</span>
+                    </div>
+
+                    <h3 class="skills__subtitle" style="margin-top: 1.25rem;"><i class='bx bx-badge-check' style="color: #10b981;"></i> 專業證照 (Professional Certifications)</h3>
+                    <div class="skills__data">
+                        <span class="skills__name" style="background: #ecfdf5; color: #065f46; font-weight: 600; border: 1px solid #a7f3d0;"><i class='bx bx-check-circle'></i> iPAS AI應用規劃師</span>
+                        <span class="skills__name" style="background: #ecfdf5; color: #065f46; font-weight: 600; border: 1px solid #a7f3d0;"><i class='bx bx-check-circle'></i> iPAS 淨零碳管理師</span>
+                        <span class="skills__name" style="background: #ecfdf5; color: #065f46; font-weight: 600; border: 1px solid #a7f3d0;"><i class='bx bx-check-circle'></i> ISO 14064-1:2018 組織層級溫室氣體主任查證員 (亞瑞士)</span>
+                    </div>
+
+                    <h3 class="skills__subtitle" style="margin-top: 1.25rem;">AI, Analytics & Modeling</h3>
                     <div class="skills__data">
                         <span class="skills__name">Python</span>
                         <span class="skills__name">LLM & Multi-Agent</span>
@@ -250,7 +347,7 @@
                         <span class="skills__name">Tableau</span>
                     </div>
 
-                    <h3 class="skills__subtitle">Sustainability & Economics</h3>
+                    <h3 class="skills__subtitle" style="margin-top: 1.25rem;">Sustainability & Economics</h3>
                     <div class="skills__data">
                         <span class="skills__name">Ecological Footprint (EF)</span>
                         <span class="skills__name">Circular Economy (CE)</span>
@@ -259,20 +356,62 @@
                         <span class="skills__name">Energy Economics</span>
                         <span class="skills__name">Decoupling Analysis</span>
                     </div>
-
-                    <h3 class="skills__subtitle">Supply Chain & Business</h3>
-                    <div class="skills__data">
-                        <span class="skills__name">MRP Optimization</span>
-                        <span class="skills__name">E2E Visibility</span>
-                        <span class="skills__name">Cross-Border E-Commerce</span>
-                        <span class="skills__name">n8n Automation</span>
-                        <span class="skills__name">SPSS / SmartPLS</span>
-                    </div>
                 </div>
 
                 <!-- Skill Image -->
                 <div class="skills__img">
                     <img src="assets/img/skill.jpg" alt="Skills visualization" style="border-radius: 1rem;">
+                </div>
+            </div>
+        </section>
+
+        <!--===== LABORATORY =====-->
+        <section class="section bd-grid" id="laboratory" style="padding-top: 2rem;">
+            <h2 class="section-title">商業自動化多代理人實驗室</h2>
+
+            <div class="lab-container-box" style="background: linear-gradient(135deg, #1e1b4b 0%, #312e81 60%, #1e293b 100%); color: #ffffff; border-radius: 1rem; padding: 2.2rem 2rem; box-shadow: 0 10px 25px rgba(30, 27, 75, 0.25); position: relative; overflow: hidden;">
+                <div style="position: absolute; right: -20px; bottom: -20px; font-size: 10rem; opacity: 0.05; pointer-events: none; color: #fff;">
+                    <i class='bx bx-bot'></i>
+                </div>
+                
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1.25rem; margin-bottom: 1.5rem;">
+                    <div>
+                        <span style="display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(99, 102, 241, 0.3); border: 1px solid rgba(165, 180, 252, 0.4); color: #c7d2fe; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.82rem; font-weight: 600; margin-bottom: 0.6rem;">
+                            <i class='bx bx-brain'></i> Business Automation & Multi-Agent Systems Lab
+                        </span>
+                        <h3 style="font-size: 1.65rem; color: #ffffff; margin-bottom: 0.35rem; font-weight: 700;">商業自動化多代理人實驗室</h3>
+                        <p style="color: #cbd5e1; font-size: 0.95rem; margin: 0;">
+                            主持人：陳俊智 副教授 (Dr. Chun-Chih Chen) | 國立臺中科技大學 國際貿易與經營系
+                        </p>
+                    </div>
+
+                    <div style="background: rgba(255, 255, 255, 0.08); backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.2); padding: 0.85rem 1.4rem; border-radius: 0.75rem; text-align: center;">
+                        <span style="font-size: 0.75rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 0.2rem;">頂尖運算設備</span>
+                        <span style="font-size: 1.3rem; font-weight: 700; color: #38bdf8; display: inline-flex; align-items: center; gap: 0.4rem;">
+                            <i class='bx bx-server'></i> NVIDIA DGX &times; 3
+                        </span>
+                    </div>
+                </div>
+
+                <div style="background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 0.75rem; padding: 1.25rem 1.5rem; margin-bottom: 1.5rem;">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; color: #a5b4fc; font-weight: 600;">
+                        <i class='bx bx-target-lock' style="font-size: 1.25rem;"></i> 實驗室宗旨與研究方向
+                    </div>
+                    <p style="color: #f1f5f9; font-size: 1.05rem; line-height: 1.7; margin: 0;">
+                        <strong>探索 Agent 在商業、創業、創新應用的可能。</strong> 結合最新大型語言模型 (LLM)、多代理人自主協同 (Multi-Agent Workflows)、工作流自動化 (n8n / Make) 與商業運籌決策模型，探索生成式 AI 與智慧代理人驅動商業新模式、加速新創與賦能企業數位轉型的無限可能。
+                    </p>
+                </div>
+
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-top: 1px solid rgba(255, 255, 255, 0.12); padding-top: 1.25rem;">
+                    <div style="display: flex; align-items: center; gap: 0.6rem;">
+                        <i class='bx bx-user-plus' style="font-size: 1.5rem; color: #fb923c;"></i>
+                        <span style="font-weight: 600; font-size: 1rem; color: #ffedd5;">
+                            ✨ <strong>招生與人才招募：</strong>歡迎對於 AI、代理人應用；喜愛創新、創業的同學加入！
+                        </span>
+                    </div>
+                    <a href="mailto:elvischen@nutc.edu.tw?subject=申請加入商業自動化多代理人實驗室" class="home__button" style="background: #4f46e5; color: #ffffff; padding: 0.55rem 1.3rem; font-size: 0.88rem; box-shadow: 0 4px 14px rgba(79, 70, 229, 0.4);">
+                        <i class='bx bx-envelope'></i> email: elvischen@nutc.edu.tw
+                    </a>
                 </div>
             </div>
         </section>
@@ -288,7 +427,7 @@
                     <img src="assets/img/work1-1.jpeg" alt="Selected Publications" class="portfolio__img">
                     <div class="portfolio__link">
                         <a href="Selected Publications & Conference.html" class="portfolio__link-name">Publications & Services</a>
-                        <span style="font-size: 0.8rem; color: #555;">12+ SCI/SSCI & Top 1% Paper</span>
+                        <span style="font-size: 0.8rem; color: #555;">SCI/SSCI 期刊著作與學術服務</span>
                     </div>
                 </div>
 
@@ -297,7 +436,7 @@
                     <img src="assets/img/work2.jpg" alt="Talks" class="portfolio__img">
                     <div class="portfolio__link">
                         <a href="Talk.html" class="portfolio__link-name">Talks & Seminars</a>
-                        <span style="font-size: 0.8rem; color: #555;">Keynotes & Workshops</span>
+                        <span style="font-size: 0.8rem; color: #555;">AI應用、iPAS培訓、勞動部與科工館演講</span>
                     </div>
                 </div>
 
@@ -306,7 +445,7 @@
                     <img src="assets/img/work4-1.jpeg" alt="Projects" class="portfolio__img">
                     <div class="portfolio__link">
                         <a href="Project.html" class="portfolio__link-name">Research & Industry Projects</a>
-                        <span style="font-size: 0.8rem; color: #555;">2021 - 2026 (NT$ 7.0M+)</span>
+                        <span style="font-size: 0.8rem; color: #555;">NSTC & Corporate Partnerships (2021 - 2026)</span>
                     </div>
                 </div>
 
@@ -378,7 +517,7 @@
         <div class="footer__container bd-grid">
             <div class="footer__data">
                 <h2 class="footer__title">Elvis Chen</h2>
-                <p class="footer__text">Assistant Professor & Researcher | Director of Net-Zero Division</p>
+                <p class="footer__text"><span style="white-space: nowrap; word-break: keep-all;">國立臺中科技大學 副教授</span><br><span style="white-space: nowrap; word-break: keep-all;">商業智慧應用與研究中心主任</span></p>
             </div>
 
             <div class="footer__data">

@@ -1,0 +1,2101 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Chun-Chih Chen (陳俊智 博士) | 個人學術與科研成果網 [Impeccable 2026 地端預覽版]</title>
+    <meta name="description" content="國立臺中科技大學 國際貿易與經營系 陳俊智博士（Elvis Chen）個人學術網頁：專注於永續淨零經濟、量化決策模型、智慧製造排程、AI Agent 與自動化工作流應用。">
+    
+    <!-- Distinctive Typographic Voice (Impeccable Principle: Avoid overused fonts, pair editorial authority with technical clarity) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
+    <style>
+        /* ==========================================================================
+           DESIGN TOKENS & SYSTEM (Impeccable Specification)
+           - WCAG AAA Compliant Contrast (>7:1 on headings, >4.8:1 on UI elements)
+           - Distinctive Typography: Newsreader (Editorial Serif) + DM Sans
+           - Layered Ambient Shadows and zero AI Tells
+           ========================================================================== */
+        :root {
+            /* Palette: Editorial Warm Ivory / Forest Emerald / Tech Indigo */
+            --bg-base: #fafaf8;
+            --bg-surface: #ffffff;
+            --bg-elevated: #f4f4f0;
+            --bg-subtle: #ecece6;
+            
+            --border-subtle: rgba(15, 23, 42, 0.08);
+            --border-medium: rgba(15, 23, 42, 0.16);
+            --border-strong: rgba(15, 23, 42, 0.28);
+
+            --text-primary: #0f172a;     /* Deep Slate, 15.8:1 contrast */
+            --text-secondary: #334155;   /* Tinted Slate, 9.4:1 contrast */
+            --text-muted: #475569;       /* Medium Slate, 6.2:1 contrast */
+            --text-inverse: #ffffff;
+
+            /* Domain Accent Colors */
+            --emerald-primary: #047857;   /* Net-Zero Green (Deep Emerald, >4.8:1) */
+            --emerald-surface: #ecfdf5;
+            --emerald-border: #a7f3d0;
+            --emerald-text: #065f46;
+
+            --indigo-primary: #4338ca;    /* AI / Quant Decision (Deep Indigo, >4.8:1) */
+            --indigo-surface: #eef2ff;
+            --indigo-border: #c7d2fe;
+            --indigo-text: #3730a3;
+
+            --amber-primary: #b45309;     /* Grants & Awards (Amber Brown) */
+            --amber-surface: #fef3c7;
+            --amber-border: #fde68a;
+            --amber-text: #92400e;
+
+            --crimson-primary: #b91c1c;   /* YouTube / Video Accent */
+            --crimson-surface: #fef2f2;
+            --crimson-border: #fecaca;
+            --crimson-text: #991b1b;
+
+            /* Typography: Distinctive, Non-Overused Pairing */
+            --font-display: 'Newsreader', Georgia, serif;
+            --font-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+
+            /* Spacing & Layout */
+            --container-max: 1200px;
+            --header-height: 4.5rem;
+            --radius-sm: 6px;
+            --radius-md: 12px;
+            --radius-lg: 18px;
+            --radius-full: 9999px;
+
+            /* Layered Ambient Shadows */
+            --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.04), 0 1px 2px rgba(15, 23, 42, 0.02);
+            --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.05), 0 2px 4px rgba(15, 23, 42, 0.03);
+            --shadow-lg: 0 12px 28px rgba(15, 23, 42, 0.07), 0 4px 10px rgba(15, 23, 42, 0.04);
+            --shadow-xl: 0 24px 48px -12px rgba(15, 23, 42, 0.12);
+
+            /* Transitions */
+            --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+            --duration-fast: 160ms;
+            --duration-base: 240ms;
+        }
+
+        [data-theme="dark"] {
+            --bg-base: #090d16;
+            --bg-surface: #111726;
+            --bg-elevated: #172033;
+            --bg-subtle: #1e293b;
+
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --border-medium: rgba(255, 255, 255, 0.14);
+            --border-strong: rgba(255, 255, 255, 0.24);
+
+            --text-primary: #f8fafc;
+            --text-secondary: #cbd5e1;
+            --text-muted: #94a3b8;
+            --text-inverse: #090d16;
+
+            --emerald-primary: #10b981;
+            --emerald-surface: rgba(16, 185, 129, 0.12);
+            --emerald-border: rgba(16, 185, 129, 0.28);
+            --emerald-text: #6ee7b7;
+
+            --indigo-primary: #818cf8;
+            --indigo-surface: rgba(129, 140, 248, 0.12);
+            --indigo-border: rgba(129, 140, 248, 0.28);
+            --indigo-text: #c7d2fe;
+
+            --amber-primary: #f59e0b;
+            --amber-surface: rgba(245, 158, 11, 0.12);
+            --amber-border: rgba(245, 158, 11, 0.28);
+            --amber-text: #fde68a;
+
+            --crimson-primary: #f87171;
+            --crimson-surface: rgba(248, 113, 113, 0.12);
+            --crimson-border: rgba(248, 113, 113, 0.28);
+            --crimson-text: #fca5a5;
+
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.4);
+            --shadow-lg: 0 14px 32px rgba(0, 0, 0, 0.5);
+            --shadow-xl: 0 24px 48px -12px rgba(0, 0, 0, 0.6);
+        }
+
+        /* Themed Browser Surfaces (Impeccable Checklist) */
+        ::selection {
+            background-color: var(--emerald-primary);
+            color: #ffffff;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-base);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--border-strong);
+            border-radius: var(--radius-full);
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--text-muted);
+        }
+
+        /* Reset & Base */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg-base);
+            color: var(--text-primary);
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            transition: background-color var(--duration-base) var(--ease-out-expo), color var(--duration-base) var(--ease-out-expo);
+        }
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: color var(--duration-fast);
+        }
+
+        /* Container */
+        .container {
+            width: 100%;
+            max-width: var(--container-max);
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+        }
+
+        /* ==========================================================================
+           HEADER & NAVIGATION BAR
+           ========================================================================== */
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            height: var(--header-height);
+            background: rgba(250, 250, 248, 0.88);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border-subtle);
+            transition: background-color var(--duration-base), border-color var(--duration-base);
+        }
+        [data-theme="dark"] .site-header {
+            background: rgba(9, 13, 22, 0.88);
+        }
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 100%;
+        }
+        .brand-link {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .brand-badge {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: var(--radius-md);
+            background: var(--text-primary);
+            color: var(--bg-base);
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-sm);
+        }
+        .brand-meta {
+            display: flex;
+            flex-direction: column;
+        }
+        .brand-name {
+            font-weight: 700;
+            font-size: 1.05rem;
+            letter-spacing: -0.01em;
+            color: var(--text-primary);
+        }
+        .brand-role {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            list-style: none;
+        }
+        .nav-item a {
+            padding: 0.5rem 0.85rem;
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            border-radius: var(--radius-sm);
+            transition: all var(--duration-fast);
+        }
+        .nav-item a:hover {
+            color: var(--text-primary);
+            background: var(--bg-elevated);
+        }
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .theme-toggle-btn {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-medium);
+            background: var(--bg-surface);
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all var(--duration-fast);
+        }
+        .theme-toggle-btn:hover {
+            background: var(--bg-elevated);
+            border-color: var(--text-muted);
+        }
+
+        /* Banner Indicator */
+        .preview-ribbon {
+            background: var(--indigo-surface);
+            border-bottom: 1px solid var(--indigo-border);
+            color: var(--indigo-text);
+            padding: 0.5rem 1rem;
+            font-size: 0.82rem;
+            text-align: center;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        .preview-ribbon a {
+            text-decoration: underline;
+            font-weight: 700;
+        }
+
+        /* ==========================================================================
+           HERO SECTION: High Editorial Authority
+           ========================================================================== */
+        .hero-section {
+            padding: 4.5rem 0 3.5rem 0;
+            position: relative;
+        }
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.35fr 1fr;
+            gap: 3.5rem;
+            align-items: center;
+        }
+        .status-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.35rem 0.85rem;
+            border-radius: var(--radius-full);
+            background: var(--emerald-surface);
+            border: 1px solid var(--emerald-border);
+            color: var(--emerald-text);
+            font-size: 0.82rem;
+            font-weight: 600;
+            margin-bottom: 1.25rem;
+        }
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--emerald-primary);
+            box-shadow: 0 0 0 3px rgba(4, 120, 87, 0.2);
+        }
+
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: 3.25rem;
+            font-weight: 700;
+            line-height: 1.15;
+            letter-spacing: -0.025em;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+        .hero-subtitle {
+            font-size: 1.35rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: 1.25rem;
+            line-height: 1.4;
+        }
+        .hero-description {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            max-width: 65ch;
+        }
+        .hero-ctas {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2.25rem;
+        }
+
+        /* Buttons (Impeccable Principle: High contrast, purposeful action) */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.4rem;
+            border-radius: var(--radius-md);
+            font-size: 0.92rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all var(--duration-fast) var(--ease-out-expo);
+            border: 1px solid transparent;
+            text-decoration: none;
+        }
+        .btn-primary {
+            background: var(--text-primary);
+            color: var(--bg-base);
+            box-shadow: var(--shadow-md);
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+            background: #1e293b;
+        }
+        [data-theme="dark"] .btn-primary:hover {
+            background: #e2e8f0;
+        }
+        .btn-emerald {
+            background: var(--emerald-primary);
+            color: #ffffff;
+            box-shadow: var(--shadow-md);
+        }
+        .btn-emerald:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.1);
+        }
+        .btn-outline {
+            background: var(--bg-surface);
+            color: var(--text-primary);
+            border-color: var(--border-medium);
+        }
+        .btn-outline:hover {
+            background: var(--bg-elevated);
+            border-color: var(--text-muted);
+            transform: translateY(-1px);
+        }
+        .btn-youtube {
+            background: #ffffff;
+            color: #c53030;
+            border: 1.5px solid #feb2b2;
+        }
+        .btn-youtube:hover {
+            background: #fff5f5;
+            border-color: #e53e3e;
+            transform: translateY(-1px);
+        }
+        [data-theme="dark"] .btn-youtube {
+            background: rgba(229, 62, 62, 0.15);
+            color: #fca5a5;
+            border-color: rgba(229, 62, 62, 0.35);
+        }
+
+        /* Metrics Strip */
+        .metrics-strip {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.25rem;
+            padding-top: 1.75rem;
+            border-top: 1px solid var(--border-subtle);
+        }
+        .metric-item {
+            display: flex;
+            flex-direction: column;
+        }
+        .metric-value {
+            font-family: var(--font-mono);
+            font-size: clamp(1.1rem, 1.4vw, 1.35rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+            white-space: nowrap !important;
+            word-break: keep-all !important;
+        }
+        .metric-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            margin-top: 0.2rem;
+        }
+
+        /* Profile Card */
+        .profile-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-medium);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+        }
+        .profile-img-wrap {
+            width: 100%;
+            max-width: 324px;
+            margin: 0 auto 1.5rem auto;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            background: var(--bg-elevated);
+            position: relative;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+        .profile-img-wrap img {
+            width: 100%;
+            height: auto;
+            display: block;
+            aspect-ratio: 324 / 478;
+            object-fit: contain;
+            transition: transform var(--duration-base) var(--ease-out-expo);
+        }
+        .profile-card:hover .profile-img-wrap img {
+            transform: scale(1.02);
+        }
+        .profile-name {
+            font-family: var(--font-display);
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+        .profile-dept {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+        .contact-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.65rem;
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+        .contact-row {
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+        }
+        .contact-row i {
+            color: var(--emerald-primary);
+            font-size: 1.15rem;
+            flex-shrink: 0;
+        }
+        .profile-socials {
+            display: flex;
+            gap: 0.5rem;
+            padding-top: 1.25rem;
+            border-top: 1px solid var(--border-subtle);
+        }
+        .social-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            padding: 0.45rem 0.85rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.82rem;
+            font-weight: 600;
+            background: var(--bg-elevated);
+            color: var(--text-secondary);
+            border: 1px solid var(--border-subtle);
+            transition: all var(--duration-fast);
+        }
+        .social-pill:hover {
+            color: var(--text-primary);
+            border-color: var(--border-strong);
+            background: var(--bg-subtle);
+        }
+
+        /* ==========================================================================
+           SECTION SCAFFOLDING & TITLES
+           ========================================================================== */
+        .section-block {
+            padding: 4.5rem 0;
+            border-top: 1px solid var(--border-subtle);
+        }
+        .section-header {
+            margin-bottom: 3rem;
+        }
+        .section-headline {
+            font-family: var(--font-display);
+            font-size: 2.35rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--text-primary);
+            margin-bottom: 0.65rem;
+        }
+        .section-subtext {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            max-width: 72ch;
+            line-height: 1.6;
+        }
+
+        /* ==========================================================================
+           SECTION 1: DUAL RESEARCH PILLARS (雙主軸核心體系)
+           ========================================================================== */
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+        .pillar-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-medium);
+            border-radius: var(--radius-lg);
+            padding: 2.25rem;
+            box-shadow: var(--shadow-sm);
+            transition: transform var(--duration-fast), box-shadow var(--duration-fast);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .pillar-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--border-strong);
+        }
+        .pillar-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.25rem;
+        }
+        .pillar-icon {
+            width: 3.25rem;
+            height: 3.25rem;
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+        }
+        .pillar-icon.green {
+            background: var(--emerald-surface);
+            color: var(--emerald-primary);
+            border: 1px solid var(--emerald-border);
+        }
+        .pillar-icon.indigo {
+            background: var(--indigo-surface);
+            color: var(--indigo-primary);
+            border: 1px solid var(--indigo-border);
+        }
+        .pillar-tag {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 0.25rem 0.65rem;
+            border-radius: var(--radius-full);
+        }
+        .pillar-title {
+            font-family: var(--font-display);
+            font-size: 1.7rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.85rem;
+            line-height: 1.3;
+        }
+        .pillar-body {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+        .pillar-highlights {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            padding-top: 1.25rem;
+            border-top: 1px solid var(--border-subtle);
+        }
+        .pillar-highlights li {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+        .pillar-highlights li i {
+            margin-top: 0.2rem;
+            font-size: 1.05rem;
+            flex-shrink: 0;
+        }
+        .pillar-highlights.green li i { color: var(--emerald-primary); }
+        .pillar-highlights.indigo li i { color: var(--indigo-primary); }
+
+        /* ==========================================================================
+           SECTION: LABORATORY & SKILLS
+           ========================================================================== */
+        .lab-card {
+            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 60%, #172554 100%);
+            color: #ffffff;
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+        .lab-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-bottom: 1.75rem;
+        }
+        .lab-title {
+            font-family: var(--font-display);
+            font-size: 1.85rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+        }
+        .lab-hardware-badge {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(56, 189, 248, 0.4);
+            padding: 0.85rem 1.4rem;
+            border-radius: var(--radius-md);
+            text-align: center;
+        }
+        .lab-hardware-val {
+            font-family: var(--font-mono);
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: #38bdf8;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .lab-body-box {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: var(--radius-md);
+            padding: 1.5rem 1.75rem;
+            margin-bottom: 1.75rem;
+        }
+        .lab-recruit-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.14);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+        .skills-group-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-medium);
+            border-radius: var(--radius-lg);
+            padding: 1.75rem;
+            box-shadow: var(--shadow-sm);
+        }
+        .skills-group-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .skills-tag-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .skill-tag {
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 0.35rem 0.75rem;
+            border-radius: var(--radius-sm);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        /* ==========================================================================
+           SECTION 2: PROPRIETARY SOFTWARE & USR SHOWCASE (自研軟體與社會責任)
+           ========================================================================== */
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.75rem;
+        }
+        .showcase-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-medium);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-direction: column;
+            transition: all var(--duration-fast);
+        }
+        .showcase-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--border-strong);
+        }
+        .showcase-media {
+            width: 100%;
+            height: 200px;
+            background: var(--bg-elevated);
+            position: relative;
+            overflow: hidden;
+        }
+        .showcase-media iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        .showcase-media-cover {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #064e3b 0%, #022c22 100%);
+            color: #ffffff;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        .showcase-body {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            justify-content: space-between;
+        }
+        .showcase-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.2rem 0.55rem;
+            border-radius: var(--radius-sm);
+            margin-bottom: 0.65rem;
+            width: fit-content;
+        }
+        .showcase-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.6rem;
+            line-height: 1.35;
+        }
+        .showcase-desc {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1.25rem;
+        }
+        .showcase-footer {
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-subtle);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* ==========================================================================
+           SECTION 3: PUBLICATIONS & SCHOLARSHIP (2026 最新與期刊論文)
+           ========================================================================== */
+        .filter-tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        .tab-btn {
+            padding: 0.5rem 1.1rem;
+            border-radius: var(--radius-full);
+            font-size: 0.88rem;
+            font-weight: 600;
+            background: var(--bg-surface);
+            border: 1px solid var(--border-medium);
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all var(--duration-fast);
+        }
+        .tab-btn:hover {
+            color: var(--text-primary);
+            border-color: var(--text-muted);
+        }
+        .tab-btn.active {
+            background: var(--text-primary);
+            color: var(--bg-base);
+            border-color: var(--text-primary);
+        }
+
+        .pub-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+        .pub-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-medium);
+            border-radius: var(--radius-md);
+            padding: 1.75rem;
+            box-shadow: var(--shadow-sm);
+            transition: all var(--duration-fast);
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 1.5rem;
+        }
+        .pub-card:hover {
+            border-color: var(--border-strong);
+            box-shadow: var(--shadow-md);
+        }
+        .pub-card.highlight {
+            border-color: var(--emerald-border);
+            background: linear-gradient(to right, var(--emerald-surface), var(--bg-surface) 15%);
+        }
+        .pub-year-badge {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--emerald-primary);
+            background: var(--bg-elevated);
+            padding: 0.5rem 0.85rem;
+            border-radius: var(--radius-sm);
+            height: fit-content;
+            border: 1px solid var(--border-subtle);
+        }
+        .pub-content {
+            display: flex;
+            flex-direction: column;
+        }
+        .pub-header {
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+            flex-wrap: wrap;
+            margin-bottom: 0.5rem;
+        }
+        .pub-tag {
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.2rem 0.5rem;
+            border-radius: var(--radius-sm);
+        }
+        .pub-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.45;
+            margin-bottom: 0.45rem;
+        }
+        .pub-authors {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.35rem;
+        }
+        .pub-authors strong {
+            color: var(--text-primary);
+            text-decoration: underline;
+        }
+        .pub-journal {
+            font-size: 0.88rem;
+            font-style: italic;
+            color: var(--text-muted);
+            margin-bottom: 0.85rem;
+        }
+        .pub-links {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .doi-link {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--indigo-primary);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            font-weight: 600;
+        }
+        .doi-link:hover {
+            text-decoration: underline;
+        }
+
+        /* ==========================================================================
+           SECTION 4: INDUSTRY & GRANTS (產學合作與科研計畫)
+           ========================================================================== */
+        .grants-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+        .grant-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-medium);
+            border-radius: var(--radius-md);
+            padding: 1.6rem;
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .grant-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 0.75rem;
+        }
+        .grant-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.4;
+        }
+        .grant-client {
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--indigo-text);
+            background: var(--indigo-surface);
+            padding: 0.2rem 0.55rem;
+            border-radius: var(--radius-sm);
+            white-space: nowrap;
+        }
+        .grant-meta {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 0.75rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .grant-desc {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* ==========================================================================
+           SECTION 5: TEACHING & YOUTUBE PLAYLISTS (教學影音庫)
+           ========================================================================== */
+        .yt-banner {
+            background: linear-gradient(135deg, #991b1b 0%, #7f1d1d 100%);
+            color: #ffffff;
+            border-radius: var(--radius-lg);
+            padding: 2.25rem;
+            margin-bottom: 2.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            box-shadow: var(--shadow-lg);
+        }
+        .yt-banner-text h3 {
+            font-family: var(--font-display);
+            font-size: 1.65rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .yt-banner-text p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            max-width: 65ch;
+            line-height: 1.6;
+        }
+        .yt-btn {
+            background: #ffffff;
+            color: #7f1d1d;
+            font-weight: 700;
+            padding: 0.85rem 1.6rem;
+            border-radius: var(--radius-md);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+            transition: all var(--duration-fast);
+        }
+        .yt-btn:hover {
+            transform: translateY(-2px);
+            background: #f8fafc;
+        }
+
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+        .course-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-medium);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            box-shadow: var(--shadow-sm);
+        }
+        .course-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .course-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            padding-top: 0.85rem;
+            border-top: 1px solid var(--border-subtle);
+        }
+        .course-link-item {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.35rem 0.5rem;
+            border-radius: var(--radius-sm);
+            transition: background var(--duration-fast);
+        }
+        .course-link-item:hover {
+            background: var(--bg-elevated);
+            color: var(--text-primary);
+        }
+
+        /* ==========================================================================
+           FOOTER
+           ========================================================================== */
+        .site-footer {
+            background: var(--bg-surface);
+            border-top: 1px solid var(--border-subtle);
+            padding: 3.5rem 0 2rem 0;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 2.5rem;
+            margin-bottom: 2.5rem;
+        }
+        .footer-col h4 {
+            color: var(--text-primary);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        .footer-col p {
+            line-height: 1.7;
+            margin-bottom: 0.75rem;
+        }
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-subtle);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.82rem;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 992px) {
+            .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+            .pillars-grid { grid-template-columns: 1fr; }
+            .skills-grid { grid-template-columns: 1fr; }
+            .showcase-grid { grid-template-columns: 1fr; }
+            .grants-grid { grid-template-columns: 1fr; }
+            .course-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .metrics-strip { grid-template-columns: repeat(2, 1fr); }
+            .hero-title { font-size: 2.6rem; }
+            .nav-menu { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Redesign Prototype Banner -->
+    <div class="preview-ribbon">
+        <i class='bx bx-check-shield' style="font-size: 1.15rem;"></i>
+        <span>【Impeccable 地端改版打板預覽】此頁面為地端獨立原型，現行線上網站完全未受更動。確認設計滿意後，我們再進行正式覆蓋改版。</span>
+        <a href="index.html" style="margin-left: 0.5rem; color: var(--indigo-text);">回原版首頁</a>
+    </div>
+
+    <!-- Header Navigation -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="#hero" class="brand-link">
+                <div class="brand-badge">C</div>
+                <div class="brand-meta">
+                    <span class="brand-name">Dr. Chun-Chih Chen</span>
+                    <span class="brand-role">國立臺中科技大學 國際貿易與經營系</span>
+                </div>
+            </a>
+
+            <nav>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="#pillars">研究主軸</a></li>
+                    <li class="nav-item"><a href="#lab">多代理人實驗室</a></li>
+                    <li class="nav-item"><a href="#skills">專長領域</a></li>
+                    <li class="nav-item"><a href="#showcase">自研軟體 & USR</a></li>
+                    <li class="nav-item"><a href="#publications">期刊著作</a></li>
+                    <li class="nav-item"><a href="#grants">產學專案</a></li>
+                    <li class="nav-item"><a href="#teaching">教學影音</a></li>
+                    <li class="nav-item"><a href="#contact">聯絡諮詢</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <button id="themeToggle" class="theme-toggle-btn" title="切換深色 / 淺色模式" aria-label="切換主題">
+                    <i class='bx bx-moon'></i>
+                </button>
+                <a href="https://orcid.org/0000-0001-6556-2221" target="_blank" class="btn btn-outline" style="padding: 0.5rem 0.9rem; font-size: 0.82rem;">
+                    <i class='bx bx-id-card'></i> ORCID
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- ==========================================================================
+             HERO SECTION
+             ========================================================================== -->
+        <section class="hero-section" id="hero">
+            <div class="container">
+                <div class="hero-grid">
+                    <div>
+                        <div class="status-pill">
+                            <span class="status-dot"></span>
+                            <span>副教授 商業智慧中心主任 實驗室主持人 | 國立臺中科技大學 國際貿易與經營系</span>
+                        </div>
+
+                        <h1 class="hero-title" style="white-space: nowrap; word-break: keep-all; font-size: clamp(1.85rem, 3.8vw, 3.1rem);">Dr. Chun-Chih Chen (陳俊智 博士)</h1>
+                        
+                        <p class="hero-subtitle">
+                            用 AI 探索商業的無限可能！｜橋接「永續淨零生態經濟」與「前瞻工業 AI 量化決策」的整合性研究者
+                        </p>
+
+                        <p class="hero-description">
+                            現任<strong>國立臺中科技大學 國際貿易與經營系 專任副教授</strong>（2025.08 - 迄今），兼任<strong>商業智慧應用與研究中心 主任</strong>及<strong>商業自動化多代理人實驗室 主持人</strong>。研究深耕循環經濟與生態足跡關聯模型 (CE-EF Nexus)、製造業排程最佳化、大語言模型 (LLM API) 與 AI Agent 智慧代理人協同；擅長 <strong>AI 應用與自動化工作流架構（n8n、Make、Python API 串接）</strong>，主持國科會專題、台灣康寧產學合作及工研院智識傳承專案。
+                        </p>
+
+                        <div class="hero-ctas">
+                            <a href="#publications" class="btn btn-primary">
+                                <i class='bx bx-book-open'></i> 探索期刊著作 (含 2026 最新 SCI)
+                            </a>
+                            <a href="#lab" class="btn btn-emerald" style="background: #4f46e5;">
+                                <i class='bx bx-brain'></i> 多代理人實驗室 (DGX&times;3)
+                            </a>
+                            <a href="#showcase" class="btn btn-emerald">
+                                <i class='bx bx-laptop'></i> 自研軟體與 USR 成果
+                            </a>
+                            <a href="https://www.youtube.com/@ElvisChen-p7z2r/playlists" target="_blank" class="btn btn-youtube">
+                                <i class='bx bxl-youtube'></i> 教學播放清單
+                            </a>
+                        </div>
+
+                        <div class="metrics-strip">
+                            <div class="metric-item">
+                                <span class="metric-value">專任副教授</span>
+                                <span class="metric-label">國際貿易與經營系</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-value">中心主任</span>
+                                <span class="metric-label">商業智慧應用與研究中心</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-value">2026 SCI</span>
+                                <span class="metric-label">最新 Energy Exp. & Expl. 發表</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-value">全國冠軍</span>
+                                <span class="metric-label">指導學生商業創新競賽</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Profile Sidebar Card -->
+                    <div class="profile-card">
+                        <div class="profile-img-wrap">
+                            <img src="assets/img/Elvis_01.png?v=20261008" alt="Dr. Chun-Chih Chen" onerror="this.src='assets/img/perfil1.png'">
+                        </div>
+                        <div class="profile-info">
+                            <h2 class="profile-name" style="white-space: nowrap; word-break: keep-all;">陳俊智 博士</h2>
+                            <div class="profile-dept">國立臺中科技大學 國際貿易與經營系 專任副教授<br>商業智慧應用與研究中心 主任<br>商業自動化多代理人實驗室 主持人</div>
+
+                            <div class="contact-list">
+                                <div class="contact-row">
+                                    <i class='bx bx-map-pin'></i>
+                                    <span>研究室：中正大樓 7 樓 3705 室</span>
+                                </div>
+                                <div class="contact-row">
+                                    <i class='bx bx-envelope'></i>
+                                    <span>研究室信箱：elvischen@nutc.edu.tw</span>
+                                </div>
+                                <div class="contact-row">
+                                    <i class='bx bx-phone'></i>
+                                    <span>電話：(04) 2219-6140</span>
+                                </div>
+                            </div>
+
+                            <div class="profile-socials">
+                                <a href="https://orcid.org/0000-0001-6556-2221" target="_blank" class="social-pill">
+                                    <i class='bx bx-id-card'></i> ORCID
+                                </a>
+                                <a href="https://github.com/DrChunChihChen" target="_blank" class="social-pill">
+                                    <i class='bx bxl-github'></i> GitHub
+                                </a>
+                                <a href="https://it.nutc.edu.tw/%E5%B0%88%E4%BB%BB%E6%95%99%E5%B8%AB/" target="_blank" class="social-pill">
+                                    <i class='bx bx-link-external'></i> 國貿系師資
+                                </a>
+                            </div>
+
+                            <div style="display: flex; gap: 0.45rem; flex-wrap: wrap; margin-top: 0.85rem; padding-top: 0.85rem; border-top: 1px solid var(--border-subtle);">
+                                <span style="font-size: 0.75rem; font-weight: 600; padding: 0.25rem 0.55rem; border-radius: var(--radius-sm); background: var(--emerald-surface); color: var(--emerald-text); border: 1px solid var(--emerald-border); display: inline-flex; align-items: center; gap: 0.3rem;">
+                                    <i class='bx bx-bot'></i> iPAS AI應用規劃師
+                                </span>
+                                <span style="font-size: 0.75rem; font-weight: 600; padding: 0.25rem 0.55rem; border-radius: var(--radius-sm); background: var(--emerald-surface); color: var(--emerald-text); border: 1px solid var(--emerald-border); display: inline-flex; align-items: center; gap: 0.3rem;">
+                                    <i class='bx bx-leaf'></i> iPAS 淨零碳管理師
+                                </span>
+                                <span style="font-size: 0.75rem; font-weight: 600; padding: 0.25rem 0.55rem; border-radius: var(--radius-sm); background: var(--emerald-surface); color: var(--emerald-text); border: 1px solid var(--emerald-border); display: inline-flex; align-items: center; gap: 0.3rem;">
+                                    <i class='bx bx-badge-check'></i> ISO 14064-1 主任查證員
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             SECTION 1: DUAL RESEARCH PILLARS
+             ========================================================================== -->
+        <section class="section-block" id="pillars">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-headline">整合性雙軌研究架構</h2>
+                    <p class="section-subtext">將環境資源經濟學之總體量化模型，與工業工程、生成式 AI 之微觀運籌決策緊密結合，形成相互反饋的雙核心體系。</p>
+                </div>
+
+                <div class="pillars-grid">
+                    <!-- Pillar A -->
+                    <div class="pillar-card">
+                        <div>
+                            <div class="pillar-top">
+                                <div class="pillar-icon green"><i class='bx bx-leaf'></i></div>
+                                <span class="pillar-tag" style="background: var(--emerald-surface); color: var(--emerald-text);">Track 01</span>
+                            </div>
+                            <h3 class="pillar-title">永續淨零與資源經濟模型</h3>
+                            <p class="pillar-body">
+                                建立「循環經濟 - 生態足跡關聯模型 (CE-EF Nexus)」，深入拆解碳足跡、土地生態衝擊與能源轉型之動態脫鉤戰略。主持國科會專題研究計畫，發表 2026 SCI 最新期刊及代表著作，兼任永續中心淨零組長推動實務碳管理。
+                            </p>
+                        </div>
+                        <ul class="pillar-highlights green">
+                            <li><i class='bx bx-check-circle'></i> 2026 SCI 最新發表：Energy Exploration & Exploitation (First & Corresponding)</li>
+                            <li><i class='bx bx-check-circle'></i> 循環經濟代表著作：Energy Reports 拆解經濟增長與生態足跡衝擊</li>
+                            <li><i class='bx bx-check-circle'></i> 主持國科會專題計畫，推展南投小半天 USR 永續低碳漫遊與碳盤查實務手冊</li>
+                        </ul>
+                    </div>
+
+                    <!-- Pillar B -->
+                    <div class="pillar-card">
+                        <div>
+                            <div class="pillar-top">
+                                <div class="pillar-icon indigo"><i class='bx bx-chip'></i></div>
+                                <span class="pillar-tag" style="background: var(--indigo-surface); color: var(--indigo-text);">Track 02</span>
+                            </div>
+                            <h3 class="pillar-title">智慧製造運籌與 AI 決策系統</h3>
+                            <p class="pillar-body">
+                                深耕製造業產能排程最佳化、MRP 物料需求規劃演算法、大語言模型 (LLM API) 與 AI Agent 智慧代理人協同。與<strong>台灣康寧產學 & <a href="https://impacts.cloud/index.html" target="_blank" style="color: inherit; text-decoration: underline;">快思 (CRIS)</a></strong>建立長期合作夥伴關係，受工研院委託執行 AI 雙軌轉型與數位師徒制計畫；並自主研發「你說的算」碳盤查軟體及「HelloIR」平台。
+                            </p>
+                        </div>
+                        <ul class="pillar-highlights indigo">
+                            <li><i class='bx bx-check-circle'></i> 長期合作：台灣康寧產學 & <a href="https://impacts.cloud/index.html" target="_blank" style="color: inherit; text-decoration: underline;">快思 (CRIS)</a>（高科技製造排程與 APS 演算法）</li>
+                            <li><i class='bx bx-check-circle'></i> 工研院委託計畫：海峰機械 AI 雙軌轉型、哈伯精密 AI 數位師徒制計畫</li>
+                            <li><i class='bx bx-check-circle'></i> AI 與自動化工作流：精熟 n8n、Make、Python API 與智慧代理人協同</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             SECTION: MULTI-AGENT LAB & SKILLS EXPERTISE
+             ========================================================================== -->
+        <section class="section-block" id="lab">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-headline">商業自動化多代理人實驗室與專長領域</h2>
+                    <p class="section-subtext">Business Automation & Multi-Agent Systems Laboratory — 以頂尖硬體算力探索生成式 AI 與智慧代理人在商業與創新應用的無限前沿。</p>
+                </div>
+
+                <!-- Laboratory Feature Card -->
+                <div class="lab-card">
+                    <div class="lab-header">
+                        <div>
+                            <span style="display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(99, 102, 241, 0.35); border: 1px solid rgba(165, 180, 252, 0.4); color: #c7d2fe; padding: 0.3rem 0.85rem; border-radius: var(--radius-full); font-size: 0.82rem; font-weight: 600; margin-bottom: 0.75rem;">
+                                <i class='bx bx-brain'></i> Business Automation & Multi-Agent Systems Lab
+                            </span>
+                            <h3 class="lab-title">商業自動化多代理人實驗室</h3>
+                            <p style="color: #cbd5e1; font-size: 0.95rem; margin: 0;">
+                                主持人：陳俊智 副教授 (Dr. Chun-Chih Chen) | 國立臺中科技大學 國際貿易與經營系
+                            </p>
+                        </div>
+
+                        <div class="lab-hardware-badge">
+                            <span style="font-size: 0.75rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 0.25rem;">實驗室核心設備</span>
+                            <div class="lab-hardware-val">
+                                <i class='bx bx-server'></i> NVIDIA DGX &times; 3
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lab-body-box">
+                        <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.6rem; color: #a5b4fc; font-weight: 700; font-size: 1.02rem;">
+                            <i class='bx bx-target-lock' style="font-size: 1.25rem;"></i> 實驗室宗旨與研究目標
+                        </div>
+                        <p style="color: #f1f5f9; font-size: 1.05rem; line-height: 1.75; margin: 0;">
+                            <strong>探索 Agent 在商業、創業、創新應用的可能。</strong> 結合最新大型語言模型 (LLM)、多代理人自主協同 (Multi-Agent Workflows)、工作流自動化 (n8n / Make) 與商業運籌決策模型，探索生成式 AI 與智慧代理人驅動商業新模式、加速新創與賦能企業數位轉型的無限可能。
+                        </p>
+                    </div>
+
+                    <div class="lab-recruit-bar">
+                        <div style="display: flex; align-items: center; gap: 0.75rem;">
+                            <i class='bx bx-user-plus' style="font-size: 1.6rem; color: #fb923c;"></i>
+                            <span style="font-weight: 600; font-size: 1.02rem; color: #ffedd5;">
+                                招生與人才招募：歡迎對於 AI、代理人應用；喜愛創新、創業的同學加入！
+                            </span>
+                        </div>
+                        <a href="mailto:elvischen@nutc.edu.tw?subject=申請加入商業自動化多代理人實驗室" class="btn btn-primary" style="background: #4f46e5; color: #ffffff; padding: 0.6rem 1.4rem; font-size: 0.9rem; border: none;">
+                            <i class='bx bx-envelope'></i> email: elvischen@nutc.edu.tw
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Skills & Expertise Grid (AI Workflows & Certifications first!) -->
+                <div id="skills" style="padding-top: 1rem;">
+                    <div class="section-header" style="margin-bottom: 1.75rem;">
+                        <h3 style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.35rem;">專長領域與專業認證 (Skills & Expertise)</h3>
+                        <p class="section-subtext">前瞻 AI 自動化技術棧與國家級專業能力鑑定，賦能從演算法開發到企業落地的一站式能量。</p>
+                    </div>
+
+                    <div class="skills-grid">
+                        <!-- Group 1: AI 應用與自動化工作流 (First per user request) -->
+                        <div class="skills-group-card">
+                            <h4 class="skills-group-title" style="color: var(--indigo-text);">
+                                <i class='bx bx-bot' style="color: var(--indigo-primary); font-size: 1.3rem;"></i> AI 應用與自動化工作流 (AI & Automation Workflows)
+                            </h4>
+                            <div class="skills-tag-wrap">
+                                <span class="skill-tag" style="background: var(--indigo-surface); color: var(--indigo-text); border: 1px solid var(--indigo-border);">n8n 自動化工作流</span>
+                                <span class="skill-tag" style="background: var(--indigo-surface); color: var(--indigo-text); border: 1px solid var(--indigo-border);">Make (Formerly Integromat)</span>
+                                <span class="skill-tag" style="background: var(--indigo-surface); color: var(--indigo-text); border: 1px solid var(--indigo-border);">AI Agents 智慧代理人</span>
+                                <span class="skill-tag" style="background: var(--indigo-surface); color: var(--indigo-text); border: 1px solid var(--indigo-border);">Agent 設計</span>
+                                <span class="skill-tag" style="background: var(--indigo-surface); color: var(--indigo-text); border: 1px solid var(--indigo-border);">RAG 檢索增強生成</span>
+                                <span class="skill-tag" style="background: var(--indigo-surface); color: var(--indigo-text); border: 1px solid var(--indigo-border);">地端AI (Local AI)</span>
+                                <span class="skill-tag" style="background: var(--indigo-surface); color: var(--indigo-text); border: 1px solid var(--indigo-border);">LLM API 串接開發</span>
+                                <span class="skill-tag" style="background: var(--indigo-surface); color: var(--indigo-text); border: 1px solid var(--indigo-border);">Prompt Engineering 提示工程</span>
+                                <span class="skill-tag" style="background: var(--indigo-surface); color: var(--indigo-text); border: 1px solid var(--indigo-border);">Python 自動化腳本</span>
+                                <span class="skill-tag" style="background: var(--indigo-surface); color: var(--indigo-text); border: 1px solid var(--indigo-border);">Dify / Flowise 知識庫</span>
+                            </div>
+                        </div>
+
+                        <!-- Group 2: 專業證照 (Second per user request) -->
+                        <div class="skills-group-card">
+                            <h4 class="skills-group-title" style="color: var(--emerald-text);">
+                                <i class='bx bx-badge-check' style="color: var(--emerald-primary); font-size: 1.3rem;"></i> 專業證照 (Professional Certifications)
+                            </h4>
+                            <div class="skills-tag-wrap">
+                                <span class="skill-tag" style="background: var(--emerald-surface); color: var(--emerald-text); border: 1px solid var(--emerald-border); font-size: 0.9rem;">
+                                    <i class='bx bx-check-circle'></i> iPAS AI應用規劃師
+                                </span>
+                                <span class="skill-tag" style="background: var(--emerald-surface); color: var(--emerald-text); border: 1px solid var(--emerald-border); font-size: 0.9rem;">
+                                    <i class='bx bx-check-circle'></i> iPAS 淨零碳管理師
+                                </span>
+                                <span class="skill-tag" style="background: var(--emerald-surface); color: var(--emerald-text); border: 1px solid var(--emerald-border); font-size: 0.9rem;">
+                                    <i class='bx bx-check-circle'></i> ISO 14064-1 主任查證員 (亞瑞士)
+                                </span>
+                            </div>
+                            <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.9rem; line-height: 1.5;">
+                                通過經濟部產業人才能力鑑定 (iPAS)「人工智慧應用」與「淨零碳管理」雙領域專業能力認證，及亞瑞士 ISO 14064-1:2018 組織層級溫室氣體主任查證員認證。
+                            </p>
+                        </div>
+
+                        <!-- Group 3: AI, Analytics & Modeling -->
+                        <div class="skills-group-card">
+                            <h4 class="skills-group-title">
+                                <i class='bx bx-code-alt' style="color: var(--indigo-primary); font-size: 1.3rem;"></i> AI, Analytics & Modeling
+                            </h4>
+                            <div class="skills-tag-wrap">
+                                <span class="skill-tag" style="background: var(--bg-elevated); color: var(--text-primary); border: 1px solid var(--border-subtle);">Python</span>
+                                <span class="skill-tag" style="background: var(--bg-elevated); color: var(--text-primary); border: 1px solid var(--border-subtle);">LLM & Multi-Agent</span>
+                                <span class="skill-tag" style="background: var(--bg-elevated); color: var(--text-primary); border: 1px solid var(--border-subtle);">Machine Learning</span>
+                                <span class="skill-tag" style="background: var(--bg-elevated); color: var(--text-primary); border: 1px solid var(--border-subtle);">System Dynamics</span>
+                                <span class="skill-tag" style="background: var(--bg-elevated); color: var(--text-primary); border: 1px solid var(--border-subtle);">R</span>
+                                <span class="skill-tag" style="background: var(--bg-elevated); color: var(--text-primary); border: 1px solid var(--border-subtle);">SQL</span>
+                                <span class="skill-tag" style="background: var(--bg-elevated); color: var(--text-primary); border: 1px solid var(--border-subtle);">XGBoost & GA</span>
+                                <span class="skill-tag" style="background: var(--bg-elevated); color: var(--text-primary); border: 1px solid var(--border-subtle);">Tableau</span>
+                            </div>
+                        </div>
+
+                        <!-- Group 4: Sustainability & Economics -->
+                        <div class="skills-group-card">
+                            <h4 class="skills-group-title">
+                                <i class='bx bx-leaf' style="color: var(--emerald-primary); font-size: 1.3rem;"></i> Sustainability & Economics
+                            </h4>
+                            <div class="skills-tag-wrap">
+                                <span class="skill-tag" style="background: var(--bg-elevated); color: var(--text-primary); border: 1px solid var(--border-subtle);">Ecological Footprint (EF)</span>
+                                <span class="skill-tag" style="background: var(--bg-elevated); color: var(--text-primary); border: 1px solid var(--border-subtle);">Circular Economy (CE)</span>
+                                <span class="skill-tag" style="background: var(--bg-elevated); color: var(--text-primary); border: 1px solid var(--border-subtle);">ISO 14064 碳盤查</span>
+                                <span class="skill-tag" style="background: var(--bg-elevated); color: var(--text-primary); border: 1px solid var(--border-subtle);">Panel Cointegration</span>
+                                <span class="skill-tag" style="background: var(--bg-elevated); color: var(--text-primary); border: 1px solid var(--border-subtle);">Energy Economics</span>
+                                <span class="skill-tag" style="background: var(--bg-elevated); color: var(--text-primary); border: 1px solid var(--border-subtle);">Decoupling Analysis</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             SECTION 2: PROPRIETARY SOFTWARE & USR
+             ========================================================================== -->
+        <section class="section-block" id="showcase">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-headline">自研軟體工具與社會責任計畫</h2>
+                    <p class="section-subtext">將學術研究轉化為具備即時運算能力的數位工具與在地實踐，賦能企業碳管理、高教校務治理與社區永續漫遊。</p>
+                </div>
+
+                <div class="showcase-grid">
+                    <!-- Tool 1: 你說的算 -->
+                    <div class="showcase-card">
+                        <div class="showcase-media">
+                            <iframe src="https://www.youtube-nocookie.com/embed/epZr5-JSLLM" title="碳盤查/足跡軟體：你說的算" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="showcase-body">
+                            <div>
+                                <span class="showcase-badge" style="background: var(--emerald-surface); color: var(--emerald-text);">自研碳管理軟體</span>
+                                <h3 class="showcase-title">碳盤查 / 碳足跡軟體：「你說的算」</h3>
+                                <p class="showcase-desc">
+                                    專為中小企業與組織設計之敏捷型碳排計算與可視化工具。支援活動數據自動換算、碳排熱點可視化分析與減碳情境模擬。
+                                </p>
+                            </div>
+                            <div class="showcase-footer">
+                                <span style="font-size: 0.8rem; color: var(--text-muted);"><i class='bx bx-video'></i> 系統操作示範</span>
+                                <a href="https://www.youtube.com/watch?v=epZr5-JSLLM" target="_blank" class="btn btn-outline" style="padding: 0.35rem 0.75rem; font-size: 0.8rem;">
+                                    <i class='bx bxl-youtube'></i> YouTube 觀看
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tool 2: HelloIR -->
+                    <div class="showcase-card">
+                        <div class="showcase-media">
+                            <iframe src="https://www.youtube-nocookie.com/embed/bP8hiMcb81g" title="HelloIR 智慧校務分析與決策支援平台" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="showcase-body">
+                            <div>
+                                <span class="showcase-badge" style="background: var(--indigo-surface); color: var(--indigo-text);">自研決策支援系統</span>
+                                <h3 class="showcase-title">HelloIR 智慧校務分析平台</h3>
+                                <p class="showcase-desc">
+                                    整合高等教育巨量數據、機器學習預警演算法與動態儀表板，提供跨維度學生休退學風險分析與校務發展量化決策支援。
+                                </p>
+                            </div>
+                            <div class="showcase-footer">
+                                <span style="font-size: 0.8rem; color: var(--text-muted);"><i class='bx bx-video'></i> 產品功能介紹</span>
+                                <a href="https://www.youtube.com/watch?v=bP8hiMcb81g" target="_blank" class="btn btn-outline" style="padding: 0.35rem 0.75rem; font-size: 0.8rem;">
+                                    <i class='bx bxl-youtube'></i> YouTube 觀看
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tool 3: USR 小半天 -->
+                    <div class="showcase-card">
+                        <div class="showcase-media">
+                            <div class="showcase-media-cover">
+                                <div>
+                                    <i class='bx bx-globe' style="font-size: 2.5rem; margin-bottom: 0.5rem;"></i>
+                                    <h4 style="font-family: var(--font-display); font-size: 1.25rem;">小半天永續低碳漫遊</h4>
+                                    <p style="font-size: 0.85rem; opacity: 0.9;">USR 大學社會責任成果專屬網站</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="showcase-body">
+                            <div>
+                                <span class="showcase-badge" style="background: var(--emerald-surface); color: var(--emerald-text);">USR 社會責任專案</span>
+                                <h3 class="showcase-title">小半天永續低碳漫遊與碳盤查手冊</h3>
+                                <p class="showcase-desc">
+                                    針對南投鹿谷小半天社區推動在地生態旅遊與淨零轉型，研發「遊程碳盤查計算模型」，完整建置互動成果網站與影音導覽系統。
+                                </p>
+                            </div>
+                            <div class="showcase-footer">
+                                <span style="font-size: 0.8rem; color: var(--text-muted);"><i class='bx bx-map'></i> 南投鹿谷小半天</span>
+                                <a href="https://drchunchihchen.github.io/xiaobantian-carbon-tourism/#videos" target="_blank" class="btn btn-emerald" style="padding: 0.35rem 0.75rem; font-size: 0.8rem;">
+                                    <i class='bx bx-link-external'></i> 瀏覽成果網站
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             SECTION 3: PUBLICATIONS
+             ========================================================================== -->
+        <section class="section-block" id="publications">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-headline">著作 (Publications)</h2>
+                    <p class="section-subtext">專注於環境與能源經濟學、循環經濟定量模型及可持續發展評估，收錄 2026 最新 SCI 期刊及重點學術著作。</p>
+                </div>
+
+                <div class="filter-tabs">
+                    <button class="tab-btn active" data-filter="all">全部著作</button>
+                    <button class="tab-btn" data-filter="recent">2026 最新發表</button>
+                    <button class="tab-btn" data-filter="sci">SCI / SSCI 期刊</button>
+                    <button class="tab-btn" data-filter="tci">TSSCI / 核心期刊</button>
+                </div>
+
+                <div class="pub-list">
+                    <!-- 2026 Paper -->
+                    <div class="pub-card highlight" data-category="recent sci">
+                        <div class="pub-year-badge">2026</div>
+                        <div class="pub-content">
+                            <div class="pub-header">
+                                <span class="pub-tag" style="background: var(--crimson-surface); color: var(--crimson-text);">2026 NEW</span>
+                                <span class="pub-tag" style="background: var(--emerald-surface); color: var(--emerald-text);">SCI 期刊</span>
+                                <span class="pub-tag" style="background: var(--indigo-surface); color: var(--indigo-text);">第一作者 & 通訊作者</span>
+                            </div>
+                            <h3 class="pub-title">Decoupling and dynamic nexus between economic growth, environmental pressure, and energy transition: Evidence from Taiwan</h3>
+                            <div class="pub-authors"><strong>Chen, C. C.*</strong>, & Pao, H. T.</div>
+                            <div class="pub-journal">Energy Exploration & Exploitation. SAGE Publications. (SCI, ISSN: 0144-5987)</div>
+                            <div class="pub-links">
+                                <a href="https://doi.org/10.1177/01445987261464226" target="_blank" class="doi-link">
+                                    <i class='bx bx-link-alt'></i> DOI: 10.1177/01445987261464226
+                                </a>
+                                <button class="btn btn-outline" style="padding: 0.25rem 0.6rem; font-size: 0.75rem;" onclick="navigator.clipboard.writeText('10.1177/01445987261464226'); alert('DOI 已複製到剪貼簿！');">
+                                    <i class='bx bx-copy'></i> 複製 DOI
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2024 Energy Reports -->
+                    <div class="pub-card highlight" data-category="sci">
+                        <div class="pub-year-badge">2024</div>
+                        <div class="pub-content">
+                            <div class="pub-header">
+                                <span class="pub-tag" style="background: var(--amber-surface); color: var(--amber-text);">重點期刊著作</span>
+                                <span class="pub-tag" style="background: var(--emerald-surface); color: var(--emerald-text);">SCI 期刊</span>
+                                <span class="pub-tag" style="background: var(--indigo-surface); color: var(--indigo-text);">通訊作者</span>
+                            </div>
+                            <h3 class="pub-title">Does the circular economy reduce environmental pressure? A dynamic decoupling analysis using the ecological footprint</h3>
+                            <div class="pub-authors">Pao, H. T., & <strong>Chen, C. C.*</strong></div>
+                            <div class="pub-journal">Energy Reports, Vol. 12, pp. 2283-2295. Elsevier. (SCI, Impact Factor: 4.7)</div>
+                            <div class="pub-links">
+                                <a href="https://doi.org/10.1016/j.egyr.2024.08.026" target="_blank" class="doi-link">
+                                    <i class='bx bx-link-alt'></i> DOI: 10.1016/j.egyr.2024.08.026
+                                </a>
+                                <button class="btn btn-outline" style="padding: 0.25rem 0.6rem; font-size: 0.75rem;" onclick="navigator.clipboard.writeText('10.1016/j.egyr.2024.08.026'); alert('DOI 已複製到剪貼簿！');">
+                                    <i class='bx bx-copy'></i> 複製 DOI
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2021 Sustainability -->
+                    <div class="pub-card" data-category="sci">
+                        <div class="pub-year-badge">2021</div>
+                        <div class="pub-content">
+                            <div class="pub-header">
+                                <span class="pub-tag" style="background: var(--emerald-surface); color: var(--emerald-text);">SSCI / SCIE</span>
+                                <span class="pub-tag" style="background: var(--indigo-surface); color: var(--indigo-text);">第一作者</span>
+                            </div>
+                            <h3 class="pub-title">Decoupling and Decomposition Analysis of Carbon Emissions from Road Transportation in Taiwan</h3>
+                            <div class="pub-authors"><strong>Chen, C. C.</strong>, & Pao, H. T.</div>
+                            <div class="pub-journal">Sustainability, 13(21), 11623. MDPI.</div>
+                            <div class="pub-links">
+                                <a href="https://doi.org/10.3390/su132111623" target="_blank" class="doi-link">
+                                    <i class='bx bx-link-alt'></i> DOI: 10.3390/su132111623
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2019 Energy -->
+                    <div class="pub-card" data-category="sci">
+                        <div class="pub-year-badge">2019</div>
+                        <div class="pub-content">
+                            <div class="pub-header">
+                                <span class="pub-tag" style="background: var(--emerald-surface); color: var(--emerald-text);">SCI 期刊</span>
+                                <span class="pub-tag" style="background: var(--indigo-surface); color: var(--indigo-text);">通訊作者</span>
+                            </div>
+                            <h3 class="pub-title">Decoupling economic growth from CO2 emissions in G20 countries: A comprehensive investigation using Tapio decoupling index</h3>
+                            <div class="pub-authors">Pao, H. T., & <strong>Chen, C. C.*</strong></div>
+                            <div class="pub-journal">Energy, Vol. 172, pp. 699-710. Elsevier.</div>
+                            <div class="pub-links">
+                                <a href="https://doi.org/10.1016/j.energy.2019.01.146" target="_blank" class="doi-link">
+                                    <i class='bx bx-link-alt'></i> DOI: 10.1016/j.energy.2019.01.146
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             SECTION 4: INDUSTRY & GRANTS
+             ========================================================================== -->
+        <section class="section-block" id="grants">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-headline">產學合作與技術移轉</h2>
+                    <p class="section-subtext">與全球跨國企業及國家級研發法人機構深度協作，將前瞻演算法與 AI 模型落實於真實產業現場。</p>
+                </div>
+
+                <!-- Industry Partners Banner -->
+                <div style="background: var(--bg-surface); border: 1px solid var(--border-medium); border-radius: var(--radius-lg); padding: 1.5rem 1.8rem; margin-bottom: 2rem; box-shadow: var(--shadow-sm);">
+                    <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem;">
+                        <div style="display: flex; align-items: center; gap: 0.5rem;">
+                            <span style="font-size: 0.8rem; font-weight: 700; background: var(--indigo-surface); color: var(--indigo-text); padding: 0.2rem 0.55rem; border-radius: var(--radius-sm);">長期產學網絡</span>
+                            <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin: 0;">產學合作夥伴 (Industry & Research Partners)</h3>
+                        </div>
+                        <span style="font-size: 0.82rem; color: var(--text-muted);">跨領域高科技製造、數位轉型與淨零碳管理</span>
+                    </div>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.6rem;">
+                        <span style="background: var(--bg-elevated); border: 1px solid var(--border-subtle); color: var(--text-secondary); padding: 0.4rem 0.9rem; border-radius: var(--radius-full); font-size: 0.88rem; font-weight: 600; display: inline-flex; align-items: center; gap: 0.4rem;">
+                            <i class='bx bxs-check-shield' style="color: var(--indigo-primary);"></i> 台灣康寧
+                        </span>
+                        <span style="background: var(--bg-elevated); border: 1px solid var(--border-subtle); color: var(--text-secondary); padding: 0.4rem 0.9rem; border-radius: var(--radius-full); font-size: 0.88rem; font-weight: 600; display: inline-flex; align-items: center; gap: 0.4rem;">
+                            <i class='bx bxs-check-shield' style="color: var(--indigo-primary);"></i> <a href="https://impacts.cloud/index.html" target="_blank" style="color: inherit; text-decoration: none;">快思 (CRIS)</a>
+                        </span>
+                        <span style="background: var(--bg-elevated); border: 1px solid var(--border-subtle); color: var(--text-secondary); padding: 0.4rem 0.9rem; border-radius: var(--radius-full); font-size: 0.88rem; font-weight: 600; display: inline-flex; align-items: center; gap: 0.4rem;">
+                            <i class='bx bxs-check-shield' style="color: var(--indigo-primary);"></i> 丞桀有限公司
+                        </span>
+                        <span style="background: var(--bg-elevated); border: 1px solid var(--border-subtle); color: var(--text-secondary); padding: 0.4rem 0.9rem; border-radius: var(--radius-full); font-size: 0.88rem; font-weight: 600; display: inline-flex; align-items: center; gap: 0.4rem;">
+                            <i class='bx bxs-check-shield' style="color: var(--indigo-primary);"></i> 寶暉有限公司
+                        </span>
+                        <span style="background: var(--bg-elevated); border: 1px solid var(--border-subtle); color: var(--text-secondary); padding: 0.4rem 0.9rem; border-radius: var(--radius-full); font-size: 0.88rem; font-weight: 600; display: inline-flex; align-items: center; gap: 0.4rem;">
+                            <i class='bx bxs-check-shield' style="color: var(--indigo-primary);"></i> 世聚
+                        </span>
+                        <span style="background: var(--bg-elevated); border: 1px solid var(--border-subtle); color: var(--text-secondary); padding: 0.4rem 0.9rem; border-radius: var(--radius-full); font-size: 0.88rem; font-weight: 600; display: inline-flex; align-items: center; gap: 0.4rem;">
+                            <i class='bx bxs-check-shield' style="color: var(--indigo-primary);"></i> 海峰機械
+                        </span>
+                        <span style="background: var(--bg-elevated); border: 1px solid var(--border-subtle); color: var(--text-secondary); padding: 0.4rem 0.9rem; border-radius: var(--radius-full); font-size: 0.88rem; font-weight: 600; display: inline-flex; align-items: center; gap: 0.4rem;">
+                            <i class='bx bxs-check-shield' style="color: var(--indigo-primary);"></i> 哈伯精密
+                        </span>
+                    </div>
+                </div>
+
+                <div class="grants-grid">
+                    <!-- 1. 智慧代理人計畫 (國科會專題計畫，執行中) -->
+                    <div class="grant-card">
+                        <div>
+                            <div class="grant-top">
+                                <h3 class="grant-title">智慧代理人：解決台灣製造業人才與數據雙重赤字的轉型藍圖</h3>
+                                <span class="grant-client" style="background: var(--indigo-surface); color: var(--indigo-text);">國科會專題計畫</span>
+                            </div>
+                            <div class="grant-meta">
+                                <span><i class='bx bx-landmark'></i> 國家科學及技術委員會 (國科會 NSTC)</span>
+                                <span><i class='bx bx-calendar'></i> 2025/12/01 ~ 2026/11/30</span>
+                                <span><i class='bx bx-user-check'></i> 計畫主持人 (執行中)</span>
+                            </div>
+                            <p class="grant-desc">
+                                國科會專題研究計畫。針對台灣製造業面臨的高階專業人才短缺與數據孤島（雙重赤字）痛點，建構以智慧代理人 (AI Agents) 與大語言模型為核心的運籌轉型藍圖與決策輔助機制。
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- 2. 2026 iPlan (執行中) -->
+                    <div class="grant-card">
+                        <div>
+                            <div class="grant-top">
+                                <h3 class="grant-title">「智鏈創新 iPlan」關稅韌性 × AI 智能低碳轉型計畫</h3>
+                                <span class="grant-client" style="background: var(--emerald-surface); color: var(--emerald-text);">執行中</span>
+                            </div>
+                            <div class="grant-meta">
+                                <span><i class='bx bx-buildings'></i> <a href="https://impacts.cloud/index.html" target="_blank" style="color: inherit; text-decoration: underline;">快思 (CRIS)</a> / 日堡精密</span>
+                                <span><i class='bx bx-calendar'></i> 2026 年度</span>
+                                <span><i class='bx bx-user-check'></i> 計畫主持人</span>
+                            </div>
+                            <p class="grant-desc">
+                                針對供應鏈數位升級與治理制度化開展委託研究，建構跨國關稅變動韌性分析模型，並導入 AI 驅動之組織低碳排放管理與制度化決策框架。
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- 3. 工研院 海峰機械 (已結案) -->
+                    <div class="grant-card">
+                        <div>
+                            <div class="grant-top">
+                                <h3 class="grant-title">AI 雙軌轉型跨境電商行銷與知識數位化計畫</h3>
+                                <span class="grant-client" style="background: var(--bg-elevated); color: var(--text-muted);">已結案</span>
+                            </div>
+                            <div class="grant-meta">
+                                <span><i class='bx bx-buildings'></i> 工研院 / 海峰機械</span>
+                                <span><i class='bx bx-user-check'></i> 計畫主持人</span>
+                            </div>
+                            <p class="grant-desc">
+                                協助傳統機械精密製造大廠海峰機械進行知識庫數位化萃取，結合生成式 AI 工具建立多語系跨境電商智能行銷與客戶決策系統。
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- 4. 工研院 哈伯精密 (已結案) -->
+                    <div class="grant-card">
+                        <div>
+                            <div class="grant-top">
+                                <h3 class="grant-title">AI 數位師徒制與智識傳承升級加值計畫</h3>
+                                <span class="grant-client" style="background: var(--bg-elevated); color: var(--text-muted);">已結案</span>
+                            </div>
+                            <div class="grant-meta">
+                                <span><i class='bx bx-buildings'></i> 工研院 / 哈伯精密</span>
+                                <span><i class='bx bx-user-check'></i> 計畫主持人</span>
+                            </div>
+                            <p class="grant-desc">
+                                建立工業溫控設備專家經驗數位化機制，透過大語言模型打造內部「AI 數位師徒制問答系統」，突破高階師傅技術傳承瓶頸。
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- 5. 台灣康寧系列合作 (已結案) -->
+                    <div class="grant-card">
+                        <div>
+                            <div class="grant-top">
+                                <h3 class="grant-title">台灣康寧 (Corning) 玻璃製造產能規劃系列產學合作</h3>
+                                <span class="grant-client" style="background: var(--bg-elevated); color: var(--text-muted);">已結案</span>
+                            </div>
+                            <div class="grant-meta">
+                                <span><i class='bx bx-buildings'></i> 台灣康寧 (Corning)</span>
+                                <span><i class='bx bx-calendar'></i> 累計 5 期合作</span>
+                                <span><i class='bx bx-user-check'></i> 計畫主持人</span>
+                            </div>
+                            <p class="grant-desc">
+                                含「台灣康寧供應鏈回收材料 MRP Python 與 LLM API 發展及訓練」等 5 項合作計畫。針對高科技產線之熔爐產能調度、物料需求規劃 (MRP) 與庫存周轉建立精密數學優化模型與 LLM 串接應用。
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- 6. 工研院-世聚公司碳盤查服務計畫 (已結案) -->
+                    <div class="grant-card">
+                        <div>
+                            <div class="grant-top">
+                                <h3 class="grant-title">工研院-世聚公司碳盤查服務計畫</h3>
+                                <span class="grant-client" style="background: var(--bg-elevated); color: var(--text-muted);">已結案</span>
+                            </div>
+                            <div class="grant-meta">
+                                <span><i class='bx bx-buildings'></i> 工研院 / 世聚企業</span>
+                                <span><i class='bx bx-user-check'></i> 計畫主持人</span>
+                            </div>
+                            <p class="grant-desc">
+                                依循 ISO 14064-1 規範協助進行組織溫室氣體碳盤查輔導與排放清冊建置，輔導企業建立盤查工作小組並完成查證前置作業。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             SECTION 5: TEACHING, CERTIFICATIONS & TALKS
+             ========================================================================== -->
+        <section class="section-block" id="teaching">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-headline">專業證照、教學與受邀培訓</h2>
+                    <p class="section-subtext">持有國家級 AI 與淨零雙領域專業規劃鑑定，致力於程式力與前瞻科技普及教育，受邀於國立大學、社教館所與勞動部產業專班演講培訓。</p>
+                </div>
+
+                <!-- Certifications Banner -->
+                <div style="background: var(--bg-surface); border: 1px solid var(--border-medium); border-radius: var(--radius-lg); padding: 1.5rem 1.8rem; margin-bottom: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.25rem; box-shadow: var(--shadow-sm);">
+                    <div>
+                        <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.35rem;">
+                            <span style="font-size: 0.8rem; font-weight: 700; background: var(--emerald-surface); color: var(--emerald-text); padding: 0.2rem 0.55rem; border-radius: var(--radius-sm);">國家級 & 國際級專業證照</span>
+                            <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin: 0;">AI 應用規劃、淨零碳管理師與溫室氣體主任查證員</h3>
+                        </div>
+                        <p style="font-size: 0.88rem; color: var(--text-secondary); margin: 0;">具備經濟部 iPAS 認證之人工智慧應用規劃、淨零排放管理，以及 ISO 14064-1:2018 組織層級溫室氣體主任查證員認證</p>
+                    </div>
+                    <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                        <div style="background: var(--emerald-surface); border: 1px solid var(--emerald-border); padding: 0.5rem 1rem; border-radius: var(--radius-md); display: flex; align-items: center; gap: 0.5rem;">
+                            <i class='bx bx-bot' style="font-size: 1.3rem; color: var(--emerald-primary);"></i>
+                            <div>
+                                <div style="font-size: 0.75rem; color: var(--text-muted);">iPAS 專業能力鑑定</div>
+                                <div style="font-size: 0.92rem; font-weight: 700; color: var(--emerald-text);">AI 應用規劃師</div>
+                            </div>
+                        </div>
+                        <div style="background: var(--emerald-surface); border: 1px solid var(--emerald-border); padding: 0.5rem 1rem; border-radius: var(--radius-md); display: flex; align-items: center; gap: 0.5rem;">
+                            <i class='bx bx-leaf' style="font-size: 1.3rem; color: var(--emerald-primary);"></i>
+                            <div>
+                                <div style="font-size: 0.75rem; color: var(--text-muted);">iPAS 專業能力鑑定</div>
+                                <div style="font-size: 0.92rem; font-weight: 700; color: var(--emerald-text);">淨零碳管理師</div>
+                            </div>
+                        </div>
+                        <div style="background: var(--emerald-surface); border: 1px solid var(--emerald-border); padding: 0.5rem 1rem; border-radius: var(--radius-md); display: flex; align-items: center; gap: 0.5rem;">
+                            <i class='bx bx-badge-check' style="font-size: 1.3rem; color: var(--emerald-primary);"></i>
+                            <div>
+                                <div style="font-size: 0.75rem; color: var(--text-muted);">亞瑞士 ARES</div>
+                                <div style="font-size: 0.92rem; font-weight: 700; color: var(--emerald-text);">ISO 14064-1 主任查證員</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Invited Talks & Training Courses Grid -->
+                <div style="margin-bottom: 2.5rem;">
+                    <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary); margin-bottom: 1.1rem; display: flex; align-items: center; gap: 0.5rem;">
+                        <i class='bx bx-microphone' style="color: var(--indigo-primary);"></i> 受邀演講與培訓課程 (Invited Talks & Training Courses)
+                    </h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem;">
+                        <!-- Talk 1: 北商大 -->
+                        <div style="background: var(--bg-surface); border: 1px solid var(--border-medium); border-radius: var(--radius-md); padding: 1.35rem; box-shadow: var(--shadow-sm); display: flex; flex-direction: column; justify-content: space-between;">
+                            <div>
+                                <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 0.5rem; margin-bottom: 0.5rem;">
+                                    <span style="font-size: 0.78rem; font-weight: 700; background: var(--indigo-surface); color: var(--indigo-text); padding: 0.2rem 0.5rem; border-radius: var(--radius-sm);">專題演講 / 課程</span>
+                                    <span style="font-family: var(--font-mono); font-size: 0.82rem; color: var(--text-muted);">2026.09</span>
+                                </div>
+                                <h4 style="font-size: 1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.4rem; line-height: 1.4;">AI應用與 iPAS AI應用規劃師實務專題</h4>
+                            </div>
+                            <div style="font-size: 0.85rem; color: var(--text-secondary); display: flex; align-items: center; gap: 0.35rem; margin-top: 0.6rem;">
+                                <i class='bx bx-building-house'></i> 國立台北商業大學
+                            </div>
+                        </div>
+
+                        <!-- Talk 2: 臺中科大 & 勞動部 2026 -->
+                        <div style="background: var(--bg-surface); border: 1px solid var(--border-medium); border-radius: var(--radius-md); padding: 1.35rem; box-shadow: var(--shadow-sm); display: flex; flex-direction: column; justify-content: space-between;">
+                            <div>
+                                <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 0.5rem; margin-bottom: 0.5rem;">
+                                    <span style="font-size: 0.78rem; font-weight: 700; background: var(--emerald-surface); color: var(--emerald-text); padding: 0.2rem 0.5rem; border-radius: var(--radius-sm);">系列培訓課程</span>
+                                    <span style="font-family: var(--font-mono); font-size: 0.82rem; color: var(--text-muted);">2026.07、08、09</span>
+                                </div>
+                                <h4 style="font-size: 1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.4rem; line-height: 1.4;">AI應用、iPAS AI應用規劃師與淨零碳管理師實務培訓</h4>
+                            </div>
+                            <div style="font-size: 0.85rem; color: var(--text-secondary); display: flex; align-items: center; gap: 0.35rem; margin-top: 0.6rem;">
+                                <i class='bx bx-building-house'></i> 國立臺中科技大學 & 勞動部
+                            </div>
+                        </div>
+
+                        <!-- Talk 3: 科工館 -->
+                        <div style="background: var(--bg-surface); border: 1px solid var(--border-medium); border-radius: var(--radius-md); padding: 1.35rem; box-shadow: var(--shadow-sm); display: flex; flex-direction: column; justify-content: space-between;">
+                            <div>
+                                <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 0.5rem; margin-bottom: 0.5rem;">
+                                    <span style="font-size: 0.78rem; font-weight: 700; background: var(--indigo-surface); color: var(--indigo-text); padding: 0.2rem 0.5rem; border-radius: var(--radius-sm);">科普專題講座</span>
+                                    <span style="font-family: var(--font-mono); font-size: 0.82rem; color: var(--text-muted);">2026.05</span>
+                                </div>
+                                <h4 style="font-size: 1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.4rem; line-height: 1.4;">前瞻科普與智慧轉型：AI應用實務</h4>
+                            </div>
+                            <div style="font-size: 0.85rem; color: var(--text-secondary); display: flex; align-items: center; gap: 0.35rem; margin-top: 0.6rem;">
+                                <i class='bx bx-building-house'></i> 國立科學工藝博物館
+                            </div>
+                        </div>
+
+                        <!-- Talk 4: 臺中科大 & 勞動部 2025 -->
+                        <div style="background: var(--bg-surface); border: 1px solid var(--border-medium); border-radius: var(--radius-md); padding: 1.35rem; box-shadow: var(--shadow-sm); display: flex; flex-direction: column; justify-content: space-between;">
+                            <div>
+                                <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 0.5rem; margin-bottom: 0.5rem;">
+                                    <span style="font-size: 0.78rem; font-weight: 700; background: var(--amber-surface); color: var(--amber-text); padding: 0.2rem 0.5rem; border-radius: var(--radius-sm);">系列培訓課程</span>
+                                    <span style="font-family: var(--font-mono); font-size: 0.82rem; color: var(--text-muted);">2025.07、08</span>
+                                </div>
+                                <h4 style="font-size: 1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.4rem; line-height: 1.4;">AI應用技術與產業數位加值實戰班</h4>
+                            </div>
+                            <div style="font-size: 0.85rem; color: var(--text-secondary); display: flex; align-items: center; gap: 0.35rem; margin-top: 0.6rem;">
+                                <i class='bx bx-building-house'></i> 國立臺中科技大學 & 勞動部
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="yt-banner">
+                    <div class="yt-banner-text">
+                        <h3><i class='bx bxl-youtube'></i> Elvis Chen 線上教學影音頻道 (YouTube Playlists)</h3>
+                        <p>全面收錄 Python 商務程式設計、商業智慧 (BI) 儀表板實作、大數據分析、機器學習與生成式 AI 提示工程等系統化教學播放清單，提供學生與自學者隨選精進。</p>
+                    </div>
+                    <a href="https://www.youtube.com/@ElvisChen-p7z2r/playlists" target="_blank" class="yt-btn">
+                        <i class='bx bx-play-circle'></i> 前往 YouTube 播放清單
+                    </a>
+                </div>
+
+                <div class="course-grid">
+                    <div class="course-card">
+                        <div class="course-title"><i class='bx bx-bar-chart-alt-2' style="color: var(--indigo-primary);"></i> 智慧商務 (Business Intelligence)</div>
+                        <p style="font-size: 0.88rem; color: var(--text-muted);">跨領域商業數據整合、視覺化儀表板與即時運籌決策分析。</p>
+                        <div class="course-links">
+                            <a href="https://www.youtube.com/@ElvisChen-p7z2r/playlists" target="_blank" class="course-link-item">
+                                <span><i class='bx bxl-youtube' style="color: #c53030;"></i> 單元影音清單</span>
+                                <i class='bx bx-chevron-right'></i>
+                            </a>
+                            <a href="BI.html" target="_blank" class="course-link-item">
+                                <span><i class='bx bx-file'></i> Week 1 & 2 Overview</span>
+                                <i class='bx bx-chevron-right'></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="course-card">
+                        <div class="course-title"><i class='bx bxl-python' style="color: var(--emerald-primary);"></i> Python 商務程式設計</div>
+                        <p style="font-size: 0.88rem; color: var(--text-muted);">從零起步之商管程式入門、自動化工作流與數據爬蟲分析。</p>
+                        <div class="course-links">
+                            <a href="https://www.youtube.com/@ElvisChen-p7z2r/playlists" target="_blank" class="course-link-item">
+                                <span><i class='bx bxl-youtube' style="color: #c53030;"></i> Python 完整影音庫</span>
+                                <i class='bx bx-chevron-right'></i>
+                            </a>
+                            <a href="https://halved-reaction-969.notion.site/First-Python-Course-1041db49af5880b28827e2b25fcfbcff?pvs=4" target="_blank" class="course-link-item">
+                                <span><i class='bx bx-book-bookmark'></i> Notion 課程講義</span>
+                                <i class='bx bx-chevron-right'></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="course-card">
+                        <div class="course-title"><i class='bx bx-brain' style="color: var(--amber-primary);"></i> 生成式 AI 與實務應用</div>
+                        <p style="font-size: 0.88rem; color: var(--text-muted);">Prompt Engineering、LLM API 串接、AI Agent 智慧代理人與工具協同。</p>
+                        <div class="course-links">
+                            <a href="How to Create an Entertaining Game using ChatGPT and AI.html" target="_blank" class="course-link-item">
+                                <span><i class='bx bx-cube-alt'></i> ChatGPT 遊戲實作示範</span>
+                                <i class='bx bx-chevron-right'></i>
+                            </a>
+                            <a href="https://www.youtube.com/@ElvisChen-p7z2r/playlists" target="_blank" class="course-link-item">
+                                <span><i class='bx bxl-youtube' style="color: #c53030;"></i> AI 專題系列影片</span>
+                                <i class='bx bx-chevron-right'></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             SECTION 6: CONTACT & FOOTER
+             ========================================================================== -->
+        <footer class="site-footer" id="contact">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-col">
+                        <h4 style="white-space: nowrap; word-break: keep-all;">Dr. Chun-Chih Chen (陳俊智 博士)</h4>
+                        <p>國立臺中科技大學 國際貿易與經營系 專任副教授 (2025.08 - 迄今)<br>商業智慧應用與研究中心 主任</p>
+                        <p><i class='bx bx-map-pin' style="color: var(--emerald-primary);"></i> 404 台中市北區三民路三段 129 號 中正大樓 7 樓 3705 室</p>
+                        <p><i class='bx bx-envelope' style="color: var(--indigo-primary);"></i> elvischen@nutc.edu.tw | (04) 2219-6140</p>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4>學術與社群檔案</h4>
+                        <p><a href="https://orcid.org/0000-0001-6556-2221" target="_blank"><i class='bx bx-id-card'></i> ORCID Profile</a></p>
+                        <p><a href="https://github.com/DrChunChihChen" target="_blank"><i class='bx bxl-github'></i> GitHub Repository</a></p>
+                        <p><a href="https://www.youtube.com/@ElvisChen-p7z2r/playlists" target="_blank"><i class='bx bxl-youtube'></i> YouTube Channel</a></p>
+                        <p><a href="https://it.nutc.edu.tw/%E5%B0%88%E4%BB%BB%E6%95%99%E5%B8%AB/" target="_blank"><i class='bx bx-link-external'></i> 臺中科大國貿系師資</a></p>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4>網站頁面快速跳轉</h4>
+                        <p><a href="index.html">現行正式版首頁</a></p>
+                        <p><a href="Selected Publications & Conference.html">著作目錄全文</a></p>
+                        <p><a href="Project.html">產學計畫總覽</a></p>
+                        <p><a href="Award.html">獲獎榮譽與作品展示</a></p>
+                        <p><a href="Talk.html">演講講座與證照總覽</a></p>
+                        <p><a href="Teaching Material.html">課程大綱與教材庫</a></p>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <div>© 2026 Dr. Chun-Chih Chen. All rights reserved. Designed with Impeccable craftsmanship.</div>
+                    <div>地端原型版 · 待確認後即可全面套用改版</div>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Theme Toggle Script -->
+    <script>
+        const themeBtn = document.getElementById('themeToggle');
+        const html = document.documentElement;
+        
+        // Check stored theme or system preference
+        const storedTheme = localStorage.getItem('site-theme');
+        if (storedTheme) {
+            html.setAttribute('data-theme', storedTheme);
+            updateThemeIcon(storedTheme);
+        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            html.setAttribute('data-theme', 'dark');
+            updateThemeIcon('dark');
+        }
+
+        themeBtn.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            const targetTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', targetTheme);
+            localStorage.setItem('site-theme', targetTheme);
+            updateThemeIcon(targetTheme);
+        });
+
+        function updateThemeIcon(theme) {
+            themeBtn.innerHTML = theme === 'dark' ? "<i class='bx bx-sun'></i>" : "<i class='bx bx-moon'></i>";
+        }
+
+        // Publications Tab Filter
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const pubCards = document.querySelectorAll('.pub-card');
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                tabBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filter = btn.getAttribute('data-filter');
+                pubCards.forEach(card => {
+                    if (filter === 'all') {
+                        card.style.display = 'grid';
+                    } else {
+                        const categories = card.getAttribute('data-category').split(' ');
+                        card.style.display = categories.includes(filter) ? 'grid' : 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
