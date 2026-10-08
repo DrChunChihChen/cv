@@ -113,10 +113,9 @@ img {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 100;
-    background-color: rgba(255, 255, 255, 0.85); /* Glass effect */
-    backdrop-filter: blur(12px);
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05); /* Very subtle shadow */
+    z-index: 1000;
+    background-color: #ffffff;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.08);
 }
 
 /*===== NAV =====*/
@@ -169,18 +168,18 @@ img {
         left: 0;
         width: 100vw;
         height: 100vh;
-        background: rgba(15, 23, 42, 0.5);
-        backdrop-filter: blur(4px);
-        -webkit-backdrop-filter: blur(4px);
+        background-color: rgba(15, 23, 42, 0.5);
         opacity: 0;
         visibility: hidden;
-        transition: opacity 0.3s ease, visibility 0.3s ease;
-        z-index: 150;
+        transition: opacity 0.25s ease, visibility 0.25s ease;
+        z-index: 1010;
+        pointer-events: none;
     }
 
     .nav__backdrop.show {
         opacity: 1;
         visibility: visible;
+        pointer-events: auto;
     }
 
     .nav__menu {
@@ -191,10 +190,10 @@ img {
         max-width: 320px;
         height: 100vh;
         padding: 1.25rem 1.25rem 2rem;
-        background-color: #ffffff;
-        transition: right .32s cubic-bezier(0.16, 1, 0.3, 1);
-        box-shadow: -8px 0 30px rgba(0, 0, 0, 0.18);
-        z-index: 200;
+        background-color: #ffffff !important;
+        transition: right .3s cubic-bezier(0.16, 1, 0.3, 1);
+        box-shadow: -6px 0 25px rgba(0, 0, 0, 0.16);
+        z-index: 1020;
         overflow-y: auto;
         display: flex;
         flex-direction: column;

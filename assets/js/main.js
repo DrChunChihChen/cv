@@ -10,7 +10,12 @@ const initMenu = (toggleId, navId, closeId) => {
         backdrop = document.createElement('div')
         backdrop.id = 'nav-backdrop'
         backdrop.className = 'nav__backdrop'
-        document.body.appendChild(backdrop)
+        const header = document.querySelector('.l-header')
+        if (header) {
+            header.insertBefore(backdrop, header.firstChild)
+        } else {
+            document.body.appendChild(backdrop)
+        }
     }
 
     const openMenu = () => {
@@ -37,11 +42,17 @@ const initMenu = (toggleId, navId, closeId) => {
     }
 
     if (closeBtn) {
-        closeBtn.addEventListener('click', closeMenu)
+        closeBtn.addEventListener('click', (e) => {
+            e.stopPropagation()
+            closeMenu()
+        })
     }
 
     if (backdrop) {
-        backdrop.addEventListener('click', closeMenu)
+        backdrop.addEventListener('click', (e) => {
+            e.stopPropagation()
+            closeMenu()
+        })
     }
 
     const navLinks = document.querySelectorAll('.nav__link')
