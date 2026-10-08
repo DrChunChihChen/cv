@@ -18,7 +18,7 @@
 * **中心主任 (Director)**  
   國立臺中科技大學 商業智慧應用與研究中心 (Center for Business Intelligence Applications and Research, NUTC) | *2024.08 – 迄今*
 * **實驗室主持人 (Lab Director)**  
-  國立臺中科技大學 智慧商務多代理人實驗室 (Smart Commerce Multi-Agent Lab, SCMA Lab) | *2024.08 – 迄今*
+  國立臺中科技大學 智慧商務多代理人實驗室 (Intelligent Commerce & Multi-Agent Lab, ICMA Lab) | *2024.08 – 迄今*
 * **淨零組組長 (Former Director, Net-Zero Division)**  
   國立臺中科技大學 永續創新與淨零推動中心 (Sustainability Center, NUTC) | *2024.08 – 2025.07*
 * **供應鏈數位轉型顧問工程師 (SCM Digital Transformation Consultant)**  
