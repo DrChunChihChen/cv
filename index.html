@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Academic Portfolio of Dr. Elvis Chen - Assistant Professor in International Business at NUTC.">
+        content="Academic Portfolio of Dr. Elvis Chen (陳俊智博士) - Assistant Professor & Director of Net-Zero Division at National Taichung University of Science and Technology.">
 
     <!-- ===== CSS ===== -->
     <link rel="stylesheet" href="assets/css/styles.css">
@@ -13,7 +13,76 @@
     <!-- ===== BOX ICONS ===== -->
     <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
 
-    <title>Elvis Chen - Portfolio</title>
+    <title>Dr. Elvis Chen (陳俊智) - Academic Portfolio</title>
+
+    <style>
+        .about__roles {
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .about__role-item {
+            font-size: 0.95rem;
+            color: #4a5568;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .about__role-item i {
+            color: var(--first-color);
+            font-size: 1.1rem;
+        }
+
+        .hero__badges {
+            display: flex;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .hero__badge-item {
+            background: rgba(108, 99, 255, 0.1);
+            color: var(--first-color);
+            padding: 0.3rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .stat-card {
+            background: #fff;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            border: 1px solid #edf2f7;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+            text-align: center;
+        }
+
+        .stat-card h3 {
+            color: var(--first-color);
+            font-size: 1.5rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .stat-card p {
+            font-size: 0.78rem;
+            color: #718096;
+            margin: 0;
+        }
+    </style>
 </head>
 
 <body>
@@ -29,7 +98,9 @@
                     <li class="nav__item"><a href="#home" class="nav__link active">Home</a></li>
                     <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
                     <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
-                    <li class="nav__item"><a href="#portfolio" class="nav__link">Portfolio</a></li>
+                    <li class="nav__item"><a href="Selected Publications & Conference.html" class="nav__link">Publications</a></li>
+                    <li class="nav__item"><a href="Project.html" class="nav__link">Projects</a></li>
+                    <li class="nav__item"><a href="Award.html" class="nav__link">Awards</a></li>
                     <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
                 </ul>
             </div>
@@ -48,15 +119,25 @@
                 <div class="home__data">
                     <h1 class="home__title">Hello,<br>I'm <span style="color: var(--first-color);">Elvis Chen</span>
                     </h1>
-                    <span class="home__subtitle">Assistant Professor & Researcher</span>
-                    <a href="#about" class="home__button">Explore Profile</a>
+                    <span class="home__subtitle">Assistant Professor & Researcher | Director of Net-Zero Division</span>
+                    
+                    <div class="hero__badges">
+                        <span class="hero__badge-item"><i class='bx bx-leaf'></i> 永續發展 & 淨零轉型</span>
+                        <span class="hero__badge-item"><i class='bx bx-chip'></i> 人工智慧 & 供應鏈 MRP</span>
+                        <span class="hero__badge-item"><i class='bx bx-trophy'></i> 全國競賽冠軍指導</span>
+                    </div>
+
+                    <div style="margin-top: 1.5rem; display: flex; gap: 0.8rem; flex-wrap: wrap;">
+                        <a href="#about" class="home__button">Explore Profile</a>
+                        <a href="https://orcid.org/0000-0001-6556-2221" target="_blank" class="home__button"
+                            style="background: #fff; color: var(--first-color); border: 2px solid var(--first-color);">
+                            <i class='bx bx-id-card'></i> ORCID Profile
+                        </a>
+                    </div>
                 </div>
 
                 <!-- Image with Blob effect on Right -->
                 <div class="home__img">
-                    <!-- Note: Ensure the image is cut out (transparent bg) for best effect, 
-                         or using border-radius: 50% as defined in CSS. 
-                         Using the same image for now. -->
                     <img src="assets/img/prefil1.jpg" alt="Elvis Chen"
                         style="border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
                 </div>
@@ -69,32 +150,73 @@
 
             <div class="about__container bd-grid">
                 <div class="about__img">
-                    <img src="assets/img/Elvis_01.png" alt="Elvis Chen Portrait">
+                    <img src="assets/img/Elvis_01.png" alt="Elvis Chen Portrait" style="border-radius: 1rem;">
                 </div>
 
                 <div>
-                    <h2 class="about__subtitle">I'm Elvis Chen</h2>
-                    <span class="about__profession">Assistant Professor in Department of International Business at
-                        National
-                        Taichung University of Science and Technology</span>
-
-                    <div class="about__text">
-                        <p style="margin-bottom: 1rem;">👋 Hello! I am a researcher and Assistant Professor specializing
-                            in <strong>Machine Learning, Circular Economy, and Sustainability</strong>. I earned my PhD
-                            from National Yang Ming Chiao Tung University in 2020 and served as a visiting scholar at
-                            North Carolina State University.</p>
-                        <p style="margin-bottom: 1rem;">🔬 I am passionate about extracting insights from data to solve
-                            complex problems. My recent work on simulating the EU's circular economy using deep learning
-                            was funded by the National Science and Technology Council.</p>
-                        <p>😄 Outside of work, I bring humor and a passion for sports to every team I join.</p>
+                    <h2 class="about__subtitle">Dr. Chun-Chih Chen (陳俊智 博士)</h2>
+                    
+                    <!-- Roles & Affiliations -->
+                    <div class="about__roles">
+                        <div class="about__role-item">
+                            <i class='bx bxs-graduation'></i>
+                            <span><strong>國立臺中科技大學 國際貿易與經營系</strong> 專任助理教授 (2022.08 - 迄今)</span>
+                        </div>
+                        <div class="about__role-item">
+                            <i class='bx bxs-tree'></i>
+                            <span><strong>國立臺中科技大學 永續中心</strong> 淨零組組長 (2024.08 - 迄今)</span>
+                        </div>
+                        <div class="about__role-item">
+                            <i class='bx bxs-briefcase-alt-2'></i>
+                            <span><strong>台灣康寧 (Corning Taiwan)</strong> 供應鏈數位轉型顧問工程師 (2022.12 - 迄今)</span>
+                        </div>
+                        <div class="about__role-item">
+                            <i class='bx bxs-cog'></i>
+                            <span><strong>快思 (Crysalis)</strong> 人工智慧顧問工程師 (2020.08 - 迄今)</span>
+                        </div>
                     </div>
 
-                    <div class="about__social">
-                        <a href="https://it.nutc.edu.tw/%E5%B0%88%E4%BB%BB%E6%95%99%E5%B8%AB/"
-                            class="about__social-icon" target="_blank" title="My School Profile">
-                            <i class='bx bxl-dribbble'></i>
+                    <!-- Highlight Metrics -->
+                    <div class="stat-grid">
+                        <div class="stat-card">
+                            <h3>NT$ 7.0M+</h3>
+                            <p>計畫與產學總經費</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>12+ 篇</h3>
+                            <p>SCI / SSCI 頂級期刊</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Top 1%</h3>
+                            <p>ESI 工程領域高被引論文</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>全國冠軍</h3>
+                            <p>指導學生獲獎殊榮</p>
+                        </div>
+                    </div>
+
+                    <div class="about__text">
+                        <p style="margin-bottom: 1rem;">
+                            👋 <strong>研究核心理念：</strong>利用智慧技術的分析能力，為環境資源經濟的重大議題，建立量化的決策模型。畢業於國立陽明交通大學管理科學研究所博士（2020），曾赴美國北卡羅來納州立大學（NCSU）擔任訪問學者。
+                        </p>
+                        <p style="margin-bottom: 1rem;">
+                            🔬 <strong>整合性雙主軸研究體系：</strong>
+                            <br><strong>1. 永續發展領域：</strong>以 Q1 頂刊代表作建立「循環經濟 - 生態足跡關聯模型 (CE-EF nexus)」，深入拆解碳足跡與土地生態衝擊，解析能源轉型與脫鉤戰略，主持國科會專題研究計畫。
+                            <br><strong>2. 智慧轉型領域：</strong>深耕智慧製造排程優化、物料需求規劃 (MRP)、大語言模型 (LLM API) 與 AI Agent 應用。與全球玻璃領導廠商台灣康寧建立長期策略夥伴關係（主持 5 項計畫逾 208 萬元），並受工研院委託執行 AI 雙軌轉型與數位師徒制計畫。
+                        </p>
+                    </div>
+
+                    <div class="about__social" style="margin-top: 1.5rem; display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+                        <a href="https://orcid.org/0000-0001-6556-2221" target="_blank"
+                            class="home__button" style="padding: 0.4rem 1rem; font-size: 0.85rem;">
+                            <i class='bx bx-id-card'></i> ORCID: 0000-0001-6556-2221
                         </a>
-                        <span style="font-size: 0.9rem; color: var(--text-color-light);">View School Profile</span>
+                        <a href="https://it.nutc.edu.tw/%E5%B0%88%E4%BB%BB%E6%95%99%E5%B8%AB/"
+                            target="_blank" class="home__button"
+                            style="background: #fff; color: var(--first-color); border: 2px solid var(--first-color); padding: 0.4rem 1rem; font-size: 0.85rem;">
+                            <i class='bx bx-link-external'></i> 學校專任教師簡介
+                        </a>
                     </div>
                 </div>
             </div>
@@ -107,45 +229,48 @@
             <div class="skills__container bd-grid">
                 <!-- Skill Tags -->
                 <div>
-                    <h3 class="skills__subtitle">Development & Tools</h3>
+                    <h3 class="skills__subtitle">AI, Analytics & Modeling</h3>
                     <div class="skills__data">
                         <span class="skills__name">Python</span>
+                        <span class="skills__name">LLM & Multi-Agent</span>
+                        <span class="skills__name">Machine Learning</span>
+                        <span class="skills__name">System Dynamics</span>
                         <span class="skills__name">R</span>
-                        <span class="skills__name">SAS</span>
                         <span class="skills__name">SQL</span>
-                        <span class="skills__name">C++</span>
-                        <span class="skills__name">HTML5</span>
-                        <span class="skills__name">CSS3</span>
-                        <span class="skills__name">JavaScript</span>
-                    </div>
-
-                    <h3 class="skills__subtitle">Design</h3>
-                    <div class="skills__data">
-                        <span class="skills__name">Gimp</span>
-                        <span class="skills__name">Illustrator</span>
-                        <span class="skills__name">Photoshop</span>
-                    </div>
-
-                    <h3 class="skills__subtitle">Data Analysis</h3>
-                    <div class="skills__data">
+                        <span class="skills__name">XGBoost & GA</span>
                         <span class="skills__name">Tableau</span>
-                        <span class="skills__name">SPSS</span>
-                        <span class="skills__name">Eviews</span>
-                        <span class="skills__name">AMOS</span>
-                        <span class="skills__name">SmartPLS</span>
+                    </div>
+
+                    <h3 class="skills__subtitle">Sustainability & Economics</h3>
+                    <div class="skills__data">
+                        <span class="skills__name">Ecological Footprint (EF)</span>
+                        <span class="skills__name">Circular Economy (CE)</span>
+                        <span class="skills__name">ISO 14064 碳盤查</span>
+                        <span class="skills__name">Panel Cointegration</span>
+                        <span class="skills__name">Energy Economics</span>
+                        <span class="skills__name">Decoupling Analysis</span>
+                    </div>
+
+                    <h3 class="skills__subtitle">Supply Chain & Business</h3>
+                    <div class="skills__data">
+                        <span class="skills__name">MRP Optimization</span>
+                        <span class="skills__name">E2E Visibility</span>
+                        <span class="skills__name">Cross-Border E-Commerce</span>
+                        <span class="skills__name">n8n Automation</span>
+                        <span class="skills__name">SPSS / SmartPLS</span>
                     </div>
                 </div>
 
                 <!-- Skill Image -->
                 <div class="skills__img">
-                    <img src="assets/img/skill.jpg" alt="Skills visualization">
+                    <img src="assets/img/skill.jpg" alt="Skills visualization" style="border-radius: 1rem;">
                 </div>
             </div>
         </section>
 
         <!--===== PORTFOLIO =====-->
         <section class="portfolio section" id="portfolio">
-            <h2 class="section-title">Portfolio</h2>
+            <h2 class="section-title">Academic & Professional Portfolio</h2>
 
             <div class="portfolio__container bd-grid">
 
@@ -153,9 +278,8 @@
                 <div class="portfolio__card">
                     <img src="assets/img/work1-1.jpeg" alt="Selected Publications" class="portfolio__img">
                     <div class="portfolio__link">
-                        <a href="Selected Publications & Conference.html" class="portfolio__link-name">Selected
-                            Publications</a>
-                        <span style="font-size: 0.8rem; color: #555;">Academic Research</span>
+                        <a href="Selected Publications & Conference.html" class="portfolio__link-name">Publications & Services</a>
+                        <span style="font-size: 0.8rem; color: #555;">12+ SCI/SSCI & Top 1% Paper</span>
                     </div>
                 </div>
 
@@ -164,7 +288,7 @@
                     <img src="assets/img/work2.jpg" alt="Talks" class="portfolio__img">
                     <div class="portfolio__link">
                         <a href="Talk.html" class="portfolio__link-name">Talks & Seminars</a>
-                        <span style="font-size: 0.8rem; color: #555;">Public Speaking</span>
+                        <span style="font-size: 0.8rem; color: #555;">Keynotes & Workshops</span>
                     </div>
                 </div>
 
@@ -172,8 +296,8 @@
                 <div class="portfolio__card">
                     <img src="assets/img/work4-1.jpeg" alt="Projects" class="portfolio__img">
                     <div class="portfolio__link">
-                        <a href="Project.html" class="portfolio__link-name">Research Projects</a>
-                        <span style="font-size: 0.8rem; color: #555;">2021 - 2023</span>
+                        <a href="Project.html" class="portfolio__link-name">Research & Industry Projects</a>
+                        <span style="font-size: 0.8rem; color: #555;">2021 - 2026 (NT$ 7.0M+)</span>
                     </div>
                 </div>
 
@@ -182,7 +306,7 @@
                     <img src="assets/img/Alibaba.jpg" alt="Awards" class="portfolio__img">
                     <div class="portfolio__link">
                         <a href="Award.html" class="portfolio__link-name">Awards & Honors</a>
-                        <span style="font-size: 0.8rem; color: #555;">Competitions</span>
+                        <span style="font-size: 0.8rem; color: #555;">National Champions & Mentorship</span>
                     </div>
                 </div>
 
@@ -201,7 +325,7 @@
                     <div class="portfolio__link">
                         <a href="How to Create an Entertaining Game using ChatGPT and AI.html"
                             class="portfolio__link-name">AI Game Dev</a>
-                        <span style="font-size: 0.8rem; color: #555;">ChatGPT & AI</span>
+                        <span style="font-size: 0.8rem; color: #555;">ChatGPT & AI Applications</span>
                     </div>
                 </div>
 
@@ -231,7 +355,7 @@
                         <input type="email" name="email" placeholder="Email" class="contact__input" required>
                     </div>
 
-                    <textarea name="message" id="" cols="0" rows="6" class="contact__input"
+                    <textarea name="message" cols="0" rows="6" class="contact__input"
                         placeholder="Your Message..." required></textarea>
 
                     <input type="submit" value="Send Message" class="contact__button">
@@ -245,7 +369,7 @@
         <div class="footer__container bd-grid">
             <div class="footer__data">
                 <h2 class="footer__title">Elvis Chen</h2>
-                <p class="footer__text">Assistant Professor & Researcher</p>
+                <p class="footer__text">Assistant Professor & Researcher | Director of Net-Zero Division</p>
             </div>
 
             <div class="footer__data">
@@ -253,18 +377,19 @@
                 <ul>
                     <li><a href="#home" class="footer__link">Home</a></li>
                     <li><a href="#about" class="footer__link">About</a></li>
-                    <li><a href="#portfolio" class="footer__link">Portfolio</a></li>
+                    <li><a href="Selected Publications & Conference.html" class="footer__link">Publications</a></li>
+                    <li><a href="Project.html" class="footer__link">Projects</a></li>
+                    <li><a href="Award.html" class="footer__link">Awards</a></li>
                 </ul>
             </div>
 
             <div class="footer__data">
-                <h2 class="footer__title">FOLLOW</h2>
-                <a href="#" class="footer__social"><i class='bx bxl-facebook'></i></a>
-                <a href="#" class="footer__social"><i class='bx bxl-instagram'></i></a>
-                <a href="#" class="footer__social"><i class='bx bxl-twitter'></i></a>
+                <h2 class="footer__title">FOLLOW & PROFILES</h2>
+                <a href="https://orcid.org/0000-0001-6556-2221" target="_blank" class="footer__social" title="ORCID"><i class='bx bx-id-card'></i></a>
+                <a href="https://it.nutc.edu.tw/%E5%B0%88%E4%BB%BB%E6%95%99%E5%B8%AB/" target="_blank" class="footer__social" title="Faculty Profile"><i class='bx bx-link-external'></i></a>
             </div>
         </div>
-        <p style="font-size: 0.8rem; margin-top: 2rem; color: #CCC;">&copy; 2024 Elvis Chen. All rights reserved.</p>
+        <p style="font-size: 0.8rem; margin-top: 2rem; color: #CCC;">&copy; 2026 Elvis Chen. All rights reserved.</p>
     </footer>
 
     <!--===== SCROLL REVEAL =====-->
@@ -273,14 +398,12 @@
     <!--===== MAIN JS =====-->
     <script src="assets/js/main.js"></script>
 
-    <!-- Simple Scroll Reveal Script to make it work immediately if main.js is missing or basic -->
     <script>
         const sr = ScrollReveal({
             origin: 'top',
             distance: '60px',
             duration: 2000,
             delay: 200,
-            // reset: true
         });
 
         sr.reveal('.home__data, .about__img, .skills__subtitle, .skills__text', {});

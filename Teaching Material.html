@@ -1,166 +1,245 @@
 <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en">
 
-        <!-- ===== CSS ===== -->
-        <link rel="stylesheet" href="assets/css/styles.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Teaching Materials & Courses - Dr. Elvis Chen (陳俊智博士)">
 
-        <!-- ===== BOX ICONS ===== -->
-        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+    <!-- ===== CSS ===== -->
+    <link rel="stylesheet" href="assets/css/styles.css">
 
-        <title>Portfolio responsive complete</title>
-    </head>
-    <body>
-        <!--===== HEADER =====-->
-        <header class="l-header">
-            <nav class="nav bd-grid">
-                <div>
-                    <a href="#" class="nav__logo">Elvis Chen</a>
-                </div>
+    <!-- ===== BOX ICONS ===== -->
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
 
-                <div class="nav__menu" id="nav-menu">
-                    <ul class="nav__list">
-                        <li class="nav__item"><a href="index.html" class="nav__link active">Home</a></li>
+    <title>Teaching Materials - Dr. Elvis Chen</title>
 
-                        <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
-                    </ul>
-                </div>
+    <style>
+        .course-card {
+            background: #fff;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid #edf2f7;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--first-color);
+            width: 100%;
+        }
 
-                <div class="nav__toggle" id="nav-toggle">
-                    <i class='bx bx-menu'></i>
-                </div>
-            </nav>
-        </header>
+        .course-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
 
-        <main class="l-main">
-            <!--===== HOME =====-->
-            <section class="home" id="home">
-                <div class="home__container bd-grid">
-                    <h1 class="home__title"><span>HE</span><br>LLO.</h1>
+        .resource-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-top: 0.5rem;
+        }
 
-                    <div class="home__scroll">
-                        <a href="#about" class="home__scroll-link"><i class='bx bx-up-arrow-alt' ></i>Scroll down</a>
-                    </div>
+        .res-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            padding: 0.3rem 0.7rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            color: var(--first-color);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
 
-                    <img src="assets/img/prefil1.jpg" alt="" class="home__img">
-                </div>
-            </section>
+        .res-link:hover {
+            background: var(--first-color);
+            color: #fff;
+            border-color: var(--first-color);
+        }
+    </style>
+</head>
 
-          <!--===== ABOUT =====-->
-<section class="about section" id="about" style="display: flex; flex-direction: column; align-items: center;">
-  <h2 class="section-title">Teaching Material</h2>
-  <h3>Teaching 2024-2025 Fall Semester</h3>
-  <ul>
-    <li style="font-weight: bold; color: dark;"><span style="color: black;font-size: 1.2em;">•</span>Business intelligence, 智慧商務</li>
-    <a href="BI.html" target="_blank" rel="noopener noreferrer" style="color: blue;">Week1 & Week2</a>
-    <p><a href="https://halved-reaction-969.notion.site/First-Python-Course-1041db49af5880b28827e2b25fcfbcff?pvs=4" target="_blank" rel="noopener noreferrer" style="color: green;">Python_Week1</a></p>
-  <a href="BI/bi-integration-dashboard (1).html" target="_blank" rel="noopener noreferrer" style="color: purple;">Week2 &amp; Week3</a>&nbsp;<a href="BI/data-scaling-explanation.html" target="_blank" rel="noopener noreferrer" style="color: orange; margin-left: 1em;">Why Rescale or Standardize Data in Analysis</a>
-    
-    <li style="font-weight: bold; color: dark;"><span style="color: black;font-size: 1.2em;">•</span> Programming for Business Computing in Python 程式設計與應用</li>
-    <a href="https://colab.research.google.com/drive/15o4H91OUeSQFy5pgpZddcxQybz0FjKO1?usp=sharing" target="_blank" rel="noopener noreferrer" style="color: blue;">Week1 & Week2</a>
-    <p><a href="https://colab.research.google.com/drive/1scgJAM86fj_Ywoh8pFBO0MeGFjM3SDaE" target="_blank" rel="noopener noreferrer" style="color: green;">Week3 & Week4</a></p>
-    <p><a href="https://colab.research.google.com/drive/1HrnUOG6Zlnp45Qsn7sxS2_qha0Kv71Gh" target="_blank" rel="noopener noreferrer" style="color: purple;">Week5 & Week6</a></p>
-    <p><a href="https://colab.research.google.com/drive/1yeV1JGDjQH8uGDTv1ibCJ4ij5SRSq_fv" target="_blank" rel="noopener noreferrer" style="color: orange;">Week7 & Week8</a></p>
-    <p><a href="https://colab.research.google.com/drive/1x4fFKzO0nZuM2DIIO0oph4ovXPL9HVWe" target="_blank" rel="noopener noreferrer" style="color: teal;">Week9 & Week10</a></p>
-    <p><a href="https://colab.research.google.com/drive/1So6KiV5XCED5wdEd2Ebi0LCWy3FOzHUE" target="_blank" rel="noopener noreferrer" style="color: brown;">Week11 & Week12</a></p>
-    <p><a href="https://colab.research.google.com/drive/1W6UXMHYdw-RIQSyaKY7SROR6CtQFEVjN" target="_blank" rel="noopener noreferrer" style="color: maroon;">Week13 & Week14</a></p>
-    <p><a href="https://colab.research.google.com/drive/1VSHXc0BxNsevjcrwYxks2UslvuQzxTVH?usp=sharing" target="_blank" rel="noopener noreferrer" style="color: navy;">台股資料抓取&資料分析基礎</a></p>
-    <p><a href="https://colab.research.google.com/drive/1ZOrgM0xSartnFDykevjO2scRZAqrNB9-?usp=sharing" target="_blank" rel="noopener noreferrer" style="color: navy;">期末報告2023/06/05-即時交通事故資料</a></p>
-    <p><a href="https://colab.research.google.com/drive/1ueRnCmrn4cR30u1ZZJOKWKLXwIJk2c__" target="_blank" rel="noopener noreferrer" style="color: olive;">期末報告範例-1</a></p>
-    <p><a href="https://colab.research.google.com/drive/1dwBcqEMMsIwCEmeKuJsrUJtUWXnk_J-6" target="_blank" rel="noopener noreferrer" style="color: darkgreen;">期末報告範例-2</a></p>
-    <p><a href="https://drive.google.com/file/d/1ptliJGok5cVJmNiPnGs0oPbZy7ovBCy8/view?usp=sharing" target="_blank" rel="noopener noreferrer" style="color: hotpink;">鐵達尼資料Kaggle網站</a></p>
-    <p><a href="https://www.kaggle.com/code/amoatasem/playernowknown-s-battlegrounds/data?select=test_V2.csv" target="_blank" rel="noopener noreferrer" style="color: darkred;">吃雞資料Kaggle網站</a></p>
-    
-    <li style="font-weight: bold; color: dark;"><span style="color: black;font-size: 1.2em;">•</span> Web Programming 網路多媒體應用</li>
-    <a href="https://colab.research.google.com/drive/1NRgrD_Ep_qAnWJ0x8mMqT3pJOJveu34H" target="_blank" rel="noopener noreferrer" style="color: blue;">Week1 & Week2</a></p>
-    <a href="https://colab.research.google.com/drive/1jmxf6oAUGlADIF26Y20lcoDCUjZVO3Jy" target="_blank" rel="noopener noreferrer" style="color: green;">Week3 & Week4</a></p>
-    <a href="https://colab.research.google.com/drive/1_zTMQ_W0vOEQ9yftpzjTxcsXzwrNyXmm" target="_blank" rel="noopener noreferrer" style="color: orange;">Week5 & Week6</a></p>
-    <a href="https://colab.research.google.com/drive/1SyHMzjsORdA6Jhr2kPS5LxXKEothnsFc" target="_blank" rel="noopener noreferrer" style="color: teal;">Week7 & Week8</a></p>
-    <a href="https://colab.research.google.com/drive/1xiZxdTkRDOv8KZj9_tTsBzttNx4PbCSO" target="_blank" rel="noopener noreferrer" style="color: purple;">Week9 & Week10</a></p>
-    
-    <li style="font-weight: bold; color: dark;"><span style="color: black;font-size: 1.2em;">•</span> ChatGPT/LLM 語言模型prompt 教學</li>
-    <a href="https://halved-reaction-969.notion.site/AI-Chatbot-4d60f4d2e9574b57b95e4c1c30025b2b?pvs=4" target="_blank" rel="noopener noreferrer" style="color: blue;">AI 語言模型 概要</a></p>
-    <a href="https://halved-reaction-969.notion.site/1_-_-85a0e82cc6404ba9985b545f6bca1c73?pvs=4" target="_blank" rel="noopener noreferrer" style="color: green;">1_提示工程_基礎概念</a></p>
-    <a href="https://halved-reaction-969.notion.site/2_-_-2c60fb93eed343a4a9e89918dc30d960?pvs=4" target="_blank" rel="noopener noreferrer" style="color: orange;">2_提示工程_疊代提示</a></p>
-    <a href="https://halved-reaction-969.notion.site/3_-_-d770c970d2b840beaf4a88907cd2ffe8?pvs=4" target="_blank" rel="noopener noreferrer" style="color: teal;">3_提示工程_摘要</a></p>
-    <a href="https://halved-reaction-969.notion.site/4_-_-2032897e49064526ba57bbf3d014e563?pvs=4" target="_blank" rel="noopener noreferrer" style="color: purple;">4_提示工程_推論</a></p>
-    <a href="https://halved-reaction-969.notion.site/5_-_-c49d744ffb2e481da421e533d67bbd4e?pvs=4" target="_blank" rel="noopener noreferrer" style="color: green;">5_提示工程_翻譯</a></p>
-    <a href="https://halved-reaction-969.notion.site/6_-_prompt-9704614f242f41108cec09d3e6660aad?pvs=4" target="_blank" rel="noopener noreferrer" style="color: blue;">6_提示工程_prompt的架構</a></p>
-    
-    <li style="font-weight: bold; color: dark;"><span style="color: black;font-size: 1.2em;">•</span> 行銷企劃實務-Bing撰寫企劃書</li>
-    <p><a href="marketing/Elvis_Bing.docx" target="_blank" style="color: blue;">企劃書_Bing對話紀錄與結果</a>.</p>
-    <li style="font-weight: bold; color: dark;">Research Methods 研究方法</li>
-    <li style="font-weight: bold; color: dark;">Database Management 資料庫管理</li>
-  </ul>
-</section>
-
-
-            <!--===== CONTACT =====-->
-            <section class="contact section" id="contact">
-                <h2 class="section-title">Contact</h2>
-
-                <div class="contact__container bd-grid">
-                    <div class="contact__info">
-                        <h3 class="contact__subtitle">EMAIL</h3>
-                        <span class="contact__text">elvischen@nutc.edu.tw</span>
-
-                        <h3 class="contact__subtitle">PHONE</h3>
-                        <span class="contact__text">+886-422196120</span>
-
-                        <h3 class="contact__subtitle">ADRESS</h3>
-                        <span class="contact__text">404台中市北區三民路三段129號中正大樓7樓3705</span>
-                    </div>
-
-                    <form action="" class="contact__form">
-                        <div class="contact__inputs">
-                            <input type="text" placeholder="Name" class="contact__input">
-                            <input type="mail" placeholder="Email" class="contact__input">
-                        </div>
-
-                        <textarea name="" id="" cols="0" rows="10" class="contact__input"></textarea>
-
-                        <input type="submit" value="Send" class="contact__button">
-                    </form>
-                </div>
-            </section>
-        </main>
-
-        <!--===== FOOTER =====-->
-        <footer class="footer section">
-            <div class="footer__container bd-grid">
-                <div class="footer__data">
-                    <h2 class="footer__title">Elvis Chen</h2>
-                    <p class="footer__text">I'm Dr.Chen and this is my personal website</p>
-                </div>
-
-                <div class="footer__data">
-                    <h2 class="footer__title">EXPLORE</h2>
-                    <ul>
-                        <li><a href="#home" class="footer__link">Home</a></li>
-                        <li><a href="#about" class="footer__link">About</a></li>
-                        <li><a href="#skills" class="footer__link">Skills</a></li>
-                        <li><a href="#portfolio" class="footer__link">Portfolio</a></li>
-                        <li><a href="#Contact" class="footer__link">Contact</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer__data">
-                    <h2 class="footer__title">FOLLOW</h2>
-                    <a href="#" class="footer__social"><i class='bx bxl-facebook' ></i></a>
-                    <a href="#" class="footer__social"><i class='bx bxl-instagram' ></i></a>
-                    <a href="#" class="footer__social"><i class='bx bxl-twitter' ></i></a>
-                </div>
-
-
+<body>
+    <!--===== HEADER =====-->
+    <header class="l-header">
+        <nav class="nav bd-grid">
+            <div>
+                <a href="index.html" class="nav__logo">Elvis Chen</a>
             </div>
-        </footer>
 
-        <!--===== SCROLL REVEAL =====-->
-        <script src="https://unpkg.com/scrollreveal"></script>
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="index.html" class="nav__link">Home</a></li>
+                    <li class="nav__item"><a href="index.html#about" class="nav__link">About</a></li>
+                    <li class="nav__item"><a href="Selected Publications & Conference.html" class="nav__link">Publications</a></li>
+                    <li class="nav__item"><a href="Project.html" class="nav__link">Projects</a></li>
+                    <li class="nav__item"><a href="Award.html" class="nav__link">Awards</a></li>
+                    <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+                </ul>
+            </div>
 
-        <!--===== MAIN JS =====-->
-        <script src="assets/js/main.js"></script>
-    </body>
+            <div class="nav__toggle" id="nav-toggle">
+                <i class='bx bx-menu'></i>
+            </div>
+        </nav>
+    </header>
+
+    <main class="l-main">
+        <!--===== HOME =====-->
+        <section class="home" id="home">
+            <div class="home__container bd-grid">
+                <div class="home__data">
+                    <h1 class="home__title">Teaching<br><span>Materials</span></h1>
+                    <span class="home__subtitle">Courses, Syllabi & Hands-on Lab Resources</span>
+                    <a href="#courses" class="home__button">Explore Courses</a>
+                </div>
+
+                <div class="home__img">
+                    <img src="assets/img/work6-1.jpeg" alt="Teaching Material"
+                        style="border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.12);">
+                </div>
+            </div>
+        </section>
+
+        <!--===== COURSES CONTENT =====-->
+        <section class="section bd-grid" id="courses">
+            <h2 class="section-title">Teaching Materials & Syllabi</h2>
+
+            <!-- Course 1 -->
+            <div class="course-card">
+                <div class="course-title"><i class='bx bx-bar-chart-alt-2' style="color: var(--first-color);"></i> Business Intelligence (智慧商務)</div>
+                <div class="resource-links">
+                    <a href="BI.html" target="_blank" class="res-link">Week 1 & 2 Overview</a>
+                    <a href="https://halved-reaction-969.notion.site/First-Python-Course-1041db49af5880b28827e2b25fcfbcff?pvs=4" target="_blank" class="res-link">Python Week 1 (Notion)</a>
+                    <a href="BI/bi-integration-dashboard (1).html" target="_blank" class="res-link">Week 2 & 3 Integration Dashboard</a>
+                    <a href="BI/data-scaling-explanation.html" target="_blank" class="res-link">Data Scaling & Standardization Guide</a>
+                </div>
+            </div>
+
+            <!-- Course 2 -->
+            <div class="course-card">
+                <div class="course-title"><i class='bx bxl-python' style="color: #38a169;"></i> Programming for Business Computing in Python (程式設計與應用)</div>
+                <div class="resource-links">
+                    <a href="https://colab.research.google.com/drive/15o4H91OUeSQFy5pgpZddcxQybz0FjKO1?usp=sharing" target="_blank" class="res-link">Week 1 & 2 Colab</a>
+                    <a href="https://colab.research.google.com/drive/1scgJAM86fj_Ywoh8pFBO0MeGFjM3SDaE" target="_blank" class="res-link">Week 3 & 4 Colab</a>
+                    <a href="https://colab.research.google.com/drive/1HrnUOG6Zlnp45Qsn7sxS2_qha0Kv71Gh" target="_blank" class="res-link">Week 5 & 6 Colab</a>
+                    <a href="https://colab.research.google.com/drive/1yeV1JGDjQH8uGDTv1ibCJ4ij5SRSq_fv" target="_blank" class="res-link">Week 7 & 8 Colab</a>
+                    <a href="https://colab.research.google.com/drive/1x4fFKzO0nZuM2DIIO0oph4ovXPL9HVWe" target="_blank" class="res-link">Week 9 & 10 Colab</a>
+                    <a href="https://colab.research.google.com/drive/1So6KiV5XCED5wdEd2Ebi0LCWy3FOzHUE" target="_blank" class="res-link">Week 11 & 12 Colab</a>
+                    <a href="https://colab.research.google.com/drive/1W6UXMHYdw-RIQSyaKY7SROR6CtQFEVjN" target="_blank" class="res-link">Week 13 & 14 Colab</a>
+                    <a href="https://colab.research.google.com/drive/1VSHXc0BxNsevjcrwYxks2UslvuQzxTVH?usp=sharing" target="_blank" class="res-link">台股資料分析實務</a>
+                    <a href="https://colab.research.google.com/drive/1ZOrgM0xSartnFDykevjO2scRZAqrNB9-?usp=sharing" target="_blank" class="res-link">即時交通事故分析</a>
+                </div>
+            </div>
+
+            <!-- Course 3 -->
+            <div class="course-card">
+                <div class="course-title"><i class='bx bx-code-alt' style="color: #dd6b20;"></i> Web Programming (網路多媒體應用)</div>
+                <div class="resource-links">
+                    <a href="https://colab.research.google.com/drive/1NRgrD_Ep_qAnWJ0x8mMqT3pJOJveu34H" target="_blank" class="res-link">Week 1 & 2 Colab</a>
+                    <a href="https://colab.research.google.com/drive/1jmxf6oAUGlADIF26Y20lcoDCUjZVO3Jy" target="_blank" class="res-link">Week 3 & 4 Colab</a>
+                    <a href="https://colab.research.google.com/drive/1_zTMQ_W0vOEQ9yftpzjTxcsXzwrNyXmm" target="_blank" class="res-link">Week 5 & 6 Colab</a>
+                    <a href="https://colab.research.google.com/drive/1SyHMzjsORdA6Jhr2kPS5LxXKEothnsFc" target="_blank" class="res-link">Week 7 & 8 Colab</a>
+                    <a href="https://colab.research.google.com/drive/1xiZxdTkRDOv8KZj9_tTsBzttNx4PbCSO" target="_blank" class="res-link">Week 9 & 10 Colab</a>
+                </div>
+            </div>
+
+            <!-- Course 4 -->
+            <div class="course-card">
+                <div class="course-title"><i class='bx bx-bot' style="color: #6C63FF;"></i> ChatGPT & LLM Prompt Engineering (語言模型提示工程教學)</div>
+                <div class="resource-links">
+                    <a href="https://halved-reaction-969.notion.site/AI-Chatbot-4d60f4d2e9574b57b95e4c1c30025b2b?pvs=4" target="_blank" class="res-link">AI 語言模型 概要</a>
+                    <a href="https://halved-reaction-969.notion.site/1_-_-85a0e82cc6404ba9985b545f6bca1c73?pvs=4" target="_blank" class="res-link">1. 提示工程基礎概念</a>
+                    <a href="https://halved-reaction-969.notion.site/2_-_-2c60fb93eed343a4a9e89918dc30d960?pvs=4" target="_blank" class="res-link">2. 疊代提示法</a>
+                    <a href="https://halved-reaction-969.notion.site/3_-_-d770c970d2b840beaf4a88907cd2ffe8?pvs=4" target="_blank" class="res-link">3. 摘要技巧</a>
+                    <a href="https://halved-reaction-969.notion.site/4_-_-2032897e49064526ba57bbf3d014e563?pvs=4" target="_blank" class="res-link">4. 推論結構</a>
+                    <a href="https://halved-reaction-969.notion.site/5_-_-c49d744ffb2e481da421e533d67bbd4e?pvs=4" target="_blank" class="res-link">5. 多語翻譯實務</a>
+                    <a href="https://halved-reaction-969.notion.site/6_-_prompt-9704614f242f41108cec09d3e6660aad?pvs=4" target="_blank" class="res-link">6. Prompt 架構設計</a>
+                </div>
+            </div>
+
+            <!-- Course 5 -->
+            <div class="course-card">
+                <div class="course-title"><i class='bx bx-book-open' style="color: #3182ce;"></i> 其他專業課程 (Other Specializations)</div>
+                <div class="resource-links">
+                    <span class="res-link" style="color: #4a5568;"><i class='bx bx-check'></i> 行銷企劃實務 (Bing/AI 輔助企劃)</span>
+                    <span class="res-link" style="color: #4a5568;"><i class='bx bx-check'></i> Research Methods (研究方法)</span>
+                    <span class="res-link" style="color: #4a5568;"><i class='bx bx-check'></i> Database Management (資料庫管理)</span>
+                </div>
+            </div>
+        </section>
+
+        <!--===== CONTACT =====-->
+        <section class="contact section" id="contact">
+            <h2 class="section-title">Contact</h2>
+
+            <div class="contact__container bd-grid">
+                <div class="contact__info">
+                    <h3 class="contact__subtitle">EMAIL</h3>
+                    <a href="mailto:elvischen@nutc.edu.tw" class="contact__text"
+                        style="color: var(--first-color);">elvischen@nutc.edu.tw</a>
+
+                    <h3 class="contact__subtitle">PHONE</h3>
+                    <span class="contact__text">+886-422196120</span>
+
+                    <h3 class="contact__subtitle">ADDRESS</h3>
+                    <span class="contact__text">404台中市北區三民路三段129號中正大樓7樓3705</span>
+                </div>
+
+                <form action="mailto:elvischen@nutc.edu.tw" method="post" enctype="text/plain" class="contact__form">
+                    <div class="contact__inputs">
+                        <input type="text" placeholder="Name" class="contact__input" required>
+                        <input type="email" placeholder="Email" class="contact__input" required>
+                    </div>
+
+                    <textarea name="message" cols="0" rows="6" class="contact__input"
+                        placeholder="Your Message..." required></textarea>
+
+                    <input type="submit" value="Send Message" class="contact__button">
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!--===== FOOTER =====-->
+    <footer class="footer section">
+        <div class="footer__container bd-grid">
+            <div class="footer__data">
+                <h2 class="footer__title">Elvis Chen</h2>
+                <p class="footer__text">Assistant Professor & Researcher | Director of Net-Zero Division</p>
+            </div>
+
+            <div class="footer__data">
+                <h2 class="footer__title">EXPLORE</h2>
+                <ul>
+                    <li><a href="index.html" class="footer__link">Home</a></li>
+                    <li><a href="index.html#about" class="footer__link">About</a></li>
+                    <li><a href="Selected Publications & Conference.html" class="footer__link">Publications</a></li>
+                    <li><a href="Project.html" class="footer__link">Projects</a></li>
+                    <li><a href="Award.html" class="footer__link">Awards</a></li>
+                </ul>
+            </div>
+
+            <div class="footer__data">
+                <h2 class="footer__title">FOLLOW</h2>
+                <a href="https://orcid.org/0000-0001-6556-2221" target="_blank" class="footer__social" title="ORCID"><i class='bx bx-id-card'></i></a>
+                <a href="https://it.nutc.edu.tw/%E5%B0%88%E4%BB%BB%E6%95%99%E5%B8%AB/" target="_blank" class="footer__social" title="Faculty Profile"><i class='bx bx-link-external'></i></a>
+            </div>
+        </div>
+        <p style="font-size: 0.8rem; margin-top: 2rem; color: #CCC;">&copy; 2026 Elvis Chen. All rights reserved.</p>
+    </footer>
+
+    <!--===== SCROLL REVEAL =====-->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!--===== MAIN JS =====-->
+    <script src="assets/js/main.js"></script>
+</body>
+
 </html>

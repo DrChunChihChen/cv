@@ -1,175 +1,614 @@
 <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en">
 
-        <!-- ===== CSS ===== -->
-        <link rel="stylesheet" href="assets/css/styles.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Selected Publications, Conferences & Academic Services - Dr. Elvis Chen (陳俊智博士)">
 
-        <!-- ===== BOX ICONS ===== -->
-        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+    <!-- ===== CSS ===== -->
+    <link rel="stylesheet" href="assets/css/styles.css">
 
-        <title>Portfolio responsive complete</title>
-    </head>
-    <body>
-        <!--===== HEADER =====-->
-        <header class="l-header">
-            <nav class="nav bd-grid">
-                <div>
-                    <a href="#" class="nav__logo">Elvis Chen</a>
-                </div>
+    <!-- ===== BOX ICONS ===== -->
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
 
-                <div class="nav__menu" id="nav-menu">
-                    <ul class="nav__list">
-                        <li class="nav__item"><a href="index.html" class="nav__link active">Home</a></li>
+    <title>Publications & Academic Services - Dr. Elvis Chen</title>
 
-                        <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
-                    </ul>
-                </div>
+    <style>
+        .pub-section {
+            margin-bottom: 3.5rem;
+            width: 100%;
+        }
 
-                <div class="nav__toggle" id="nav-toggle">
-                    <i class='bx bx-menu'></i>
-                </div>
-            </nav>
-        </header>
+        .pub-cat-title {
+            font-size: 1.3rem;
+            color: var(--first-color);
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 0.5rem;
+        }
 
-        <main class="l-main">
-            <!--===== HOME =====-->
-            <section class="home" id="home">
-                <div class="home__container bd-grid">
-                    <h1 class="home__title"><span>HE</span><br>LLO.</h1>
+        .pub-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
 
-                    <div class="home__scroll">
-                        <a href="#about" class="home__scroll-link"><i class='bx bx-up-arrow-alt' ></i>Scroll down</a>
-                    </div>
+        .pub-card {
+            background: #fff;
+            padding: 1.4rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid #edf2f7;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
 
-                    <img src="assets/img/prefil1.jpg" alt="" class="home__img">
-                </div>
-            </section>
+        .pub-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(108, 99, 255, 0.12);
+        }
 
-            <!--===== ABOUT =====-->
-            <section class="about section" id="about">
-                <h2 class="section-title">Selected Publications, Conference, & Academic service</h2>
-                <h3>Selected Publications</h3>
-<ol>
-<font style="line-height:150%;">
-<li>Chen, C. C., & Pao, H. T. (2024). Circular economy and ecological footprint: a disaggregated analysis for the EU. Ecological Indicators, 160, 111809.<strong>Corresponding author</strong> <a href="https://doi.org/10.1016/j.ecolind.2024.111809" target="_blank" title="Paper Link">DOI Link</a></li>
-<li>Chen, C. C. (2024). Comparative impacts of energy sources on environmental quality: A five-decade analysis of Germany's Energiewende. Energy Reports, 11, 3550-3561.<strong>Single author</strong> <a href="https://doi.org/10.1016/j.egyr.2024.03.027" target="_blank" title="Paper Link">DOI Link</a></li>
-<li>Tseng, H., Lo, C., & Chen, C.* (2023). The Moderation Role of AI-Enabled Service Quality on the Attitude Toward Fitness Apps. Journal of Global Information Management (JGIM), 31(1), 1-20. http://doi.org/10.4018/JGIM.318694 <strong>Corresponding author</strong> <a href="http://doi.org/10.4018/JGIM.318694" target="_blank" title="Paper Link">DOI Link</a>  (33/84-Information science & library science 2021-SSCI)</li>
-<li>Wang, L. C., Chen, C. C*. & Hsu, C. C. (2022). Applying machine learning and GA for process parameter optimization in car steering wheel manufacturing. The International Journal of Advanced Manufacturing Technology. <strong>Corresponding author</strong> <a href="https://doi.org/10.1007/s00170-022-09870-1" target="_blank" title="Paper Link">DOI Link</a>  (25/51-Engineering, manufacturing, 2021-SCI)</li>
-<li>Chen, C. C., & Pao, H. T*. (2022). The causal link between circular economy and economic growth in EU-25. Environmental Science and Pollution Research. <strong>First author</strong> <a href="https://doi.org/10.1007/s11356-022-21010-6" target="_blank" title="Paper Link">DOI Link</a>  (91/274-Environmental Science, 2020-SCI)</li>
-<li>Pao H. T*., & Chen C. C. (2022).The dynamic interaction between circular economy and the environment: Evidence on EU countries. Waste Management & Research. <a href="https://doi.org/10.1177/0734242X211057015" target="_blank" title="Paper Link">DOI Link</a>  (113/274-Environmental Science, 2020 SCI)</li>
-<li>Wang, L. C.*, Chen, C. C., Liu, J. L., & Chu, P. C. (2021). Framework and deployment of a cloud-based advanced planning and scheduling system. Robotics and Computer-Integrated Manufacturing, 70,102088. <a href="https://doi.org/10.1016/j.rcim.2020.102088" target="_blank" title="Paper Link">DOI Link</a>
-(13/109-Computer Science, Interdisciplinary Applications, 2019 SCI)</li>
-<li>Chen, C. C.* (2021). The path to a 2025 nuclear-free Taiwan: An analysis of dynamic competition among emissions, energy, and economy. Energy & Environment, 32(4), 668-689.  <strong>Single author</strong> <a href="https://doi.org/10.1177/0958305X20949981" target="_blank" title="Paper Link">DOI Link</a>
-(92/123-Environmental Studies, 2019 SSCI)</li>
-<li>Pao, H. T*., & Chen, C. C. (2020). Decoupling of environmental pressure and economic growth: evidence from high-income and nuclear-dependent countries. Environmental Science and Pollution Research, 27(5), 5192-5210. <a href=" https://doi.org/10.1007/s11356-019-07122-6" target="_blank" title="Paper Link">DOI Link</a> (99/256-Environmental Science, 2019 SCI)</li>
-<li>Pao, H. T*., & Chen, C. C. (2019). Decoupling strategies: CO2 emissions, energy resources, and economic growth in the Group of Twenty. Journal of Cleaner Production, 206, 907-919.  <strong>< Highly Cited Paper in the top 1% of the academic field of Engineering.> </strong> <a href=" https://doi.org/10.1016/j.jclepro.2018.09.190" target="_blank" title="Paper Link">DOI Link</a>(19/265-Environmental Science, 2019 SCI)</li>
-<li>Wu, Kuang-Wen*, Huang, Shaio Yan, and Chen, Chun Chih (2012). "Comparison of Mobile-Blogging Acceptance between Indonesia and Taiwan," International Journal of Mobile Communications, 10(2), 150–168. <a href=" https://doi.org/10.1504/IJMC.2012.045671" target="_blank" title="Paper Link">DOI Link</a>
-(61/92-Communication, 2019 SSCI)</li>
-</font>
-</ol>
-<h3>Conference</h3>
-<ol>
-<font style="line-height:150%;">
-<li>Chen, C.C*. Circular Economy-Based Machine Learning Model for Municipal Waste Generation in the European Union. "IAM2023 Summer International Conference on Innovation and Management", 2023, Osaka, Japan.</li>
-<li>Wang, L.C., Chen, C.C*., Hsu, C.C. Applying machine learning and GA for process parameter optimization in car steering wheel manufacturing,. "FAIM 2022 International Conference", 2022, Wayne State University, Detroit, USA.</li>
-<li>陳俊智、何子愷，”論脫勾? 未脫勾? 環境、經濟、能源的未來發展 -以七大工業國為例,”2019台灣環境與資源經濟學會年會「氣候變遷下的環境與資源經濟轉型」，2019，台北，台灣。</li>
-<li>Chun Chih Chen, “The path to a 2025 nuclear-free Taiwan” 2nd International Conference on Energy Research and Social Science (poster), 2019, ELSEVIER, Tempe, USA.</li>
-<li>Pao,H.T., Chen,C.C., Fu, H.C., Yu, H.C., “A Novel Nonlinear Forecasting Model for CO2 Emissions, Energy Use, and Economic Growth in Russia” International Conference on Innovation and Management, 2017, Society for Innovation in Management, Tokyo, Japan.</li>
-</font>
-</ol>
+        .pub-title {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 0.4rem;
+            line-height: 1.4;
+        }
 
-<h3>Academic service</h3>
-<td>
-    <p><strong>Guest Editor</strong> for Sustainability Special Issue (2022)(SSCI/SCI)
-        <a href="https://www.mdpi.com/journal/sustainability/special_issues/YBO4M43599" target="_blank" title="Sustainability Special Issue Link" style="color: blue;">
-            Special Issue "Relation and Development between Circular Economy, Economic Growth and Environmental Sustainability"
-        </a>
-    </p>
-</td>
-<td>
-    <p><strong>Guest Editor</strong> for AIMS Environmental Science Special Issue (2021)(ESCI)
-        <a href="https://www.aimspress.com/aimses/article/5980/special-articles" target="_blank" title="AIMS Environmental Science Special Issue Link" style="color: green;">
-            Special Issue: Green innovation, green marketing, and sustainability
-        </a>
-  <h3>Reviewer</h3>
-  <ol>
-     <li>Energy</il>
-     <li>Waste management</il>
-     <li>Journal of Cleaner Production</il>
-     <li>International journal of mobile communications</il>
-     <li>Environmental Science and Pollution Research</il>
-     <li>Economic Analysis and Policy</il>
-  </ol>
+        .pub-authors {
+            font-size: 0.92rem;
+            color: #4a5568;
+            margin-bottom: 0.3rem;
+        }
 
+        .pub-journal {
+            font-size: 0.9rem;
+            color: #718096;
+            font-style: italic;
+            margin-bottom: 0.7rem;
+        }
 
+        .pub-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            align-items: center;
+            margin-top: 0.6rem;
+        }
 
-            <!--===== CONTACT =====-->
-            <section class="contact section" id="contact">
-                <h2 class="section-title">Contact</h2>
+        .badge {
+            display: inline-block;
+            padding: 0.2rem 0.55rem;
+            font-size: 0.75rem;
+            border-radius: 4px;
+            font-weight: 600;
+        }
 
-                <div class="contact__container bd-grid">
-                    <div class="contact__info">
-                        <h3 class="contact__subtitle">EMAIL</h3>
-                        <span class="contact__text">elvischen@nutc.edu.tw</span>
+        .badge-rep {
+            background-color: #6C63FF;
+            color: #fff;
+        }
 
-                        <h3 class="contact__subtitle">PHONE</h3>
-                        <span class="contact__text">+886-422196120</span>
+        .badge-role {
+            background-color: #ebf8ff;
+            color: #2b6cb0;
+            border: 1px solid #bee3f8;
+        }
 
-                        <h3 class="contact__subtitle">ADRESS</h3>
-                        <span class="contact__text">404台中市北區三民路三段129號中正大樓7樓3705</span>
-                    </div>
+        .badge-metric {
+            background-color: #f7fafc;
+            color: #4a5568;
+            border: 1px solid #e2e8f0;
+        }
 
-                    <form action="" class="contact__form">
-                        <div class="contact__inputs">
-                            <input type="text" placeholder="Name" class="contact__input">
-                            <input type="mail" placeholder="Email" class="contact__input">
-                        </div>
+        .badge-highlight {
+            background-color: #feebc8;
+            color: #744210;
+            border: 1px solid #fbd38d;
+        }
 
-                        <textarea name="" id="" cols="0" rows="10" class="contact__input"></textarea>
+        .pub-link-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            font-size: 0.8rem;
+            color: var(--first-color);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            background: #f0f4ff;
+            font-weight: 500;
+            margin-left: auto;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
 
-                        <input type="submit" value="Send" class="contact__button">
-                    </form>
-                </div>
-            </section>
-        </main>
+        .pub-link-btn:hover {
+            background: var(--first-color);
+            color: #fff;
+        }
 
-        <!--===== FOOTER =====-->
-        <footer class="footer section">
-            <div class="footer__container bd-grid">
-                <div class="footer__data">
-                    <h2 class="footer__title">Elvis Chen</h2>
-                    <p class="footer__text">I'm Dr.Chen and this is my personal website</p>
-                </div>
+        .highlight-stat-banner {
+            background: linear-gradient(135deg, #6C63FF 0%, #4070F4 100%);
+            color: #fff;
+            padding: 1.8rem;
+            border-radius: 0.75rem;
+            margin-bottom: 2.5rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
+            text-align: center;
+        }
 
-                <div class="footer__data">
-                    <h2 class="footer__title">EXPLORE</h2>
-                    <ul>
-                        <li><a href="#home" class="footer__link">Home</a></li>
-                        <li><a href="#about" class="footer__link">About</a></li>
-                        <li><a href="#skills" class="footer__link">Skills</a></li>
-                        <li><a href="#portfolio" class="footer__link">Portfolio</a></li>
-                        <li><a href="#Contact" class="footer__link">Contact</a></li>
-                    </ul>
-                </div>
+        .stat-box h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.2rem;
+            color: #fff;
+        }
 
-                <div class="footer__data">
-                    <h2 class="footer__title">FOLLOW</h2>
-                    <a href="#" class="footer__social"><i class='bx bxl-facebook' ></i></a>
-                    <a href="#" class="footer__social"><i class='bx bxl-instagram' ></i></a>
-                    <a href="#" class="footer__social"><i class='bx bxl-twitter' ></i></a>
-                </div>
+        .stat-box p {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
 
+        .service-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+        }
 
+        .service-card {
+            background: #fff;
+            padding: 1.2rem;
+            border-radius: 0.5rem;
+            border: 1px solid #edf2f7;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .service-card h4 {
+            color: #2d3748;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+
+<body>
+    <!--===== HEADER =====-->
+    <header class="l-header">
+        <nav class="nav bd-grid">
+            <div>
+                <a href="index.html" class="nav__logo">Elvis Chen</a>
             </div>
-        </footer>
 
-        <!--===== SCROLL REVEAL =====-->
-        <script src="https://unpkg.com/scrollreveal"></script>
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="index.html" class="nav__link">Home</a></li>
+                    <li class="nav__item"><a href="index.html#about" class="nav__link">About</a></li>
+                    <li class="nav__item"><a href="Selected Publications & Conference.html" class="nav__link active">Publications</a></li>
+                    <li class="nav__item"><a href="Project.html" class="nav__link">Projects</a></li>
+                    <li class="nav__item"><a href="Award.html" class="nav__link">Awards</a></li>
+                    <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+                </ul>
+            </div>
 
-        <!--===== MAIN JS =====-->
-        <script src="assets/js/main.js"></script>
-    </body>
+            <div class="nav__toggle" id="nav-toggle">
+                <i class='bx bx-menu'></i>
+            </div>
+        </nav>
+    </header>
+
+    <main class="l-main">
+        <!--===== HOME INTRO =====-->
+        <section class="home" id="home">
+            <div class="home__container bd-grid">
+                <div class="home__data">
+                    <h1 class="home__title">Academic<br><span>Publications</span></h1>
+                    <span class="home__subtitle">Peer-Reviewed Journals, Conferences & Academic Services</span>
+                    <div style="margin-top: 1rem; display: flex; gap: 0.8rem; flex-wrap: wrap;">
+                        <a href="https://orcid.org/0000-0001-6556-2221" target="_blank" class="home__button"
+                            style="padding: 0.6rem 1.2rem; font-size: 0.85rem;">
+                            <i class='bx bx-id-card'></i> ORCID Profile
+                        </a>
+                        <a href="#journal-papers" class="home__button"
+                            style="background: #fff; color: var(--first-color); border: 2px solid var(--first-color); padding: 0.6rem 1.2rem; font-size: 0.85rem;">
+                            View Papers
+                        </a>
+                    </div>
+                </div>
+
+                <div class="home__img">
+                    <img src="assets/img/work1-1.jpeg" alt="Publications"
+                        style="border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.12);">
+                </div>
+            </div>
+        </section>
+
+        <!--===== CONTENT =====-->
+        <section class="section bd-grid" id="journal-papers">
+            <h2 class="section-title">Publications & Academic Services</h2>
+
+            <!-- Metric Highlights -->
+            <div class="highlight-stat-banner">
+                <div class="stat-box">
+                    <h3>12+ Papers</h3>
+                    <p>SCI / SSCI Peer-Reviewed Journals</p>
+                </div>
+                <div class="stat-box">
+                    <h3>Top 1% ESI</h3>
+                    <p>Highly Cited Paper in Engineering</p>
+                </div>
+                <div class="stat-box">
+                    <h3>Q1 / Q2</h3>
+                    <p>Dominant Journal Tiers</p>
+                </div>
+                <div class="stat-box">
+                    <h3>8+ Journals</h3>
+                    <p>International Peer Reviewer</p>
+                </div>
+            </div>
+
+            <!-- 1. 助理教授任內發表著作 -->
+            <div class="pub-section">
+                <h3 class="pub-cat-title"><i class='bx bx-bookmark-star'></i> 助理教授任內發表著作 (Assistant Professor Tenure, 2022.08 - Present)</h3>
+                <ul class="pub-list">
+                    <!-- 2026 Paper -->
+                    <li class="pub-card">
+                        <div class="pub-title">Decomposing the "clean" energy paradox: Carbon versus land ecological footprints in G7 nations</div>
+                        <div class="pub-authors">Chen, C. C.*, & Pao, H. T. (2026)</div>
+                        <div class="pub-journal">Energy Exploration & Exploitation, SAGE Publications.</div>
+                        <div class="pub-badges">
+                            <span class="badge badge-highlight">2026 最新發表</span>
+                            <span class="badge badge-role">第一作者 & 通訊作者</span>
+                            <span class="badge badge-metric">SCI, JCR Q3 (Energy & Fuels)</span>
+                            <a href="https://doi.org/10.1177/01445987261464226" target="_blank" class="pub-link-btn">
+                                <i class='bx bx-link-external'></i> DOI Link
+                            </a>
+                        </div>
+                    </li>
+
+                    <!-- 2024 代表作 -->
+                    <li class="pub-card" style="border-left: 4px solid var(--first-color);">
+                        <div class="pub-title">Circular economy and ecological footprint: A disaggregated analysis for the EU</div>
+                        <div class="pub-authors">Chen, C. C.*, & Pao, H. T. (2024)</div>
+                        <div class="pub-journal">Ecological Indicators, 160, 111809.</div>
+                        <div class="pub-badges">
+                            <span class="badge badge-rep">升等代表作</span>
+                            <span class="badge badge-role">第一作者 & 通訊作者</span>
+                            <span class="badge badge-metric">SCI, Impact Factor: 6.9, JCR: 45/374 (Q1)</span>
+                            <span class="badge badge-metric">被引 19 次</span>
+                            <a href="https://doi.org/10.1016/j.ecolind.2024.111809" target="_blank" class="pub-link-btn">
+                                <i class='bx bx-link-external'></i> DOI Link
+                            </a>
+                        </div>
+                    </li>
+
+                    <!-- 2024 Energy Reports -->
+                    <li class="pub-card">
+                        <div class="pub-title">Comparative impacts of energy sources on environmental quality: A five-decade analysis of Germany's Energiewende</div>
+                        <div class="pub-authors">Chen, C. C. (2024)</div>
+                        <div class="pub-journal">Energy Reports, 11, 2283-2295.</div>
+                        <div class="pub-badges">
+                            <span class="badge badge-role">單一作者 (Single Author)</span>
+                            <span class="badge badge-metric">SCI, Impact Factor: 5.0, JCR: 78/182 (Q2)</span>
+                            <span class="badge badge-metric">被引 25 次</span>
+                            <a href="https://doi.org/10.1016/j.egyr.2024.03.027" target="_blank" class="pub-link-btn">
+                                <i class='bx bx-link-external'></i> DOI Link
+                            </a>
+                        </div>
+                    </li>
+
+                    <!-- 2023 JGIM -->
+                    <li class="pub-card">
+                        <div class="pub-title">The moderation role of AI-enabled service quality on the attitude toward fitness apps</div>
+                        <div class="pub-authors">Tseng, H. T., Lo, C. L., & Chen, C. C*. (2023)</div>
+                        <div class="pub-journal">Journal of Global Information Management (JGIM), 31(1), 1-20.</div>
+                        <div class="pub-badges">
+                            <span class="badge badge-role">通訊作者 (Corresponding Author)</span>
+                            <span class="badge badge-metric">SSCI, Impact Factor: 5.8, JCR: 24/161 (Q1)</span>
+                            <span class="badge badge-metric">被引 17 次</span>
+                            <a href="http://doi.org/10.4018/JGIM.318694" target="_blank" class="pub-link-btn">
+                                <i class='bx bx-link-external'></i> DOI Link
+                            </a>
+                        </div>
+                    </li>
+
+                    <!-- 2022 IJAMT -->
+                    <li class="pub-card">
+                        <div class="pub-title">Applying machine learning and GA for process parameter optimization in car steering wheel manufacturing</div>
+                        <div class="pub-authors">Wang, L. C., Chen, C. C*., & Hsu, C. C. (2022)</div>
+                        <div class="pub-journal">The International Journal of Advanced Manufacturing Technology, 122(11), 4389-4403.</div>
+                        <div class="pub-badges">
+                            <span class="badge badge-role">第二作者 & 通訊作者</span>
+                            <span class="badge badge-metric">SCI, Impact Factor: 3.1, JCR: 29/65 (Q2)</span>
+                            <span class="badge badge-metric">被引 10 次</span>
+                            <a href="https://doi.org/10.1007/s00170-022-09870-1" target="_blank" class="pub-link-btn">
+                                <i class='bx bx-link-external'></i> DOI Link
+                            </a>
+                        </div>
+                    </li>
+
+                    <!-- 2022 ESPR -->
+                    <li class="pub-card">
+                        <div class="pub-title">The causal link between circular economy and economic growth in EU-25</div>
+                        <div class="pub-authors">Chen, C. C., & Pao, H. T*. (2022)</div>
+                        <div class="pub-journal">Environmental Science and Pollution Research, 29(44), 67202-67216.</div>
+                        <div class="pub-badges">
+                            <span class="badge badge-role">第一作者 (First Author)</span>
+                            <span class="badge badge-metric">SCI, Impact Factor: 5.8, JCR: 87/334 (Q2)</span>
+                            <span class="badge badge-metric">被引 35 次</span>
+                            <a href="https://doi.org/10.1007/s11356-022-21010-6" target="_blank" class="pub-link-btn">
+                                <i class='bx bx-link-external'></i> DOI Link
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 2. 博士後與博士班期間代表著作 -->
+            <div class="pub-section">
+                <h3 class="pub-cat-title"><i class='bx bx-archive'></i> 博士後與博士班期間代表著作 (Postdoc & PhD Period, 2015 - 2022)</h3>
+                <ul class="pub-list">
+                    <!-- 2022 Waste Management -->
+                    <li class="pub-card">
+                        <div class="pub-title">The dynamic interaction between circular economy and the environment: Evidence on EU countries</div>
+                        <div class="pub-authors">Pao, H. T., & Chen, C. C. (2022)</div>
+                        <div class="pub-journal">Waste Management & Research, 40(7), 969-979.</div>
+                        <div class="pub-badges">
+                            <span class="badge badge-role">第二作者</span>
+                            <span class="badge badge-metric">SCI, IF: 4.4, JCR: 114/275 (Q2)</span>
+                            <span class="badge badge-metric">被引 28 次</span>
+                            <a href="https://doi.org/10.1177/0734242X211057015" target="_blank" class="pub-link-btn">
+                                <i class='bx bx-link-external'></i> DOI Link
+                            </a>
+                        </div>
+                    </li>
+
+                    <!-- 2021 RCIM -->
+                    <li class="pub-card">
+                        <div class="pub-title">Framework and deployment of a cloud-based advanced planning and scheduling system</div>
+                        <div class="pub-authors">Wang, L. C., Chen, C. C., Liu, J. L., & Chu, P. C. (2021)</div>
+                        <div class="pub-journal">Robotics and Computer-Integrated Manufacturing, 70, 102088.</div>
+                        <div class="pub-badges">
+                            <span class="badge badge-role">第二作者</span>
+                            <span class="badge badge-metric">SCI, IF: 10.1, JCR: 8/112 (Q1)</span>
+                            <span class="badge badge-metric">被引 62 次</span>
+                            <a href="https://doi.org/10.1016/j.rcim.2020.102088" target="_blank" class="pub-link-btn">
+                                <i class='bx bx-link-external'></i> DOI Link
+                            </a>
+                        </div>
+                    </li>
+
+                    <!-- 2021 Energy & Environment -->
+                    <li class="pub-card">
+                        <div class="pub-title">The path to a 2025 nuclear-free Taiwan: An analysis of dynamic competition among emissions, energy, and economy</div>
+                        <div class="pub-authors">Chen, C. C. (2021)</div>
+                        <div class="pub-journal">Energy & Environment, 32(4), 668-689.</div>
+                        <div class="pub-badges">
+                            <span class="badge badge-role">單一作者 (Single Author)</span>
+                            <span class="badge badge-metric">SSCI, IF: 2.9, JCR: 74/128 (Q3)</span>
+                            <span class="badge badge-metric">被引 5 次</span>
+                            <a href="https://doi.org/10.1177/0958305X20949981" target="_blank" class="pub-link-btn">
+                                <i class='bx bx-link-external'></i> DOI Link
+                            </a>
+                        </div>
+                    </li>
+
+                    <!-- 2020 ESPR -->
+                    <li class="pub-card">
+                        <div class="pub-title">Decoupling of environmental pressure and economic growth: evidence from high-income and nuclear-dependent countries</div>
+                        <div class="pub-authors">Pao, H. T., & Chen, C. C. (2020)</div>
+                        <div class="pub-journal">Environmental Science and Pollution Research, 27(5), 5192-5210.</div>
+                        <div class="pub-badges">
+                            <span class="badge badge-role">第二作者</span>
+                            <span class="badge badge-metric">SCI, IF: 3.1, JCR: 110/306 (Q2)</span>
+                            <span class="badge badge-metric">被引 10 次</span>
+                            <a href="https://doi.org/10.1007/s11356-019-07122-6" target="_blank" class="pub-link-btn">
+                                <i class='bx bx-link-external'></i> DOI Link
+                            </a>
+                        </div>
+                    </li>
+
+                    <!-- 2019 JCLP Highly Cited -->
+                    <li class="pub-card" style="border-left: 4px solid #f6ad55;">
+                        <div class="pub-title">Decoupling strategies: CO2 emissions, energy resources, and economic growth in the Group of Twenty</div>
+                        <div class="pub-authors">Pao, H. T., & Chen, C. C. (2019)</div>
+                        <div class="pub-journal">Journal of Cleaner Production, 206, 907-919.</div>
+                        <div class="pub-badges">
+                            <span class="badge badge-highlight"><i class='bx bxs-flame'></i> ESI Top 1% Highly Cited Paper</span>
+                            <span class="badge badge-role">第二作者</span>
+                            <span class="badge badge-metric">SCI, IF: 7.2, JCR: 19/265 (Q1)</span>
+                            <span class="badge badge-metric">被引 205 次</span>
+                            <a href="https://doi.org/10.1016/j.jclepro.2018.09.190" target="_blank" class="pub-link-btn">
+                                <i class='bx bx-link-external'></i> DOI Link
+                            </a>
+                        </div>
+                    </li>
+
+                    <!-- 2012 IJMC -->
+                    <li class="pub-card">
+                        <div class="pub-title">Comparison of Mobile-Blogging Acceptance between Indonesia and Taiwan</div>
+                        <div class="pub-authors">Wu, K. W.*, Huang, S. Y., & Chen, C. C. (2012)</div>
+                        <div class="pub-journal">International Journal of Mobile Communications, 10(2), 150–168.</div>
+                        <div class="pub-badges">
+                            <span class="badge badge-role">共同作者</span>
+                            <span class="badge badge-metric">SSCI (Communication)</span>
+                            <a href="https://doi.org/10.1504/IJMC.2012.045671" target="_blank" class="pub-link-btn">
+                                <i class='bx bx-link-external'></i> DOI Link
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 3. 國際研討會論文 -->
+            <div class="pub-section">
+                <h3 class="pub-cat-title"><i class='bx bx-conversation'></i> 研討會論文 (Conference Presentations)</h3>
+                <ul class="pub-list">
+                    <li class="pub-card">
+                        <div class="pub-title">Circular Economy-Based Machine Learning Model for Municipal Waste Generation in the European Union</div>
+                        <div class="pub-authors">Chen, C. C*. (2023)</div>
+                        <div class="pub-journal">IAM2023 Summer International Conference on Innovation and Management, Osaka, Japan.</div>
+                    </li>
+                    <li class="pub-card">
+                        <div class="pub-title">Applying machine learning and GA for process parameter optimization in car steering wheel manufacturing</div>
+                        <div class="pub-authors">Wang, L. C., Chen, C. C*., & Hsu, C. C. (2022)</div>
+                        <div class="pub-journal">FAIM 2022 International Conference, Wayne State University, Detroit, USA.</div>
+                    </li>
+                    <li class="pub-card">
+                        <div class="pub-title">論脫鉤？未脫鉤？環境、經濟、能源的未來發展 — 以七大工業國為例</div>
+                        <div class="pub-authors">陳俊智、何子愷 (2019)</div>
+                        <div class="pub-journal">2019 台灣環境與資源經濟學會年會「氣候變遷下的環境與資源經濟轉型」，台北，台灣。</div>
+                    </li>
+                    <li class="pub-card">
+                        <div class="pub-title">The path to a 2025 nuclear-free Taiwan</div>
+                        <div class="pub-authors">Chen, C. C. (2019)</div>
+                        <div class="pub-journal">2nd International Conference on Energy Research and Social Science (Poster), ELSEVIER, Tempe, USA.</div>
+                    </li>
+                    <li class="pub-card">
+                        <div class="pub-title">A Novel Nonlinear Forecasting Model for CO2 Emissions, Energy Use, and Economic Growth in Russia</div>
+                        <div class="pub-authors">Pao, H. T., Chen, C. C., Fu, H. C., & Yu, H. C. (2017)</div>
+                        <div class="pub-journal">International Conference on Innovation and Management, Tokyo, Japan.</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 4. 學術審查與專業服務 -->
+            <div class="pub-section">
+                <h3 class="pub-cat-title"><i class='bx bx-check-shield'></i> 學術審查與專業服務 (Academic Services & Peer Reviewer)</h3>
+                
+                <h4 style="font-size: 1.05rem; color: #2d3748; margin-bottom: 0.8rem;">國際頂級學術期刊審查委員 (Journal Reviewer)</h4>
+                <div class="service-list" style="margin-bottom: 2rem;">
+                    <div class="service-card">
+                        <h4><i class='bx bx-badge-check' style="color: var(--first-color);"></i> Ecological Indicators</h4>
+                        <span style="font-size: 0.85rem; color: #718096;">SCI / Q1 (2024 - 迄今)</span>
+                    </div>
+                    <div class="service-card">
+                        <h4><i class='bx bx-badge-check' style="color: var(--first-color);"></i> Journal of Cleaner Production</h4>
+                        <span style="font-size: 0.85rem; color: #718096;">SCI / Q1 (2024 - 迄今)</span>
+                    </div>
+                    <div class="service-card">
+                        <h4><i class='bx bx-badge-check' style="color: var(--first-color);"></i> Sustainable Cities and Society</h4>
+                        <span style="font-size: 0.85rem; color: #718096;">SCI / Q1 (2024 - 迄今)</span>
+                    </div>
+                    <div class="service-card">
+                        <h4><i class='bx bx-badge-check' style="color: var(--first-color);"></i> Energy</h4>
+                        <span style="font-size: 0.85rem; color: #718096;">SCI / Q1 (2021 - 迄今)</span>
+                    </div>
+                    <div class="service-card">
+                        <h4><i class='bx bx-badge-check' style="color: var(--first-color);"></i> Env. Science & Pollution Research</h4>
+                        <span style="font-size: 0.85rem; color: #718096;">SCI / Q2 (2022 - 迄今)</span>
+                    </div>
+                    <div class="service-card">
+                        <h4><i class='bx bx-badge-check' style="color: var(--first-color);"></i> Waste Management & Research</h4>
+                        <span style="font-size: 0.85rem; color: #718096;">SCI / Q2</span>
+                    </div>
+                    <div class="service-card">
+                        <h4><i class='bx bx-badge-check' style="color: var(--first-color);"></i> Economic Analysis and Policy</h4>
+                        <span style="font-size: 0.85rem; color: #718096;">SSCI / Q1</span>
+                    </div>
+                    <div class="service-card">
+                        <h4><i class='bx bx-badge-check' style="color: var(--first-color);"></i> Int. Journal of Mobile Comm.</h4>
+                        <span style="font-size: 0.85rem; color: #718096;">SSCI</span>
+                    </div>
+                </div>
+
+                <h4 style="font-size: 1.05rem; color: #2d3748; margin-bottom: 0.8rem;">學位論文口試與特刊編輯委員 (Dissertation Defense & Guest Editor)</h4>
+                <div class="service-list">
+                    <div class="service-card">
+                        <h4>博士學位論文口試委員</h4>
+                        <p style="font-size: 0.85rem; color: #4a5568;">東海大學工業工程學系 博士論文口試委員 (2024)</p>
+                    </div>
+                    <div class="service-card">
+                        <h4>碩士學位論文口試委員</h4>
+                        <p style="font-size: 0.85rem; color: #4a5568;">逢甲大學國際經營與貿易學系 碩士論文口試委員 (2024)</p>
+                    </div>
+                    <div class="service-card">
+                        <h4>Guest Editor (特刊客座編輯)</h4>
+                        <p style="font-size: 0.85rem; color: #4a5568;">
+                            <strong>Sustainability</strong> (SSCI/SCI, 2022) 特刊: "Relation and Development between Circular Economy, Economic Growth and Environmental Sustainability"
+                        </p>
+                    </div>
+                    <div class="service-card">
+                        <h4>Guest Editor (特刊客座編輯)</h4>
+                        <p style="font-size: 0.85rem; color: #4a5568;">
+                            <strong>AIMS Environmental Science</strong> (ESCI, 2021) 特刊: "Green innovation, green marketing, and sustainability"
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--===== CONTACT =====-->
+        <section class="contact section" id="contact">
+            <h2 class="section-title">Contact</h2>
+
+            <div class="contact__container bd-grid">
+                <div class="contact__info">
+                    <h3 class="contact__subtitle">EMAIL</h3>
+                    <a href="mailto:elvischen@nutc.edu.tw" class="contact__text"
+                        style="color: var(--first-color);">elvischen@nutc.edu.tw</a>
+
+                    <h3 class="contact__subtitle">PHONE</h3>
+                    <span class="contact__text">+886-422196120</span>
+
+                    <h3 class="contact__subtitle">ADDRESS</h3>
+                    <span class="contact__text">404台中市北區三民路三段129號中正大樓7樓3705</span>
+                </div>
+
+                <form action="mailto:elvischen@nutc.edu.tw" method="post" enctype="text/plain" class="contact__form">
+                    <div class="contact__inputs">
+                        <input type="text" name="name" placeholder="Name" class="contact__input" required>
+                        <input type="email" name="email" placeholder="Email" class="contact__input" required>
+                    </div>
+
+                    <textarea name="message" cols="0" rows="6" class="contact__input"
+                        placeholder="Your Message..." required></textarea>
+
+                    <input type="submit" value="Send Message" class="contact__button">
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!--===== FOOTER =====-->
+    <footer class="footer section">
+        <div class="footer__container bd-grid">
+            <div class="footer__data">
+                <h2 class="footer__title">Elvis Chen</h2>
+                <p class="footer__text">Assistant Professor & Researcher</p>
+            </div>
+
+            <div class="footer__data">
+                <h2 class="footer__title">EXPLORE</h2>
+                <ul>
+                    <li><a href="index.html" class="footer__link">Home</a></li>
+                    <li><a href="index.html#about" class="footer__link">About</a></li>
+                    <li><a href="Selected Publications & Conference.html" class="footer__link">Publications</a></li>
+                    <li><a href="Project.html" class="footer__link">Projects</a></li>
+                    <li><a href="Award.html" class="footer__link">Awards</a></li>
+                </ul>
+            </div>
+
+            <div class="footer__data">
+                <h2 class="footer__title">FOLLOW</h2>
+                <a href="https://orcid.org/0000-0001-6556-2221" target="_blank" class="footer__social" title="ORCID"><i class='bx bx-id-card'></i></a>
+                <a href="https://it.nutc.edu.tw/%E5%B0%88%E4%BB%BB%E6%95%99%E5%B8%AB/" target="_blank" class="footer__social" title="Faculty Profile"><i class='bx bx-link-external'></i></a>
+            </div>
+        </div>
+        <p style="font-size: 0.8rem; margin-top: 2rem; color: #CCC;">&copy; 2026 Elvis Chen. All rights reserved.</p>
+    </footer>
+
+    <!--===== SCROLL REVEAL =====-->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!--===== MAIN JS =====-->
+    <script src="assets/js/main.js"></script>
+</body>
+
 </html>
