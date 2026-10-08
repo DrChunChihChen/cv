@@ -32,6 +32,23 @@
 
 ---
 
+## 🤖 Intelligent Commerce & Multi-Agent Systems Lab (智慧商務多代理人實驗室)
+
+> **「探索 Agent 在商業、創業與創新的無限可能。」**  
+> 主持人：陳俊智 副教授 (Dr. Chun-Chih Chen) | 國立臺中科技大學 國際貿易與經營系
+
+<p align="center">
+  <a href="https://drchunchihchen.github.io/cv/#laboratory">
+    <img src="assets/img/icma_poster_editorial_light.png" alt="ICMA Lab Architecture Poster" width="550" style="border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.12);" />
+  </a>
+</p>
+
+* **核心技術**：LLM Multi-Agent 自主協同協議 (AutoGen / CrewAI)、跨國商務賽局運籌、企業級自動化工作流 (n8n Engine)。
+* **運算資源**：配備 **NVIDIA DGX × 3** 旗艦算力中心。
+* **招生與人才招募**：歡迎對 AI 代理人應用、商業自動化與創新創業有熱忱的同學加入！([申請加入](mailto:elvischen@nutc.edu.tw?subject=申請加入智慧商務多代理人實驗室))
+
+---
+
 ## 🔬 Core Research Dual Tracks (整合性研究雙主軸)
 
 ```

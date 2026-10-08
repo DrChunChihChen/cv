@@ -14,14 +14,14 @@
     <meta property="og:url" content="https://drchunchihchen.github.io/cv/">
     <meta property="og:title" content="Dr. Chun-Chih Chen (陳俊智 博士) | 個人學術與科研成果網">
     <meta property="og:description" content="國立臺中科技大學 國際貿易與經營系 專任副教授 / 商業智慧應用與研究中心主任 / 智慧商務多代理人實驗室主持人。">
-    <meta property="og:image" content="https://drchunchihchen.github.io/cv/assets/img/Elvis_01.png">
+    <meta property="og:image" content="https://drchunchihchen.github.io/cv/assets/img/icma_poster_editorial_light.png">
 
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://drchunchihchen.github.io/cv/">
     <meta name="twitter:title" content="Dr. Chun-Chih Chen (陳俊智 博士) | 個人學術與科研成果網">
     <meta name="twitter:description" content="國立臺中科技大學 國際貿易與經營系 專任副教授 / 商業智慧應用與研究中心主任 / 智慧商務多代理人實驗室主持人。">
-    <meta name="twitter:image" content="https://drchunchihchen.github.io/cv/assets/img/Elvis_01.png">
+    <meta name="twitter:image" content="https://drchunchihchen.github.io/cv/assets/img/icma_poster_editorial_light.png">
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
@@ -139,6 +139,211 @@
             border-color: var(--first-color);
             color: var(--first-color);
             transform: translateY(-1px);
+        }
+
+        /* ===== LAB SHOWCASE CARD ===== */
+        .lab-showcase-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 1.25rem;
+            box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.06);
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 1.15fr;
+            align-items: center;
+            gap: 2.25rem;
+            padding: 2.25rem;
+        }
+
+        .lab-poster-wrap {
+            position: relative;
+            border-radius: 0.85rem;
+            overflow: hidden;
+            box-shadow: 0 8px 24px -4px rgba(15, 23, 42, 0.12);
+            border: 1px solid #e2e8f0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: block;
+            text-decoration: none;
+        }
+
+        .lab-poster-wrap:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 36px -6px rgba(15, 23, 42, 0.18);
+        }
+
+        .lab-poster-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            aspect-ratio: 4 / 5;
+            object-fit: cover;
+        }
+
+        .poster-badge-hover {
+            position: absolute;
+            bottom: 12px;
+            right: 12px;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(8px);
+            color: #ffffff;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 5px 10px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            opacity: 0.9;
+        }
+
+        .lab-info-col {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 1.15rem;
+        }
+
+        .lab-meta-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: rgba(37, 99, 235, 0.08);
+            border: 1px solid rgba(37, 99, 235, 0.2);
+            color: #1d4ed8;
+            padding: 0.3rem 0.85rem;
+            border-radius: 20px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            width: fit-content;
+        }
+
+        .lab-headline {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #0f172a;
+            line-height: 1.3;
+        }
+
+        .lab-slogan {
+            font-size: 1.12rem;
+            font-weight: 700;
+            color: #2563eb;
+            line-height: 1.45;
+            margin-top: 0.25rem;
+        }
+
+        .lab-desc {
+            color: #475569;
+            font-size: 0.95rem;
+            line-height: 1.65;
+            margin: 0;
+        }
+
+        .lab-compute-bar {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            padding: 0.65rem 1rem;
+            border-radius: 0.75rem;
+        }
+
+        .compute-icon {
+            font-size: 1.35rem;
+            color: #16a34a;
+            flex-shrink: 0;
+        }
+
+        .compute-text {
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: #15803d;
+        }
+
+        .compute-sub {
+            font-size: 0.76rem;
+            color: #4b5563;
+            display: block;
+        }
+
+        .lab-recruitment-box {
+            background: #fffbeb;
+            border: 1px solid #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 0.85rem 1.1rem;
+            border-radius: 0.6rem;
+            font-size: 0.92rem;
+            color: #92400e;
+            line-height: 1.5;
+        }
+
+        .lab-recruitment-box strong {
+            color: #b45309;
+        }
+
+        .lab-action-row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.75rem;
+            margin-top: 0.25rem;
+        }
+
+        .lab-btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #0f172a;
+            color: #ffffff;
+            padding: 0.65rem 1.3rem;
+            border-radius: 0.65rem;
+            font-size: 0.88rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .lab-btn-primary:hover {
+            background: #2563eb;
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+        }
+
+        .lab-btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #ffffff;
+            color: #334155;
+            border: 1px solid #cbd5e1;
+            padding: 0.65rem 1.15rem;
+            border-radius: 0.65rem;
+            font-size: 0.88rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .lab-btn-secondary:hover {
+            background: #f8fafc;
+            border-color: #94a3b8;
+            color: #0f172a;
+        }
+
+        @media screen and (max-width: 768px) {
+            .lab-showcase-card {
+                grid-template-columns: 1fr;
+                padding: 1.5rem 1.25rem;
+                gap: 1.5rem;
+            }
+            .lab-headline {
+                font-size: 1.35rem;
+            }
+            .lab-slogan {
+                font-size: 1.02rem;
+            }
         }
     </style>
 </head>
@@ -444,49 +649,53 @@
         <section class="section bd-grid" id="laboratory" style="padding-top: 2rem;">
             <h2 class="section-title">智慧商務多代理人實驗室</h2>
 
-            <div class="lab-container-box" style="background: linear-gradient(135deg, #1e1b4b 0%, #312e81 60%, #1e293b 100%); color: #ffffff; border-radius: 1rem; padding: 2.2rem 2rem; box-shadow: 0 10px 25px rgba(30, 27, 75, 0.25); position: relative; overflow: hidden;">
-                <div style="position: absolute; right: -20px; bottom: -20px; font-size: 10rem; opacity: 0.05; pointer-events: none; color: #fff;">
-                    <i class='bx bx-bot'></i>
-                </div>
-                
-                <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1.25rem; margin-bottom: 1.5rem;">
+            <div class="lab-showcase-card">
+                <!-- Left: Poster Visual Frame -->
+                <a href="assets/img/icma_poster_editorial_light.png" target="_blank" class="lab-poster-wrap" title="點擊檢視高清架構大圖">
+                    <img src="assets/img/icma_poster_editorial_light.png" alt="ICMA Lab 智慧商務多代理人實驗室架構海報" class="lab-poster-img" />
+                    <div class="poster-badge-hover">
+                        <i class='bx bx-zoom-in'></i> 點擊放大架構圖
+                    </div>
+                </a>
+
+                <!-- Right: Concise Essence Content -->
+                <div class="lab-info-col">
+                    <span class="lab-meta-badge">
+                        <i class='bx bx-brain'></i> ICMA Lab // 國立臺中科技大學 國際貿易與經營系
+                    </span>
+
                     <div>
-                        <span style="display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(99, 102, 241, 0.3); border: 1px solid rgba(165, 180, 252, 0.4); color: #c7d2fe; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.82rem; font-weight: 600; margin-bottom: 0.6rem;">
-                            <i class='bx bx-brain'></i> Intelligent Commerce & Multi-Agent Systems Lab (ICMA Lab)
-                        </span>
-                        <h3 style="font-size: 1.65rem; color: #ffffff; margin-bottom: 0.35rem; font-weight: 700;">智慧商務多代理人實驗室</h3>
-                        <p style="color: #cbd5e1; font-size: 0.95rem; margin: 0;">
-                            主持人：陳俊智 副教授 (Dr. Chun-Chih Chen) | 國立臺中科技大學 國際貿易與經營系
-                        </p>
+                        <h3 class="lab-headline">智慧商務多代理人實驗室</h3>
+                        <p class="lab-slogan">「探索 Agent 在商業、創業與創新的無限可能。」</p>
                     </div>
 
-                    <div style="background: rgba(255, 255, 255, 0.08); backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.2); padding: 0.85rem 1.4rem; border-radius: 0.75rem; text-align: center;">
-                        <span style="font-size: 0.75rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 0.2rem;">頂尖運算設備</span>
-                        <span style="font-size: 1.3rem; font-weight: 700; color: #38bdf8; display: inline-flex; align-items: center; gap: 0.4rem;">
-                            <i class='bx bx-server'></i> NVIDIA DGX &times; 3
-                        </span>
-                    </div>
-                </div>
-
-                <div style="background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 0.75rem; padding: 1.25rem 1.5rem; margin-bottom: 1.5rem;">
-                    <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; color: #a5b4fc; font-weight: 600;">
-                        <i class='bx bx-target-lock' style="font-size: 1.25rem;"></i> 實驗室宗旨與研究方向
-                    </div>
-                    <p style="color: #f1f5f9; font-size: 1.05rem; line-height: 1.7; margin: 0;">
-                        <strong>探索 Agent 在商業、創業、創新應用的可能。</strong> 結合最新大型語言模型 (LLM)、多代理人自主協同 (Multi-Agent Workflows)、工作流自動化 (n8n / Make) 與商業運籌決策模型，探索生成式 AI 與智慧代理人驅動商業新模式、加速新創與賦能企業數位轉型的無限可能。
+                    <p class="lab-desc">
+                        深耕生成式 AI、多代理人自主協同（Multi-Agent Systems）與商業運籌決策模型，透過自主代理人工作流驅動跨國貿易、商業定價與企業自動化轉型。
                     </p>
-                </div>
 
-                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-top: 1px solid rgba(255, 255, 255, 0.12); padding-top: 1.25rem;">
-                    <div style="display: flex; align-items: center; gap: 0.6rem;">
-                        <i class='bx bx-user-plus' style="font-size: 1.5rem; color: #fb923c;"></i>
-                        <span style="font-weight: 600; font-size: 1rem; color: #ffedd5;">
-                            ✨ <strong>招生與人才招募：</strong>歡迎對於 AI、代理人應用；喜愛創新、創業的同學加入！
-                        </span>
+                    <!-- Compute Infrastructure Badge -->
+                    <div class="lab-compute-bar">
+                        <i class='bx bx-chip compute-icon'></i>
+                        <div>
+                            <span class="compute-text">運算核心支援：NVIDIA DGX &times; 3 算力中心</span>
+                            <span class="compute-sub">支撐大規模多代理人模擬、大語言模型微調與高頻商務決策</span>
+                        </div>
                     </div>
-                    <a href="mailto:elvischen@nutc.edu.tw?subject=申請加入智慧商務多代理人實驗室" class="home__button" style="background: #4f46e5; color: #ffffff; padding: 0.55rem 1.3rem; font-size: 0.88rem; box-shadow: 0 4px 14px rgba(79, 70, 229, 0.4);">
-                        <i class='bx bx-envelope'></i> email: elvischen@nutc.edu.tw
-                    </a>
+
+                    <!-- Recruitment Callout -->
+                    <div class="lab-recruitment-box">
+                        ✨ <strong>招生與人才招募：</strong>歡迎對 AI Agent 應用、商業自動化與創新創業有熱忱的同學加入！
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="lab-action-row">
+                        <a href="mailto:elvischen@nutc.edu.tw?subject=申請加入智慧商務多代理人實驗室" class="lab-btn-primary">
+                            <i class='bx bx-envelope'></i> 申請加入 / 合作聯繫
+                        </a>
+                        <a href="assets/img/icma_poster_editorial_light.png" target="_blank" class="lab-btn-secondary">
+                            <i class='bx bx-download'></i> 獲取架構海報
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
