@@ -60,13 +60,23 @@ const initMenu = (toggleId, navId, closeId) => {
 }
 initMenu('nav-toggle', 'nav-menu', 'nav-close')
 
-/*===== SCROLL SECTIONS ACTIVE LINK =====*/
+/*===== SCROLL SECTIONS ACTIVE LINK & PROGRESS BAR =====*/
 const sections = document.querySelectorAll('section[id]')
+const scrollProgressBar = document.getElementById('scrollProgress')
 
 window.addEventListener('scroll', scrollActive)
+window.addEventListener('load', scrollActive)
 
 function scrollActive(){
     const scrollY = window.pageYOffset
+
+    // Reading Scroll Progress Bar
+    if (scrollProgressBar) {
+        const winScroll = document.documentElement.scrollTop || document.body.scrollTop
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight
+        const scrolled = height > 0 ? (winScroll / height) * 100 : 0
+        scrollProgressBar.style.width = scrolled + '%'
+    }
 
     sections.forEach(current =>{
         const sectionHeight = current.offsetHeight
