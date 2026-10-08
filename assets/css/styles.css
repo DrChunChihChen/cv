@@ -47,6 +47,7 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: clip;
 }
 
 body {
@@ -56,6 +57,7 @@ body {
     color: var(--text-color);
     background-color: var(--body-color);
     line-height: 1.6;
+    overflow-x: clip;
 }
 
 h1, h2, h3, p, ul {
@@ -773,8 +775,8 @@ img {
 
     .home__subtitle-line {
         display: block;
-        white-space: nowrap;
-        word-break: keep-all;
+        white-space: normal;
+        word-break: break-word;
     }
 
     .hero__badges {
