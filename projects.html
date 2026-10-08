@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Research & Industry Projects - Dr. Elvis Chen (陳俊智博士)">
+
+    <!-- ===== CSS ===== -->
+    <link rel="stylesheet" href="assets/css/styles.css?v=2.1">
+
+    <!-- ===== BOX ICONS ===== -->
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+
+    <title>Research & Industry Projects - Dr. Elvis Chen</title>
+
+    <style>
+        .project-section {
+            margin-bottom: 3rem;
+            width: 100%;
+        }
+
+        .category-title {
+            font-size: 1.3rem;
+            color: var(--first-color);
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 0.5rem;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .project-card {
+            background: #fff;
+            padding: 1.4rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid #edf2f7;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(108, 99, 255, 0.12);
+        }
+
+        .project-card__header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 0.5rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .project-card__title {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #2d3748;
+            line-height: 1.4;
+        }
+
+        .badge-status {
+            padding: 0.2rem 0.55rem;
+            font-size: 0.75rem;
+            border-radius: 4px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .badge-active {
+            background-color: #e6fffa;
+            color: #234e52;
+            border: 1px solid #b2f5ea;
+        }
+
+        .badge-completed {
+            background-color: #edf2f7;
+            color: #4a5568;
+        }
+
+        .project-meta {
+            font-size: 0.85rem;
+            color: #718096;
+            margin-bottom: 0.6rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .project-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .project-desc {
+            font-size: 0.9rem;
+            color: #4a5568;
+            line-height: 1.5;
+            margin-bottom: 0.8rem;
+        }
+
+        .project-tag {
+            display: inline-block;
+            background: #f0f4ff;
+            color: var(--first-color);
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.78rem;
+            font-weight: 500;
+        }
+
+        .highlight-stat-banner {
+            background: linear-gradient(135deg, #6C63FF 0%, #4070F4 100%);
+            color: #fff;
+            padding: 1.8rem;
+            border-radius: 0.75rem;
+            margin-bottom: 2.5rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
+            text-align: center;
+        }
+
+        .stat-box h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.2rem;
+            color: #fff;
+        }
+
+        .stat-box p {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+    </style>
+    <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+    <link rel="alternate icon" href="favicon.ico">
+</head>
+
+<body>
+    <!--===== HEADER =====-->
+    <header class="l-header">
+        <div class="nav__backdrop" id="nav-backdrop"></div>
+        <nav class="nav bd-grid">
+            <div>
+                <a href="index.html" class="nav__logo">Elvis Chen</a>
+            </div>
+
+            <div class="nav__menu" id="nav-menu">
+                <div class="nav__header-mobile">
+                    <span class="nav__header-title"><i class='bx bx-compass'></i> 網站導覽</span>
+                    <i class='bx bx-x nav__close' id="nav-close"></i>
+                </div>
+
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="index.html" class="nav__link">
+                            <span class="nav__link-content"><i class='bx bx-home-alt'></i> <span class="nav__link-text-zh">首頁 </span><span class="nav__link-text-en">Home</span></span>
+                            <i class='bx bx-chevron-right nav__link-arrow'></i>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="index.html#about" class="nav__link">
+                            <span class="nav__link-content"><i class='bx bx-user'></i> <span class="nav__link-text-zh">關於我 </span><span class="nav__link-text-en">About</span></span>
+                            <i class='bx bx-chevron-right nav__link-arrow'></i>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="index.html#skills" class="nav__link">
+                            <span class="nav__link-content"><i class='bx bx-check-shield'></i> <span class="nav__link-text-zh">專長證照 </span><span class="nav__link-text-en">Skills</span></span>
+                            <i class='bx bx-chevron-right nav__link-arrow'></i>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="index.html#laboratory" class="nav__link">
+                            <span class="nav__link-content"><i class='bx bx-brain'></i> <span class="nav__link-text-zh">代理人實驗室 </span><span class="nav__link-text-en">Lab</span></span>
+                            <i class='bx bx-chevron-right nav__link-arrow'></i>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="publications.html" class="nav__link">
+                            <span class="nav__link-content"><i class='bx bx-book-open'></i> <span class="nav__link-text-zh">著作論文 </span><span class="nav__link-text-en">Publications</span></span>
+                            <i class='bx bx-chevron-right nav__link-arrow'></i>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="projects.html" class="nav__link active">
+                            <span class="nav__link-content"><i class='bx bx-briefcase-alt-2'></i> <span class="nav__link-text-zh">產學專案 </span><span class="nav__link-text-en">Projects</span></span>
+                            <i class='bx bx-chevron-right nav__link-arrow'></i>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="awards.html" class="nav__link">
+                            <span class="nav__link-content"><i class='bx bx-trophy'></i> <span class="nav__link-text-zh">榮譽獲獎 </span><span class="nav__link-text-en">Awards</span></span>
+                            <i class='bx bx-chevron-right nav__link-arrow'></i>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#contact" class="nav__link">
+                            <span class="nav__link-content"><i class='bx bx-envelope'></i> <span class="nav__link-text-zh">聯絡資訊 </span><span class="nav__link-text-en">Contact</span></span>
+                            <i class='bx bx-chevron-right nav__link-arrow'></i>
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="nav__footer-mobile">
+                    <div class="nav__footer-title">社群與檔案</div>
+                    <div class="nav__footer-btns">
+                        <a href="https://orcid.org/0000-0001-6556-2221" target="_blank" class="nav__social-btn"><i class='bx bx-id-card'></i> ORCID</a>
+                        <a href="https://www.youtube.com/@ElvisChen-p7z2r/playlists" target="_blank" class="nav__social-btn"><i class='bx bxl-youtube'></i> YouTube</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="nav__toggle" id="nav-toggle">
+                <i class='bx bx-menu'></i>
+            </div>
+        </nav>
+    </header>
+
+    <main class="l-main">
+        <!--===== HOME INTRO =====-->
+        <section class="home" id="home">
+            <div class="home__container bd-grid">
+                <div class="home__data">
+                    <h1 class="home__title">Research &<br><span>Industry Projects</span></h1>
+                    <span class="home__subtitle">National Grants & Corporate Digital Transformation (2021 - 2026)</span>
+                    <a href="#projects" class="home__button">Explore Projects</a>
+                </div>
+
+                <div class="home__img">
+                    <img src="assets/img/work4-1.jpeg" alt="Projects"
+                        style="border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.12);">
+                </div>
+            </div>
+        </section>
+
+        <!--===== PROJECTS CONTENT =====-->
+        <section class="section bd-grid" id="projects">
+            <h2 class="section-title">Research & Industry Projects</h2>
+
+            <!-- Metric Highlights (Humble & Qualitative) -->
+            <div class="highlight-stat-banner">
+                <div class="stat-box">
+                    <h3>雙軌研究</h3>
+                    <p>永續淨零 × AI 智慧轉型</p>
+                </div>
+                <div class="stat-box">
+                    <h3>15+ 計畫</h3>
+                    <p>國科會專題與產學合作</p>
+                </div>
+                <div class="stat-box">
+                    <h3>AI 智慧代理人</h3>
+                    <p>製造業運籌與自動化轉型</p>
+                </div>
+            </div>
+
+            <!-- 產學合作夥伴 (Industry & Research Partners) -->
+            <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 0.75rem; padding: 1.25rem 1.5rem; margin-bottom: 2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
+                <div style="font-size: 1rem; font-weight: 700; color: #1e293b; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class='bx bx-buildings' style="color: var(--first-color); font-size: 1.25rem;"></i>
+                    產學合作夥伴 (Industry & Research Partners)
+                </div>
+                <div style="display: flex; flex-wrap: wrap; gap: 0.6rem;">
+                    <span style="background: #f8fafc; border: 1px solid #cbd5e1; color: #334155; padding: 0.35rem 0.85rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 0.4rem;">
+                        <i class='bx bxs-check-shield' style="color: var(--first-color);"></i> 台灣康寧
+                    </span>
+                    <span style="background: #f8fafc; border: 1px solid #cbd5e1; color: #334155; padding: 0.35rem 0.85rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 0.4rem;">
+                        <i class='bx bxs-check-shield' style="color: var(--first-color);"></i> <a href="https://impacts.cloud/index.html" target="_blank" style="color: inherit; text-decoration: none;">快思 (CRIS)</a>
+                    </span>
+                    <span style="background: #f8fafc; border: 1px solid #cbd5e1; color: #334155; padding: 0.35rem 0.85rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 0.4rem;">
+                        <i class='bx bxs-check-shield' style="color: var(--first-color);"></i> 丞桀有限公司
+                    </span>
+                    <span style="background: #f8fafc; border: 1px solid #cbd5e1; color: #334155; padding: 0.35rem 0.85rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 0.4rem;">
+                        <i class='bx bxs-check-shield' style="color: var(--first-color);"></i> 寶暉有限公司
+                    </span>
+                    <span style="background: #f8fafc; border: 1px solid #cbd5e1; color: #334155; padding: 0.35rem 0.85rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 0.4rem;">
+                        <i class='bx bxs-check-shield' style="color: var(--first-color);"></i> 世聚
+                    </span>
+                    <span style="background: #f8fafc; border: 1px solid #cbd5e1; color: #334155; padding: 0.35rem 0.85rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 0.4rem;">
+                        <i class='bx bxs-check-shield' style="color: var(--first-color);"></i> 海峰機械
+                    </span>
+                    <span style="background: #f8fafc; border: 1px solid #cbd5e1; color: #334155; padding: 0.35rem 0.85rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 0.4rem;">
+                        <i class='bx bxs-check-shield' style="color: var(--first-color);"></i> 哈伯精密
+                    </span>
+                </div>
+            </div>
+
+            <!-- 1. 最新產學合作計畫 -->
+            <div class="project-section">
+                <h3 class="category-title"><i class='bx bx-rocket'></i> 最新產學合作計畫 (Latest Industry Collaborations)</h3>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <div>
+                            <div class="project-card__header">
+                                <span class="project-card__title">「智鏈創新 iPlan」關稅韌性 × AI 智能低碳轉型計畫 — 供應鏈數位升級與治理制度化委託研究</span>
+                                <span class="badge-status badge-active">執行中 (2026)</span>
+                            </div>
+                            <div class="project-meta">
+                                <span><i class='bx bx-buildings'></i> 合作單位：<a href="https://impacts.cloud/index.html" target="_blank" style="color: inherit; text-decoration: underline;">快思 (CRIS)</a>、日堡精密</span>
+                                <span><i class='bx bx-user'></i> 計畫主持人</span>
+                            </div>
+                            <p class="project-desc">針對地緣政治關稅變局與低碳供應鏈規範，融合供應鏈 APS 模型與 AI 算法，推動企業供應鏈韌性升級與治理制度化。</p>
+                        </div>
+                        <span class="project-tag">供應鏈韌性 × AI 智能低碳轉型</span>
+                    </div>
+
+                    <div class="project-card">
+                        <div>
+                            <div class="project-card__header">
+                                <span class="project-card__title">AI 雙軌轉型跨境電商行銷與知識數位化計畫</span>
+                                <span class="badge-status badge-completed">已結案</span>
+                            </div>
+                            <div class="project-meta">
+                                <span><i class='bx bx-buildings'></i> 合作單位：工研院 (ITRI)、海峰機械</span>
+                                <span><i class='bx bx-user'></i> 計畫主持人</span>
+                            </div>
+                            <p class="project-desc">結合跨境 B2B 電商實務與生成式 AI 工具，建立智慧行銷視覺與多語知識數位化系統，加速傳統機械製造業出海開拓海外市場。</p>
+                        </div>
+                        <span class="project-tag">跨境電商 × AI 知識數位化</span>
+                    </div>
+
+                    <div class="project-card">
+                        <div>
+                            <div class="project-card__header">
+                                <span class="project-card__title">AI 數位師徒制與智識傳承升級加值計畫</span>
+                                <span class="badge-status badge-completed">已結案</span>
+                            </div>
+                            <div class="project-meta">
+                                <span><i class='bx bx-buildings'></i> 合作單位：工研院 (ITRI)、哈伯精密</span>
+                                <span><i class='bx bx-user'></i> 計畫主持人</span>
+                            </div>
+                            <p class="project-desc">運用大語言模型 (LLM) 與企業專有知識庫技術，打造智慧製造領域的「AI 數位師徒制」，實現資深技師關鍵隱性知識的數位化萃取與傳承。</p>
+                        </div>
+                        <span class="project-tag">LLM × 智慧製造智識傳承</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. 國科會專題研究計畫 -->
+            <div class="project-section">
+                <h3 class="category-title"><i class='bx bx-bulb'></i> 國科會專題研究計畫 (NSTC Research Grants)</h3>
+                <div class="project-grid">
+                    <!-- 智慧代理人計畫 (國科會) -->
+                    <div class="project-card">
+                        <div>
+                            <div class="project-card__header">
+                                <span class="project-card__title">智慧代理人：解決台灣製造業人才與數據雙重赤字的轉型藍圖</span>
+                                <span class="badge-status badge-active">執行中</span>
+                            </div>
+                            <div class="project-meta">
+                                <span><i class='bx bx-calendar'></i> 2025/12/01 ~ 2026/11/30</span>
+                                <span><i class='bx bx-user'></i> 計畫主持人</span>
+                                <span><i class='bx bx-landmark'></i> 國家科學及技術委員會 (國科會 NSTC)</span>
+                            </div>
+                            <p class="project-desc">針對台灣製造業面臨的高階專業人才短缺與數據孤島（雙重赤字）痛點，建構以智慧代理人 (AI Agents) 與大語言模型為核心的運籌轉型藍圖與決策輔助機制。</p>
+                        </div>
+                        <span class="project-tag">國科會專題研究計畫 (NSTC)</span>
+                    </div>
+
+                    <div class="project-card">
+                        <div>
+                            <div class="project-card__header">
+                                <span class="project-card__title">永續道路的不平等性：外國投資對區域經濟、能源與環境趨勢的影響</span>
+                                <span class="badge-status badge-active">執行中</span>
+                            </div>
+                            <div class="project-meta">
+                                <span><i class='bx bx-calendar'></i> 2025.08 - 2026.07</span>
+                                <span><i class='bx bx-user'></i> 計畫主持人</span>
+                            </div>
+                            <p class="project-desc">深入分析外國直接投資 (FDI) 在全球與區域永續轉型進程中，如何造成不同區域間環境承載力與能源轉型的非對稱影響，為國家政策提供科學依據。</p>
+                        </div>
+                        <span class="project-tag">國科會專題研究計畫</span>
+                    </div>
+
+                    <div class="project-card">
+                        <div>
+                            <div class="project-card__header">
+                                <span class="project-card__title">以深度學習方法模擬歐盟循環經濟、能源消耗、環境永續、與經濟成長之系統動態模型</span>
+                                <span class="badge-status badge-completed">已結案</span>
+                            </div>
+                            <div class="project-meta">
+                                <span><i class='bx bx-calendar'></i> 2022.08 - 2023.07</span>
+                                <span><i class='bx bx-user'></i> 計畫主持人</span>
+                            </div>
+                            <p class="project-desc">運用深度學習模型模擬跨國複雜系統，結合系統動態學解析歐盟循環經濟政策、能源結構轉型與生態足跡之動態因果關係。</p>
+                        </div>
+                        <span class="project-tag">國科會新進人員研究計畫</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. 台灣康寧長期策略合作系列 -->
+            <div class="project-section">
+                <h3 class="category-title"><i class='bx bx-network-chart'></i> 台灣康寧長期策略夥伴產學計畫 (Corning Taiwan Strategic Partnership)</h3>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <div>
+                            <div class="project-card__header">
+                                <span class="project-card__title">台灣康寧供應鏈回收材料 MRP Python 與 LLM API 發展及訓練</span>
+                                <span class="badge-status badge-completed">已結案</span>
+                            </div>
+                            <div class="project-meta">
+                                <span><i class='bx bx-calendar'></i> 2025.04 - 2025.12</span>
+                                <span><i class='bx bx-user'></i> 計畫主持人</span>
+                            </div>
+                            <p class="project-desc">針對循環回收材料供應鏈，開發 Python 物料需求規劃 (MRP) 運算引擎與客製化 LLM API 智能輔助系統，實現智慧化排程優化。</p>
+                        </div>
+                        <span class="project-tag">LLM API × MRP 智慧排程</span>
+                    </div>
+
+                    <div class="project-card">
+                        <div>
+                            <div class="project-card__header">
+                                <span class="project-card__title">Taiwan Logistics MRP model development project</span>
+                                <span class="badge-status badge-completed">已結案</span>
+                            </div>
+                            <div class="project-meta">
+                                <span><i class='bx bx-calendar'></i> 2024.08 - 2024.11</span>
+                                <span><i class='bx bx-user'></i> 計畫主持人</span>
+                            </div>
+                            <p class="project-desc">針對台灣康寧物流供應鏈設計客製化 MRP 邏輯模型，強化多工廠與倉庫間之即時庫存平衡與預測能力。</p>
+                        </div>
+                        <span class="project-tag">Logistics MRP Optimization</span>
+                    </div>
+
+                    <div class="project-card">
+                        <div>
+                            <div class="project-card__header">
+                                <span class="project-card__title">供應鏈循環回收包裝材料 E2E Visibility 模型可視化開發暨數據培訓</span>
+                                <span class="badge-status badge-completed">已結案</span>
+                            </div>
+                            <div class="project-meta">
+                                <span><i class='bx bx-calendar'></i> 2023.05 - 2024.03</span>
+                                <span><i class='bx bx-user'></i> 計畫主持人</span>
+                            </div>
+                            <p class="project-desc">建立包裝材料端到端 (E2E) 循環追蹤模型與戰情儀表板，搭配跨部門數據分析人才培育，顯著提升循環利用週轉率。</p>
+                        </div>
+                        <span class="project-tag">E2E Visibility × 循環經濟</span>
+                    </div>
+
+                    <div class="project-card">
+                        <div>
+                            <div class="project-card__header">
+                                <span class="project-card__title">8.6 代 FS, FG 和 MDP E2E visibility 機器學習模型開發與 SCM 培訓</span>
+                                <span class="badge-status badge-completed">已結案</span>
+                            </div>
+                            <div class="project-meta">
+                                <span><i class='bx bx-calendar'></i> 2023.01 - 2023.10</span>
+                                <span><i class='bx bx-user'></i> 計畫主持人</span>
+                            </div>
+                            <p class="project-desc">運用機器學習演算法建構高世代玻璃產線可視化預測模型，並推動企業內部 SCM 巨量資料分析與機器學習教育訓練。</p>
+                        </div>
+                        <span class="project-tag">Machine Learning × SCM</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. 企業碳盤查與智慧化轉型 -->
+            <div class="project-section">
+                <h3 class="category-title"><i class='bx bx-line-chart'></i> 企業碳盤查與智慧化轉型計畫 (Carbon Accounting & Smart Transformation)</h3>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <div>
+                            <div class="project-card__header">
+                                <span class="project-card__title">工研院-世聚公司碳盤查服務計畫</span>
+                                <span class="badge-status badge-completed">已結案</span>
+                            </div>
+                            <div class="project-meta">
+                                <span><i class='bx bx-calendar'></i> 2025.03 - 2025.08</span>
+                                <span><i class='bx bx-user'></i> 計畫主持人</span>
+                            </div>
+                            <p class="project-desc">針對企業營運與產品溫室氣體排放進行系統化碳盤查、邊界界定與排放量量化，制定科學減碳路徑規劃。</p>
+                        </div>
+                        <span class="project-tag">ISO 14064 碳盤查實務</span>
+                    </div>
+
+                    <div class="project-card">
+                        <div>
+                            <div class="project-card__header">
+                                <span class="project-card__title">固滿德機車輪胎產線生產報工與效能提升智慧化轉型</span>
+                                <span class="badge-status badge-completed">已結案</span>
+                            </div>
+                            <div class="project-meta">
+                                <span><i class='bx bx-calendar'></i> 2024.03 - 2025.02</span>
+                                <span><i class='bx bx-user'></i> 計畫主持人</span>
+                            </div>
+                            <p class="project-desc">協助輪胎製造大廠建置數位化即時生產報工系統，透過物聯數據串接消除瓶頸工序，實現產線效能躍升。</p>
+                        </div>
+                        <span class="project-tag">智慧製造 × 數位生產報工</span>
+                    </div>
+
+                    <div class="project-card">
+                        <div>
+                            <div class="project-card__header">
+                                <span class="project-card__title">工研院 - 寶暉有限公司碳盤查服務計畫</span>
+                                <span class="badge-status badge-completed">已結案</span>
+                            </div>
+                            <div class="project-meta">
+                                <span><i class='bx bx-calendar'></i> 2023.06 - 2023.10</span>
+                                <span><i class='bx bx-user'></i> 計畫主持人</span>
+                            </div>
+                            <p class="project-desc">與工研院合作推動中小企業溫室氣體盤查輔導，落實在地工具製造產業低碳供應鏈標準對接。</p>
+                        </div>
+                        <span class="project-tag">中小企業淨零輔導</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. 人才培育與學門實務計畫 -->
+            <div class="project-section">
+                <h3 class="category-title"><i class='bx bx-award'></i> 人才培育實務學程與國際交流 (Talent Cultivation Programs)</h3>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <div>
+                            <div class="project-card__header">
+                                <span class="project-card__title">勞動部就業學程：國際商展虛實 - AR、AI 整合應用人才培育實務學程</span>
+                                <span class="badge-status badge-active">連續兩期主持</span>
+                            </div>
+                            <div class="project-meta">
+                                <span><i class='bx bx-calendar'></i> 113 - 115 學年度 (2024 - 2026)</span>
+                                <span><i class='bx bx-user'></i> 計畫主持人</span>
+                            </div>
+                            <p class="project-desc">引導國貿與商學院學生掌握 AR 虛實融合、生成式 AI 工具與跨境展覽數位行銷技術，連續兩年培育接軌全球產業之跨域即戰力人才。</p>
+                        </div>
+                        <span class="project-tag">勞動部就業學程</span>
+                    </div>
+
+                    <div class="project-card">
+                        <div>
+                            <div class="project-card__header">
+                                <span class="project-card__title">教育部新南向學海築夢：泰國偉誠集團海外實習計畫</span>
+                                <span class="badge-status badge-completed">已結案</span>
+                            </div>
+                            <div class="project-meta">
+                                <span><i class='bx bx-calendar'></i> 2024.07 - 2024.08</span>
+                                <span><i class='bx bx-user'></i> 協同主持人</span>
+                            </div>
+                            <p class="project-desc">選送優秀學子赴泰國知名製造台商集團進行海外深度實習，拓展東南亞市場貿易供應鏈實務經驗。</p>
+                        </div>
+                        <span class="project-tag">教育部學海築夢</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6. USR 大學社會責任與地方永續實踐計畫 -->
+            <div class="project-section">
+                <h3 class="category-title"><i class='bx bx-globe'></i> 大學社會責任 (USR) 與地方永續實踐 (University Social Responsibility)</h3>
+                <div class="project-grid">
+                    <div class="project-card" style="border-left: 4px solid #10b981;">
+                        <div>
+                            <div class="project-card__header">
+                                <span class="project-card__title">國立臺中科技大學 USR 計畫 — 小半天永續低碳漫遊與遊程碳盤查實務手冊</span>
+                                <span class="badge-status badge-active" style="background-color: #ecfdf5; color: #065f46; border-color: #a7f3d0;">USR 專案網站</span>
+                            </div>
+                            <div class="project-meta">
+                                <span><i class='bx bx-map-pin'></i> 場域：南投鹿谷小半天社區</span>
+                                <span><i class='bx bx-user'></i> 子計畫主持人 / 永續中心 淨零組組長</span>
+                            </div>
+                            <p class="project-desc">
+                                針對南投小半天社區推動在地生態旅遊與淨零轉型，研發「遊程碳盤查計算模型」，完整建置「小半天永續低碳漫遊實務手冊」互動成果網站與影音導覽系統，引導旅客與旅宿業者實踐低碳生活與綠色旅遊。
+                            </p>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 0.5rem; flex-wrap: wrap; gap: 0.5rem;">
+                            <span class="project-tag" style="background: #ecfdf5; color: #059669;">USR 大學社會責任 × 低碳遊程</span>
+                            <a href="https://drchunchihchen.github.io/xiaobantian-carbon-tourism/#videos" target="_blank" class="home__button"
+                                style="padding: 0.35rem 0.8rem; font-size: 0.8rem; background: #059669; border-radius: 4px;">
+                                <i class='bx bx-link-external'></i> 瀏覽 USR 成果網站與影音
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 7. 自研智慧決策與碳管理軟體系統 -->
+            <div class="project-section">
+                <h3 class="category-title"><i class='bx bx-laptop'></i> 自研智慧決策與碳管理軟體系統 (Proprietary Decision Software & Systems)</h3>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <div>
+                            <div class="project-card__header">
+                                <span class="project-card__title">碳盤查 / 足跡軟體：「你說的算」</span>
+                                <span class="badge-status badge-active">自研軟體工具</span>
+                            </div>
+                            <div class="project-meta">
+                                <span><i class='bx bx-leaf'></i> 溫室氣體與活動數據量化分析系統</span>
+                            </div>
+                            <p class="project-desc">
+                                專為中小企業與組織設計之敏捷型碳盤查與碳足跡計算工具，支援活動數據自動換算、碳排熱點可視化分析與減碳情境模擬。
+                            </p>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 0.5rem; flex-wrap: wrap; gap: 0.5rem;">
+                            <span class="project-tag">ISO 14064 / 碳足跡軟體</span>
+                            <a href="https://www.youtube.com/watch?v=epZr5-JSLLM" target="_blank" class="home__button"
+                                style="padding: 0.35rem 0.8rem; font-size: 0.8rem; background: #e53e3e; border-radius: 4px;">
+                                <i class='bx bxl-youtube'></i> 觀看軟體操作影片
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div>
+                            <div class="project-card__header">
+                                <span class="project-card__title">HelloIR 智慧校務分析與決策支援平台</span>
+                                <span class="badge-status badge-active">產品展示</span>
+                            </div>
+                            <div class="project-meta">
+                                <span><i class='bx bx-line-chart'></i> 高等教育校務研究 (IR) 智慧系統</span>
+                            </div>
+                            <p class="project-desc">
+                                整合高等教育巨量數據、機器學習預警演算法與動態儀表板，提供跨維度學生休退學風險分析與校務發展量化決策支援。
+                            </p>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 0.5rem; flex-wrap: wrap; gap: 0.5rem;">
+                            <span class="project-tag">Machine Learning × 校務研究</span>
+                            <a href="https://www.youtube.com/watch?v=bP8hiMcb81g" target="_blank" class="home__button"
+                                style="padding: 0.35rem 0.8rem; font-size: 0.8rem; background: #e53e3e; border-radius: 4px;">
+                                <i class='bx bxl-youtube'></i> 觀看產品介紹影片
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--===== CONTACT =====-->
+        <section class="contact section" id="contact">
+            <h2 class="section-title">Contact</h2>
+
+            <div class="contact__container bd-grid">
+                <div class="contact__info">
+                    <h3 class="contact__subtitle">EMAIL</h3>
+                    <a href="mailto:elvischen@nutc.edu.tw" class="contact__text"
+                        style="color: var(--first-color);">elvischen@nutc.edu.tw</a>
+
+                    <h3 class="contact__subtitle">PHONE</h3>
+                    <span class="contact__text">+886-422196120</span>
+
+                    <h3 class="contact__subtitle">ADDRESS</h3>
+                    <span class="contact__text">404台中市北區三民路三段129號中正大樓7樓3705</span>
+                </div>
+
+                <form action="mailto:elvischen@nutc.edu.tw" method="post" enctype="text/plain" class="contact__form">
+                    <div class="contact__inputs">
+                        <input type="text" name="name" placeholder="Name" class="contact__input" required>
+                        <input type="email" name="email" placeholder="Email" class="contact__input" required>
+                    </div>
+
+                    <textarea name="message" cols="0" rows="6" class="contact__input"
+                        placeholder="Your Message..." required></textarea>
+
+                    <input type="submit" value="Send Message" class="contact__button">
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!--===== FOOTER =====-->
+    <footer class="footer section">
+        <div class="footer__container bd-grid">
+            <div class="footer__data">
+                <h2 class="footer__title">Elvis Chen</h2>
+                <p class="footer__text"><span style="white-space: nowrap; word-break: keep-all;">國立臺中科技大學 副教授</span><br><span style="white-space: nowrap; word-break: keep-all;">商業智慧應用與研究中心主任</span></p>
+            </div>
+
+            <div class="footer__data">
+                <h2 class="footer__title">EXPLORE</h2>
+                <ul>
+                    <li><a href="index.html" class="footer__link">Home</a></li>
+                    <li><a href="index.html#about" class="footer__link">About</a></li>
+                    <li><a href="publications.html" class="footer__link">Publications</a></li>
+                    <li><a href="projects.html" class="footer__link">Projects</a></li>
+                    <li><a href="awards.html" class="footer__link">Awards</a></li>
+                </ul>
+            </div>
+
+            <div class="footer__data">
+                <h2 class="footer__title">FOLLOW</h2>
+                <a href="https://orcid.org/0000-0001-6556-2221" target="_blank" class="footer__social" title="ORCID"><i class='bx bx-id-card'></i></a>
+                <a href="https://it.nutc.edu.tw/%E5%B0%88%E4%BB%BB%E6%95%99%E5%B8%AB/" target="_blank" class="footer__social" title="Faculty Profile"><i class='bx bx-link-external'></i></a>
+            </div>
+        </div>
+        <p style="font-size: 0.8rem; margin-top: 2rem; color: #CCC;">&copy; 2026 Elvis Chen. All rights reserved.</p>
+    </footer>
+
+    <!--===== SCROLL REVEAL =====-->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!--===== MAIN JS =====-->
+    <script src="assets/js/main.js?v=2.1"></script>
+</body>
+
+</html>

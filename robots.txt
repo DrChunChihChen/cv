@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://drchunchihchen.github.io/cv/sitemap.xml

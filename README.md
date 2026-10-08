@@ -85,11 +85,11 @@
 | Page | Description | Link |
 | :--- | :--- | :--- |
 | **Home (`index.html`)** | 個人簡介、研究雙主軸、核心專長、精選作品集導覽 | [線上瀏覽](https://drchunchihchen.github.io/cv/) |
-| **Publications (`Selected Publications & Conference.html`)** | 完整期刊論文、代表作標註、研討會論文、國際期刊審查委員 | [查看著作](https://drchunchihchen.github.io/cv/Selected%20Publications%20&%20Conference.html) |
-| **Projects (`Project.html`)** | 2021-2026 國科會專題、台灣康寧產學案、2026 最新企業委託研究 | [查看計畫](https://drchunchihchen.github.io/cv/Project.html) |
-| **Awards (`Award.html`)** | 指導學生全國競賽獲獎紀錄、成果影片展示、個人學術榮譽 | [查看獲獎](https://drchunchihchen.github.io/cv/Award.html) |
-| **Teaching (`Teaching Material.html`)** | 智慧商務、Python 商務程式設計、提示工程、Colab 實作講義 | [教學資源](https://drchunchihchen.github.io/cv/Teaching%20Material.html) |
-| **Talks (`Talk.html`)** | 國內外受邀學術專題演講與企業培訓工作坊 | [專題演講](https://drchunchihchen.github.io/cv/Talk.html) |
+| **Publications (`publications.html`)** | 完整期刊論文、代表作標註、研討會論文、國際期刊審查委員 | [查看著作](https://drchunchihchen.github.io/cv/publications.html) |
+| **Projects (`projects.html`)** | 2021-2026 國科會專題、台灣康寧產學案、2026 最新企業委託研究 | [查看計畫](https://drchunchihchen.github.io/cv/projects.html) |
+| **Awards (`awards.html`)** | 指導學生全國競賽獲獎紀錄、成果影片展示、個人學術榮譽 | [查看獲獎](https://drchunchihchen.github.io/cv/awards.html) |
+| **Teaching (`teaching.html`)** | 智慧商務、Python 商務程式設計、提示工程、Colab 實作講義 | [教學資源](https://drchunchihchen.github.io/cv/teaching.html) |
+| **Talks (`talks.html`)** | 國內外受邀學術專題演講與企業培訓工作坊 | [專題演講](https://drchunchihchen.github.io/cv/talks.html) |
 
 ---
 
