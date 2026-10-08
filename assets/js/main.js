@@ -1,24 +1,53 @@
-/*===== MENU SHOW =====*/
-const showMenu = (toggleId, navId) =>{
+/*===== MOBILE MENU LOGIC =====*/
+const initMenu = (toggleId, navId, closeId) => {
     const toggle = document.getElementById(toggleId),
-    nav = document.getElementById(navId)
+          nav = document.getElementById(navId),
+          closeBtn = document.getElementById(closeId)
 
-    if(toggle && nav){
-        toggle.addEventListener('click', ()=>{
-            nav.classList.toggle('show')
+    // Ensure backdrop overlay exists
+    let backdrop = document.getElementById('nav-backdrop')
+    if (!backdrop) {
+        backdrop = document.createElement('div')
+        backdrop.id = 'nav-backdrop'
+        backdrop.className = 'nav__backdrop'
+        document.body.appendChild(backdrop)
+    }
+
+    const openMenu = () => {
+        if (nav) nav.classList.add('show')
+        if (backdrop) backdrop.classList.add('show')
+        document.body.style.overflow = 'hidden'
+    }
+
+    const closeMenu = () => {
+        if (nav) nav.classList.remove('show')
+        if (backdrop) backdrop.classList.remove('show')
+        document.body.style.overflow = ''
+    }
+
+    if (toggle) {
+        toggle.addEventListener('click', (e) => {
+            e.stopPropagation()
+            if (nav && nav.classList.contains('show')) {
+                closeMenu()
+            } else {
+                openMenu()
+            }
         })
     }
-}
-showMenu('nav-toggle','nav-menu')
 
-/*===== REMOVE MENU MOBILE =====*/
-const navLink = document.querySelectorAll('.nav__link')
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeMenu)
+    }
 
-function linkAction(){
-    const navMenu = document.getElementById('nav-menu')
-    navMenu.classList.remove('show')
+    if (backdrop) {
+        backdrop.addEventListener('click', closeMenu)
+    }
+
+    const navLinks = document.querySelectorAll('.nav__link')
+    navLinks.forEach(n => n.addEventListener('click', closeMenu))
 }
-navLink.forEach(n => n.addEventListener('click', linkAction))
+initMenu('nav-toggle', 'nav-menu', 'nav-close')
 
 /*===== SCROLL SECTIONS ACTIVE LINK =====*/
 const sections = document.querySelectorAll('section[id]')
