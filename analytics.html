@@ -1,0 +1,1742 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>數據分析與實驗室全景儀表板 | Dr. Chun-Chih Chen (陳俊智 博士)</title>
+    <meta name="description" content="陳俊智博士之學術科研影響力、產學合作與淨零碳盤查、學生競賽獲獎，以及 ICMA 智慧商務多代理人實驗室即時數據儀表板。">
+
+    <!-- Open Graph / Twitter -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://drchunchihchen.github.io/cv/analytics.html">
+    <meta property="og:title" content="Analytics & Lab Telemetry - Dr. Chun-Chih Chen">
+    <meta property="og:description" content="科研影響力、產學淨零與 ICMA 智慧商務多代理人實驗室全景數據儀表板。">
+    <meta property="og:image" content="https://drchunchihchen.github.io/cv/assets/img/icma_poster_editorial_light.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+    <link rel="alternate icon" href="favicon.ico">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- ===== CSS ===== -->
+    <link rel="stylesheet" href="assets/css/styles.css?v=2.3">
+
+    <!-- ===== BOX ICONS ===== -->
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css" rel="stylesheet">
+
+    <!-- ===== ECHARTS CDN ===== -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+
+    <style>
+        /* ═══════════════════════════════════════════════════════════════
+           ANALYTICS DASHBOARD · LIEFLAT CHARTS & EDITORIAL TECH STYLES
+           ═══════════════════════════════════════════════════════════════ */
+        :root {
+            --tech-primary: #6C63FF;
+            --tech-primary-dark: #4f46e5;
+            --tech-primary-light: #eef2ff;
+            --tech-blue: #2563eb;
+            --tech-blue-bg: #eff6ff;
+            --tech-emerald: #059669;
+            --tech-emerald-bg: #ecfdf5;
+            --tech-amber: #d97706;
+            --tech-amber-bg: #fffbeb;
+            --tech-slate: #0f172a;
+            --tech-muted: #64748b;
+            --tech-border: #e2e8f0;
+            --tech-card-bg: #ffffff;
+            --tech-hairline: rgba(15, 23, 42, 0.12);
+        }
+
+        .analytics-main {
+            padding-top: 1.5rem;
+            padding-bottom: 5rem;
+        }
+
+        @media (min-width: 768px) {
+            .analytics-main {
+                padding-top: calc(var(--header-height) + 2.5rem);
+            }
+        }
+
+        /* ── Hero & Telemetry Header ── */
+        .dash-hero {
+            background: linear-gradient(135deg, #ffffff 0%, #f8faff 50%, #f1f5f9 100%);
+            border-radius: 1.25rem;
+            border: 1px solid var(--tech-border);
+            padding: 2.2rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dash-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 320px;
+            height: 320px;
+            background: radial-gradient(circle, rgba(108, 99, 255, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .dash-meta-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.85rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .dash-breadcrumb {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.84rem;
+            font-weight: 600;
+            color: var(--tech-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        .dash-breadcrumb a {
+            color: var(--tech-primary);
+        }
+
+        .dash-status-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            color: #15803d;
+            padding: 0.35rem 0.85rem;
+            border-radius: 9999px;
+            font-size: 0.82rem;
+            font-weight: 700;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #22c55e;
+            box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.25);
+            animation: pulse-dot 2s infinite ease-in-out;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.3); opacity: 0.7; }
+        }
+
+        .dash-title {
+            font-size: clamp(1.6rem, 2.8vw, 2.4rem);
+            font-weight: 800;
+            color: var(--tech-slate);
+            line-height: 1.25;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.65rem;
+        }
+
+        .dash-subtitle {
+            font-size: clamp(0.92rem, 1.2vw, 1.05rem);
+            color: #475569;
+            line-height: 1.65;
+            max-width: 860px;
+            margin-bottom: 1.5rem;
+        }
+
+        /* ── Dimension Navigation Bar ── */
+        .dash-nav-bar {
+            position: sticky;
+            top: calc(var(--header-height) + 0.5rem);
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.94);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--tech-border);
+            border-radius: 0.9rem;
+            padding: 0.5rem 0.65rem;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.75rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+            flex-wrap: wrap;
+        }
+
+        .dash-tabs {
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+            overflow-x: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            padding: 0.15rem;
+        }
+
+        .dash-tabs::-webkit-scrollbar {
+            display: none;
+        }
+
+        .dash-tab-btn {
+            background: transparent;
+            border: none;
+            outline: none;
+            padding: 0.5rem 0.95rem;
+            border-radius: 0.65rem;
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: #475569;
+            cursor: pointer;
+            white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: all 0.2s ease;
+        }
+
+        .dash-tab-btn i {
+            font-size: 1.1rem;
+        }
+
+        .dash-tab-btn:hover {
+            color: var(--tech-primary);
+            background: rgba(108, 99, 255, 0.06);
+        }
+
+        .dash-tab-btn.active {
+            background: var(--tech-primary);
+            color: #ffffff;
+            box-shadow: 0 2px 8px rgba(108, 99, 255, 0.25);
+        }
+
+        .dash-search-box {
+            position: relative;
+            min-width: 200px;
+            flex-shrink: 0;
+        }
+
+        .dash-search-input {
+            width: 100%;
+            padding: 0.45rem 0.75rem 0.45rem 2rem;
+            font-size: 0.84rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 0.5rem;
+            outline: none;
+            background: #ffffff;
+            transition: border-color 0.2s;
+        }
+
+        .dash-search-input:focus {
+            border-color: var(--tech-primary);
+        }
+
+        .dash-search-box i {
+            position: absolute;
+            left: 0.65rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #94a3b8;
+            font-size: 0.95rem;
+        }
+
+        /* ── Master KPI Cards ── */
+        .dash-kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 1.15rem;
+            margin-bottom: 2.2rem;
+        }
+
+        @media (max-width: 1024px) {
+            .dash-kpi-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 640px) {
+            .dash-kpi-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .dash-kpi-card {
+            background: var(--tech-card-bg);
+            border: 1px solid var(--tech-border);
+            border-radius: 1rem;
+            padding: 1.4rem 1.25rem;
+            position: relative;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .dash-kpi-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(108, 99, 255, 0.08);
+            border-color: rgba(108, 99, 255, 0.4);
+        }
+
+        .dash-kpi-head {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-bottom: 0.75rem;
+        }
+
+        .dash-kpi-label {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--tech-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .dash-kpi-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 0.6rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .icon-purple { background: var(--tech-primary-light); color: var(--tech-primary); }
+        .icon-emerald { background: var(--tech-emerald-bg); color: var(--tech-emerald); }
+        .icon-amber { background: var(--tech-amber-bg); color: var(--tech-amber); }
+        .icon-blue { background: var(--tech-blue-bg); color: var(--tech-blue); }
+
+        .dash-kpi-value {
+            font-size: clamp(2rem, 3.2vw, 2.5rem);
+            font-weight: 900;
+            color: var(--tech-slate);
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            margin-bottom: 0.45rem;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .dash-kpi-value small {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--tech-muted);
+            margin-left: 0.25rem;
+        }
+
+        .dash-kpi-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            padding: 0.25rem 0.6rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            width: fit-content;
+            margin-bottom: 0.75rem;
+        }
+
+        .dash-kpi-sparkline {
+            height: 32px;
+            width: 100%;
+            margin-top: 0.35rem;
+        }
+
+        /* ── Lieflat Charts Cards (Editorial Taste) ── */
+        .dash-section {
+            margin-bottom: 2.8rem;
+            scroll-margin-top: 6rem;
+        }
+
+        .dash-section-head {
+            margin-bottom: 1.25rem;
+        }
+
+        .dash-section-title {
+            font-size: 1.45rem;
+            font-weight: 800;
+            color: var(--tech-slate);
+            display: flex;
+            align-items: center;
+            gap: 0.55rem;
+            line-height: 1.3;
+        }
+
+        .dash-section-dek {
+            font-size: 0.88rem;
+            color: var(--tech-muted);
+            margin-top: 0.3rem;
+        }
+
+        .dash-grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 900px) {
+            .dash-grid-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .dash-grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 1024px) {
+            .dash-grid-3 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .dash-card {
+            background: var(--tech-card-bg);
+            border: 1px solid var(--tech-border);
+            border-radius: 1.15rem;
+            padding: 1.75rem 1.6rem 1.4rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .dash-card-dark {
+            background: #0b1120;
+            border-color: #1e293b;
+            color: #e2e8f0;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .dash-card-header {
+            margin-bottom: 1.25rem;
+            border-bottom: 1px solid var(--tech-hairline);
+            padding-bottom: 0.85rem;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .dash-card-dark .dash-card-header {
+            border-bottom-color: rgba(226, 232, 240, 0.12);
+        }
+
+        .dash-card-claim {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--tech-slate);
+            line-height: 1.35;
+        }
+
+        .dash-card-dark .dash-card-claim {
+            color: #f8fafc;
+        }
+
+        .dash-card-micro {
+            font-size: 0.76rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            color: var(--tech-muted);
+            text-transform: uppercase;
+            margin-top: 0.25rem;
+        }
+
+        .dash-card-dark .dash-card-micro {
+            color: #94a3b8;
+        }
+
+        .dash-pill-group {
+            display: inline-flex;
+            background: #f1f5f9;
+            padding: 0.2rem;
+            border-radius: 0.5rem;
+            gap: 0.2rem;
+        }
+
+        .dash-pill-btn {
+            background: transparent;
+            border: none;
+            padding: 0.25rem 0.6rem;
+            font-size: 0.74rem;
+            font-weight: 600;
+            color: #64748b;
+            border-radius: 0.35rem;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+
+        .dash-pill-btn.active {
+            background: #ffffff;
+            color: var(--tech-primary);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+            font-weight: 700;
+        }
+
+        .dash-srcline {
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            color: #94a3b8;
+            margin-top: 1rem;
+            border-top: 1px dotted var(--tech-hairline);
+            padding-top: 0.6rem;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .dash-card-dark .dash-srcline {
+            border-top-color: rgba(226, 232, 240, 0.1);
+            color: #64748b;
+        }
+
+        /* ── Specific Chart Styling ── */
+        .chart-box {
+            width: 100%;
+            height: 320px;
+            position: relative;
+        }
+
+        .chart-box-large {
+            height: 480px;
+        }
+
+        /* ── Rung Bars & Hairline Line Components ── */
+        .rung-item {
+            display: grid;
+            grid-template-columns: 140px 1fr 65px;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.55rem 0;
+            border-bottom: 1px solid #f1f5f9;
+            font-size: 0.86rem;
+        }
+
+        .rung-name {
+            font-weight: 700;
+            color: #334155;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .rung-track {
+            background: #f1f5f9;
+            height: 12px;
+            border-radius: 6px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .rung-fill {
+            height: 100%;
+            border-radius: 6px;
+            transition: width 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .rung-val {
+            text-align: right;
+            font-weight: 800;
+            font-variant-numeric: tabular-nums;
+            color: var(--tech-slate);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.88rem;
+        }
+
+        /* ── Hundred Field Dot Grid (10x10) ── */
+        .hundred-grid {
+            display: grid;
+            grid-template-columns: repeat(10, 1fr);
+            gap: 7px;
+            margin: 1.2rem auto;
+            max-width: 340px;
+        }
+
+        .h-dot {
+            width: 100%;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            transition: transform 0.2s, opacity 0.2s;
+            cursor: pointer;
+        }
+
+        .h-dot:hover {
+            transform: scale(1.4);
+            z-index: 2;
+        }
+
+        .hundred-legend {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.75rem;
+            margin-top: 1rem;
+            font-size: 0.82rem;
+        }
+
+        .h-leg-item {
+            display: flex;
+            align-items: center;
+            gap: 0.45rem;
+            font-weight: 600;
+            color: #475569;
+        }
+
+        .h-leg-color {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        /* ── Deep Dive Search Table ── */
+        .data-table-container {
+            border: 1px solid var(--tech-border);
+            border-radius: 0.9rem;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            background: #ffffff;
+        }
+
+        .data-table {
+            width: 100%;
+            min-width: 580px;
+            border-collapse: collapse;
+            font-size: 0.88rem;
+            text-align: left;
+        }
+
+        .data-table th {
+            background: #f8fafc;
+            padding: 0.85rem 1rem;
+            font-weight: 700;
+            color: #475569;
+            border-bottom: 1px solid var(--tech-border);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .data-table td {
+            padding: 0.85rem 1rem;
+            border-bottom: 1px solid #f1f5f9;
+            color: #334155;
+            vertical-align: middle;
+        }
+
+        .data-table tr:hover td {
+            background: #f8faff;
+        }
+
+        .tag-pill {
+            display: inline-block;
+            padding: 0.2rem 0.55rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        /* ── Network Info Overlay ── */
+        .agent-modal-backdrop {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(4px);
+            z-index: 1100;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+        }
+
+        .agent-modal-backdrop.show {
+            display: flex;
+        }
+
+        .agent-modal-card {
+            background: #ffffff;
+            border-radius: 1rem;
+            padding: 1.8rem;
+            max-width: 520px;
+            width: 100%;
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.2);
+            position: relative;
+            animation: modal-pop 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes modal-pop {
+            from { transform: scale(0.95); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .agent-modal-close {
+            position: absolute;
+            top: 1.2rem;
+            right: 1.2rem;
+            font-size: 1.4rem;
+            color: #94a3b8;
+            cursor: pointer;
+            border: none;
+            background: none;
+        }
+
+        .agent-modal-close:hover {
+            color: var(--tech-slate);
+        }
+
+        .bd-grid, .dash-section, .dash-card, .data-table-container, .dash-grid-2, .dash-hero {
+            min-width: 0;
+            max-width: 100%;
+        }
+
+        @media screen and (max-width: 767px) {
+            html, body {
+                overflow-x: hidden;
+            }
+            .analytics-main {
+                padding-top: calc(var(--header-height) + 1rem);
+                padding-bottom: 3rem;
+            }
+            .dash-hero {
+                padding: 1.4rem 1.1rem;
+            }
+            .dash-meta-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+            .dash-status-pill {
+                font-size: 0.75rem;
+            }
+            .dash-nav-bar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .dash-tabs {
+                width: 100%;
+                justify-content: flex-start;
+            }
+            .dash-search-box {
+                width: 100%;
+            }
+            .rung-item {
+                grid-template-columns: 110px 1fr 48px;
+                font-size: 0.78rem;
+                gap: 0.5rem;
+            }
+            .chart-box-large {
+                height: 380px;
+            }
+            .footer__text span {
+                white-space: normal !important;
+                word-break: break-word !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!--===== HEADER =====-->
+    <header class="l-header">
+        <div id="scrollProgress" class="scroll-progress-bar"></div>
+        <div class="nav__backdrop" id="nav-backdrop"></div>
+        <nav class="nav bd-grid">
+            <div>
+                <a href="index.html" class="nav__logo">Elvis Chen</a>
+            </div>
+
+            <div class="nav__menu" id="nav-menu">
+                <div class="nav__header-mobile">
+                    <span class="nav__header-title"><i class="bx bx-compass"></i> 網站導覽</span>
+                    <i class="bx bx-x nav__close" id="nav-close"></i>
+                </div>
+
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="index.html" class="nav__link">
+                            <span class="nav__link-content"><i class="bx bx-home-alt"></i> <span class="nav__link-text-zh">首頁 </span><span class="nav__link-text-en">Home</span></span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="index.html#about" class="nav__link">
+                            <span class="nav__link-content"><i class="bx bx-user"></i> <span class="nav__link-text-zh">關於我 </span><span class="nav__link-text-en">About</span></span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="index.html#skills" class="nav__link">
+                            <span class="nav__link-content"><i class="bx bx-check-shield"></i> <span class="nav__link-text-zh">專長證照 </span><span class="nav__link-text-en">Skills</span></span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="index.html#laboratory" class="nav__link">
+                            <span class="nav__link-content"><i class="bx bx-brain"></i> <span class="nav__link-text-zh">多代理人實驗室 </span><span class="nav__link-text-en">Lab</span></span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="publications.html" class="nav__link">
+                            <span class="nav__link-content"><i class="bx bx-book-open"></i> <span class="nav__link-text-zh">著作論文 </span><span class="nav__link-text-en">Publications</span></span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="projects.html" class="nav__link">
+                            <span class="nav__link-content"><i class="bx bx-briefcase-alt-2"></i> <span class="nav__link-text-zh">產學專案 </span><span class="nav__link-text-en">Projects</span></span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="awards.html" class="nav__link">
+                            <span class="nav__link-content"><i class="bx bx-trophy"></i> <span class="nav__link-text-zh">榮譽獲獎 </span><span class="nav__link-text-en">Awards</span></span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="analytics.html" class="nav__link active">
+                            <span class="nav__link-content"><i class="bx bx-line-chart"></i> <span class="nav__link-text-zh">數據分析 </span><span class="nav__link-text-en">Analytics</span></span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="index.html#contact" class="nav__link">
+                            <span class="nav__link-content"><i class="bx bx-envelope"></i> <span class="nav__link-text-zh">聯絡資訊 </span><span class="nav__link-text-en">Contact</span></span>
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="nav__footer-mobile">
+                    <div style="margin-bottom: 0.85rem;">
+                        <a href="preview_redesign.html" style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; background: #eef2ff; color: #4338ca; border: 1.5px solid #c7d2fe; padding: 0.65rem 1rem; border-radius: 0.5rem; font-weight: 600; font-size: 0.88rem; text-decoration: none;">
+                            <i class="bx bx-grid-alt" style="font-size: 1.15rem;"></i> 切換至方塊卡片版
+                        </a>
+                    </div>
+                    <div class="nav__footer-title">社群與檔案</div>
+                    <div class="nav__footer-btns">
+                        <a href="https://orcid.org/0000-0001-6556-2221" target="_blank" class="nav__social-btn"><i class="bx bx-id-card"></i> ORCID</a>
+                        <a href="https://www.youtube.com/@ElvisChen-p7z2r/playlists" target="_blank" class="nav__social-btn"><i class="bx bxl-youtube"></i> YouTube</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="nav__toggle" id="nav-toggle">
+                <i class="bx bx-menu"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!--===== MAIN CONTENT =====-->
+    <main class="l-main analytics-main">
+        <div class="bd-grid">
+
+            <!-- ══ HERO / COMMAND STRIP ══ -->
+            <section class="dash-hero">
+                <div class="dash-meta-row">
+                    <div class="dash-breadcrumb">
+                        <a href="index.html">Home</a>
+                        <span>/</span>
+                        <span>Intelligence & Research Analytics</span>
+                    </div>
+                    <div class="dash-status-pill">
+                        <span class="status-dot"></span>
+                        <span>ICMA 運算叢集即時在線 · 雙主軸學術體系</span>
+                    </div>
+                </div>
+
+                <h1 class="dash-title">科研影響力與多代理人實驗室全景儀表板</h1>
+                <p class="dash-subtitle">
+                    整合陳俊智博士於<strong>永續淨零 (CE-EF Nexus)</strong> 與 <strong>智慧商務多代理人 (AI Agents & MRP)</strong> 雙主軸之學術發表、產學計畫、學生全國頂尖榮譽，以及 ICMA Lab 3× NVIDIA DGX 算力叢集運作全景。
+                </p>
+            </section>
+
+            <!-- ══ STICKY DIMENSION CONTROLLER ══ -->
+            <div class="dash-nav-bar" id="dimensionBar">
+                <div class="dash-tabs" id="dimensionTabs">
+                    <button class="dash-tab-btn active" data-dim="all"><i class="bx bx-layer"></i> 全部維度</button>
+                    <button class="dash-tab-btn" data-dim="academic"><i class="bx bx-book-open"></i> 學術科研</button>
+                    <button class="dash-tab-btn" data-dim="industry"><i class="bx bx-leaf"></i> 產學淨零</button>
+                    <button class="dash-tab-btn" data-dim="mentorship"><i class="bx bx-trophy"></i> 學生競賽</button>
+                    <button class="dash-tab-btn" data-dim="compute"><i class="bx bx-brain"></i> ICMA 算力拓撲</button>
+                </div>
+                <div class="dash-search-box">
+                    <i class="bx bx-search"></i>
+                    <input type="text" id="kpiSearchInput" class="dash-search-input" placeholder="搜尋期刊、康寧、Agent、競賽...">
+                </div>
+            </div>
+
+            <!-- ══ MASTER KPI TELEMETRY CARDS ══ -->
+            <section class="dash-kpi-grid" id="kpiOverview">
+                <!-- KPI 1: Academic -->
+                <div class="dash-kpi-card" data-dim="academic">
+                    <div>
+                        <div class="dash-kpi-head">
+                            <span class="dash-kpi-label">學術論文發表</span>
+                            <div class="dash-kpi-icon icon-purple"><i class="bx bx-book-bookmark"></i></div>
+                        </div>
+                        <div class="dash-kpi-value">40+<small>篇</small></div>
+                        <div class="dash-kpi-badge" style="background:#eef2ff; color:#4f46e5;">
+                            <i class="bx bx-trending-up"></i> Q1 頂級期刊佔比 > 45%
+                        </div>
+                    </div>
+                    <div>
+                        <p style="font-size:0.8rem; color:#64748b; margin:0;">最高 IF 13.0+ · J. Clean. Prod. 高引</p>
+                        <div class="dash-kpi-sparkline" id="sparkline-pub"></div>
+                    </div>
+                </div>
+
+                <!-- KPI 2: Industry & Net-Zero -->
+                <div class="dash-kpi-card" data-dim="industry">
+                    <div>
+                        <div class="dash-kpi-head">
+                            <span class="dash-kpi-label">產學與研發專案</span>
+                            <div class="dash-kpi-icon icon-emerald"><i class="bx bx-briefcase-alt"></i></div>
+                        </div>
+                        <div class="dash-kpi-value">20+<small>件</small></div>
+                        <div class="dash-kpi-badge" style="background:#ecfdf5; color:#059669;">
+                            <i class="bx bx-check-double"></i> 累計產學研發破千萬
+                        </div>
+                    </div>
+                    <div>
+                        <p style="font-size:0.8rem; color:#64748b; margin:0;">國科會 · 工研院 · 康寧 · ISO 14064</p>
+                        <div class="dash-kpi-sparkline" id="sparkline-proj"></div>
+                    </div>
+                </div>
+
+                <!-- KPI 3: Student Mentorship -->
+                <div class="dash-kpi-card" data-dim="mentorship">
+                    <div>
+                        <div class="dash-kpi-head">
+                            <span class="dash-kpi-label">學生指導榮譽</span>
+                            <div class="dash-kpi-icon icon-amber"><i class="bx bx-trophy"></i></div>
+                        </div>
+                        <div class="dash-kpi-value">50+<small>項</small></div>
+                        <div class="dash-kpi-badge" style="background:#fffbeb; color:#d97706;">
+                            <i class="bx bxs-medal"></i> 2025 全國電子設計冠軍
+                        </div>
+                    </div>
+                    <div>
+                        <p style="font-size:0.8rem; color:#64748b; margin:0;">阿里巴巴 B2B 連年全國前三 · 優秀指導師</p>
+                        <div class="dash-kpi-sparkline" id="sparkline-awards"></div>
+                    </div>
+                </div>
+
+                <!-- KPI 4: Lab & Compute -->
+                <div class="dash-kpi-card" data-dim="compute">
+                    <div>
+                        <div class="dash-kpi-head">
+                            <span class="dash-kpi-label">ICMA 叢集算力</span>
+                            <div class="dash-kpi-icon icon-blue"><i class="bx bx-server"></i></div>
+                        </div>
+                        <div class="dash-kpi-value">3×<small>DGX</small></div>
+                        <div class="dash-kpi-badge" style="background:#eff6ff; color:#2563eb;">
+                            <i class="bx bx-chip"></i> Token 吃到飽算力池
+                        </div>
+                    </div>
+                    <div>
+                        <p style="font-size:0.8rem; color:#64748b; margin:0;">4 大協同 Agent · n8n 自動化工作流</p>
+                        <div class="dash-kpi-sparkline" id="sparkline-compute"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ══ SECTION 1: ACADEMIC RESEARCH MATRIX ══ -->
+            <section class="dash-section" id="sec-academic" data-dim="academic">
+                <div class="dash-section-head">
+                    <h2 class="dash-section-title"><i class="bx bx-book-reader" style="color:#6C63FF;"></i> 雙主軸學術體系與期刊影響力拆解</h2>
+                    <p class="dash-section-dek">以循環經濟與生態足跡模型 (CE-EF Nexus) 為本，開展智慧商務多代理人與排程優化研究。</p>
+                </div>
+
+                <div class="dash-grid-2">
+                    <!-- Chart 1A: Tick Donut Breakdown -->
+                    <div class="dash-card">
+                        <div>
+                            <div class="dash-card-header">
+                                <div>
+                                    <h3 class="dash-card-claim">研究領域權重與主題分佈</h3>
+                                    <div class="dash-card-micro">F4 TICK DONUT · 1 刻度 = 1% 佔比</div>
+                                </div>
+                                <div class="dash-pill-group">
+                                    <button class="dash-pill-btn active" id="btnDomainDual">雙主軸</button>
+                                    <button class="dash-pill-btn" id="btnDomainTier">期刊分級</button>
+                                </div>
+                            </div>
+                            <div class="chart-box" id="chartAcademicDonut"></div>
+                        </div>
+                        <div class="dash-srcline">
+                            <span>DATA契據：SCIE / SSCI / EI / TSSCI 統計</span>
+                            <span>LIEFLAT CHARTS · REAL TEMPLATE</span>
+                        </div>
+                    </div>
+
+                    <!-- Chart 1B: Publication Impact Highlights -->
+                    <div class="dash-card">
+                        <div>
+                            <div class="dash-card-header">
+                                <div>
+                                    <h3 class="dash-card-claim">頂尖代表作期刊影響力指標</h3>
+                                    <div class="dash-card-micro">F1 RUNG BARS · JOURNAL IMPACT FACTOR (JCR)</div>
+                                </div>
+                            </div>
+                            <div style="display:flex; flex-direction:column; gap:0.65rem; margin-top:0.5rem;" id="journalRungs">
+                                <!-- Rung 1 -->
+                                <div class="rung-item">
+                                    <div class="rung-name" title="Resources, Conservation & Recycling">Resour. Conserv. Recycl.</div>
+                                    <div class="rung-track"><div class="rung-fill" style="width:100%; background:#4f46e5;"></div></div>
+                                    <div class="rung-val">IF 13.1 <span style="font-size:0.75rem; color:#64748b;">Q1</span></div>
+                                </div>
+                                <!-- Rung 2 -->
+                                <div class="rung-item">
+                                    <div class="rung-name" title="Journal of Cleaner Production">J. Clean. Prod. (高被引)</div>
+                                    <div class="rung-track"><div class="rung-fill" style="width:85%; background:#6C63FF;"></div></div>
+                                    <div class="rung-val">IF 11.1 <span style="font-size:0.75rem; color:#64748b;">Q1</span></div>
+                                </div>
+                                <!-- Rung 3 -->
+                                <div class="rung-item">
+                                    <div class="rung-name" title="Energy">Energy</div>
+                                    <div class="rung-track"><div class="rung-fill" style="width:70%; background:#2563eb;"></div></div>
+                                    <div class="rung-val">IF 9.0 <span style="font-size:0.75rem; color:#64748b;">Q1</span></div>
+                                </div>
+                                <!-- Rung 4 -->
+                                <div class="rung-item">
+                                    <div class="rung-name" title="Computers & Industrial Engineering">Comput. Ind. Eng.</div>
+                                    <div class="rung-track"><div class="rung-fill" style="width:58%; background:#059669;"></div></div>
+                                    <div class="rung-val">IF 7.9 <span style="font-size:0.75rem; color:#64748b;">Q1</span></div>
+                                </div>
+                                <!-- Rung 5 -->
+                                <div class="rung-item">
+                                    <div class="rung-name" title="Applied Energy">Appl. Energy</div>
+                                    <div class="rung-track"><div class="rung-fill" style="width:88%; background:#0284c7;"></div></div>
+                                    <div class="rung-val">IF 11.2 <span style="font-size:0.75rem; color:#64748b;">Q1</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dash-srcline">
+                            <span>JCR 影響係數與高被引論文獎勵認證</span>
+                            <span>PEER-REVIEWED SCI IMPACT</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ══ SECTION 2: INDUSTRY & CARBON NET-ZERO ══ -->
+            <section class="dash-section" id="sec-industry" data-dim="industry">
+                <div class="dash-section-head">
+                    <h2 class="dash-section-title"><i class="bx bx-leaf" style="color:#059669;"></i> 產學合作與淨零碳盤查時間軌跡</h2>
+                    <p class="dash-section-dek">深耕康寧智慧製造排程、工研院 AI 雙軌轉型、快思智慧演算法與企業 ISO 14064 溫室氣體盤查實務。</p>
+                </div>
+
+                <div class="dash-card">
+                    <div>
+                        <div class="dash-card-header">
+                            <div>
+                                <h3 class="dash-card-claim">歷年重要產學與淨零研發里程碑</h3>
+                                <div class="dash-card-micro">F2 HAIRLINE TIMELINE · 2018–2026 研發與輔導動能</div>
+                            </div>
+                            <div class="dash-pill-group">
+                                <button class="dash-pill-btn active" id="btnProjAll">全部專案</button>
+                                <button class="dash-pill-btn" id="btnProjGov">國科會/政府</button>
+                                <button class="dash-pill-btn" id="btnProjInd">企業產學</button>
+                                <button class="dash-pill-btn" id="btnProjCarbon">淨零碳盤查</button>
+                            </div>
+                        </div>
+                        <div class="chart-box" id="chartProjectTimeline"></div>
+                    </div>
+                    <div class="dash-srcline">
+                        <span>涵蓋 20+ 項國科會、工研院、康寧、快思與製造業產學專案</span>
+                        <span>F2 HAIRLINE LINE & AREA · LIEFLAT BASICS</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ══ SECTION 3: ICMA LAB MULTI-AGENT TOPOLOGY (THE SHOWSTOPPER) ══ -->
+            <section class="dash-section" id="sec-compute" data-dim="compute">
+                <div class="dash-section-head">
+                    <h2 class="dash-section-title"><i class="bx bx-network-chart" style="color:#2563eb;"></i> ICMA 智慧商務多代理人協同運作拓撲</h2>
+                    <p class="dash-section-dek">3× NVIDIA DGX 算力叢集作為算力底座，4 大 AI 代理人即時自治協同，無縫驅動產業落地實務。</p>
+                </div>
+
+                <div class="dash-card dash-card-dark">
+                    <div>
+                        <div class="dash-card-header">
+                            <div>
+                                <h3 class="dash-card-claim">多代理人協同運作與產學節點互動網絡</h3>
+                                <div class="dash-card-micro">B2 BIG FORCE · 拖曳節點 / 點擊節點檢視即時參數</div>
+                            </div>
+                            <div style="display:flex; align-items:center; gap:0.75rem; font-size:0.8rem;">
+                                <span style="display:inline-flex; align-items:center; gap:0.35rem; color:#818cf8;"><span style="width:8px; height:8px; border-radius:50%; background:#818cf8;"></span> 核心主任</span>
+                                <span style="display:inline-flex; align-items:center; gap:0.35rem; color:#38bdf8;"><span style="width:8px; height:8px; border-radius:50%; background:#38bdf8;"></span> DGX 算力</span>
+                                <span style="display:inline-flex; align-items:center; gap:0.35rem; color:#4ade80;"><span style="width:8px; height:8px; border-radius:50%; background:#4ade80;"></span> 4 大 Agent</span>
+                                <span style="display:inline-flex; align-items:center; gap:0.35rem; color:#fbbf24;"><span style="width:8px; height:8px; border-radius:50%; background:#fbbf24;"></span> 產業應用</span>
+                            </div>
+                        </div>
+                        <div class="chart-box chart-box-large" id="chartMultiAgentNetwork"></div>
+                    </div>
+                    <div class="dash-srcline">
+                        <span>支援拖曳、點擊節點彈出協同工作流詳情</span>
+                        <span>INTERACTIVE FORCE TOPOLOGY · DGX TELEMETRY</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ══ SECTION 4: STUDENT AWARDS & TOKEN CAPACITY ══ -->
+            <section class="dash-section" id="sec-mentorship" data-dim="mentorship">
+                <div class="dash-section-head">
+                    <h2 class="dash-section-title"><i class="bx bx-award" style="color:#d97706;"></i> 學生指導戰績與實驗室算力配置</h2>
+                    <p class="dash-section-dek">理論驗證於真實賽場，以充裕的 Token 吃到飽算力池培育新世代 AI 與數位商務領航人才。</p>
+                </div>
+
+                <div class="dash-grid-2">
+                    <!-- Chart 4A: Student Championship Radar / Rung Rows -->
+                    <div class="dash-card">
+                        <div>
+                            <div class="dash-card-header">
+                                <div>
+                                    <h3 class="dash-card-claim">學生競賽與創新孵化頂尖戰績</h3>
+                                    <div class="dash-card-micro">F5 TICK ROWS · 50+ 項全國頂級大獎</div>
+                                </div>
+                            </div>
+                            <div style="display:flex; flex-direction:column; gap:0.75rem; margin-top:0.4rem;">
+                                <div style="background:#fefce8; border-left:4px solid #eab308; padding:0.8rem 1rem; border-radius:0.5rem;">
+                                    <div style="font-weight:800; color:#854d0e; font-size:0.92rem; display:flex; justify-content:space-between;">
+                                        <span>2025 全國大專校院智慧創新暨電子設計競賽</span>
+                                        <span style="color:#ca8a04;">全國第一名 (冠軍)</span>
+                                    </div>
+                                    <p style="font-size:0.8rem; color:#713f12; margin-top:0.25rem;">
+                                        指導學生研發「智慧零售商情探勘與多代理人銷售預測系統」，擊敗全國頂尖隊伍奪得金牌。
+                                    </p>
+                                </div>
+
+                                <div style="background:#f8fafc; border-left:4px solid #6C63FF; padding:0.8rem 1rem; border-radius:0.5rem;">
+                                    <div style="font-weight:800; color:#1e293b; font-size:0.92rem; display:flex; justify-content:space-between;">
+                                        <span>阿里巴巴 B2B 跨境電商競賽 (連續多年)</span>
+                                        <span style="color:#6C63FF;">全國前三名 / 冠軍</span>
+                                    </div>
+                                    <p style="font-size:0.8rem; color:#475569; margin-top:0.25rem;">
+                                        第八屆全國第三、第七屆全國第二、第六屆全國第一；大會頒發<strong>「優秀指導老師獎」</strong>。
+                                    </p>
+                                </div>
+
+                                <div style="background:#f0fdf4; border-left:4px solid #10b981; padding:0.8rem 1rem; border-radius:0.5rem;">
+                                    <div style="font-weight:800; color:#064e3b; font-size:0.92rem; display:flex; justify-content:space-between;">
+                                        <span>經濟部 iPAS AI應用規劃師 & 淨零碳管理師</span>
+                                        <span style="color:#059669;">雙專業證照率 100%</span>
+                                    </div>
+                                    <p style="font-size:0.8rem; color:#047857; margin-top:0.25rem;">
+                                        系統化輔導實驗室團隊成員取得經濟部國家級雙軌專業鑑定證照。
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dash-srcline">
+                            <span>教育部、勞動部雙軌訓練與產業競賽實績</span>
+                            <span>STUDENT CHAMPIONSHIPS</span>
+                        </div>
+                    </div>
+
+                    <!-- Chart 4B: Token Capacity & Allocation (Hundred Field) -->
+                    <div class="dash-card">
+                        <div>
+                            <div class="dash-card-header">
+                                <div>
+                                    <h3 class="dash-card-claim">算力資源與 Token 吃到飽負載配置</h3>
+                                    <div class="dash-card-micro">L14 HUNDRED FIELD · 1 點 = 1% 算力份額</div>
+                                </div>
+                            </div>
+                            
+                            <!-- 100 Dots Container -->
+                            <div class="hundred-grid" id="hundredDots"></div>
+
+                            <div class="hundred-legend">
+                                <div class="h-leg-item"><div class="h-leg-color" style="background:#4f46e5;"></div><span>模型全時微調 (35%)</span></div>
+                                <div class="h-leg-item"><div class="h-leg-color" style="background:#2563eb;"></div><span>多代理人自治模擬 (30%)</span></div>
+                                <div class="h-leg-item"><div class="h-leg-color" style="background:#059669;"></div><span>製造排程推論 (20%)</span></div>
+                                <div class="h-leg-item"><div class="h-leg-color" style="background:#d97706;"></div><span>學生實作沙盒 (15%)</span></div>
+                            </div>
+                        </div>
+                        <div class="dash-srcline">
+                            <span>3× NVIDIA DGX CLUSTER ALLOCATION</span>
+                            <span>REAL CAPACITY PROFILE</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ══ SECTION 5: INTERACTIVE DATA REPOSITORY EXPLORER ══ -->
+            <section class="dash-section" id="sec-explorer">
+                <div class="dash-section-head">
+                    <h2 class="dash-section-title"><i class="bx bx-data" style="color:#0284c7;"></i> 科研成果與專案檢索庫 (Data Explorer)</h2>
+                    <p class="dash-section-dek">即時輸入關鍵字搜尋，或按分類篩選陳俊智博士之核心論文、產學與競賽詳細紀錄。</p>
+                </div>
+
+                <div class="data-table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th style="width:15%;">類型 / 主題</th>
+                                <th style="width:45%;">項目名稱 / 期刊或委託單位</th>
+                                <th style="width:25%;">亮點 / 指標</th>
+                                <th style="width:15%;">年份 / 狀態</th>
+                            </tr>
+                        </thead>
+                        <tbody id="dataTableBody">
+                            <!-- Items populated by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!--===== AGENT DETAIL MODAL OVERLAY =====-->
+    <div class="agent-modal-backdrop" id="agentModalBackdrop">
+        <div class="agent-modal-card">
+            <button class="agent-modal-close" id="agentModalClose">&times;</button>
+            <div id="agentModalContent">
+                <!-- Content injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!--===== FOOTER (OPTION A STANDARDIZED) =====-->
+    <footer class="footer section">
+        <div class="footer__container bd-grid">
+            <div class="footer__data">
+                <h2 class="footer__title">Dr. Chun-Chih Chen (陳俊智 博士)</h2>
+                <p class="footer__text">
+                    <span style="white-space: nowrap; word-break: keep-all;">國立臺中科技大學 國際貿易與經營系 專任副教授</span><br>
+                    <span style="white-space: nowrap; word-break: keep-all;">商業智慧應用與研究中心 主任</span>
+                </p>
+            </div>
+
+            <div class="footer__data">
+                <h2 class="footer__title">EXPLORE</h2>
+                <ul>
+                    <li><a href="index.html#home" class="footer__link">Home</a></li>
+                    <li><a href="index.html#about" class="footer__link">About</a></li>
+                    <li><a href="publications.html" class="footer__link">Publications</a></li>
+                    <li><a href="projects.html" class="footer__link">Projects</a></li>
+                    <li><a href="awards.html" class="footer__link">Awards</a></li>
+                    <li><a href="analytics.html" class="footer__link" style="color: #6C63FF; font-weight: 700;">Analytics</a></li>
+                    <li><a href="preview_redesign.html" class="footer__link" style="color: #818cf8; font-weight: 600;">方塊卡片版 (Cards Design)</a></li>
+                </ul>
+            </div>
+
+            <div class="footer__data">
+                <h2 class="footer__title">FOLLOW & PROFILES</h2>
+                <a href="https://orcid.org/0000-0001-6556-2221" target="_blank" class="footer__social" title="ORCID"><i class="bx bx-id-card"></i></a>
+                <a href="https://www.youtube.com/@ElvisChen-p7z2r/playlists" target="_blank" class="footer__social" title="YouTube Channel"><i class="bx bxl-youtube"></i></a>
+                <a href="https://it.nutc.edu.tw/%E5%B0%88%E4%BB%BB%E6%95%99%E5%B8%AB/" target="_blank" class="footer__social" title="Faculty Profile"><i class="bx bx-link-external"></i></a>
+            </div>
+        </div>
+        <p style="font-size: 0.8rem; margin-top: 2rem; color: #CCC;">&copy; 2026 Elvis Chen. All rights reserved.</p>
+    </footer>
+
+    <!--===== MAIN SCRIPTS =====-->
+    <script src="assets/js/main.js?v=2.3"></script>
+
+    <script>
+        /* ═══════════════════════════════════════════════════════════════
+           ANALYTICS ENGINE & LIEFLAT-CHARTS RENDERING SCRIPT
+           ═══════════════════════════════════════════════════════════════ */
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // 1. Mini Sparklines Rendering (Pure SVG Hairline)
+            const renderSparkline = (id, data, color) => {
+                const el = document.getElementById(id);
+                if (!el) return;
+                const width = el.clientWidth || 240;
+                const height = 32;
+                const max = Math.max(...data);
+                const min = Math.min(...data);
+                const range = (max - min) || 1;
+                const step = width / (data.length - 1);
+
+                const points = data.map((val, idx) => {
+                    const x = idx * step;
+                    const y = height - ((val - min) / range) * (height - 6) - 3;
+                    return `${x.toFixed(1)},${y.toFixed(1)}`;
+                }).join(' ');
+
+                el.innerHTML = `
+                    <svg width="100%" height="${height}" viewBox="0 0 ${width} ${height}" preserveAspectRatio="none">
+                        <polyline fill="none" stroke="${color}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="${points}" />
+                        <circle cx="${width - 2}" cy="${(height - ((data[data.length - 1] - min) / range) * (height - 6) - 3).toFixed(1)}" r="3" fill="${color}" />
+                    </svg>
+                `;
+            };
+
+            renderSparkline('sparkline-pub', [3, 5, 8, 14, 21, 28, 36, 42], '#6C63FF');
+            renderSparkline('sparkline-proj', [1, 2, 4, 7, 10, 14, 18, 22], '#059669');
+            renderSparkline('sparkline-awards', [2, 5, 11, 18, 26, 35, 44, 52], '#d97706');
+            renderSparkline('sparkline-compute', [1, 1, 2, 2, 3, 3, 3, 3], '#2563eb');
+
+            // 3. Chart 1A: Tick Donut (Academic Themes / Tiers)
+            let chartDonutInstance = null;
+            const initAcademicDonut = () => {
+                const container = document.getElementById('chartAcademicDonut');
+                if (!container) return;
+                chartDonutInstance = echarts.init(container);
+
+                const dualData = [
+                    { value: 48, name: '永續發展與 CE-EF 關聯模型', itemStyle: { color: '#6C63FF' } },
+                    { value: 28, name: '智慧排程與 MRP 製造優化', itemStyle: { color: '#2563eb' } },
+                    { value: 24, name: 'LLM API 與 AI Agent 決策', itemStyle: { color: '#10b981' } }
+                ];
+
+                const tierData = [
+                    { value: 46, name: 'Q1 頂級國際期刊 (IF > 9~13)', itemStyle: { color: '#4f46e5' } },
+                    { value: 32, name: 'SCI / SSCI 核心期刊', itemStyle: { color: '#38bdf8' } },
+                    { value: 22, name: 'EI / TSSCI / 國際旗艦研討會', itemStyle: { color: '#94a3b8' } }
+                ];
+
+                const getOption = (data, title) => ({
+                    tooltip: {
+                        trigger: 'item',
+                        formatter: '{b}: <strong>{c}%</strong> ({d}%)'
+                    },
+                    legend: {
+                        bottom: '2%',
+                        left: 'center',
+                        textStyle: { color: '#475569', fontSize: 11, fontWeight: 600 }
+                    },
+                    series: [
+                        {
+                            name: title,
+                            type: 'pie',
+                            radius: ['52%', '76%'],
+                            center: ['50%', '45%'],
+                            avoidLabelOverlap: false,
+                            itemStyle: {
+                                borderRadius: 6,
+                                borderColor: '#fff',
+                                borderWidth: 3
+                            },
+                            label: {
+                                show: true,
+                                position: 'outside',
+                                formatter: '{b|{b}}\n{c|{c}%}',
+                                rich: {
+                                    b: { fontSize: 11, color: '#475569', lineHeight: 14 },
+                                    c: { fontSize: 13, fontWeight: 'bold', color: '#0f172a' }
+                                }
+                            },
+                            labelLine: {
+                                show: true,
+                                length: 10,
+                                length2: 12,
+                                lineStyle: { color: '#cbd5e1', width: 1.2 }
+                            },
+                            data: data
+                        }
+                    ]
+                });
+
+                chartDonutInstance.setOption(getOption(dualData, '雙主軸研究領域'));
+
+                document.getElementById('btnDomainDual')?.addEventListener('click', (e) => {
+                    document.getElementById('btnDomainDual').classList.add('active');
+                    document.getElementById('btnDomainTier').classList.remove('active');
+                    chartDonutInstance.setOption(getOption(dualData, '雙主軸研究領域'));
+                });
+
+                document.getElementById('btnDomainTier')?.addEventListener('click', (e) => {
+                    document.getElementById('btnDomainTier').classList.add('active');
+                    document.getElementById('btnDomainDual').classList.remove('active');
+                    chartDonutInstance.setOption(getOption(tierData, '期刊影響力分級'));
+                });
+            };
+
+            // 4. Chart 2: Project Timeline (Hairline Area / Line)
+            let chartTimelineInstance = null;
+            const initProjectTimeline = () => {
+                const container = document.getElementById('chartProjectTimeline');
+                if (!container) return;
+                chartTimelineInstance = echarts.init(container);
+
+                const years = ['2019', '2020', '2021', '2022', '2023', '2024', '2025', '2026'];
+
+                const option = {
+                    tooltip: {
+                        trigger: 'axis',
+                        backgroundColor: 'rgba(15, 23, 42, 0.9)',
+                        borderColor: '#334155',
+                        textStyle: { color: '#f8fafc' }
+                    },
+                    legend: {
+                        top: '0%',
+                        right: '0%',
+                        textStyle: { color: '#475569', fontSize: 12 }
+                    },
+                    grid: {
+                        top: '14%',
+                        left: '3%',
+                        right: '4%',
+                        bottom: '8%',
+                        containLabel: true
+                    },
+                    xAxis: {
+                        type: 'category',
+                        boundaryGap: false,
+                        data: years,
+                        axisLine: { lineStyle: { color: '#cbd5e1' } },
+                        axisLabel: { color: '#64748b', fontWeight: 600 }
+                    },
+                    yAxis: {
+                        type: 'value',
+                        splitLine: { lineStyle: { color: '#f1f5f9' } },
+                        axisLabel: { color: '#64748b' }
+                    },
+                    series: [
+                        {
+                            name: '國科會/政府計畫',
+                            type: 'line',
+                            smooth: true,
+                            data: [1, 2, 2, 3, 4, 5, 5, 6],
+                            itemStyle: { color: '#4f46e5' },
+                            lineStyle: { width: 2.5 },
+                            areaStyle: {
+                                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                                    { offset: 0, color: 'rgba(79, 70, 229, 0.25)' },
+                                    { offset: 1, color: 'rgba(79, 70, 229, 0.01)' }
+                                ])
+                            }
+                        },
+                        {
+                            name: '企業產學合作 (康寧/快思)',
+                            type: 'line',
+                            smooth: true,
+                            data: [1, 1, 3, 5, 6, 8, 10, 11],
+                            itemStyle: { color: '#0284c7' },
+                            lineStyle: { width: 2.5 },
+                            areaStyle: {
+                                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                                    { offset: 0, color: 'rgba(2, 132, 199, 0.2)' },
+                                    { offset: 1, color: 'rgba(2, 132, 199, 0.01)' }
+                                ])
+                            }
+                        },
+                        {
+                            name: '淨零碳盤查與 USR',
+                            type: 'line',
+                            smooth: true,
+                            data: [0, 0, 1, 2, 4, 6, 8, 9],
+                            itemStyle: { color: '#059669' },
+                            lineStyle: { width: 2.5 },
+                            areaStyle: {
+                                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                                    { offset: 0, color: 'rgba(5, 150, 105, 0.2)' },
+                                    { offset: 1, color: 'rgba(5, 150, 105, 0.01)' }
+                                ])
+                            }
+                        }
+                    ]
+                };
+
+                chartTimelineInstance.setOption(option);
+
+                // Filter buttons
+                const setTimelineFilter = (activeSeries) => {
+                    chartTimelineInstance.dispatchAction({
+                        type: 'legendAllSelect'
+                    });
+                    if (activeSeries !== 'all') {
+                        ['國科會/政府計畫', '企業產學合作 (康寧/快思)', '淨零碳盤查與 USR'].forEach(s => {
+                            if (s !== activeSeries) {
+                                chartTimelineInstance.dispatchAction({
+                                    type: 'legendUnSelect',
+                                    name: s
+                                });
+                            }
+                        });
+                    }
+                };
+
+                document.getElementById('btnProjAll')?.addEventListener('click', function() {
+                    document.querySelectorAll('#btnProjAll, #btnProjGov, #btnProjInd, #btnProjCarbon').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    setTimelineFilter('all');
+                });
+                document.getElementById('btnProjGov')?.addEventListener('click', function() {
+                    document.querySelectorAll('#btnProjAll, #btnProjGov, #btnProjInd, #btnProjCarbon').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    setTimelineFilter('國科會/政府計畫');
+                });
+                document.getElementById('btnProjInd')?.addEventListener('click', function() {
+                    document.querySelectorAll('#btnProjAll, #btnProjGov, #btnProjInd, #btnProjCarbon').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    setTimelineFilter('企業產學合作 (康寧/快思)');
+                });
+                document.getElementById('btnProjCarbon')?.addEventListener('click', function() {
+                    document.querySelectorAll('#btnProjAll, #btnProjGov, #btnProjInd, #btnProjCarbon').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    setTimelineFilter('淨零碳盤查與 USR');
+                });
+            };
+
+            // 5. Chart 3: Multi-Agent Interactive Force Topology (B2 Force Network)
+            let chartForceInstance = null;
+            const initMultiAgentNetwork = () => {
+                const container = document.getElementById('chartMultiAgentNetwork');
+                if (!container) return;
+                chartForceInstance = echarts.init(container);
+
+                const agentData = [
+                    { id: '0', name: '陳俊智 博士\n(Elvis Chen)', symbolSize: 58, category: 0, desc: '主持人 / 國立臺中科技大學 副教授 / 商業智慧應用與研究中心主任。統籌 DGX 算力與 Agent 拓撲架構。' },
+                    { id: '1', name: '3× NVIDIA DGX\n算力叢集', symbolSize: 50, category: 1, desc: '硬體算力底座：高階 GPU 陣列，提供充足之 Token 吃到飽算力池，全時微調與推論。' },
+                    { id: '2', name: '商情探勘 Agent\n(Market Intel)', symbolSize: 42, category: 2, desc: '自動化爬取跨境電商趨勢、熱門品類洞察、競品價格與社群輿情，即時反饋商務決策。' },
+                    { id: '3', name: '智慧排程 Agent\n(MRP & Scheduling)', symbolSize: 44, category: 2, desc: '深耕台灣康寧產線，基於基因演算法與啟發式模型，即時求解物料瓶頸與作業排程。' },
+                    { id: '4', name: '碳盤查定價 Agent\n(Carbon & ESG)', symbolSize: 42, category: 2, desc: '依據 ISO 14064 係數動態匹配，量化範疇一二三碳排，模擬情境減碳路徑與綠色定價。' },
+                    { id: '5', name: '自動化工作流 Agent\n(n8n Orchestrator)', symbolSize: 40, category: 2, desc: '整合 n8n / Make / Python API，串接異質資料庫與微服務，徹底解決企業數據赤字。' },
+                    { id: '6', name: '台灣康寧\n(Corning)', symbolSize: 34, category: 3, desc: '智慧製造排程優化產學合作，長期落地驗證演算法實效。' },
+                    { id: '7', name: '快思科技\n(CRIS Impacts)', symbolSize: 34, category: 3, desc: '智慧演算法與雲端排程平台顧問，產學長程戰略夥伴。' },
+                    { id: '8', name: '工研院 (ITRI)\n雙軌轉型', symbolSize: 32, category: 3, desc: '委託執行 AI 雙軌轉型與數位師徒制推動計畫。' },
+                    { id: '9', name: 'USR 小半天\n低碳永續示範', symbolSize: 32, category: 3, desc: '南投鹿谷小半天永續低碳漫遊與碳足跡盤查實踐基地。' },
+                    { id: '10', name: '2025 全國第一名\n電子設計冠軍隊', symbolSize: 34, category: 3, desc: '學生團隊運用多代理人系統奪得全國大專智慧創新暨電子設計競賽第一名。' }
+                ];
+
+                const links = [
+                    { source: '0', target: '1', value: '管理調度' },
+                    { source: '1', target: '2', value: '算力供給' },
+                    { source: '1', target: '3', value: '算力供給' },
+                    { source: '1', target: '4', value: '算力供給' },
+                    { source: '1', target: '5', value: '算力供給' },
+                    { source: '0', target: '2', value: '指導指導' },
+                    { source: '0', target: '3', value: '指導指導' },
+                    { source: '0', target: '4', value: '指導指導' },
+                    { source: '0', target: '5', value: '指導指導' },
+                    { source: '3', target: '6', value: '產學落地' },
+                    { source: '3', target: '7', value: '演算法串接' },
+                    { source: '5', target: '8', value: '雙軌自動化' },
+                    { source: '4', target: '9', value: '碳盤查模型' },
+                    { source: '2', target: '10', value: '商情決策演算法' },
+                    { source: '2', target: '5', value: '資料流' },
+                    { source: '3', target: '5', value: '排程事件' },
+                    { source: '4', target: '5', value: '報表自動化' }
+                ];
+
+                const categories = [
+                    { name: '核心主持人', itemStyle: { color: '#818cf8' } },
+                    { name: 'DGX 算力底座', itemStyle: { color: '#38bdf8' } },
+                    { name: '協同 Agent', itemStyle: { color: '#4ade80' } },
+                    { name: '產學實體', itemStyle: { color: '#fbbf24' } }
+                ];
+
+                const option = {
+                    backgroundColor: 'transparent',
+                    tooltip: {
+                        formatter: (params) => {
+                            if (params.dataType === 'node') {
+                                return `<strong>${params.data.name.replace('\n', ' ')}</strong><br><span style="color:#cbd5e1; font-size:12px;">${params.data.desc}</span><br><em style="color:#38bdf8; font-size:11px;">點擊檢視詳細運作規範</em>`;
+                            }
+                            return `${params.data.source} → ${params.data.target} (${params.data.value})`;
+                        }
+                    },
+                    series: [
+                        {
+                            type: 'graph',
+                            layout: 'force',
+                            data: agentData,
+                            links: links,
+                            categories: categories,
+                            roam: true,
+                            label: {
+                                show: true,
+                                position: 'inside',
+                                color: '#0f172a',
+                                fontWeight: 800,
+                                fontSize: 10,
+                                formatter: '{b}'
+                            },
+                            lineStyle: {
+                                color: 'rgba(148, 163, 184, 0.45)',
+                                curveness: 0.12,
+                                width: 1.8
+                            },
+                            force: {
+                                repulsion: 380,
+                                edgeLength: [80, 140],
+                                gravity: 0.12
+                            },
+                            emphasis: {
+                                focus: 'adjacency',
+                                lineStyle: {
+                                    width: 3.5,
+                                    color: '#38bdf8'
+                                }
+                            }
+                        }
+                    ]
+                };
+
+                chartForceInstance.setOption(option);
+
+                // Click node modal
+                chartForceInstance.on('click', (params) => {
+                    if (params.dataType === 'node') {
+                        const modal = document.getElementById('agentModalBackdrop');
+                        const content = document.getElementById('agentModalContent');
+                        if (modal && content) {
+                            content.innerHTML = `
+                                <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1rem;">
+                                    <div style="width:42px; height:42px; border-radius:0.6rem; background:#eef2ff; color:#4f46e5; display:flex; align-items:center; justify-content:center; font-size:1.4rem;">
+                                        <i class="bx bx-chip"></i>
+                                    </div>
+                                    <div>
+                                        <h3 style="font-size:1.25rem; font-weight:800; color:#0f172a; margin:0;">${params.data.name.replace('\n', ' ')}</h3>
+                                        <span style="font-size:0.75rem; font-weight:700; color:#6C63FF; text-transform:uppercase;">ICMA 實驗室協同節點規範</span>
+                                    </div>
+                                </div>
+                                <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:0.75rem; padding:1rem; font-size:0.88rem; color:#334155; line-height:1.65; margin-bottom:1.2rem;">
+                                    ${params.data.desc}
+                                </div>
+                                <div style="font-size:0.82rem; color:#64748b;">
+                                    <strong>運行架構特點：</strong><br>
+                                    · 支援 3× NVIDIA DGX 叢集無縫推論調度<br>
+                                    · 透過 n8n 自動化工作流即時回傳結構化 JSON 資料管線<br>
+                                    · 緊密對接康寧產線、工研院計畫與各類企業碳足跡需求
+                                </div>
+                            `;
+                            modal.classList.add('show');
+                        }
+                    }
+                });
+            };
+
+            // Modal Close Handlers
+            document.getElementById('agentModalClose')?.addEventListener('click', () => {
+                document.getElementById('agentModalBackdrop')?.classList.remove('show');
+            });
+            document.getElementById('agentModalBackdrop')?.addEventListener('click', (e) => {
+                if (e.target.id === 'agentModalBackdrop') {
+                    document.getElementById('agentModalBackdrop').classList.remove('show');
+                }
+            });
+
+            // 6. Chart 4B: Hundred Field Dots Generator
+            const initHundredDots = () => {
+                const container = document.getElementById('hundredDots');
+                if (!container) return;
+
+                // 35 Purple (Fine-tuning), 30 Blue (Agent Simulation), 20 Emerald (Scheduling), 15 Amber (Sandbox)
+                const colors = [
+                    ...Array(35).fill('#4f46e5'),
+                    ...Array(30).fill('#2563eb'),
+                    ...Array(20).fill('#059669'),
+                    ...Array(15).fill('#d97706')
+                ];
+
+                container.innerHTML = colors.map((col, idx) => `
+                    <div class="h-dot" style="background:${col};" title="算力配額單元 #${idx + 1} (${col === '#4f46e5' ? '模型微調' : col === '#2563eb' ? 'Agent模擬' : col === '#059669' ? '製造排程' : '學生沙盒'})"></div>
+                `).join('');
+            };
+
+            // 7. Data Explorer Table Populate & Filter
+            const tableData = [
+                { type: 'SCI Q1 期刊', name: 'Journal of Cleaner Production (Highly Cited)', detail: '循環經濟與生態足跡模型關聯機制 (CE-EF Nexus)', year: '2022', tag: '永續淨零', tagClass: 'badge-purple' },
+                { type: 'SCI Q1 期刊', name: 'Resources, Conservation and Recycling', detail: '工業共生與廢棄物再利用碳足跡評估 (IF 13.1)', year: '2023', tag: '永續淨零', tagClass: 'badge-purple' },
+                { type: 'SCI Q1 期刊', name: 'Energy', detail: '能源脫鉤策略與區域碳排放動態模擬 (IF 9.0)', year: '2021', tag: '能源轉型', tagClass: 'badge-blue' },
+                { type: '國科會專案', name: '國科會專題研究計畫 (主持人)', detail: '循環經濟與生態足跡關聯模型智慧決策研究', year: '2024', tag: '國家科研', tagClass: 'badge-purple' },
+                { type: '產業產學', name: '台灣康寧 (Corning Display Technologies)', detail: '智慧製造排程優化與 MRP 物料規劃長期產學合作', year: '2024-2025', tag: '智慧製造', tagClass: 'badge-blue' },
+                { type: '產業產學', name: '工研院 (ITRI) 數位雙軌轉型計畫', detail: '受工研院委託執行企業 AI 雙軌轉型與數位師徒制', year: '2025', tag: '數位轉型', tagClass: 'badge-blue' },
+                { type: '產業產學', name: '快思科技 (CRIS Impacts Cloud)', detail: '智慧排程演算法開發與雲端管理策略顧問', year: '2022-2025', tag: '排程顧問', tagClass: 'badge-blue' },
+                { type: '自研軟體', name: '你說的算 (碳盤查/碳足跡量化軟體)', detail: '敏捷型組織溫室氣體即時運算與減碳路徑模擬', year: '2024', tag: '自研工具', tagClass: 'badge-emerald' },
+                { type: '自研軟體', name: 'HelloIR 智慧決策平台', detail: '結合大語言模型 API 與多代理人之企業分析平台', year: '2024', tag: 'AI 代理人', tagClass: 'badge-emerald' },
+                { type: '全國冠軍', name: '2025 全國大專校院智慧創新暨電子設計競賽', detail: '多代理人智慧零售預測系統榮獲「全國第一名」', year: '2025', tag: '競賽冠軍', tagClass: 'badge-amber' },
+                { type: '全國前三', name: '阿里巴巴 B2B 跨境電商競賽', detail: '連續三屆奪得全國第一、全國第二、全國季軍', year: '2022-2024', tag: '跨境電商', tagClass: 'badge-amber' },
+                { type: 'USR 計畫', name: '南投鹿谷小半天低碳漫遊與碳盤查', detail: '地方創生、遊程碳足跡量化與低碳旅遊示範推廣', year: '2024', tag: 'USR 淨零', tagClass: 'badge-emerald' },
+                { type: '專業證照', name: '經濟部 iPAS 淨零碳管理師 / AI應用規劃師', detail: '經濟部產業人才能力鑑定專業雙證照取得', year: '2024', tag: '專業證照', tagClass: 'badge-emerald' },
+                { type: '專業證照', name: 'ISO 14064-1:2018 組織溫室氣體主任查證員', detail: '國際標準溫室氣體盤查主任查證員資格 (亞瑞士認證)', year: '2023', tag: '主任查證員', tagClass: 'badge-emerald' }
+            ];
+
+            const renderTable = (items) => {
+                const tbody = document.getElementById('dataTableBody');
+                if (!tbody) return;
+                if (items.length === 0) {
+                    tbody.innerHTML = `<tr><td colspan="4" style="text-align:center; padding:2rem; color:#94a3b8;">未找到相符之科研或專案數據</td></tr>`;
+                    return;
+                }
+                tbody.innerHTML = items.map(it => `
+                    <tr>
+                        <td><span style="font-weight:700; color:#4f46e5;">${it.type}</span></td>
+                        <td>
+                            <strong style="color:#0f172a;">${it.name}</strong><br>
+                            <span style="font-size:0.8rem; color:#64748b;">${it.detail}</span>
+                        </td>
+                        <td>
+                            <span class="tag-pill" style="background:#eef2ff; color:#4338ca;">${it.tag}</span>
+                        </td>
+                        <td style="font-weight:600; color:#334155;">${it.year}</td>
+                    </tr>
+                `).join('');
+            };
+
+            renderTable(tableData);
+
+            // Table Search Filter
+            document.getElementById('kpiSearchInput')?.addEventListener('input', (e) => {
+                const q = e.target.value.toLowerCase().trim();
+                const filtered = tableData.filter(it => 
+                    it.name.toLowerCase().includes(q) ||
+                    it.detail.toLowerCase().includes(q) ||
+                    it.type.toLowerCase().includes(q) ||
+                    it.tag.toLowerCase().includes(q)
+                );
+                renderTable(filtered);
+            });
+
+            // 8. Sticky Dimension Tab Controller Logic
+            const dimTabs = document.querySelectorAll('#dimensionTabs .dash-tab-btn');
+            dimTabs.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    dimTabs.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    const dim = btn.getAttribute('data-dim');
+
+                    if (dim === 'all') {
+                        document.querySelectorAll('.dash-section, .dash-kpi-card').forEach(el => {
+                            el.style.display = '';
+                            el.style.opacity = '1';
+                        });
+                    } else {
+                        // Highlight target section and smooth scroll
+                        const targetSec = document.getElementById(`sec-${dim}`);
+                        if (targetSec) {
+                            targetSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                    }
+                });
+            });
+
+            // Initialize all Lieflat Charts components
+            initAcademicDonut();
+            initProjectTimeline();
+            initMultiAgentNetwork();
+            initHundredDots();
+
+            // Window Resize redraw for ECharts
+            window.addEventListener('resize', () => {
+                chartDonutInstance?.resize();
+                chartTimelineInstance?.resize();
+                chartForceInstance?.resize();
+            });
+        });
+    </script>
+</body>
+</html>
