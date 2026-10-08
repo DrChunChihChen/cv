@@ -34,8 +34,9 @@
 
 ## 🤖 Intelligent Commerce & Multi-Agent Systems Lab (智慧商務多代理人實驗室)
 
-> **「探索 Agent 在商業、創業與創新的無限可能。」**  
-> 主持人：陳俊智 副教授 (Dr. Chun-Chih Chen) | 國立臺中科技大學 國際貿易與經營系
+> **「國貿系最多 Token 的實驗室：你有點子，老師有 Token！」**  
+> 主持人：陳俊智 副教授 (Dr. Chun-Chih Chen) | 國立臺中科技大學 國際貿易與經營系  
+> *—— 國貿＋AI FDE（前進部署工程師）的實戰基地，3 台 NVIDIA DGX 算力全開，一起把點子燒成落地產品。*
 
 <p align="center">
   <a href="https://drchunchihchen.github.io/cv/#laboratory">
@@ -43,8 +44,9 @@
   </a>
 </p>
 
+* **實驗室亮點**：🔥 **國貿系最多 Token 的實驗室**，別讓 API 餘額限制你的狂想！
 * **核心技術**：LLM Multi-Agent 自主協同協議 (AutoGen / CrewAI)、跨國商務賽局運籌、企業級自動化工作流 (n8n Engine)。
-* **運算資源**：配備 **NVIDIA DGX × 3** 旗艦算力中心。
+* **運算資源**：配備 **NVIDIA DGX × 3** 旗艦算力中心（Token 管飽支援）。
 * **招生與人才招募**：歡迎對 AI 代理人應用、商業自動化與創新創業有熱忱的同學加入！([申請加入](mailto:elvischen@nutc.edu.tw?subject=申請加入智慧商務多代理人實驗室))
 
 ---
