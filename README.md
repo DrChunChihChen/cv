@@ -13,10 +13,14 @@
 
 ## 📌 Professional Affiliations & Roles (現職與經歷)
 
-* **專任助理教授 (Assistant Professor)**  
-  國立臺中科技大學 國際貿易與經營系 (National Taichung University of Science and Technology, Dept. of International Business) | *2022.08 – 迄今*
-* **淨零組組長 (Director, Net-Zero Division)**  
-  國立臺中科技大學 永續發展中心 (Sustainability Center, NUTC) | *2024.08 – 迄今*
+* **專任副教授 (Associate Professor)**  
+  國立臺中科技大學 國際貿易與經營系 (National Taichung University of Science and Technology, Dept. of International Business) | *2025.08 – 迄今*
+* **中心主任 (Director)**  
+  國立臺中科技大學 商業智慧應用與研究中心 (Center for Business Intelligence Applications and Research, NUTC) | *2024.08 – 迄今*
+* **實驗室主持人 (Lab Director)**  
+  國立臺中科技大學 智慧商務多代理人實驗室 (Smart Commerce Multi-Agent Lab, SCMA Lab) | *2024.08 – 迄今*
+* **淨零組組長 (Former Director, Net-Zero Division)**  
+  國立臺中科技大學 永續創新與淨零推動中心 (Sustainability Center, NUTC) | *2024.08 – 2025.07*
 * **供應鏈數位轉型顧問工程師 (SCM Digital Transformation Consultant)**  
   台灣康寧顯示玻璃 (Corning Display Technologies Taiwan) | *2022.12 – 迄今*
 * **人工智慧顧問工程師 (AI Consultant Engineer)**  
