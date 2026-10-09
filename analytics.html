@@ -169,7 +169,7 @@
             margin-bottom: 2rem;
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: center;
             gap: 0.75rem;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
             flex-wrap: wrap;
@@ -178,11 +178,13 @@
         .dash-tabs {
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 0.35rem;
             overflow-x: auto;
             scrollbar-width: none;
             -ms-overflow-style: none;
             padding: 0.15rem;
+            flex-wrap: wrap;
         }
 
         .dash-tabs::-webkit-scrollbar {
@@ -737,9 +739,7 @@
             .dash-tabs {
                 width: 100%;
                 justify-content: flex-start;
-            }
-            .dash-search-box {
-                width: 100%;
+                flex-wrap: nowrap;
             }
             .rung-item {
                 grid-template-columns: 110px 1fr 48px;
@@ -855,28 +855,24 @@
                     </div>
                     <div class="dash-status-pill">
                         <span class="status-dot"></span>
-                        <span>ICMA 運算叢集即時在線 · 雙主軸學術體系</span>
+                        <span>ICMA 運算叢集即時在線 · 綠色永續與智慧商務</span>
                     </div>
                 </div>
 
                 <h1 class="dash-title">科研影響力與多代理人實驗室全景儀表板</h1>
                 <p class="dash-subtitle">
-                    整合陳俊智博士於<strong>永續淨零 (CE-EF Nexus)</strong> 與 <strong>智慧商務多代理人 (AI Agents & MRP)</strong> 雙主軸之學術發表、產學計畫、學生全國頂尖榮譽，以及 ICMA Lab 3× NVIDIA DGX 算力叢集運作全景。
+                    整合陳俊智博士於<strong>綠色永續與淨零轉型</strong>、<strong>智慧製造排程與人工智慧代理人</strong>之學術發表、產學計畫、學生全國頂尖榮譽，以及 ICMA 實驗室 3× NVIDIA DGX 算力叢集運作全景。
                 </p>
             </section>
 
             <!-- ══ STICKY DIMENSION CONTROLLER ══ -->
             <div class="dash-nav-bar" id="dimensionBar">
                 <div class="dash-tabs" id="dimensionTabs">
-                    <button class="dash-tab-btn active" data-dim="all"><i class="bx bx-layer"></i> 全部維度</button>
-                    <button class="dash-tab-btn" data-dim="academic"><i class="bx bx-book-open"></i> 學術科研</button>
-                    <button class="dash-tab-btn" data-dim="industry"><i class="bx bx-leaf"></i> 產學淨零</button>
-                    <button class="dash-tab-btn" data-dim="mentorship"><i class="bx bx-trophy"></i> 學生競賽</button>
-                    <button class="dash-tab-btn" data-dim="compute"><i class="bx bx-brain"></i> ICMA 算力拓撲</button>
-                </div>
-                <div class="dash-search-box">
-                    <i class="bx bx-search"></i>
-                    <input type="text" id="kpiSearchInput" class="dash-search-input" placeholder="搜尋期刊、康寧、Agent、競賽...">
+                    <button class="dash-tab-btn active" data-dim="all"><i class="bx bx-layer"></i> 全部圖表</button>
+                    <button class="dash-tab-btn" data-dim="academic"><i class="bx bx-book-open"></i> 學術期刊圖表</button>
+                    <button class="dash-tab-btn" data-dim="industry"><i class="bx bx-leaf"></i> 產學專案歷程</button>
+                    <button class="dash-tab-btn" data-dim="compute"><i class="bx bx-network-chart"></i> ICMA 代理人拓撲</button>
+                    <button class="dash-tab-btn" data-dim="mentorship"><i class="bx bx-trophy"></i> 競賽戰績與算力</button>
                 </div>
             </div>
 
@@ -958,8 +954,8 @@
             <!-- ══ SECTION 1: ACADEMIC RESEARCH MATRIX ══ -->
             <section class="dash-section" id="sec-academic" data-dim="academic">
                 <div class="dash-section-head">
-                    <h2 class="dash-section-title"><i class="bx bx-book-reader" style="color:#6C63FF;"></i> 雙主軸學術體系與期刊影響力拆解</h2>
-                    <p class="dash-section-dek">以循環經濟與生態足跡模型 (CE-EF Nexus) 為本，開展智慧商務多代理人與排程優化研究。</p>
+                    <h2 class="dash-section-title"><i class="bx bx-book-reader" style="color:#6C63FF;"></i> 學術研究領域與期刊影響力拆解</h2>
+                    <p class="dash-section-dek">專注於綠色永續與循環經濟、智慧製造排程優化與人工智慧商務決策之核心期刊發表。</p>
                 </div>
 
                 <div class="dash-grid-2">
@@ -972,7 +968,7 @@
                                     <div class="dash-card-micro">F4 TICK DONUT · 1 刻度 = 1% 佔比</div>
                                 </div>
                                 <div class="dash-pill-group">
-                                    <button class="dash-pill-btn active" id="btnDomainDual">雙主軸</button>
+                                    <button class="dash-pill-btn active" id="btnDomainDual">研究主題</button>
                                     <button class="dash-pill-btn" id="btnDomainTier">期刊分級</button>
                                 </div>
                             </div>
@@ -1008,7 +1004,7 @@
                                 </div>
                                 <!-- Rung 3: Ecological Indicators -->
                                 <div class="rung-item">
-                                    <div class="rung-name" title="Ecological Indicators">Ecol. Indic. (被引19次)</div>
+                                    <div class="rung-name" title="Ecological Indicators">Ecol. Indic. (生態指標)</div>
                                     <div class="rung-track"><div class="rung-fill" style="width:62%; background:#2563eb;"></div></div>
                                     <div class="rung-val">IF 6.9 <span style="font-size:0.75rem; color:#64748b;">Q1</span></div>
                                 </div>
@@ -1108,50 +1104,51 @@
                 </div>
 
                 <div class="dash-grid-2">
-                    <!-- Chart 4A: Student Championship Radar / Rung Rows -->
+                    <!-- Chart 4A: Student Championships Rung Bars -->
                     <div class="dash-card">
                         <div>
                             <div class="dash-card-header">
                                 <div>
                                     <h3 class="dash-card-claim">學生競賽與創新孵化頂尖戰績</h3>
-                                    <div class="dash-card-micro">F5 TICK ROWS · 8+ 項全國頂尖賽事戰績</div>
+                                    <div class="dash-card-micro">F1 RUNG BARS · 全國頂尖賽事與專業認證</div>
                                 </div>
                             </div>
-                            <div style="display:flex; flex-direction:column; gap:0.75rem; margin-top:0.4rem;">
-                                <div style="background:#fefce8; border-left:4px solid #eab308; padding:0.8rem 1rem; border-radius:0.5rem;">
-                                    <div style="font-weight:800; color:#854d0e; font-size:0.92rem; display:flex; justify-content:space-between;">
-                                        <span>2025 全國大專校院智慧創新暨電子設計競賽</span>
-                                        <span style="color:#ca8a04;">全國第一名 (冠軍)</span>
-                                    </div>
-                                    <p style="font-size:0.8rem; color:#713f12; margin-top:0.25rem;">
-                                        指導學生研發「多模型 AI 代理人零售銷售預測系統 (BigMart 實證)」，榮獲智慧大數據及行動 APP 類<strong>全國金牌</strong>。
-                                    </p>
+                            <div style="display:flex; flex-direction:column; gap:0.65rem; margin-top:0.5rem;" id="awardsRungs">
+                                <div class="rung-item">
+                                    <div class="rung-name" title="2025 全國大專校院智慧創新暨電子設計競賽">全國電子設計競賽</div>
+                                    <div class="rung-track"><div class="rung-fill" style="width:100%; background:#eab308;"></div></div>
+                                    <div class="rung-val" style="color:#ca8a04;">全國冠軍 <span style="font-size:0.75rem; color:#64748b;">金牌</span></div>
                                 </div>
-
-                                <div style="background:#f8fafc; border-left:4px solid #6C63FF; padding:0.8rem 1rem; border-radius:0.5rem;">
-                                    <div style="font-weight:800; color:#1e293b; font-size:0.92rem; display:flex; justify-content:space-between;">
-                                        <span>阿里巴巴 B2B 全國大專跨境電商競賽</span>
-                                        <span style="color:#6C63FF;">連續四屆奪冠獲獎</span>
-                                    </div>
-                                    <p style="font-size:0.8rem; color:#475569; margin-top:0.25rem;">
-                                        第十屆【全國第一名】與【全國第三名】、第九屆【全國第二名】、第八屆【全國第二名】、第七屆【全國第三名】；榮獲大會頒發<strong>「優秀指導老師獎」</strong>。
-                                    </p>
+                                <div class="rung-item">
+                                    <div class="rung-name" title="第十屆阿里巴巴 B2B 全國大專跨境電商競賽">阿里 B2B (第十屆)</div>
+                                    <div class="rung-track"><div class="rung-fill" style="width:100%; background:#6C63FF;"></div></div>
+                                    <div class="rung-val" style="color:#4f46e5;">全國第一 <span style="font-size:0.75rem; color:#64748b;">七仙過海</span></div>
                                 </div>
-
-                                <div style="background:#f0fdf4; border-left:4px solid #10b981; padding:0.8rem 1rem; border-radius:0.5rem;">
-                                    <div style="font-weight:800; color:#064e3b; font-size:0.92rem; display:flex; justify-content:space-between;">
-                                        <span>全國創新實作競賽與雙軌專業證照</span>
-                                        <span style="color:#059669;">全國第二 / 亞軍 / 雙證照</span>
-                                    </div>
-                                    <p style="font-size:0.8rem; color:#047857; margin-top:0.25rem;">
-                                        臺中科大「創出名堂」全國第二名、逢甲中區跨境電商亞軍；輔導全員取得經濟部 iPAS「AI應用規劃師」與「淨零碳管理師」國家級專業證照。
-                                    </p>
+                                <div class="rung-item">
+                                    <div class="rung-name" title="第九屆阿里巴巴 B2B 全國大專跨境電商競賽">阿里 B2B (第九屆)</div>
+                                    <div class="rung-track"><div class="rung-fill" style="width:85%; background:#818cf8;"></div></div>
+                                    <div class="rung-val">全國第二 <span style="font-size:0.75rem; color:#64748b;">亞軍</span></div>
+                                </div>
+                                <div class="rung-item">
+                                    <div class="rung-name" title="第八屆阿里巴巴 B2B 全國大專跨境電商競賽">阿里 B2B (第八屆)</div>
+                                    <div class="rung-track"><div class="rung-fill" style="width:85%; background:#818cf8;"></div></div>
+                                    <div class="rung-val">全國第二 <span style="font-size:0.75rem; color:#64748b;">亞軍</span></div>
+                                </div>
+                                <div class="rung-item">
+                                    <div class="rung-name" title="臺中科大第六屆「創出名堂」企劃實作競賽">創出名堂實作競賽</div>
+                                    <div class="rung-track"><div class="rung-fill" style="width:80%; background:#0284c7;"></div></div>
+                                    <div class="rung-val">全國第二 <span style="font-size:0.75rem; color:#64748b;">智行者</span></div>
+                                </div>
+                                <div class="rung-item">
+                                    <div class="rung-name" title="經濟部 iPAS AI應用規劃師 & 淨零碳管理師">經濟部 iPAS 雙證照</div>
+                                    <div class="rung-track"><div class="rung-fill" style="width:100%; background:#059669;"></div></div>
+                                    <div class="rung-val" style="color:#059669;">100% 通過 <span style="font-size:0.75rem; color:#64748b;">國家級</span></div>
                                 </div>
                             </div>
                         </div>
                         <div class="dash-srcline">
-                            <span>教育部、勞動部雙軌訓練與產業競賽實績</span>
-                            <span>STUDENT CHAMPIONSHIPS</span>
+                            <span>連續四屆榮獲阿里巴巴 B2B 優秀指導老師獎</span>
+                            <span>NATIONAL COMPETITION AWARDS</span>
                         </div>
                     </div>
 
@@ -1180,30 +1177,6 @@
                             <span>REAL CAPACITY PROFILE</span>
                         </div>
                     </div>
-                </div>
-            </section>
-
-            <!-- ══ SECTION 5: INTERACTIVE DATA REPOSITORY EXPLORER ══ -->
-            <section class="dash-section" id="sec-explorer">
-                <div class="dash-section-head">
-                    <h2 class="dash-section-title"><i class="bx bx-data" style="color:#0284c7;"></i> 科研成果與專案檢索庫 (Data Explorer)</h2>
-                    <p class="dash-section-dek">即時輸入關鍵字搜尋，或按分類篩選陳俊智博士之核心論文、產學與競賽詳細紀錄。</p>
-                </div>
-
-                <div class="data-table-container">
-                    <table class="data-table">
-                        <thead>
-                            <tr>
-                                <th style="width:15%;">類型 / 主題</th>
-                                <th style="width:45%;">項目名稱 / 期刊或委託單位</th>
-                                <th style="width:25%;">亮點 / 指標</th>
-                                <th style="width:15%;">年份 / 狀態</th>
-                            </tr>
-                        </thead>
-                        <tbody id="dataTableBody">
-                            <!-- Items populated by JS -->
-                        </tbody>
-                    </table>
                 </div>
             </section>
 
@@ -1301,9 +1274,9 @@
                 chartDonutInstance = echarts.init(container);
 
                 const dualData = [
-                    { value: 47, name: '循環經濟與生態足跡 (8 篇)', itemStyle: { color: '#6C63FF' } },
-                    { value: 29, name: '智慧排程與機器學習 (5 篇)', itemStyle: { color: '#2563eb' } },
-                    { value: 24, name: '資訊管理與 AI 決策 (4 篇)', itemStyle: { color: '#10b981' } }
+                    { value: 47, name: '綠色永續與循環經濟 (8 篇)', itemStyle: { color: '#6C63FF' } },
+                    { value: 29, name: '智慧排程與製造優化 (5 篇)', itemStyle: { color: '#2563eb' } },
+                    { value: 24, name: '人工智慧與資訊管理 (4 篇)', itemStyle: { color: '#10b981' } }
                 ];
 
                 const tierData = [
@@ -1355,12 +1328,12 @@
                     ]
                 });
 
-                chartDonutInstance.setOption(getOption(dualData, '雙主軸研究領域'));
+                chartDonutInstance.setOption(getOption(dualData, '核心研究領域'));
 
                 document.getElementById('btnDomainDual')?.addEventListener('click', (e) => {
                     document.getElementById('btnDomainDual').classList.add('active');
                     document.getElementById('btnDomainTier').classList.remove('active');
-                    chartDonutInstance.setOption(getOption(dualData, '雙主軸研究領域'));
+                    chartDonutInstance.setOption(getOption(dualData, '核心研究領域'));
                 });
 
                 document.getElementById('btnDomainTier')?.addEventListener('click', (e) => {
@@ -1654,78 +1627,7 @@
                 `).join('');
             };
 
-            // 7. Data Explorer Table Populate & Filter
-            const tableData = [
-                { type: 'SCIE Q1 期刊', name: 'Journal of Cleaner Production (高被引獎勵)', detail: '脫鉤策略：二十國集團二氧化碳排放、能源資源與經濟成長 (被引 205+ 次)', year: '2019', tag: '永續脫鉤', tagClass: 'badge-purple' },
-                { type: 'SCIE Q1 期刊', name: 'Robotics and Computer-Integrated Manufacturing (RCIM)', detail: '雲端先進規劃與排程系統 (APS) 之架構與實施部署 (IF 10.4, 被引 62 次)', year: '2021', tag: '智慧製造', tagClass: 'badge-purple' },
-                { type: 'SCIE Q1 期刊', name: 'Ecological Indicators (Elsevier)', detail: '歐盟循環經濟與生態足跡之細分維度動態實證分析 (IF 6.9, 第一兼通訊作者)', year: '2024', tag: '循環經濟', tagClass: 'badge-purple' },
-                { type: 'SCIE 期刊', name: 'Energy Exploration & Exploitation (SAGE)', detail: '經濟成長、環境壓力與能源轉型之動態關聯與脫鉤機制 (第一兼通訊作者)', year: '2026', tag: '能源轉型', tagClass: 'badge-blue' },
-                { type: 'SCIE 期刊', name: 'Energy Reports (Elsevier)', detail: '循環經濟是否降低環境壓力？基於生態足跡之動態脫鉤分析 (通訊作者)', year: '2024', tag: '生態足跡', tagClass: 'badge-blue' },
-                { type: 'SSCI 期刊', name: 'Journal of Global Information Management (JGIM)', detail: 'AI 賦能服務品質對運動健身 App 使用態度之調節效果 (通訊作者)', year: '2023', tag: 'AI 服務', tagClass: 'badge-blue' },
-                { type: 'SCIE 期刊', name: 'Int. J. Advanced Manufacturing Technology', detail: '運用機器學習與基因演算法優化車輛方向盤製程參數 (通訊作者)', year: '2022', tag: '演算法優化', tagClass: 'badge-blue' },
-                { type: 'SCIE 期刊', name: 'Environmental Science and Pollution Research', detail: '歐盟 25 國循環經濟與經濟成長因果關聯分析 (第一作者, IF 5.8)', year: '2022', tag: '循環經濟', tagClass: 'badge-blue' },
-                { type: 'SSCI 期刊', name: 'Energy & Environment (SAGE)', detail: '邁向 2025 非核家園路徑：碳排、能源與經濟之動態競爭分析 (單一作者)', year: '2021', tag: '能源政策', tagClass: 'badge-blue' },
-                { type: '國科會專案', name: '智慧代理人：解決台灣製造業人才與數據雙重赤字的轉型藍圖', detail: '國家科學及技術委員會專題研究計畫 (計畫主持人, 2025/12~2026/11)', year: '2025-2026', tag: '國科會專案', tagClass: 'badge-purple' },
-                { type: '國科會專案', name: '永續道路的不平等性：外國投資對區域經濟、能源與環境趨勢的影響', detail: '國家科學及技術委員會專題研究計畫 (計畫主持人, 2025/08~2026/07)', year: '2025-2026', tag: '國科會專案', tagClass: 'badge-purple' },
-                { type: '國科會專案', name: '以深度學習方法模擬歐盟循環經濟、能源消耗與環境永續系統動態', detail: '國家科學及技術委員會新進人員專題計畫 (計畫主持人)', year: '2022-2023', tag: '國科會專案', tagClass: 'badge-purple' },
-                { type: '產業產學', name: '「智鏈創新 iPlan」關稅韌性 × AI 智能低碳轉型計畫', detail: '快思科技 (CRIS) 與日堡精密委託研究 (計畫主持人, 執行中)', year: '2026', tag: '供應鏈韌性', tagClass: 'badge-blue' },
-                { type: '產業產學', name: '台灣康寧 (Corning) 供應鏈回收材料 MRP Python 與 LLM API', detail: '循環材料 MRP 運算引擎與客製化 LLM API 智能輔助系統開發 (計畫主持人)', year: '2025', tag: '智慧排程', tagClass: 'badge-blue' },
-                { type: '產業產學', name: '台灣康寧 (Corning) Taiwan Logistics MRP Model Development', detail: '台灣康寧物流供應鏈客製化 MRP 邏輯模型與庫存預測 (計畫主持人)', year: '2024', tag: '智慧物流', tagClass: 'badge-blue' },
-                { type: '產業產學', name: '台灣康寧 (Corning) 供應鏈循環回收包材 E2E Visibility 模型', detail: '包材端到端循環追蹤模型、戰情儀表板與跨部門培訓 (計畫主持人)', year: '2023-2024', tag: '循環經濟', tagClass: 'badge-blue' },
-                { type: '產業產學', name: '工研院 (ITRI) AI 數位師徒制與智識傳承升級加值計畫', detail: '工研院與哈伯精密委託，大語言模型與關鍵隱性知識庫萃取 (計畫主持人)', year: '2025', tag: 'AI 師徒制', tagClass: 'badge-blue' },
-                { type: '產業產學', name: '工研院 (ITRI) AI 雙軌轉型跨境電商行銷與知識數位化計畫', detail: '工研院與海峰機械委託，生成式 AI 工具與智慧行銷視覺系統 (計畫主持人)', year: '2025', tag: '雙軌轉型', tagClass: 'badge-blue' },
-                { type: '產業產學', name: '固滿德機車輪胎產線生產報工與效能提升智慧化轉型', detail: '輪胎製造產線數位即時報工系統建置與瓶頸工序消除 (計畫主持人)', year: '2024-2025', tag: '智慧製造', tagClass: 'badge-blue' },
-                { type: '企業碳盤查', name: '工研院 - 世聚股份有限公司 ISO 14064 碳盤查服務', detail: '企業邊界界定、溫室氣體活動數據盤查與科學減碳路徑規劃 (計畫主持人)', year: '2025', tag: '碳盤查', tagClass: 'badge-emerald' },
-                { type: '企業碳盤查', name: '工研院 - 寶暉有限公司 ISO 14064 溫室氣體盤查服務', detail: '在地工具製造產業低碳供應鏈對接與溫室氣體盤查輔導 (計畫主持人)', year: '2023', tag: '碳盤查', tagClass: 'badge-emerald' },
-                { type: '自研軟體', name: '你說的算 (碳盤查 / 碳足跡量化計算軟體)', detail: '專為企業與組織打造之敏捷型 ISO 14064 溫室氣體量化與情境模擬軟體', year: '2024', tag: '自研工具', tagClass: 'badge-emerald' },
-                { type: '自研軟體', name: 'HelloIR 智慧決策分析平台', detail: '融合大語言模型 API 與多代理人協同運籌之智慧商務分析平台', year: '2024', tag: '自研工具', tagClass: 'badge-emerald' },
-                { type: 'USR 永續', name: '南投鹿谷小半天永續低碳漫遊與遊程碳盤查實務', detail: '臺中科大 USR 計畫，研發遊程碳盤查計算模型與互動成果網站', year: '2024', tag: 'USR 淨零', tagClass: 'badge-emerald' },
-                { type: '人才培育', name: '勞動部就業學程：國際商展虛實 AR、AI 整合應用人才培育', detail: '引導學生掌握 AR 虛實融合、生成式 AI 工具與跨境展覽行銷 (計畫主持人)', year: '2024-2026', tag: '人才培育', tagClass: 'badge-blue' },
-                { type: '全國冠軍', name: '第 21 屆全國大專校院智慧創新暨電子設計競賽', detail: '零售銷售多模型 AI 代理人系統—BigMart 實證【全國第一名 / 冠軍】', year: '2025', tag: '全國冠軍', tagClass: 'badge-amber' },
-                { type: '全國第一', name: '第十屆阿里巴巴 B2B 全國大專跨境電商競賽', detail: '指導「七仙過海」隊榮獲【全國第一名】、「商海裡的快樂鯰魚」【全國第三名】', year: '2024-2025', tag: '跨境電商', tagClass: 'badge-amber' },
-                { type: '全國第二', name: '第九屆 / 第八屆阿里巴巴 B2B 全國大專跨境電商競賽', detail: '指導「宇宙購物車」、「成為泯瑞的後塵」榮獲【全國第二名】& 優秀指導老師', year: '2022-2024', tag: '跨境電商', tagClass: 'badge-amber' },
-                { type: '全國第二', name: '臺中科大第六屆「創出名堂」企劃實作競賽', detail: '指導學生團隊「智行者」榮獲【全國第二名】', year: '2025', tag: '實作競賽', tagClass: 'badge-amber' },
-                { type: '專業證照', name: '經濟部 iPAS AI應用規劃師 & 淨零碳管理師 專業雙證照', detail: '經濟部產業人才能力鑑定國家級雙軌專業證照合格認證', year: '2024', tag: '國家證照', tagClass: 'badge-emerald' },
-                { type: '專業證照', name: 'ISO 14064-1:2018 組織層級溫室氣體主任查證員', detail: '國際標準溫室氣體盤查主任查證員資格認證 (發照機構：亞瑞士)', year: '2023', tag: '主任查證員', tagClass: 'badge-emerald' }
-            ];
-
-            const renderTable = (items) => {
-                const tbody = document.getElementById('dataTableBody');
-                if (!tbody) return;
-                if (items.length === 0) {
-                    tbody.innerHTML = `<tr><td colspan="4" style="text-align:center; padding:2rem; color:#94a3b8;">未找到相符之科研或專案數據</td></tr>`;
-                    return;
-                }
-                tbody.innerHTML = items.map(it => `
-                    <tr>
-                        <td><span style="font-weight:700; color:#4f46e5;">${it.type}</span></td>
-                        <td>
-                            <strong style="color:#0f172a;">${it.name}</strong><br>
-                            <span style="font-size:0.8rem; color:#64748b;">${it.detail}</span>
-                        </td>
-                        <td>
-                            <span class="tag-pill" style="background:#eef2ff; color:#4338ca;">${it.tag}</span>
-                        </td>
-                        <td style="font-weight:600; color:#334155;">${it.year}</td>
-                    </tr>
-                `).join('');
-            };
-
-            renderTable(tableData);
-
-            // Table Search Filter
-            document.getElementById('kpiSearchInput')?.addEventListener('input', (e) => {
-                const q = e.target.value.toLowerCase().trim();
-                const filtered = tableData.filter(it => 
-                    it.name.toLowerCase().includes(q) ||
-                    it.detail.toLowerCase().includes(q) ||
-                    it.type.toLowerCase().includes(q) ||
-                    it.tag.toLowerCase().includes(q)
-                );
-                renderTable(filtered);
-            });
-
-            // 8. Sticky Dimension Tab Controller Logic
+            // 7. Sticky Dimension Tab Controller Logic
             const dimTabs = document.querySelectorAll('#dimensionTabs .dash-tab-btn');
             dimTabs.forEach(btn => {
                 btn.addEventListener('click', () => {
@@ -1734,12 +1636,8 @@
                     const dim = btn.getAttribute('data-dim');
 
                     if (dim === 'all') {
-                        document.querySelectorAll('.dash-section, .dash-kpi-card').forEach(el => {
-                            el.style.display = '';
-                            el.style.opacity = '1';
-                        });
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
                     } else {
-                        // Highlight target section and smooth scroll
                         const targetSec = document.getElementById(`sec-${dim}`);
                         if (targetSec) {
                             targetSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
