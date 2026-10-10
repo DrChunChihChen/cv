@@ -199,7 +199,7 @@ document.querySelectorAll('.ib-video__frame[data-yt]').forEach(btn => {
         { c: '#f59e0b', icon: c => `<circle cx="158" cy="150" r="15" fill="${c}"/><text x="158" y="157.5" text-anchor="middle" font-size="21" font-weight="900" fill="#fff" font-family="Arial, sans-serif">€</text>`, line: '我是報價 Agent，匯率一變就幫你守住毛利。' },
         { c: '#f97316', icon: c => `<rect x="145" y="138" width="11" height="11" rx="1.5" fill="${c}"/><rect x="158" y="138" width="11" height="11" rx="1.5" fill="${c}"/><path d="M137 152h42l-7 13h-28z" fill="${c}"/>`, line: '我是物流關務 Agent，HS Code 和訂艙包在我身上。' },
     ];
-    const EXTRA = ['你有點子，老師有 Token！', '歡迎加入 ICMA Lab 👋', '點我換下一位 Agent！'];
+    const EXTRA = ['點我問問題 💬', '你有點子，老師有 Token！', '有問題？點我聊聊！', '歡迎加入 ICMA Lab 👋'];
     const svg = b => `<svg viewBox="0 0 200 220" aria-hidden="true">
         <g class="lw-legs"><rect class="lw-leg lw-leg--l" x="66" y="176" width="18" height="30" rx="8" fill="#17133a"/><rect class="lw-leg lw-leg--r" x="116" y="176" width="18" height="30" rx="8" fill="#17133a"/></g>
         <line x1="100" y1="42" x2="100" y2="20" stroke="#17133a" stroke-width="6" stroke-linecap="round"/>
@@ -216,7 +216,7 @@ document.querySelectorAll('.ib-video__frame[data-yt]').forEach(btn => {
     section.classList.add('has-walker');
     const layer = document.createElement('div');
     layer.className = 'lab-walker';
-    layer.innerHTML = '<div class="lw-bubble" role="status" aria-live="polite"></div><button type="button" class="lw-bot" aria-label="和實驗室的 AI Agent 打招呼"></button>';
+    layer.innerHTML = '<div class="lw-bubble" role="status" aria-live="polite"></div><button type="button" class="lw-bot" aria-label="和實驗室機器人聊天" aria-expanded="false" aria-controls="lw-chat"></button>';
     section.appendChild(layer);
     const bot = layer.querySelector('.lw-bot'), bubble = layer.querySelector('.lw-bubble');
     let idx = 0;
@@ -286,7 +286,10 @@ document.querySelectorAll('.ib-video__frame[data-yt]').forEach(btn => {
     function loop(t) {
         const dt = Math.min(50, t - (last || t)); last = t;
         if (visible) {
-            if (state === 'walk' && t > bubbleUntil) {
+            if (chatOpen) { state = 'idle'; until = t + 1500; }
+            else if (t > nextHint && t > bubbleUntil) { say(EXTRA[hintN++ % EXTRA.length]); nextHint = t + 11000 + Math.random() * 5000; }
+            if (chatOpen) { /* stand still while chatting */ }
+            else if (state === 'walk' && t > bubbleUntil) {
                 s += dir * SPEED * dt;
                 const g = geom();
                 if (!g.loop && (s <= 0 || s >= g.len - W)) { dir *= -1; state = 'idle'; until = t + 700; }
@@ -300,29 +303,53 @@ document.querySelectorAll('.ib-video__frame[data-yt]').forEach(btn => {
         requestAnimationFrame(loop);
     }
     const say = text => { const t = performance.now(); bubble.textContent = text; bubbleUntil = t + 3200; hopUntil = t + 420; if (reduce) draw(t); };
-    bot.addEventListener('click', () => {
-        idx = (idx + 1) % BOTS.length; paint();
-        say(Math.random() < .25 ? EXTRA[Math.floor(Math.random() * EXTRA.length)] : BOTS[idx].line);
-    });
-    bot.addEventListener('mouseenter', () => { if (performance.now() > bubbleUntil) say(BOTS[idx].line); });
-
-    // ---- Ask the bot: question box under the title, answers appear in the bubble ----
+    // ---- Chat: click the bot to open a small chat panel ----
     const API = 'https://icma-lab-chat.netlify.app/api/chat';
-    const form = document.createElement('form');
-    form.className = 'lw-ask';
-    form.innerHTML = '<label class="sr-only" for="lw-q">問實驗室機器人</label><input id="lw-q" type="text" maxlength="300" autocomplete="off" placeholder="問機器人：實驗室在做什麼？"><button type="submit">問我</button><div class="lw-answer" aria-live="polite" hidden></div>';
-    title.insertAdjacentElement('afterend', form);
-    const input = form.querySelector('input'), sendBtn = form.querySelector('button'), ans = form.querySelector('.lw-answer');
+    let chatOpen = false, busy = false, nextHint = performance.now() + 4000, hintN = 0;
     const history = [];
-    let busy = false;
-    const hold = (text, ms) => { const t = performance.now(); bubble.textContent = text; bubbleUntil = t + ms; hopUntil = t + 420; if (reduce) draw(t); };
-    form.addEventListener('submit', async e => {
+    const panel = document.createElement('div');
+    panel.className = 'lw-chat'; panel.id = 'lw-chat'; panel.hidden = true;
+    panel.setAttribute('role', 'dialog'); panel.setAttribute('aria-label', '和 ICMA Lab 機器人聊天');
+    panel.innerHTML = `<div class="lw-chat__head"><span class="lw-chat__dot"></span><strong>ICMA Lab 機器人</strong>
+        <button type="button" class="lw-chat__swap">換一位 Agent</button><button type="button" class="lw-chat__close" aria-label="關閉">×</button></div>
+        <div class="lw-chat__log" aria-live="polite"></div>
+        <form class="lw-chat__form"><label class="sr-only" for="lw-q">輸入問題</label><input id="lw-q" type="text" maxlength="300" autocomplete="off" placeholder="問我：實驗室在做什麼？"><button type="submit">送出</button></form>`;
+    section.appendChild(panel);
+    const log = panel.querySelector('.lw-chat__log'), input = panel.querySelector('input'), sendBtn = panel.querySelector('.lw-chat__form button'), dot = panel.querySelector('.lw-chat__dot');
+    const addMsg = (who, text) => { const m = document.createElement('div'); m.className = 'lw-msg lw-msg--' + who; m.textContent = text; log.appendChild(m); log.scrollTop = log.scrollHeight; return m; };
+    const place = () => {
+        if (window.innerWidth <= 640) { panel.style.top = ''; return; }
+        const sr = section.getBoundingClientRect(), tr = title.getBoundingClientRect();
+        panel.style.top = (tr.bottom - sr.top + 64) + 'px';
+    };
+    const setBot = () => { dot.style.background = BOTS[idx].c; };
+    function openChat() {
+        chatOpen = true; panel.hidden = false; bot.setAttribute('aria-expanded', 'true');
+        bubbleUntil = 0; place(); setBot();
+        if (!log.childElementCount) addMsg('bot', BOTS[idx].line + ' 想問實驗室什麼都可以問我！');
+        requestAnimationFrame(() => panel.classList.add('is-open'));
+        input.focus({ preventScroll: true });
+    }
+    function closeChat() {
+        chatOpen = false; panel.classList.remove('is-open'); bot.setAttribute('aria-expanded', 'false');
+        setTimeout(() => { if (!chatOpen) panel.hidden = true; }, 200);
+        nextHint = performance.now() + 9000;
+    }
+    bot.addEventListener('click', () => { chatOpen ? closeChat() : openChat(); });
+    bot.addEventListener('mouseenter', () => { if (!chatOpen && performance.now() > bubbleUntil) say('點我問問題 💬'); });
+    panel.querySelector('.lw-chat__close').addEventListener('click', () => { closeChat(); bot.focus({ preventScroll: true }); });
+    panel.querySelector('.lw-chat__swap').addEventListener('click', () => {
+        idx = (idx + 1) % BOTS.length; paint(); setBot(); addMsg('bot', BOTS[idx].line);
+    });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && chatOpen) { closeChat(); bot.focus({ preventScroll: true }); } });
+    window.addEventListener('resize', () => { if (chatOpen) place(); });
+    panel.querySelector('form').addEventListener('submit', async e => {
         e.preventDefault();
         const q = input.value.trim();
         if (!q || busy) return;
         busy = true; sendBtn.disabled = true; input.value = '';
-        hold('思考中…', 60000);
-        ans.hidden = false; ans.classList.add('is-loading'); ans.textContent = '思考中…';
+        addMsg('user', q);
+        const pending = addMsg('bot', '思考中…'); pending.classList.add('is-loading');
         let answer;
         try {
             const r = await fetch(API, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ question: q, history: history.slice(-8) }) });
@@ -330,14 +357,10 @@ document.querySelectorAll('.ib-video__frame[data-yt]').forEach(btn => {
             if (r.status === 429) answer = '問太快了，我喘口氣，一分鐘後再問我！';
             else answer = d.answer || d.error || '我暫時連不上大腦，請稍後再試，或寫信到 elvischen@nutc.edu.tw。';
             if (r.ok && d.answer) history.push({ role: 'user', content: q }, { role: 'assistant', content: d.answer });
-        } catch (_) {
-            answer = '網路好像斷了，請稍後再試！';
-        }
-        ans.classList.remove('is-loading');
-        ans.innerHTML = ''; const qq = document.createElement('div'); qq.className = 'lw-answer__q'; qq.textContent = 'Q：' + q;
-        const aa = document.createElement('div'); aa.textContent = answer; ans.append(qq, aa);
-        hold('答好了，看這裡 👇', 3200);
-        busy = false; sendBtn.disabled = false;
+        } catch (_) { answer = '網路好像斷了，請稍後再試！'; }
+        pending.classList.remove('is-loading'); pending.textContent = answer; log.scrollTop = log.scrollHeight;
+        hopUntil = performance.now() + 420;
+        busy = false; sendBtn.disabled = false; input.focus({ preventScroll: true });
     });
 
     if (reduce) { state = 'idle'; draw(performance.now()); window.addEventListener('resize', () => draw(performance.now())); return; }
