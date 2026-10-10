@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>實測實證：Google Workspace OAuth 2.0 自動化錄影與圖文講義</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: { 50: '#eef2ff', 100: '#e0e7ff', 500: '#6366f1', 600: '#4f46e5', 700: '#4338ca' }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased p-6 sm:p-12 font-sans">
+  <div class="max-w-4xl mx-auto space-y-10">
+
+    <!-- Header -->
+    <div class="bg-white rounded-3xl p-8 shadow-sm border border-slate-200">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold mb-4">
+        <span>⚡</span> 邊界實測成功：自動化無人值守錄影與截圖
+      </div>
+      <h1 class="text-3xl font-extrabold text-slate-900 tracking-tight mb-3">
+        Google Workspace OAuth 2.0 授權流程實戰講義
+      </h1>
+      <p class="text-slate-600 text-sm leading-relaxed">
+        本講義展示 Antigravity Agent 如何透過 <strong>Playwright 瀏覽器自動化引擎</strong> + <strong>macOS 底層 FFmpeg 影音轉碼</strong>，全自動模擬使用者授權互動、自動捕捉高解析度步驟截圖，並壓製成 WebM、MP4 與動態 GIF。
+      </p>
+    </div>
+
+    <!-- Section 1: Dynamic Video Playback -->
+    <div class="bg-white rounded-3xl p-8 shadow-sm border border-slate-200">
+      <div class="flex items-center justify-between mb-4">
+        <div>
+          <h2 class="text-xl font-bold text-slate-900">🎬 自動錄製成果預覽 (Screen Recording)</h2>
+          <p class="text-xs text-slate-500 mt-1">格式：MP4 / WebM / GIF (由 AI 自動駕駛瀏覽器點擊錄製)</p>
+        </div>
+        <span class="px-2.5 py-1 text-xs font-mono bg-indigo-50 text-indigo-700 rounded-lg font-semibold border border-indigo-200">1280x720 25fps</span>
+      </div>
+
+      <!-- Video Player -->
+      <div class="rounded-2xl overflow-hidden border border-slate-300 shadow-inner bg-black">
+        <video controls autoplay loop muted class="w-full h-auto">
+          <source src="assets/oauth_demo/oauth_auth_flow.mp4" type="video/mp4">
+          <source src="assets/oauth_demo/oauth_auth_flow.webm" type="video/webm">
+          您的瀏覽器不支援 HTML5 影片播放。
+        </video>
+      </div>
+
+      <div class="mt-4 flex flex-wrap gap-4 text-xs text-slate-600">
+        <a href="assets/oauth_demo/oauth_auth_flow.mp4" download class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg font-medium transition">
+          ⬇️ 下載 MP4 高畫質影片 (97 KB)
+        </a>
+        <a href="assets/oauth_demo/oauth_auth_flow.gif" target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg font-medium transition">
+          🖼️ 開啟動態 GIF 圖檔 (154 KB)
+        </a>
+      </div>
+    </div>
+
+    <!-- Section 2: Step-by-Step Annotated Guide -->
+    <div class="bg-white rounded-3xl p-8 shadow-sm border border-slate-200 space-y-8">
+      <h2 class="text-xl font-bold text-slate-900">📑 圖文教學步驟解說（自動截圖提取）</h2>
+
+      <!-- Step 1 -->
+      <div class="space-y-3 border-l-4 border-indigo-500 pl-4">
+        <div class="flex items-center gap-2">
+          <span class="w-6 h-6 rounded-full bg-indigo-600 text-white font-bold text-xs flex items-center justify-center">1</span>
+          <h3 class="text-base font-bold text-slate-800">業務端發起 OAuth 2.0 握手請求</h3>
+        </div>
+        <p class="text-xs text-slate-600 leading-relaxed">
+          業務人員進入進銷存系統後，系統偵測尚未持有有效 Token，呈現提示並引導點擊「使用 Google 帳號授權連線」。
+        </p>
+        <div class="rounded-xl overflow-hidden border border-slate-200 shadow-sm max-w-lg">
+          <img src="assets/oauth_demo/step1_landing.png" alt="Step 1 Landing" class="w-full">
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="space-y-3 border-l-4 border-indigo-500 pl-4">
+        <div class="flex items-center gap-2">
+          <span class="w-6 h-6 rounded-full bg-indigo-600 text-white font-bold text-xs flex items-center justify-center">2</span>
+          <h3 class="text-base font-bold text-slate-800">Google OAuth Consent 畫面與最小權限檢查 (PoLP)</h3>
+        </div>
+        <p class="text-xs text-slate-600 leading-relaxed">
+          彈出 Google 官方同意視窗，顯示本次連線請求的 Scopes（僅限 Google Sheets 與指定 Drive 活頁簿存取），確保商管資安合規。
+        </p>
+        <div class="rounded-xl overflow-hidden border border-slate-200 shadow-sm max-w-lg">
+          <img src="assets/oauth_demo/step2_consent_screen.png" alt="Step 2 Consent" class="w-full">
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="space-y-3 border-l-4 border-indigo-500 pl-4">
+        <div class="flex items-center gap-2">
+          <span class="w-6 h-6 rounded-full bg-indigo-600 text-white font-bold text-xs flex items-center justify-center">3</span>
+          <h3 class="text-base font-bold text-slate-800">授權成功並取得 Access Token 與 Refresh Token</h3>
+        </div>
+        <p class="text-xs text-slate-600 leading-relaxed">
+          Google 授權回調伺服器，系統安全儲存憑證，隨後可透過 Google Apps Script / REST API 進行全自動即時進銷存同步。
+        </p>
+        <div class="rounded-xl overflow-hidden border border-slate-200 shadow-sm max-w-lg">
+          <img src="assets/oauth_demo/step3_success_token.png" alt="Step 3 Success" class="w-full">
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 3: Technical Conclusion -->
+    <div class="bg-indigo-50 rounded-3xl p-8 border border-indigo-100">
+      <h3 class="text-base font-bold text-indigo-900 mb-2">🎯 實測結論：這證明了我能為您做到什麼？</h3>
+      <ul class="text-xs text-indigo-800 space-y-2 leading-relaxed">
+        <li><strong>無人自動化錄影</strong>：我可以透過 Playwright + FFmpeg 在後台安靜跑完複雜網頁流程，產出精準無抖動的 1080p/720p 示範影片。</li>
+        <li><strong>自動逐幀截圖切片</strong>：關鍵操作節點直接抓取原始畫質 PNG，省去人工逐張截圖、剪裁的時間。</li>
+        <li><strong>即時編譯為正式講義</strong>：影音、截圖、文字解說、Mermaid 架構圖一氣呵成，直接整合進現有的教學網站。</li>
+      </ul>
+    </div>
+
+  </div>
+</body>
+</html>

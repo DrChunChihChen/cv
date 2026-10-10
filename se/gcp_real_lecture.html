@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>【真實錄影實錄】Google Cloud Console OAuth 2.0 與 Workspace API 配置實戰講義</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased p-6 sm:p-12 font-sans">
+  <div class="max-w-4xl mx-auto space-y-10">
+
+    <!-- Header Badge -->
+    <div class="bg-white rounded-3xl p-8 shadow-sm border border-slate-200">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold mb-4">
+        <span>🔴</span> 真實環境實測成功：Google Cloud Console 實機操控與全程錄影
+      </div>
+      <h1 class="text-3xl font-extrabold text-slate-900 tracking-tight mb-3">
+        Google Cloud Console 實境授權與 Workspace API 配置講義
+      </h1>
+      <p class="text-slate-600 text-sm leading-relaxed">
+        本講義是由 AI 自動駕駛程式與使用者 <strong>nutcelvischen@gmail.com</strong> 協同完成：由使用者突破 Google 2FA 驗證防線後，<strong>AI 立即接管瀏覽器，自動導航完成 GCP 儀表板、OAuth Consent 設定、憑證中心與 Google Sheets API 啟用檢視</strong>，並全程錄製 1440x900 MP4 高畫質影片與高清截圖。
+      </p>
+    </div>
+
+    <!-- Section 1: Actual Screen Video -->
+    <div class="bg-white rounded-3xl p-8 shadow-sm border border-slate-200">
+      <div class="flex items-center justify-between mb-4">
+        <div>
+          <h2 class="text-xl font-bold text-slate-900">🎬 真實 GCP 操作錄影實錄 (Actual Recording)</h2>
+          <p class="text-xs text-slate-500 mt-1">全長 1 分 52 秒｜解析度 1440x900｜H.264 60fps / 25fps (1.2 MB)</p>
+        </div>
+        <span class="px-2.5 py-1 text-xs font-mono bg-emerald-50 text-emerald-700 rounded-lg font-semibold border border-emerald-200">Live GCP Session</span>
+      </div>
+
+      <!-- Video Player -->
+      <div class="rounded-2xl overflow-hidden border border-slate-300 shadow-inner bg-black">
+        <video controls class="w-full h-auto">
+          <source src="assets/gcp_real_demo/gcp_oauth_actual_flow.mp4" type="video/mp4">
+          您的瀏覽器不支援 HTML5 影片播放。
+        </video>
+      </div>
+
+      <div class="mt-4 flex items-center justify-between text-xs text-slate-600">
+        <div class="flex gap-3">
+          <a href="assets/gcp_real_demo/gcp_oauth_actual_flow.mp4" download class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg font-medium transition">
+            ⬇️ 下載原始 MP4 實錄影片 (1.2 MB)
+          </a>
+        </div>
+        <span class="text-slate-400">專案 ID：nutc1115</span>
+      </div>
+    </div>
+
+    <!-- Section 2: Step-by-Step Screen Guide -->
+    <div class="bg-white rounded-3xl p-8 shadow-sm border border-slate-200 space-y-10">
+      <h2 class="text-xl font-bold text-slate-900">📑 關鍵步驟實況截圖與教學註解</h2>
+
+      <!-- Step 1 -->
+      <div class="space-y-3 border-l-4 border-indigo-500 pl-4">
+        <div class="flex items-center gap-2">
+          <span class="w-6 h-6 rounded-full bg-indigo-600 text-white font-bold text-xs flex items-center justify-center">1</span>
+          <h3 class="text-base font-bold text-slate-800">登入完成與 GCP Welcome Dashboard 巡航</h3>
+        </div>
+        <p class="text-xs text-slate-600 leading-relaxed">
+          使用者登入成功後，AI 接管駕駛權，偵測目前專案環境（<code>nutc1115</code>），並確認主控台服務正常。
+        </p>
+        <div class="rounded-xl overflow-hidden border border-slate-200 shadow-sm">
+          <img src="assets/gcp_real_demo/01_gcp_dashboard.png" alt="GCP Dashboard" class="w-full">
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="space-y-3 border-l-4 border-indigo-500 pl-4">
+        <div class="flex items-center gap-2">
+          <span class="w-6 h-6 rounded-full bg-indigo-600 text-white font-bold text-xs flex items-center justify-center">2</span>
+          <h3 class="text-base font-bold text-slate-800">「API 和服務」總覽儀表板 (APIs & Services)</h3>
+        </div>
+        <p class="text-xs text-slate-600 leading-relaxed">
+          自動導航進入 API 管理中樞，此處可檢視已啟用的 Google API 調用頻率、錯誤率（Error Rate）與延遲（Latency）。
+        </p>
+        <div class="rounded-xl overflow-hidden border border-slate-200 shadow-sm">
+          <img src="assets/gcp_real_demo/02_api_dashboard.png" alt="API Dashboard" class="w-full">
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="space-y-3 border-l-4 border-indigo-500 pl-4">
+        <div class="flex items-center gap-2">
+          <span class="w-6 h-6 rounded-full bg-indigo-600 text-white font-bold text-xs flex items-center justify-center">3</span>
+          <h3 class="text-base font-bold text-slate-800">OAuth 同意畫面配置 (OAuth Consent Screen)</h3>
+        </div>
+        <p class="text-xs text-slate-600 leading-relaxed">
+          設定 User Type（內部 Internal / 外部 External）、應用程式名稱、開發者聯絡資訊，並在此定義 Scopes（Google Sheets 權限範圍）。
+        </p>
+        <div class="rounded-xl overflow-hidden border border-slate-200 shadow-sm">
+          <img src="assets/gcp_real_demo/03_oauth_consent_screen.png" alt="OAuth Consent Screen" class="w-full">
+        </div>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="space-y-3 border-l-4 border-indigo-500 pl-4">
+        <div class="flex items-center gap-2">
+          <span class="w-6 h-6 rounded-full bg-indigo-600 text-white font-bold text-xs flex items-center justify-center">4</span>
+          <h3 class="text-base font-bold text-slate-800">憑證中心 (Credentials)：下載 client_secret.json</h3>
+        </div>
+        <p class="text-xs text-slate-600 leading-relaxed">
+          建立「OAuth 2.0 用戶端 ID」，設定「已授權的重新導向 URI」（如 <code>http://localhost:8080/callback</code>），供前端進銷存系統調用。
+        </p>
+        <div class="rounded-xl overflow-hidden border border-slate-200 shadow-sm">
+          <img src="assets/gcp_real_demo/04_credentials_page.png" alt="Credentials" class="w-full">
+        </div>
+      </div>
+
+      <!-- Step 5 -->
+      <div class="space-y-3 border-l-4 border-indigo-500 pl-4">
+        <div class="flex items-center gap-2">
+          <span class="w-6 h-6 rounded-full bg-indigo-600 text-white font-bold text-xs flex items-center justify-center">5</span>
+          <h3 class="text-base font-bold text-slate-800">Google Sheets API 程式庫啟用檢視</h3>
+        </div>
+        <p class="text-xs text-slate-600 leading-relaxed">
+          自動切換到 Google Sheets API 專屬說明頁，確保服務處於「已啟用（Enabled）」狀態，提供後端資料庫讀寫通路。
+        </p>
+        <div class="rounded-xl overflow-hidden border border-slate-200 shadow-sm">
+          <img src="assets/gcp_real_demo/05_sheets_api_library.png" alt="Google Sheets API" class="w-full">
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Section 3: Summary -->
+    <div class="bg-slate-900 text-white rounded-3xl p-8">
+      <h3 class="text-base font-bold text-emerald-400 mb-2">🚀 邊界驗證總結：</h3>
+      <p class="text-xs text-slate-300 leading-relaxed">
+        這證明了只要你授權解鎖登入，<strong>我可以直接在真實的 Google Cloud Console 裡自動巡航、截圖、排版並輸出包含原畫質 MP4 影片的教學講義</strong>！不管是教導學生如何配置 GCP，或是建立企業自動化部署教學，都能全自動化完成！
+      </p>
+    </div>
+
+  </div>
+</body>
+</html>

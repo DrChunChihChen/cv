@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>【紅色動態標註版】Google Cloud Console OAuth 實戰後製講義</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @keyframes pulse-ring {
+      0% { transform: scale(0.95); opacity: 0.9; }
+      50% { transform: scale(1.05); opacity: 0.4; }
+      100% { transform: scale(0.95); opacity: 0.9; }
+    }
+    .pulsing-box {
+      animation: pulse-ring 2s infinite ease-in-out;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased p-6 sm:p-12 font-sans">
+  <div class="max-w-4xl mx-auto space-y-10">
+
+    <!-- Header Badge -->
+    <div class="bg-white rounded-3xl p-8 shadow-sm border border-slate-200">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-100 text-red-800 text-xs font-bold mb-4">
+        <span>🎯</span> 影片後製實測成功：動態紅框聚光燈 + 實體紅色箭頭指示
+      </div>
+      <h1 class="text-3xl font-extrabold text-slate-900 tracking-tight mb-3">
+        Google Cloud Console 實境授權【紅框與箭頭標註版】
+      </h1>
+      <p class="text-slate-600 text-sm leading-relaxed">
+        本頁展示了<strong>影片後製與截圖標註的雙重技術</strong>：不僅用 Python 繪圖引擎精準畫出<strong>大紅色醒目箭頭與說明徽章</strong>，更透過 <strong>FFmpeg 底層濾鏡</strong>在影片關鍵時間點自動燒錄<strong>紅色焦點外框（Red Focus Box）</strong>，讓學員看影片與講義時絕不迷路！
+      </p>
+    </div>
+
+    <!-- Section 1: Video with Red Box Focus -->
+    <div class="bg-white rounded-3xl p-8 shadow-sm border border-slate-200">
+      <div class="flex items-center justify-between mb-4">
+        <div>
+          <h2 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+            <span>🎬</span> 實錄影片：已燒錄「紅色提示框」
+          </h2>
+          <p class="text-xs text-slate-500 mt-1">
+            （請播放影片：在 15秒、45秒、85秒 處會自動出現<strong>紅色重點標註框</strong>）
+          </p>
+        </div>
+        <span class="px-2.5 py-1 text-xs font-mono bg-red-50 text-red-700 rounded-lg font-bold border border-red-200">FFmpeg Post-Processed</span>
+      </div>
+
+      <!-- Video Player with Overlay -->
+      <div class="relative rounded-2xl overflow-hidden border-2 border-red-200 shadow-lg bg-black">
+        <video id="demo-video" controls class="w-full h-auto">
+          <source src="assets/gcp_real_demo/gcp_oauth_with_red_boxes.mp4" type="video/mp4">
+          您的瀏覽器不支援 HTML5 影片播放。
+        </video>
+
+        <!-- Dynamic Floating Indicator (Interactive) -->
+        <div id="video-tip" class="absolute top-4 right-4 bg-red-600/90 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow flex items-center gap-2 transition-all opacity-0 pointer-events-none">
+          <span class="w-2 h-2 rounded-full bg-white animate-ping"></span>
+          <span id="tip-text">注意：此處需設定 OAuth 參數</span>
+        </div>
+      </div>
+
+      <div class="mt-4 flex items-center justify-between text-xs text-slate-600">
+        <a href="assets/gcp_real_demo/gcp_oauth_with_red_boxes.mp4" download class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-red-50 hover:bg-red-100 text-red-700 rounded-lg font-semibold border border-red-200 transition">
+          ⬇️ 下載已燒錄紅框的 MP4 影片 (1.2 MB)
+        </a>
+        <span class="text-slate-400">專案：nutc1115 (已遮蔽敏感資安資料)</span>
+      </div>
+    </div>
+
+    <!-- Section 2: Annotated Step-by-Step Screenshots -->
+    <div class="bg-white rounded-3xl p-8 shadow-sm border border-slate-200 space-y-12">
+      <div>
+        <h2 class="text-xl font-bold text-slate-900">📑 高清截圖：紅色箭頭與聚焦外框 (Arrow & Callout)</h2>
+        <p class="text-xs text-slate-500 mt-1">針對初學者最容易找不到按鈕的 3 大關鍵設定點，精確打上標記</p>
+      </div>
+
+      <!-- Annotated 1 -->
+      <div class="space-y-4">
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-1 rounded-md bg-red-600 text-white font-bold text-xs">重點 1</span>
+          <h3 class="text-base font-bold text-slate-800">OAuth 同意畫面：確認應用程式基本資訊</h3>
+        </div>
+        <p class="text-xs text-slate-600 leading-relaxed">
+          如下圖<strong>紅色箭頭與紅色遮罩</strong>所示，請確認「使用者類型」與「應用程式名稱」，確保發布狀態符合企業內部使用權限。
+        </p>
+        <div class="rounded-2xl overflow-hidden border-2 border-red-300 shadow-md">
+          <img src="assets/gcp_real_demo/annotated_03_oauth_consent.png" alt="OAuth Consent Annotated" class="w-full">
+        </div>
+      </div>
+
+      <!-- Annotated 2 -->
+      <div class="space-y-4">
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-1 rounded-md bg-red-600 text-white font-bold text-xs">重點 2</span>
+          <h3 class="text-base font-bold text-slate-800">憑證中心：點擊頂部「+ 建立憑證」</h3>
+        </div>
+        <p class="text-xs text-slate-600 leading-relaxed">
+          進入憑證頁面後，許多學員找不到建立按鈕。已用<strong>紅色箭頭直接指引頂端工具列</strong>，點擊後選取「OAuth 2.0 用戶端 ID」。
+        </p>
+        <div class="rounded-2xl overflow-hidden border-2 border-red-300 shadow-md">
+          <img src="assets/gcp_real_demo/annotated_04_credentials.png" alt="Credentials Annotated" class="w-full">
+        </div>
+      </div>
+
+      <!-- Annotated 3 -->
+      <div class="space-y-4">
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-1 rounded-md bg-red-600 text-white font-bold text-xs">重點 3</span>
+          <h3 class="text-base font-bold text-slate-800">Google Sheets API：檢查啟用狀態</h3>
+        </div>
+        <p class="text-xs text-slate-600 leading-relaxed">
+          如下圖<strong>左上角紅框與紅色箭頭</strong>標示，確認 API 處於「管理（已啟用）」狀態，才具備試算表讀寫權杖存取能力。
+        </p>
+        <div class="rounded-2xl overflow-hidden border-2 border-red-300 shadow-md">
+          <img src="assets/gcp_real_demo/annotated_05_sheets_api.png" alt="Sheets API Annotated" class="w-full">
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 3: Post-processing Capabilities -->
+    <div class="bg-gradient-to-br from-slate-900 to-indigo-950 text-white rounded-3xl p-8 border border-slate-800">
+      <h3 class="text-base font-bold text-emerald-400 mb-2">💡 這套「動手腳」能力能為你的課程帶來什麼？</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs text-slate-300 mt-4">
+        <div class="p-4 rounded-xl bg-white/5 border border-white/10">
+          <span class="text-lg mb-1 block">🎯</span>
+          <span class="font-bold text-white block mb-1">零走神指引</span>
+          <span>用紅色箭頭與高亮色塊把重點標出來，學員即使完全沒碰過 GCP 也能秒懂。</span>
+        </div>
+        <div class="p-4 rounded-xl bg-white/5 border border-white/10">
+          <span class="text-lg mb-1 block">⚙️</span>
+          <span class="font-bold text-white block mb-1">影片自動後製</span>
+          <span>無需打開 Premiere 或 Final Cut Pro，由 FFmpeg 程式碼自動在對應時間點燒製特效框。</span>
+        </div>
+        <div class="p-4 rounded-xl bg-white/5 border border-white/10">
+          <span class="text-lg mb-1 block">🚀</span>
+          <span class="font-bold text-white block mb-1">資產一次全齊</span>
+          <span>影片、GIF、標註截圖、HTML 講義全部自動生成並託管在教材系統上！</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    const video = document.getElementById('demo-video');
+    const tip = document.getElementById('video-tip');
+    const tipText = document.getElementById('tip-text');
+
+    video.addEventListener('timeupdate', () => {
+      const cur = video.currentTime;
+      if (cur >= 10 && cur <= 30) {
+        tipText.innerText = "🚨 重點聚焦：GCP 專案與 API 總覽導航";
+        tip.classList.remove('opacity-0');
+      } else if (cur >= 40 && cur <= 65) {
+        tipText.innerText = "🚨 重點聚焦：OAuth 同意畫面配置";
+        tip.classList.remove('opacity-0');
+      } else if (cur >= 80 && cur <= 110) {
+        tipText.innerText = "🚨 重點聚焦：Google Sheets API 啟用確認";
+        tip.classList.remove('opacity-0');
+      } else {
+        tip.classList.add('opacity-0');
+      }
+    });
+  </script>
+</body>
+</html>
