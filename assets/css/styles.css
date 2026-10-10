@@ -1707,3 +1707,6 @@ body .badge, body .badge-status, body .project-tag { border-radius: 999px; }
 /* Embedded product videos inside project cards */
 .project-video { margin: .75rem 0 .6rem; }
 .project-video .ib-video__frame { border-radius: 12px; }
+
+/* Second textbook card: Python 學堂 */
+.book-card--py .book-card__cover { background: linear-gradient(150deg, #10b981 0%, #f59e0b 100%); }
