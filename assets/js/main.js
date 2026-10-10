@@ -96,35 +96,38 @@ function scrollActive(){
 
 /*===== SCROLL REVEAL ANIMATION =====*/
 const sr = (typeof ScrollReveal === 'function')
-    ? ScrollReveal({ origin: 'top', distance: '80px', duration: 2000, reset: true })
+    ? ScrollReveal({ origin: 'bottom', distance: '24px', duration: 600, easing: 'cubic-bezier(.2,.7,.2,1)', reset: false })
     : { reveal() {} }; // animations are optional; never block the rest of the page
 
 /*SCROLL HOME*/
 sr.reveal('.home__title', {});
-sr.reveal('.home__scroll', { delay: 200 });
-sr.reveal('.home__img', { origin: '100px', delay: 400 });
+sr.reveal('.home__scroll', { delay: 60 });
+sr.reveal('.home__img', { delay: 120 });
+sr.reveal('.home__data', {});
+sr.reveal('.hero__photo', { delay: 120 });
+sr.reveal('.tl__item, .area', { interval: 50 });
 
 
 /*SCROLL ABOUT*/
-sr.reveal('.about__img', {delay: 500})
-sr.reveal('.about__subtitle', {delay: 300})
-sr.reveal('.about__profession', {delay: 400})
-sr.reveal('.about__text', {delay: 500})
-sr.reveal('.about__social-icon', {delay: 600, interval: 200})
+sr.reveal('.about__img', {delay: 100})
+sr.reveal('.about__subtitle', {delay: 60})
+sr.reveal('.about__profession', {delay: 80})
+sr.reveal('.about__text', {delay: 100})
+sr.reveal('.about__social-icon', {delay: 100, interval: 60})
 
 /*SCROLL SKILLS*/
 sr.reveal('.skills__subtitle', {})
-sr.reveal('.skills__name', {distance: '20px', delay: 50, interval: 100})
-sr.reveal('.skills__img', {delay: 400})
+sr.reveal('.skills__name', {distance: '12px', interval: 30})
+sr.reveal('.skills__img', {delay: 80})
 
 /*SCROLL PORTFOLIO*/
-sr.reveal('.portfolio__img, .portfolio__card, .pf-card', {interval: 200})
+sr.reveal('.portfolio__img, .portfolio__card, .pf-card', {interval: 80})
 
 /*SCROLL CONTACT*/
 sr.reveal('.contact__subtitle', {})
-sr.reveal('.contact__text', {interval: 200})
-sr.reveal('.contact__input', {delay: 400})
-sr.reveal('.contact__button', {delay: 600})
+sr.reveal('.contact__text', {interval: 80})
+sr.reveal('.contact__input', {delay: 80})
+sr.reveal('.contact__button', {delay: 120})
 
 /*===== CONTACT FORM: open the visitor's mail app with the message filled in =====*/
 document.querySelectorAll('form.contact__form').forEach(form => {
@@ -147,3 +150,23 @@ document.querySelectorAll('form.contact__form').forEach(form => {
         status.textContent = `已開啟您的郵件程式；若沒有反應，請直接寫信至 ${to}`;
     });
 });
+
+/*===== HERO NUMBERS: count up once when visible =====*/
+(() => {
+    const nums = document.querySelectorAll('[data-count]');
+    if (!nums.length || !('IntersectionObserver' in window)) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const run = el => {
+        const end = +el.dataset.count, suffix = el.dataset.suffix || '', t0 = performance.now(), dur = 1100;
+        const step = now => {
+            const p = Math.min(1, (now - t0) / dur), eased = 1 - Math.pow(1 - p, 3);
+            el.textContent = Math.round(end * eased) + (p === 1 ? suffix : '');
+            if (p < 1) requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+    };
+    const io = new IntersectionObserver(entries => entries.forEach(e => {
+        if (e.isIntersecting) { run(e.target); io.unobserve(e.target); }
+    }), { threshold: .6 });
+    nums.forEach(n => io.observe(n));
+})();
