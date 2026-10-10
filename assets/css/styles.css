@@ -1673,6 +1673,15 @@ body .badge, body .badge-status, body .project-tag { border-radius: 999px; }
     opacity: 0; transition: opacity .2s; pointer-events: none;
 }
 .lw-bubble.is-on { opacity: 1; }
+.lw-ask { display: flex; flex-wrap: wrap; gap: .5rem; width: min(460px, calc(100% - 32px)); margin: -1.4rem auto 2.6rem; position: relative; z-index: 3; }
+.lw-ask input { flex: 1; min-width: 0; padding: .65rem 1rem; border: 2px solid #e6e3ff; border-radius: 999px; font: inherit; font-size: .92rem; background: #fff; }
+.lw-ask input:focus { outline: none; border-color: var(--c-purple); }
+.lw-ask button { padding: .65rem 1.2rem; border: 0; border-radius: 999px; background: var(--c-purple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+.lw-ask button:disabled { opacity: .55; cursor: wait; }
+.lw-answer { flex-basis: 100%; padding: .75rem 1rem; border-radius: 16px; background: #17133a; color: #fff; font-size: .92rem; line-height: 1.6; }
+.lw-answer.is-loading { opacity: .7; }
+.lw-answer__q { font-size: .8rem; opacity: .65; margin-bottom: .2rem; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 @media (prefers-reduced-motion: reduce) {
     .lw-bot.is-walking .lw-leg, .lw-bot.is-waving .lw-arm, .lw-eyes { animation: none; }
 }

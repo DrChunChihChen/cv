@@ -306,6 +306,40 @@ document.querySelectorAll('.ib-video__frame[data-yt]').forEach(btn => {
     });
     bot.addEventListener('mouseenter', () => { if (performance.now() > bubbleUntil) say(BOTS[idx].line); });
 
+    // ---- Ask the bot: question box under the title, answers appear in the bubble ----
+    const API = 'https://icma-lab-chat.netlify.app/api/chat';
+    const form = document.createElement('form');
+    form.className = 'lw-ask';
+    form.innerHTML = '<label class="sr-only" for="lw-q">問實驗室機器人</label><input id="lw-q" type="text" maxlength="300" autocomplete="off" placeholder="問機器人：實驗室在做什麼？"><button type="submit">問我</button><div class="lw-answer" aria-live="polite" hidden></div>';
+    title.insertAdjacentElement('afterend', form);
+    const input = form.querySelector('input'), sendBtn = form.querySelector('button'), ans = form.querySelector('.lw-answer');
+    const history = [];
+    let busy = false;
+    const hold = (text, ms) => { const t = performance.now(); bubble.textContent = text; bubbleUntil = t + ms; hopUntil = t + 420; if (reduce) draw(t); };
+    form.addEventListener('submit', async e => {
+        e.preventDefault();
+        const q = input.value.trim();
+        if (!q || busy) return;
+        busy = true; sendBtn.disabled = true; input.value = '';
+        hold('思考中…', 60000);
+        ans.hidden = false; ans.classList.add('is-loading'); ans.textContent = '思考中…';
+        let answer;
+        try {
+            const r = await fetch(API, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ question: q, history: history.slice(-8) }) });
+            const d = await r.json().catch(() => ({}));
+            if (r.status === 429) answer = '問太快了，我喘口氣，一分鐘後再問我！';
+            else answer = d.answer || d.error || '我暫時連不上大腦，請稍後再試，或寫信到 elvischen@nutc.edu.tw。';
+            if (r.ok && d.answer) history.push({ role: 'user', content: q }, { role: 'assistant', content: d.answer });
+        } catch (_) {
+            answer = '網路好像斷了，請稍後再試！';
+        }
+        ans.classList.remove('is-loading');
+        ans.innerHTML = ''; const qq = document.createElement('div'); qq.className = 'lw-answer__q'; qq.textContent = 'Q：' + q;
+        const aa = document.createElement('div'); aa.textContent = answer; ans.append(qq, aa);
+        hold('答好了，看這裡 👇', 3200);
+        busy = false; sendBtn.disabled = false;
+    });
+
     if (reduce) { state = 'idle'; draw(performance.now()); window.addEventListener('resize', () => draw(performance.now())); return; }
     if ('IntersectionObserver' in window) new IntersectionObserver(es => { visible = es[0].isIntersecting; last = 0; }, { rootMargin: '120px' }).observe(title);
     else visible = true;
