@@ -1,8 +1,0 @@
-# Netlify backend for the Lab mascot chat (site: icma-lab-chat).
-# In Netlify: Base directory = lab-chat. No secrets live in this repo;
-# OPENROUTER_API_KEY (and optional SHEET_WEBHOOK_URL / SHEET_SECRET) are set in Netlify.
-[build]
-  publish = "public"
-  functions = "netlify/functions"
-  # only redeploy when something in lab-chat/ changed
-  ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- ."
