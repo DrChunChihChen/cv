@@ -355,7 +355,7 @@ document.querySelectorAll('.ib-video__frame[data-yt]').forEach(btn => {
             const r = await fetch(API, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ question: q, history: history.slice(-8) }) });
             const d = await r.json().catch(() => ({}));
             if (r.status === 429) answer = '問太快了，我喘口氣，一分鐘後再問我！';
-            else answer = d.answer || d.error || '我暫時連不上大腦，請稍後再試，或寫信到 elvischen@nutc.edu.tw。';
+            else answer = d.answer || d.error || '我暫時連不上大腦，請稍後再試，或寫信到 nutcelvischen@gmail.com。';
             if (r.ok && d.answer) history.push({ role: 'user', content: q }, { role: 'assistant', content: d.answer });
         } catch (_) { answer = '網路好像斷了，請稍後再試！'; }
         pending.classList.remove('is-loading'); pending.textContent = answer; log.scrollTop = log.scrollHeight;

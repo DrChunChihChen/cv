@@ -47,7 +47,7 @@
 * **實驗室亮點**：🔥 **國貿系最多 Token 的實驗室**，別讓 API 餘額限制你的狂想！
 * **核心技術**：AI 代理人團隊分工協同 (AutoGen / CrewAI)、智慧商務預測與數據決策、企業流程全自動化 (n8n / Make)。
 * **運算資源**：配備 **NVIDIA DGX × 3** 旗艦算力中心（Token 吃到飽支援）。
-* **招生與人才招募**：歡迎對 AI 代理人應用、商業自動化與創新創業有熱忱的同學加入！([申請加入](mailto:elvischen@nutc.edu.tw?subject=申請加入智慧商務多代理人實驗室))
+* **招生與人才招募**：歡迎對 AI 代理人應用、商業自動化與創新創業有熱忱的同學加入！([申請加入](mailto:nutcelvischen@gmail.com?subject=申請加入智慧商務多代理人實驗室))
 
 ---
 
@@ -119,7 +119,7 @@
 
 ## 📬 Contact (聯絡資訊)
 
-* **Email**: [elvischen@nutc.edu.tw](mailto:elvischen@nutc.edu.tw)
+* **Email**: [nutcelvischen@gmail.com](mailto:nutcelvischen@gmail.com)
 * **Office**: 國立臺中科技大學 中正大樓 7 樓 3705 研究室
 * **Phone**: +886-4-2219-6120
 * **Address**: 404 台中市北區三民路三段 129 號
