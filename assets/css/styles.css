@@ -1566,3 +1566,11 @@ body .badge, body .badge-status, body .project-tag { border-radius: 999px; }
 .callout h3 { font-size: 1.15rem; font-weight: 700; color: #1f2333; margin-bottom: .3rem; }
 .callout h3 small { display: block; font-size: .68rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--text-color-light); }
 .callout p { font-size: .9rem; color: var(--text-color); line-height: 1.6; margin: 0; max-width: 640px; }
+
+/* Portfolio: 5 cards, second row centred */
+@media screen and (min-width: 768px) {
+    .portfolio__container { grid-template-columns: repeat(6, 1fr); }
+    .portfolio__container .pf-card { grid-column: span 2; }
+    .portfolio__container .pf-card:nth-child(4) { grid-column: 2 / 4; }
+    .portfolio__container .pf-card:nth-child(5) { grid-column: 4 / 6; }
+}
