@@ -1503,3 +1503,66 @@ body { letter-spacing: .01em; }
     .page-hero__art { max-width: 200px; }
     .page-hero__art .pf-card__art svg { width: 56px; height: 56px; }
 }
+
+/* =====================================================================
+   v5 — sub-page body content in the new style
+   (prefixed with `body` so it wins over each page's own <style> block)
+   ===================================================================== */
+body .sub-title {
+    position: relative;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #1f2333;
+    margin: 2.25rem 0 1.1rem;
+    padding-left: .9rem;
+    line-height: 1.4;
+    border: none;
+}
+body .sub-title::before {
+    content: ""; position: absolute; left: 0; top: .2rem; bottom: .2rem;
+    width: 4px; border-radius: 4px; background: var(--c-purple);
+}
+body .sub-title i { display: none; }
+body .sub-title small {
+    display: block; font-size: .68rem; font-weight: 600; letter-spacing: .06em;
+    text-transform: uppercase; color: var(--text-color-light); margin-top: .15rem;
+}
+body .pub-section:first-child .sub-title,
+body .project-section:first-child .sub-title { margin-top: .5rem; }
+
+/* stat strip -> soft tiles like the home page */
+body .highlight-stat-banner {
+    background: none; color: inherit; padding: 0; gap: .75rem;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+}
+body .stat-box { border-radius: 1rem; padding: 1.1rem 1rem; background: var(--c-purple-soft); }
+body .stat-box:nth-child(2) { background: var(--c-green-soft); }
+body .stat-box:nth-child(3) { background: var(--c-sky-soft); }
+body .stat-box:nth-child(4) { background: var(--c-sun-soft); }
+body .stat-box h3 { color: var(--c-purple); font-size: 1.45rem; }
+body .stat-box:nth-child(2) h3 { color: var(--c-green); }
+body .stat-box:nth-child(3) h3 { color: var(--c-sky); }
+body .stat-box:nth-child(4) h3 { color: var(--c-sun); }
+body .stat-box p { color: var(--text-color-light); opacity: 1; }
+
+/* cards: one radius, border and shadow everywhere */
+body .pub-card, body .project-card, body .talk-card, body .course-card,
+body .service-card, body .project__card, body .award-list li {
+    border-radius: 1.1rem;
+    border-color: var(--line-color);
+    box-shadow: 0 6px 22px rgba(108, 99, 255, .06);
+}
+body .pub-card:hover, body .project-card:hover { box-shadow: 0 12px 30px rgba(108, 99, 255, .12); }
+body .pub-link-btn, body .res-link { border-radius: 999px; }
+body .badge, body .badge-status, body .project-tag { border-radius: 999px; }
+
+/* soft callout (replaces solid colour banners) */
+.callout {
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
+    padding: 1.4rem 1.6rem; border-radius: 1.25rem; margin-bottom: 2.2rem;
+    background: var(--c-purple-soft);
+}
+.callout--pink { background: var(--c-pink-soft); }
+.callout h3 { font-size: 1.15rem; font-weight: 700; color: #1f2333; margin-bottom: .3rem; }
+.callout h3 small { display: block; font-size: .68rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--text-color-light); }
+.callout p { font-size: .9rem; color: var(--text-color); line-height: 1.6; margin: 0; max-width: 640px; }
