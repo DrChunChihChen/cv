@@ -1640,3 +1640,12 @@ body .badge, body .badge-status, body .project-tag { border-radius: 999px; }
 .ib-video figcaption { margin-top: .65rem; font-weight: 700; color: #1f2333; display: flex; gap: .6rem; align-items: baseline; flex-wrap: wrap; }
 .ib-video figcaption span { font-weight: 500; font-size: .82rem; color: var(--c-pink); }
 .ib-more { text-align: center; margin-top: 1.75rem; }
+
+/* Lab promo video */
+.lab2__video { margin: 0; }
+.lab2__video video {
+    display: block; width: 100%; max-width: 100%; aspect-ratio: 16 / 9;
+    border-radius: 1.1rem; background: #17133a;
+    box-shadow: 0 16px 40px rgba(108, 99, 255, .18);
+}
+.lab2__video figcaption { margin-top: .6rem; font-size: .88rem; color: var(--text-color-light); text-align: center; }
