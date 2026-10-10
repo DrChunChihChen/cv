@@ -987,3 +987,126 @@ img {
         margin-right: auto;
     }
 }
+
+/* =====================================================================
+   2026-10 REFRESH — white base, young & playful accents
+   ===================================================================== */
+:root {
+    --body-color: #FFFFFF;
+    --accent-sky: #38bdf8;
+    --accent-pink: #f472b6;
+    --accent-mint: #34d399;
+    --accent-sun: #fbbf24;
+    --line-color: #eef0f6;
+}
+
+/* Header logo stays on one line */
+.nav__logo { white-space: nowrap; }
+
+/* Hero: white with soft colour bubbles */
+.home {
+    background: #FFFFFF;
+    position: relative;
+    isolation: isolate;
+}
+.home::before,
+.home::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(70px);
+    opacity: .45;
+    z-index: -1;
+    pointer-events: none;
+}
+.home::before { width: 360px; height: 360px; background: #c7d2fe; top: 6%; right: 4%; }
+.home::after  { width: 280px; height: 280px; background: #fbcfe8; bottom: 8%; left: -80px; }
+
+.home__buttons {
+    margin-top: 1.5rem;
+    display: flex;
+    gap: .8rem;
+    flex-wrap: wrap;
+}
+@media screen and (min-width: 1100px) {
+    .home__buttons { flex-wrap: nowrap; }
+    .home__buttons .home__button { padding: .9rem 1.5rem; white-space: nowrap; }
+}
+
+/* About: portrait sits at the top and follows while reading */
+@media screen and (min-width: 768px) {
+    .about__container { align-items: start; }
+    .about__img {
+        position: sticky;
+        top: calc(var(--header-height) + 2rem);
+    }
+}
+
+/* Skills: four colourful cards, no stock image */
+.skills__grid {
+    display: grid;
+    gap: 1.5rem;
+    text-align: left;
+}
+@media screen and (min-width: 768px) {
+    .skills__grid { grid-template-columns: repeat(2, 1fr); align-items: stretch; }
+}
+.skills__group {
+    background: #FFFFFF;
+    border: 1px solid var(--line-color);
+    border-top: 4px solid var(--first-color);
+    border-radius: 1.25rem;
+    padding: 1.5rem 1.5rem .5rem;
+    box-shadow: 0 6px 24px rgba(108, 99, 255, .07);
+    transition: transform .3s, box-shadow .3s;
+}
+.skills__group:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 32px rgba(108, 99, 255, .12);
+}
+.skills__group:nth-child(2) { border-top-color: var(--accent-mint); }
+.skills__group:nth-child(3) { border-top-color: var(--accent-sky); }
+.skills__group:nth-child(4) { border-top-color: var(--accent-pink); }
+.skills__group .skills__subtitle { font-size: 1.15rem; line-height: 1.45; margin-bottom: 1rem; }
+.skills__group .skills__data { justify-content: flex-start; gap: .6rem; margin-bottom: 1rem; }
+.skills__group .skills__name { background-color: #f5f6fb; box-shadow: none; padding: .4rem 1rem; font-size: .9rem; }
+
+/* Contact form */
+.contact__input { font-family: inherit; background-color: #f8f9fd; border-color: var(--line-color); }
+textarea.contact__input { resize: vertical; }
+.contact__status { margin-top: .75rem; font-size: .85rem; color: var(--text-color-light); text-align: right; }
+
+/* Footer: white with a playful gradient strip */
+.footer {
+    background-color: #FFFFFF;
+    color: var(--text-color);
+    border-top: 1px solid var(--line-color);
+    position: relative;
+}
+.footer::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--first-color), var(--accent-sky), var(--accent-pink), var(--accent-sun));
+}
+.footer__title { color: var(--first-color); }
+.footer__text { color: var(--text-color-light); }
+.footer__link { color: var(--text-color); }
+.footer__link:hover { color: var(--first-color); }
+.footer__social { color: var(--first-color); transition: transform .3s; display: inline-block; }
+.footer__social:hover { transform: translateY(-3px); }
+.footer__copy { font-size: .8rem; margin-top: 2rem; color: #9aa0a6; }
+
+/* Nav: keep all items inside the header on laptop widths */
+@media screen and (min-width: 768px) {
+    .nav__item { margin-left: 0; }
+    .nav__list { gap: clamp(.1rem, .5vw, .5rem); }
+}
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+    .nav__link { font-size: .85rem; padding: .35rem .55rem; }
+}
+@media screen and (min-width: 768px) and (max-width: 899px) {
+    .nav__logo { font-size: 1.05rem; }
+    .nav__link { font-size: .78rem; padding: .3rem .4rem; }
+}

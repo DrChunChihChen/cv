@@ -121,7 +121,7 @@
 
 * **Email**: [elvischen@nutc.edu.tw](mailto:elvischen@nutc.edu.tw)
 * **Office**: 國立臺中科技大學 中正大樓 7 樓 3705 研究室
-* **Phone**: +886-4-22196120
+* **Phone**: +886-4-2219-6120
 * **Address**: 404 台中市北區三民路三段 129 號
 
 ---

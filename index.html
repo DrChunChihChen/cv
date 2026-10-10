@@ -28,7 +28,7 @@
     <link rel="alternate icon" href="favicon.ico">
 
     <!-- ===== CSS ===== -->
-    <link rel="stylesheet" href="assets/css/styles.css?v=2.3">
+    <link rel="stylesheet" href="assets/css/styles.css?v=2.4">
 
     <!-- ===== BOX ICONS ===== -->
     <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
@@ -410,19 +410,9 @@
                             <span class="nav__link-content"><i class='bx bx-envelope'></i> <span class="nav__link-text-zh">聯絡資訊 </span><span class="nav__link-text-en">Contact</span></span>
                         </a>
                     </li>
-                    <li class="nav__item">
-                        <a href="preview_redesign.html" class="nav__link" style="background: rgba(99, 102, 241, 0.08); border-radius: 8px; color: #4338ca; font-weight: 600;">
-                            <span class="nav__link-content"><i class='bx bx-grid-alt' style="color: #4f46e5;"></i> <span class="nav__link-text-zh">方塊卡片版 </span><span class="nav__link-text-en">Cards View</span></span>
-                        </a>
-                    </li>
                 </ul>
 
                 <div class="nav__footer-mobile">
-                    <div style="margin-bottom: 0.85rem;">
-                        <a href="preview_redesign.html" style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; background: #eef2ff; color: #4338ca; border: 1.5px solid #c7d2fe; padding: 0.65rem 1rem; border-radius: 0.5rem; font-weight: 600; font-size: 0.88rem; text-decoration: none;">
-                            <i class='bx bx-grid-alt' style="font-size: 1.15rem;"></i> 切換至方塊卡片版
-                        </a>
-                    </div>
                     <div class="nav__footer-title">社群與檔案</div>
                     <div class="nav__footer-btns">
                         <a href="https://orcid.org/0000-0001-6556-2221" target="_blank" class="nav__social-btn"><i class='bx bx-id-card'></i> ORCID</a>
@@ -461,7 +451,7 @@
                         <span class="hero__badge-item"><i class='bx bx-trophy'></i> 全國競賽冠軍指導</span>
                     </div>
 
-                    <div style="margin-top: 1.5rem; display: flex; gap: 0.8rem; flex-wrap: wrap;">
+                    <div class="home__buttons">
                         <a href="#about" class="home__button">Explore Profile</a>
                         <a href="https://orcid.org/0000-0001-6556-2221" target="_blank" class="home__button"
                             style="background: #fff; color: var(--first-color); border: 2px solid var(--first-color);">
@@ -608,9 +598,9 @@
         <section class="skills section" id="skills">
             <h2 class="section-title">Skills & Expertise</h2>
 
-            <div class="skills__container bd-grid">
-                <!-- Skill Tags -->
-                <div>
+            <div class="skills__container skills__grid bd-grid">
+                <!-- Skill Groups -->
+                <div class="skills__group">
                     <h3 class="skills__subtitle" style="color: var(--first-color);"><i class='bx bx-bot'></i> AI 應用與自動化工作流 (AI & Automation Workflows)</h3>
                     <div class="skills__data">
                         <span class="skills__name" style="background: #eef2ff; color: #3730a3; font-weight: 600;">n8n 自動化工作流</span>
@@ -624,15 +614,17 @@
                         <span class="skills__name" style="background: #eef2ff; color: #3730a3; font-weight: 600;">Python 自動化腳本</span>
                         <span class="skills__name" style="background: #eef2ff; color: #3730a3; font-weight: 600;">Dify / Flowise 知識庫</span>
                     </div>
-
-                    <h3 class="skills__subtitle" style="margin-top: 1.25rem;"><i class='bx bx-badge-check' style="color: #10b981;"></i> 專業證照 (Professional Certifications)</h3>
+                </div>
+                <div class="skills__group">
+                    <h3 class="skills__subtitle"><i class='bx bx-badge-check' style="color: #10b981;"></i> 專業證照 (Professional Certifications)</h3>
                     <div class="skills__data">
                         <span class="skills__name" style="background: #ecfdf5; color: #065f46; font-weight: 600; border: 1px solid #a7f3d0;"><i class='bx bx-check-circle'></i> iPAS AI應用規劃師</span>
                         <span class="skills__name" style="background: #ecfdf5; color: #065f46; font-weight: 600; border: 1px solid #a7f3d0;"><i class='bx bx-check-circle'></i> iPAS 淨零碳管理師</span>
                         <span class="skills__name" style="background: #ecfdf5; color: #065f46; font-weight: 600; border: 1px solid #a7f3d0;"><i class='bx bx-check-circle'></i> ISO 14064-1:2018 組織層級溫室氣體主任查證員 (亞瑞士)</span>
                     </div>
-
-                    <h3 class="skills__subtitle" style="margin-top: 1.25rem;">AI, Analytics & Modeling</h3>
+                </div>
+                <div class="skills__group">
+                    <h3 class="skills__subtitle">AI, Analytics & Modeling</h3>
                     <div class="skills__data">
                         <span class="skills__name">Python</span>
                         <span class="skills__name">LLM & Multi-Agent</span>
@@ -643,8 +635,9 @@
                         <span class="skills__name">XGBoost & GA</span>
                         <span class="skills__name">Tableau</span>
                     </div>
-
-                    <h3 class="skills__subtitle" style="margin-top: 1.25rem;">Sustainability & Economics</h3>
+                </div>
+                <div class="skills__group">
+                    <h3 class="skills__subtitle">Sustainability & Economics</h3>
                     <div class="skills__data">
                         <span class="skills__name">Ecological Footprint (EF)</span>
                         <span class="skills__name">Circular Economy (CE)</span>
@@ -653,11 +646,6 @@
                         <span class="skills__name">Energy Economics</span>
                         <span class="skills__name">Decoupling Analysis</span>
                     </div>
-                </div>
-
-                <!-- Skill Image -->
-                <div class="skills__img">
-                    <img src="assets/img/skill.jpg" alt="Skills visualization" style="border-radius: 1rem;">
                 </div>
             </div>
         </section>
@@ -797,7 +785,7 @@
                         style="color: var(--first-color);">elvischen@nutc.edu.tw</a>
 
                     <h3 class="contact__subtitle">PHONE</h3>
-                    <span class="contact__text">+886-422196120</span>
+                    <span class="contact__text"><a href="tel:+886422196120" style="color:inherit">+886-4-2219-6120</a></span>
 
                     <h3 class="contact__subtitle">ADDRESS</h3>
                     <span class="contact__text">404台中市北區三民路三段129號中正大樓7樓3705</span>
@@ -838,7 +826,6 @@
                     <li><a href="projects.html" class="footer__link">Projects</a></li>
                     <li><a href="awards.html" class="footer__link">Awards</a></li>
                     <li><a href="analytics.html" class="footer__link">Analytics</a></li>
-                    <li><a href="preview_redesign.html" class="footer__link" style="color: #818cf8; font-weight: 600;">方塊卡片版 (Cards Design)</a></li>
                 </ul>
             </div>
 
@@ -849,29 +836,15 @@
                 <a href="https://it.nutc.edu.tw/%E5%B0%88%E4%BB%BB%E6%95%99%E5%B8%AB/" target="_blank" class="footer__social" title="Faculty Profile"><i class='bx bx-link-external'></i></a>
             </div>
         </div>
-        <p style="font-size: 0.8rem; margin-top: 2rem; color: #CCC;">&copy; 2026 Elvis Chen. All rights reserved.</p>
+        <p class="footer__copy">&copy; 2026 Elvis Chen. All rights reserved.</p>
     </footer>
 
     <!--===== SCROLL REVEAL =====-->
     <script src="https://unpkg.com/scrollreveal"></script>
 
     <!--===== MAIN JS =====-->
-    <script src="assets/js/main.js?v=2.3"></script>
+    <script src="assets/js/main.js?v=2.4"></script>
 
-    <script>
-        const sr = ScrollReveal({
-            origin: 'top',
-            distance: '60px',
-            duration: 2000,
-            delay: 200,
-        });
-
-        sr.reveal('.home__data, .about__img, .skills__subtitle, .skills__text', {});
-        sr.reveal('.home__img, .about__subtitle, .about__text, .skills__img', { delay: 400 });
-        sr.reveal('.home__social-icon', { interval: 200 });
-        sr.reveal('.skills__data, .work__img, .contact__input', { interval: 200 });
-        sr.reveal('.portfolio__card', { interval: 200 });
-    </script>
 </body>
 
 </html>

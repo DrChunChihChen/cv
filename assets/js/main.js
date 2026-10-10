@@ -95,12 +95,9 @@ function scrollActive(){
 }
 
 /*===== SCROLL REVEAL ANIMATION =====*/
-const sr = ScrollReveal({
-    origin: 'top',
-    distance: '80px',
-    duration: 2000,
-    reset: true
-})
+const sr = (typeof ScrollReveal === 'function')
+    ? ScrollReveal({ origin: 'top', distance: '80px', duration: 2000, reset: true })
+    : { reveal() {} }; // animations are optional; never block the rest of the page
 
 /*SCROLL HOME*/
 sr.reveal('.home__title', {});
@@ -121,10 +118,32 @@ sr.reveal('.skills__name', {distance: '20px', delay: 50, interval: 100})
 sr.reveal('.skills__img', {delay: 400})
 
 /*SCROLL PORTFOLIO*/
-sr.reveal('.portfolio__img', {interval: 200})
+sr.reveal('.portfolio__img, .portfolio__card', {interval: 200})
 
 /*SCROLL CONTACT*/
 sr.reveal('.contact__subtitle', {})
 sr.reveal('.contact__text', {interval: 200})
 sr.reveal('.contact__input', {delay: 400})
 sr.reveal('.contact__button', {delay: 600})
+
+/*===== CONTACT FORM: open the visitor's mail app with the message filled in =====*/
+document.querySelectorAll('form.contact__form').forEach(form => {
+    const action = form.getAttribute('action') || '';
+    if (!action.startsWith('mailto:')) return;
+    const to = action.slice(7).split('?')[0];
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+        const val = n => (form.querySelector(`[name="${n}"]`) || {}).value || '';
+        const name = val('name').trim(), email = val('email').trim(), msg = val('message').trim();
+        const subject = `[CV Website] Message from ${name || 'a visitor'}`;
+        const body = `${msg}\n\n— ${name}${email ? ' <' + email + '>' : ''}`;
+        window.location.href = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        let status = form.querySelector('.contact__status');
+        if (!status) {
+            status = document.createElement('p');
+            status.className = 'contact__status';
+            form.appendChild(status);
+        }
+        status.textContent = `已開啟您的郵件程式；若沒有反應，請直接寫信至 ${to}`;
+    });
+});
