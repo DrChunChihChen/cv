@@ -1613,3 +1613,30 @@ body .badge, body .badge-status, body .project-tag { border-radius: 999px; }
 .book-card__stats strong { color: var(--c-purple); font-size: 1.05rem; margin-right: .25rem; }
 .book-card__actions { display: flex; flex-wrap: wrap; gap: .7rem; }
 .book-card__note { font-size: .8rem; color: var(--text-color-light); margin-top: .8rem; }
+
+/* Home: NUTC IB department videos (click-to-play) */
+.ib-intro { text-align: center; color: var(--text-color); margin: -.5rem auto 1.75rem; max-width: 640px; line-height: 1.7; }
+.ib-videos { display: grid; gap: 1.25rem; }
+@media screen and (min-width: 768px) { .ib-videos { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; } }
+.ib-video { margin: 0; }
+.ib-video__frame {
+    position: relative; display: block; width: 100%; aspect-ratio: 16 / 9;
+    padding: 0; border: 0; cursor: pointer; overflow: hidden;
+    border-radius: 1.1rem; background: #1f2333;
+    box-shadow: 0 10px 30px rgba(108, 99, 255, .12);
+}
+.ib-video__frame img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s; }
+.ib-video__frame:hover img { transform: scale(1.04); }
+.ib-video__frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.ib-video__play {
+    position: absolute; left: 50%; top: 50%; width: 68px; height: 48px; transform: translate(-50%, -50%);
+    border-radius: 14px; background: #ff0033; box-shadow: 0 6px 20px rgba(0,0,0,.3); transition: transform .25s;
+}
+.ib-video__play::after {
+    content: ""; position: absolute; left: 50%; top: 50%; transform: translate(-35%, -50%);
+    border-style: solid; border-width: 10px 0 10px 17px; border-color: transparent transparent transparent #fff;
+}
+.ib-video__frame:hover .ib-video__play { transform: translate(-50%, -50%) scale(1.08); }
+.ib-video figcaption { margin-top: .65rem; font-weight: 700; color: #1f2333; display: flex; gap: .6rem; align-items: baseline; flex-wrap: wrap; }
+.ib-video figcaption span { font-weight: 500; font-size: .82rem; color: var(--c-pink); }
+.ib-more { text-align: center; margin-top: 1.75rem; }

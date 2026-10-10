@@ -170,3 +170,18 @@ document.querySelectorAll('form.contact__form').forEach(form => {
     }), { threshold: .6 });
     nums.forEach(n => io.observe(n));
 })();
+
+/*===== Click-to-play YouTube (loads the player only when clicked) =====*/
+document.querySelectorAll('.ib-video__frame[data-yt]').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const id = btn.dataset.yt;
+        const f = document.createElement('iframe');
+        f.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`;
+        f.title = btn.getAttribute('aria-label') || 'YouTube video';
+        f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+        f.referrerPolicy = 'strict-origin-when-cross-origin';
+        f.allowFullscreen = true;
+        btn.replaceChildren(f);
+        btn.style.cursor = 'default';
+    }, { once: true });
+});
