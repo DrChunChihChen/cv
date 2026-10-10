@@ -7,7 +7,7 @@
     <meta name="description" content="Awards, Honors & Student Mentorship - Dr. Elvis Chen (陳俊智博士)">
 
     <!-- ===== CSS ===== -->
-    <link rel="stylesheet" href="assets/css/styles.css?v=3.0">
+    <link rel="stylesheet" href="assets/css/styles.css?v=4.0">
 
     <!-- ===== BOX ICONS ===== -->
     <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
@@ -114,12 +114,12 @@
                     </li>
                     <li class="nav__item">
                         <a href="index.html#laboratory" class="nav__link">
-                            <span class="nav__link-content"><i class='bx bx-brain'></i> <span class="nav__link-text-zh">代理人實驗室 </span><span class="nav__link-text-en">Lab</span></span>
+                            <span class="nav__link-content"><i class='bx bx-brain'></i> <span class="nav__link-text-zh">實驗室 </span><span class="nav__link-text-en">Lab</span></span>
                         </a>
                     </li>
                     <li class="nav__item nav__item--drop">
                         <a href="publications.html" class="nav__link">
-                            <span class="nav__link-content"><i class='bx bx-book-open'></i> <span class="nav__link-text-zh">研究成果 </span><span class="nav__link-text-en">Research ▾</span></span>
+                            <span class="nav__link-content"><i class='bx bx-book-open'></i> <span class="nav__link-text-zh">研究成果 ▾</span><span class="nav__link-text-en">Research</span></span>
                         </a>
                         <ul class="nav__sub"><li><a href="publications.html" class="nav__sublink">著作論文 Publications</a></li><li><a href="projects.html" class="nav__sublink">產學專案 Projects</a></li><li><a href="talks.html" class="nav__sublink">演講 Talks</a></li><li><a href="analytics.html" class="nav__sublink">數據分析 Analytics</a></li></ul>
                     </li>
@@ -157,24 +157,26 @@
 
     <main class="l-main">
         <!--===== HOME =====-->
-        <section class="home" id="home">
-            <div class="home__container bd-grid">
-                <div class="home__data">
-                    <h1 class="home__title">Awards &<br><span>Honors</span></h1>
-                    <span class="home__subtitle">Academic Honors & Student Mentorship Achievements</span>
-                    <a href="#awards-list" class="home__button">View Honors</a>
+        <section class="page-hero" id="home">
+            <div class="page-hero__inner bd-grid">
+                <div class="page-hero__text">
+                    <a href="index.html" class="page-hero__back">← 回首頁</a>
+                    <span class="hero__eyebrow">榮譽 · Honors</span>
+                    <h1 class="page-hero__title">榮譽獲獎<small>Awards & Honors</small></h1>
+                    <p class="page-hero__desc">學術榮譽與指導學生競賽成果</p>
+                    <div class="home__buttons"><a href="#awards-list" class="home__button">看獲獎 ↓</a></div>
                 </div>
-
-                <div class="home__img">
-                    <img src="assets/img/Alibaba.jpg" alt="Awards"
-                        style="border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.12);">
+                <div class="page-hero__art pf-card--c4">
+                    <div class="pf-card__art">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 4h8v5a4 4 0 0 1-8 0z"/><path d="M8 6H5a3 3 0 0 0 3 4M16 6h3a3 3 0 0 1-3 4M12 13v4M8 21h8M10 17h4"/></svg>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!--===== ABOUT / AWARDS =====-->
         <section class="section bd-grid" id="awards-list">
-            <h2 class="section-title">Awards & Student Mentorship</h2>
+            <h2 class="section-title">榮譽與指導學生獲獎<small>Awards & Student Mentorship</small></h2>
             <div>
                 <h3 style="margin-bottom: 1rem; color: #2d3748;"><i class='bx bx-trophy' style="color: #ecc94b;"></i> 指導學生獲獎 (Student Competition Awards, 2022 - 2025)</h3>
                 <ul class="award-list">
@@ -230,7 +232,7 @@
 
         <!--===== RESEARCH SOFTWARE & USR SHOWCASE =====-->
         <section class="portfolio section" id="software-showcase" style="padding-top: 1rem;">
-            <h2 class="section-title">Research Software & USR Showcase</h2>
+            <h2 class="section-title">自研軟體與 USR 成果<small>Research Software & USR</small></h2>
 
             <div class="project__container bd-grid">
                 <!-- Software 1: 碳盤查/足跡 軟體：你說的算 -->
@@ -287,7 +289,7 @@
 
         <!--===== PORTFOLIO (Student Projects Showcase) =====-->
         <section class="portfolio section" id="portfolio">
-            <h2 class="section-title">Student Competition Projects Showcase</h2>
+            <h2 class="section-title">學生競賽作品<small>Student Competition Projects</small></h2>
 
             <div class="project__container bd-grid">
                 <!-- Project 1 -->
@@ -350,18 +352,18 @@
 
         <!--===== CONTACT =====-->
         <section class="contact section" id="contact">
-            <h2 class="section-title">Contact</h2>
+            <h2 class="section-title">聯絡資訊<small>Contact</small></h2>
 
             <div class="contact__container bd-grid">
                 <div class="contact__info">
-                    <h3 class="contact__subtitle">EMAIL</h3>
+                    <h3 class="contact__subtitle">電子郵件</h3>
                     <a href="mailto:elvischen@nutc.edu.tw" class="contact__text"
                         style="color: var(--first-color);">elvischen@nutc.edu.tw</a>
 
-                    <h3 class="contact__subtitle">PHONE</h3>
+                    <h3 class="contact__subtitle">電話</h3>
                     <span class="contact__text"><a href="tel:+886422196120" style="color:inherit">+886-4-2219-6120</a></span>
 
-                    <h3 class="contact__subtitle">ADDRESS</h3>
+                    <h3 class="contact__subtitle">地址</h3>
                     <span class="contact__text">404台中市北區三民路三段129號中正大樓7樓3705</span>
                 </div>
 
@@ -392,19 +394,19 @@
             </div>
 
             <div class="footer__data">
-                <h2 class="footer__title">EXPLORE</h2>
+                <h2 class="footer__title">網站導覽</h2>
                 <ul>
-                    <li><a href="index.html" class="footer__link">Home</a></li>
-                    <li><a href="index.html#about" class="footer__link">About</a></li>
-                    <li><a href="publications.html" class="footer__link">Publications</a></li>
-                    <li><a href="projects.html" class="footer__link">Projects</a></li>
-                    <li><a href="awards.html" class="footer__link">Awards</a></li>
-                    <li><a href="analytics.html" class="footer__link">Analytics</a></li>
+                    <li><a href="index.html" class="footer__link">首頁</a></li>
+                    <li><a href="index.html#about" class="footer__link">關於我</a></li>
+                    <li><a href="publications.html" class="footer__link">著作論文</a></li>
+                    <li><a href="projects.html" class="footer__link">產學專案</a></li>
+                    <li><a href="awards.html" class="footer__link">榮譽獲獎</a></li>
+                    <li><a href="analytics.html" class="footer__link">數據分析</a></li>
                 </ul>
             </div>
 
             <div class="footer__data">
-                <h2 class="footer__title">FOLLOW</h2>
+                <h2 class="footer__title">社群連結</h2>
                 <a href="https://orcid.org/0000-0001-6556-2221" target="_blank" class="footer__social" title="ORCID"><i class='bx bx-id-card'></i></a>
                 <a href="https://it.nutc.edu.tw/%E5%B0%88%E4%BB%BB%E6%95%99%E5%B8%AB/" target="_blank" class="footer__social" title="Faculty Profile"><i class='bx bx-link-external'></i></a>
             </div>
@@ -416,7 +418,7 @@
     <script src="https://unpkg.com/scrollreveal"></script>
 
     <!--===== MAIN JS =====-->
-    <script src="assets/js/main.js?v=3.0"></script>
+    <script src="assets/js/main.js?v=4.0"></script>
 </body>
 
 </html>
