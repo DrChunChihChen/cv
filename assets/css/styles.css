@@ -1110,3 +1110,53 @@ textarea.contact__input { resize: vertical; }
     .nav__logo { font-size: 1.05rem; }
     .nav__link { font-size: .78rem; padding: .3rem .4rem; }
 }
+
+/* Portfolio: one consistent, colourful card style */
+.pf-card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background: #FFFFFF;
+    border: 1px solid var(--line-color);
+    border-radius: 1.25rem;
+    overflow: hidden;
+    box-shadow: 0 6px 24px rgba(108, 99, 255, .07);
+    transition: transform .3s, box-shadow .3s;
+    color: var(--text-color);
+}
+.pf-card:hover { transform: translateY(-6px); box-shadow: 0 16px 36px rgba(108, 99, 255, .15); }
+.pf-card__art {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    color: #FFFFFF;
+}
+.pf-card__art::before,
+.pf-card__art::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .18);
+}
+.pf-card__art::before { width: 160px; height: 160px; top: -50px; right: -40px; }
+.pf-card__art::after  { width: 100px; height: 100px; bottom: -40px; left: 18px; }
+.pf-card__art svg {
+    position: relative;
+    width: 64px;
+    height: 64px;
+    transition: transform .4s;
+}
+.pf-card:hover .pf-card__art svg { transform: scale(1.12) rotate(-6deg); }
+.pf-card--c1 .pf-card__art { background: linear-gradient(135deg, #6C63FF, #8b5cf6); }
+.pf-card--c2 .pf-card__art { background: linear-gradient(135deg, #38bdf8, #6366f1); }
+.pf-card--c3 .pf-card__art { background: linear-gradient(135deg, #34d399, #0ea5e9); }
+.pf-card--c4 .pf-card__art { background: linear-gradient(135deg, #fbbf24, #f97316); }
+.pf-card--c5 .pf-card__art { background: linear-gradient(135deg, #f472b6, #ef4444); }
+.pf-card--c6 .pf-card__art { background: linear-gradient(135deg, #a78bfa, #f472b6); }
+.pf-card__body { padding: 1.25rem 1.5rem 1.4rem; text-align: left; }
+.pf-card__title { font-size: 1.1rem; font-weight: 700; color: var(--text-color); margin-bottom: .35rem; }
+.pf-card__sub { font-size: .85rem; color: var(--text-color-light); line-height: 1.5; margin-bottom: .9rem; }
+.pf-card__more { font-size: .85rem; font-weight: 600; color: var(--first-color); }
+.pf-card:hover .pf-card__more span { margin-left: .25rem; }
