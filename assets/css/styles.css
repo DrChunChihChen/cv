@@ -1703,3 +1703,7 @@ body .badge, body .badge-status, body .project-tag { border-radius: 999px; }
 @media (prefers-reduced-motion: reduce) {
     .lw-bot.is-walking .lw-leg, .lw-bot.is-waving .lw-arm, .lw-eyes { animation: none; }
 }
+
+/* Embedded product videos inside project cards */
+.project-video { margin: .75rem 0 .6rem; }
+.project-video .ib-video__frame { border-radius: 12px; }
