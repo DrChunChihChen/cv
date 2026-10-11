@@ -1001,7 +1001,7 @@ img {
 }
 
 /* Header logo stays on one line */
-.nav__logo { white-space: nowrap; }
+.nav__logo { }
 
 /* Hero: white with soft colour bubbles */
 .home {
@@ -1030,7 +1030,7 @@ img {
 }
 @media screen and (min-width: 1100px) {
     .home__buttons { flex-wrap: nowrap; }
-    .home__buttons .home__button { padding: .9rem 1.5rem; white-space: nowrap; }
+    .home__buttons .home__button { padding: .9rem 1.5rem; }
 }
 
 /* About: portrait sits at the top and follows while reading */
@@ -1381,7 +1381,7 @@ body { letter-spacing: .01em; }
     .nav__sub::before { content: ""; position: absolute; left: 0; right: 0; top: -.6rem; height: .6rem; }
     .nav__item--drop:hover .nav__sub,
     .nav__item--drop:focus-within .nav__sub { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
-    .nav__sublink { padding: .55rem .85rem; border-radius: .6rem; white-space: nowrap; }
+    .nav__sublink { padding: .55rem .85rem; border-radius: .6rem; }
     .nav__sublink:hover, .nav__sublink.active { background: var(--c-purple-soft); }
     .nav__link { font-size: .92rem; padding: .4rem .85rem; }
     .nav__list { gap: .35rem; }
@@ -1394,7 +1394,7 @@ body { letter-spacing: .01em; }
     .nav__link { font-size: .82rem; padding: .35rem .55rem; }
 }
 .hero__role span { display: block; }
-.hero__stat span { white-space: nowrap; }
+.hero__stat span { }
 .about__zh { white-space: nowrap; display: inline-block; }
 
 /* =====================================================================
@@ -1699,7 +1699,7 @@ body .badge, body .badge-status, body .project-tag { border-radius: 999px; }
     .lw-chat.is-open { transform: translateY(0); }
     .lw-chat__log { max-height: 45vh; }
 }
-.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
 @media (prefers-reduced-motion: reduce) {
     .lw-bot.is-walking .lw-leg, .lw-bot.is-waving .lw-arm, .lw-eyes { animation: none; }
 }
@@ -1769,7 +1769,7 @@ body .badge, body .badge-status, body .project-tag { border-radius: 999px; }
 #software .project-card:hover {transform: translateY(-4px); box-shadow: 0 8px 25px rgba(108, 99, 255, 0.12); }
 #software .project-card__header {display: flex; justify-content: space-between; align-items: flex-start; gap: 0.5rem; margin-bottom: 0.6rem; }
 #software .project-card__title {font-size: 1.05rem; font-weight: 600; color: #2d3748; line-height: 1.4; }
-#software .badge-status {padding: 0.2rem 0.55rem; font-size: 0.75rem; border-radius: 4px; font-weight: 600; white-space: nowrap; }
+#software .badge-status {padding: 0.2rem 0.55rem; font-size: 0.75rem; border-radius: 4px; font-weight: 600; }
 #software .badge-active {background-color: #e6fffa; color: #234e52; border: 1px solid #b2f5ea; }
 #software .project-meta {font-size: 0.85rem; color: #718096; margin-bottom: 0.6rem; display: flex; flex-wrap: wrap; gap: 0.8rem; }
 #software .project-meta span {display: flex; align-items: center; gap: 0.25rem; }
@@ -1791,3 +1791,6 @@ body .badge, body .badge-status, body .project-tag { border-radius: 999px; }
 .lab2__site:hover .lab2__site-btn { background: #f5f3ff; }
 
 .lw-chat__note { margin: -.35rem 0 0; padding: 0 1rem .7rem; font-size: .72rem; line-height: 1.45; color: #8a8aa3; }
+
+.tl__threads { display: inline-block; margin-left: .35rem; padding: .1rem .6rem; border-radius: 999px; background: #e9f9f1; color: #0f7a4f !important; font-size: .78rem; font-weight: 700; text-decoration: none; }
+.tl__threads:hover { background: #d3f3e3; }
