@@ -1711,18 +1711,33 @@ body .badge, body .badge-status, body .project-tag { border-radius: 999px; }
 /* Second textbook card: Python 學堂 */
 .book-card--py .book-card__cover { background: linear-gradient(150deg, #10b981 0%, #f59e0b 100%); }
 
-/* Lab: student showcase */
-.lab2__work { display: grid; gap: 1rem 1.75rem; margin: 1.75rem 0; padding: 1.5rem; border-radius: 1.25rem; background: #fff; border: 2px solid #eeecff; }
-.lab2__work-head h3 { margin: .45rem 0 .2rem; font-size: 1.2rem; color: #1f2333; }
+/* Lab: student works — one framed box with tabs */
+.lab2__works { margin: 1.75rem 0; padding: 1.25rem 1.5rem 1rem; border-radius: 1.25rem; background: #fff; border: 2px solid #eeecff; }
+.lab2__works-bar { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem 1rem; margin-bottom: 1rem; }
 .lab2__work-label { display: inline-block; padding: .25rem .7rem; border-radius: 999px; background: #fff4e5; color: #c2410c; font-size: .8rem; font-weight: 700; }
+.lab2__tabs { display: flex; flex-wrap: wrap; gap: .4rem; }
+.lab2__tab { padding: .4rem .9rem; border: 2px solid #e6e3ff; border-radius: 999px; background: #fff; color: #4a4e69; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.lab2__tab[aria-selected="true"] { background: var(--c-purple); border-color: var(--c-purple); color: #fff; }
+.lab2__tab:focus-visible, .lab2__arrow:focus-visible { outline: 3px solid var(--c-purple); outline-offset: 2px; }
+.lab2__work { display: grid; gap: .9rem 1.75rem; animation: lab2-fade .25s ease; }
+.lab2__work[hidden] { display: none; }
+@keyframes lab2-fade { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+.lab2__work-head h3 { margin: 0 0 .2rem; font-size: 1.2rem; color: #1f2333; }
 .lab2__work-tagline { margin: 0; font-weight: 700; color: var(--c-purple); }
 .lab2__work-video { margin: 0; }
 .lab2__work-body p { margin: 0 0 .6rem; line-height: 1.7; color: #3d405b; font-size: .95rem; }
-.lab2__work-body ul { list-style: disc; margin: 0 0 .8rem; padding-left: 1.2rem; line-height: 1.75; font-size: .92rem; color: #3d405b; }
+.lab2__work-body ul { list-style: disc; margin: 0 0 .6rem; padding-left: 1.2rem; line-height: 1.75; font-size: .92rem; color: #3d405b; }
+.lab2__more summary { cursor: pointer; font-size: .85rem; font-weight: 700; color: var(--c-purple); margin-bottom: .5rem; }
 .lab2__work-en { font-size: .82rem !important; color: #6b6f85 !important; }
+.lab2__works-nav { display: flex; justify-content: center; align-items: center; gap: .9rem; margin-top: 1rem; }
+.lab2__arrow { width: 2.2rem; height: 2.2rem; border: 2px solid #e6e3ff; border-radius: 50%; background: #fff; color: var(--c-purple); font-size: 1.3rem; line-height: 1; cursor: pointer; }
+.lab2__arrow:hover { background: var(--c-purple-soft); }
+.lab2__count { font-size: .85rem; font-weight: 700; color: #6b6f85; min-width: 3.2em; text-align: center; }
 @media (min-width: 900px) {
     .lab2__work { grid-template-columns: 1.05fr 1fr; grid-template-areas: "head head" "video body"; }
     .lab2__work-head { grid-area: head; }
-    .lab2__work-video { grid-area: video; }
+    .lab2__work-video { grid-area: video; align-self: start; }
     .lab2__work-body { grid-area: body; }
 }
+@media (max-width: 600px) { .lab2__works { padding: 1rem .9rem .8rem; } .lab2__tab { font-size: .8rem; padding: .35rem .75rem; } }
+@media (prefers-reduced-motion: reduce) { .lab2__work { animation: none; } }

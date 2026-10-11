@@ -73,7 +73,7 @@
     <link rel="alternate icon" href="favicon.ico">
 
     <!-- ===== CSS ===== -->
-    <link rel="stylesheet" href="assets/css/styles.css?v=6.2">
+    <link rel="stylesheet" href="assets/css/styles.css?v=6.3">
 
     <!-- ===== BOX ICONS ===== -->
     <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
@@ -659,53 +659,74 @@
                     </div>
                 </div>
 
-                <div class="lab2__work">
-                    <div class="lab2__work-head">
+                <div class="lab2__works">
+                    <div class="lab2__works-bar">
                         <span class="lab2__work-label">🎓 學生作品</span>
-                        <h3>TradeDNA｜AI 商品上架輔助瀏覽器外掛</h3>
-                        <p class="lab2__work-tagline">AI 懂市場，TradeDNA 讓 AI 懂你們公司。</p>
+                        <div class="lab2__tabs" role="tablist" aria-label="學生作品">
+                            <button type="button" role="tab" class="lab2__tab" aria-controls="work-0" aria-selected="true">TradeDNA</button>
+                            <button type="button" role="tab" class="lab2__tab" aria-controls="work-1" aria-selected="false">址南針 SiteCompass</button>
+                        </div>
                     </div>
-                    <figure class="ib-video lab2__work-video">
-                        <button type="button" class="ib-video__frame" data-yt="pN4dC92lQnE" aria-label="播放：TradeDNA 介紹影片">
-                            <img src="https://i.ytimg.com/vi/pN4dC92lQnE/hqdefault.jpg" alt="" loading="lazy">
-                            <span class="ib-video__play" aria-hidden="true"></span>
-                        </button>
-                    </figure>
-                    <div class="lab2__work-body">
-                        <p>TradeDNA 是一款 Chrome 側欄外掛，協助跨境電商賣家準備 Alibaba 商品上架。資料沒寫的規格一律留白不編造，價格與規格比較以公開算式計算，最後由人決定採用哪些 AI 建議。</p>
-                        <ul>
-                            <li>匯入 Excel 與實拍照，自動對齊欄位</li>
-                            <li>生成中英雙語標題、賣點與 SEO 關鍵字，未知規格留白待確認</li>
-                            <li>以原圖生成白底主圖、應用情境圖與創意展示圖</li>
-                            <li>瀏覽 Alibaba 時自動採集競品，勾選最多 8 筆逐項比對</li>
-                            <li>商業儀表板：大盤均價、價格區間、規格缺漏警示與優先改善建議</li>
-                        </ul>
-                        <p class="lab2__work-en" lang="en">TradeDNA is a Chrome side-panel extension that helps cross-border sellers prepare Alibaba listings. It turns spreadsheets and product photos into bilingual product copy and scene images, collects competitor listings while you browse, and compares them with transparent rules. Unknown specs are left blank instead of invented, and every AI suggestion is reviewed by a person before use.</p>
+                    <div class="lab2__work" id="work-0" role="tabpanel" aria-label="TradeDNA">
+                        <div class="lab2__work-head">
+                            <h3>TradeDNA｜AI 商品上架輔助瀏覽器外掛</h3>
+                            <p class="lab2__work-tagline">AI 懂市場，TradeDNA 讓 AI 懂你們公司。</p>
+                        </div>
+                        <figure class="ib-video lab2__work-video">
+                            <button type="button" class="ib-video__frame" data-yt="pN4dC92lQnE" aria-label="播放：TradeDNA 介紹影片">
+                                <img src="https://i.ytimg.com/vi/pN4dC92lQnE/hqdefault.jpg" alt="" loading="lazy">
+                                <span class="ib-video__play" aria-hidden="true"></span>
+                            </button>
+                        </figure>
+                        <div class="lab2__work-body">
+                            <p>TradeDNA 是一款 Chrome 側欄外掛，協助跨境電商賣家準備 Alibaba 商品上架。資料沒寫的規格一律留白不編造，價格與規格比較以公開算式計算，最後由人決定採用哪些 AI 建議。</p>
+                            <ul>
+                                <li>匯入 Excel 與實拍照，自動對齊欄位</li>
+                                <li>生成中英雙語標題、賣點與 SEO 關鍵字，未知規格留白待確認</li>
+                                <li>以原圖生成白底主圖、應用情境圖與創意展示圖</li>
+                            </ul>
+                            <details class="lab2__more">
+                                <summary>更多功能與英文介紹</summary>
+                                <ul>
+                                    <li>瀏覽 Alibaba 時自動採集競品，勾選最多 8 筆逐項比對</li>
+                                    <li>商業儀表板：大盤均價、價格區間、規格缺漏警示與優先改善建議</li>
+                                </ul>
+                                <p class="lab2__work-en" lang="en">TradeDNA is a Chrome side-panel extension that helps cross-border sellers prepare Alibaba listings. It turns spreadsheets and product photos into bilingual product copy and scene images, collects competitor listings while you browse, and compares them with transparent rules. Unknown specs are left blank instead of invented, and every AI suggestion is reviewed by a person before use.</p>
+                            </details>
+                        </div>
                     </div>
-                </div>
-
-                <div class="lab2__work">
-                    <div class="lab2__work-head">
-                        <span class="lab2__work-label">🎓 學生作品</span>
-                        <h3>址南針 SiteCompass｜店面選址與門牌履歷風險評估</h3>
-                        <p class="lab2__work-tagline">簽約前，先看這個門牌換過幾家。</p>
+                    <div class="lab2__work" id="work-1" role="tabpanel" aria-label="址南針 SiteCompass" hidden>
+                        <div class="lab2__work-head">
+                            <h3>址南針 SiteCompass｜店面選址與門牌履歷風險評估</h3>
+                            <p class="lab2__work-tagline">簽約前，先看這個門牌換過幾家。</p>
+                        </div>
+                        <figure class="ib-video lab2__work-video">
+                            <button type="button" class="ib-video__frame" data-yt="sJwQNQAaYw0" aria-label="播放：址南針 SiteCompass 介紹影片">
+                                <img src="https://i.ytimg.com/vi/sJwQNQAaYw0/hqdefault.jpg" alt="" loading="lazy">
+                                <span class="ib-video__play" aria-hidden="true"></span>
+                            </button>
+                        </figure>
+                        <div class="lab2__work-body">
+                            <p>給開店創業者的選址工具。串聯經濟部商工登記 270 萬筆設立、遷址與歇業紀錄（2013–2026），建立 288 萬筆「門牌履歷」，再比對財政部稅籍與內政部人口、實價登錄租金，把「房東不會說、鄰居記不清」的倒店紀錄攤在陽光下。</p>
+                            <ul>
+                                <li>一句話選址：輸入想開什麼店、在哪一帶、預算多少，推薦路段並標出近兩年釋出的空店面</li>
+                                <li>3D「招牌地層」：一根柱子是一個門牌，一層是一家店，顏色區分營業中、已歇業、已遷出</li>
+                                <li>真實營運查核：交叉比對商業登記與統一發票，過濾只掛名的幽靈店面</li>
+                            </ul>
+                            <details class="lab2__more">
+                                <summary>更多功能與英文介紹</summary>
+                                <ul>
+                                    <li>三年倒店風險模型：以 11.3 萬家新開店回測，最穩定組倒店率 6%、最危險組 36%</li>
+                                    <li>AI 簽約前評估書：報告中每個數字都必須附出處，沒有佐證就退回重寫</li>
+                                </ul>
+                                <p class="lab2__work-en" lang="en">SiteCompass helps would-be shop owners check a storefront before signing a lease. It links 2.7 million company registration records (2013–2026) into 2.88 million address histories, cross-checks tax and invoice data, visualizes each street's store turnover in 3D, predicts three-year closure risk, and drafts a pre-lease report in which every number must cite its government source.</p>
+                            </details>
+                        </div>
                     </div>
-                    <figure class="ib-video lab2__work-video">
-                        <button type="button" class="ib-video__frame" data-yt="sJwQNQAaYw0" aria-label="播放：址南針 SiteCompass 介紹影片">
-                            <img src="https://i.ytimg.com/vi/sJwQNQAaYw0/hqdefault.jpg" alt="" loading="lazy">
-                            <span class="ib-video__play" aria-hidden="true"></span>
-                        </button>
-                    </figure>
-                    <div class="lab2__work-body">
-                        <p>給開店創業者的選址工具。串聯經濟部商工登記 270 萬筆設立、遷址與歇業紀錄（2013–2026），建立 288 萬筆「門牌履歷」，再比對財政部稅籍與內政部人口、實價登錄租金，把「房東不會說、鄰居記不清」的倒店紀錄攤在陽光下。</p>
-                        <ul>
-                            <li>一句話選址：輸入想開什麼店、在哪一帶、預算多少，推薦路段並標出近兩年釋出的空店面</li>
-                            <li>3D「招牌地層」：一根柱子是一個門牌，一層是一家店，顏色區分營業中、已歇業、已遷出</li>
-                            <li>真實營運查核：交叉比對商業登記與統一發票，過濾只掛名的幽靈店面</li>
-                            <li>三年倒店風險模型：以 11.3 萬家新開店回測，最穩定組倒店率 6%、最危險組 36%</li>
-                            <li>AI 簽約前評估書：報告中每個數字都必須附出處，沒有佐證就退回重寫</li>
-                        </ul>
-                        <p class="lab2__work-en" lang="en">SiteCompass helps would-be shop owners check a storefront before signing a lease. It links 2.7 million company registration records (2013–2026) into 2.88 million address histories, cross-checks tax and invoice data, visualizes each street's store turnover in 3D, predicts three-year closure risk, and drafts a pre-lease report in which every number must cite its government source.</p>
+                    <div class="lab2__works-nav">
+                        <button type="button" class="lab2__arrow" data-dir="-1" aria-label="上一個作品">‹</button>
+                        <span class="lab2__count">1 / 2</span>
+                        <button type="button" class="lab2__arrow" data-dir="1" aria-label="下一個作品">›</button>
                     </div>
                 </div>
 
@@ -888,7 +909,7 @@
     <script src="https://unpkg.com/scrollreveal"></script>
 
     <!--===== MAIN JS =====-->
-    <script src="assets/js/main.js?v=6.2"></script>
+    <script src="assets/js/main.js?v=6.3"></script>
 
 </body>
 

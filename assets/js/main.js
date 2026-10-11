@@ -172,8 +172,9 @@ document.querySelectorAll('form.contact__form').forEach(form => {
 })();
 
 /*===== Click-to-play YouTube (loads the player only when clicked) =====*/
-document.querySelectorAll('.ib-video__frame[data-yt]').forEach(btn => {
+function bindYT(btn) {
     btn.addEventListener('click', () => {
+        if (!btn.dataset.thumb) btn.dataset.thumb = btn.innerHTML;
         const id = btn.dataset.yt;
         const f = document.createElement('iframe');
         f.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`;
@@ -184,6 +185,44 @@ document.querySelectorAll('.ib-video__frame[data-yt]').forEach(btn => {
         btn.replaceChildren(f);
         btn.style.cursor = 'default';
     }, { once: true });
+}
+// stop a playing video and show its thumbnail again
+function resetYT(btn) {
+    if (!btn.dataset.thumb || !btn.querySelector('iframe')) return;
+    btn.innerHTML = btn.dataset.thumb; btn.style.cursor = ''; bindYT(btn);
+}
+document.querySelectorAll('.ib-video__frame[data-yt]').forEach(bindYT);
+
+/*===== Lab: student works — tabs + arrows + swipe, no autoplay =====*/
+document.querySelectorAll('.lab2__works').forEach(box => {
+    const tabs = [...box.querySelectorAll('.lab2__tab')];
+    const panels = tabs.map(t => document.getElementById(t.getAttribute('aria-controls')));
+    const count = box.querySelector('.lab2__count');
+    let cur = 0;
+    const show = i => {
+        i = (i + panels.length) % panels.length;
+        if (i === cur) return;
+        panels[cur].querySelectorAll('.ib-video__frame[data-yt]').forEach(resetYT);
+        panels.forEach((p, k) => { p.hidden = k !== i; });
+        tabs.forEach((t, k) => { t.setAttribute('aria-selected', k === i ? 'true' : 'false'); t.tabIndex = k === i ? 0 : -1; });
+        cur = i;
+        if (count) count.textContent = `${i + 1} / ${panels.length}`;
+    };
+    tabs.forEach((t, k) => {
+        t.tabIndex = k === 0 ? 0 : -1;
+        t.addEventListener('click', () => show(k));
+        t.addEventListener('keydown', e => {
+            if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') { e.preventDefault(); show(cur + (e.key === 'ArrowRight' ? 1 : -1)); tabs[cur].focus(); }
+        });
+    });
+    box.querySelectorAll('.lab2__arrow').forEach(b => b.addEventListener('click', () => show(cur + Number(b.dataset.dir))));
+    let x0 = null, y0 = 0;
+    box.addEventListener('touchstart', e => { if (e.target.closest('iframe, details')) return; x0 = e.touches[0].clientX; y0 = e.touches[0].clientY; }, { passive: true });
+    box.addEventListener('touchend', e => {
+        if (x0 === null) return;
+        const dx = e.changedTouches[0].clientX - x0, dy = e.changedTouches[0].clientY - y0; x0 = null;
+        if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) show(cur + (dx < 0 ? 1 : -1));
+    }, { passive: true });
 });
 
 /*===== Lab mascot: a parcel-bot that walks around the Lab section title =====*/
