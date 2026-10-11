@@ -1741,3 +1741,5 @@ body .badge, body .badge-status, body .project-tag { border-radius: 999px; }
 }
 @media (max-width: 600px) { .lab2__works { padding: 1rem .9rem .8rem; } .lab2__tab { font-size: .8rem; padding: .35rem .75rem; } }
 @media (prefers-reduced-motion: reduce) { .lab2__work { animation: none; } }
+
+.lw-msg--bot a { color: #c4b5fd; font-weight: 700; text-decoration: underline; word-break: break-all; }

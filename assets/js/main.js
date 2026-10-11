@@ -355,7 +355,23 @@ document.querySelectorAll('.lab2__works').forEach(box => {
         <form class="lw-chat__form"><label class="sr-only" for="lw-q">輸入問題</label><input id="lw-q" type="text" maxlength="300" autocomplete="off" placeholder="問我：實驗室在做什麼？"><button type="submit">送出</button></form>`;
     section.appendChild(panel);
     const log = panel.querySelector('.lw-chat__log'), input = panel.querySelector('input'), sendBtn = panel.querySelector('.lw-chat__form button'), dot = panel.querySelector('.lw-chat__dot');
-    const addMsg = (who, text) => { const m = document.createElement('div'); m.className = 'lw-msg lw-msg--' + who; m.textContent = text; log.appendChild(m); log.scrollTop = log.scrollHeight; return m; };
+    const PAGE_NAMES = { '': '首頁', publications: '著作論文', projects: '研究專案', talks: '演講講座', awards: '榮譽獲獎', teaching: '教學資源', laboratory: '實驗室', contact: '聯絡資訊', about: '關於老師', 'se/index': '軟體工程講義' };
+    // render text, turning https links into safe anchors (built with DOM nodes, never innerHTML)
+    const fill = (el, text) => {
+        el.replaceChildren();
+        const re = /https:\/\/[^\s<>"'）)，。]+/g; let i = 0, m;
+        while ((m = re.exec(text))) {
+            el.append(text.slice(i, m.index));
+            const a = document.createElement('a'); a.href = m[0]; a.rel = 'noopener';
+            const own = m[0].startsWith('https://drchunchihchen.github.io/cv/');
+            if (!own) a.target = '_blank';
+            const key = m[0].replace('https://drchunchihchen.github.io/cv/', '').replace(/\.html.*$/, '').replace(/^#/, '');
+            a.textContent = own ? `前往「${PAGE_NAMES[key] || '網站'}」↗` : m[0];
+            el.append(a); i = m.index + m[0].length;
+        }
+        el.append(text.slice(i));
+    };
+    const addMsg = (who, text) => { const m = document.createElement('div'); m.className = 'lw-msg lw-msg--' + who; fill(m, text); log.appendChild(m); log.scrollTop = log.scrollHeight; return m; };
     const place = () => {
         if (window.innerWidth <= 640) { panel.style.top = ''; return; }
         const sr = section.getBoundingClientRect(), tr = title.getBoundingClientRect();
@@ -397,7 +413,7 @@ document.querySelectorAll('.lab2__works').forEach(box => {
             else answer = d.answer || d.error || '我暫時連不上大腦，請稍後再試，或寫信到 nutcelvischen@gmail.com。';
             if (r.ok && d.answer) history.push({ role: 'user', content: q }, { role: 'assistant', content: d.answer });
         } catch (_) { answer = '網路好像斷了，請稍後再試！'; }
-        pending.classList.remove('is-loading'); pending.textContent = answer; log.scrollTop = log.scrollHeight;
+        pending.classList.remove('is-loading'); fill(pending, answer); log.scrollTop = log.scrollHeight;
         hopUntil = performance.now() + 420;
         busy = false; sendBtn.disabled = false; input.focus({ preventScroll: true });
     });
