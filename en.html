@@ -75,7 +75,7 @@
     <link rel="alternate icon" href="favicon.ico">
 
     <!-- ===== CSS ===== -->
-    <link rel="stylesheet" href="assets/css/styles.css?v=7.0">
+    <link rel="stylesheet" href="assets/css/styles.css?v=7.1">
 
     <!-- ===== BOX ICONS ===== -->
     <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
@@ -414,7 +414,6 @@
                     <li class="nav__item"><a href="#about" class="nav__link"><span class="nav__link-content"><i class='bx bx-user'></i> About</span></a></li>
                     <li class="nav__item"><a href="#research" class="nav__link"><span class="nav__link-content"><i class='bx bx-book-open'></i> Research</span></a></li>
                     <li class="nav__item"><a href="#laboratory" class="nav__link"><span class="nav__link-content"><i class='bx bx-brain'></i> Lab</span></a></li>
-                    <li class="nav__item"><a href="#software" class="nav__link"><span class="nav__link-content"><i class='bx bx-laptop'></i> Software</span></a></li>
                     <li class="nav__item"><a href="#awards" class="nav__link"><span class="nav__link-content"><i class='bx bx-trophy'></i> Awards</span></a></li>
                     <li class="nav__item"><a href="#contact" class="nav__link"><span class="nav__link-content"><i class='bx bx-envelope'></i> Contact</span></a></li>
                     <li class="nav__item"><a href="index.html" class="nav__link nav__lang" lang="zh-Hant" hreflang="zh-Hant"><span class="nav__link-content"><i class='bx bx-globe'></i> 中文</span></a></li>
@@ -569,15 +568,98 @@
 
                 <div class="lab2__works">
                     <div class="lab2__works-bar">
-                        <span class="lab2__work-label">🎓 Student projects</span>
-                        <div class="lab2__tabs" role="tablist" aria-label="Student projects">
-                            <button type="button" role="tab" class="lab2__tab" aria-controls="work-0" aria-selected="true">TradeDNA</button>
-                            <button type="button" role="tab" class="lab2__tab" aria-controls="work-1" aria-selected="false">SiteCompass</button>
+                        <span class="lab2__work-label">🛠️ Lab works</span>
+                        <div class="lab2__tabs" role="tablist" aria-label="Lab works">
+                            <button type="button" role="tab" class="lab2__tab" aria-controls="work-0" aria-selected="true">Carbon tool</button>
+                            <button type="button" role="tab" class="lab2__tab" aria-controls="work-1" aria-selected="false">HelloIR</button>
+                            <button type="button" role="tab" class="lab2__tab" aria-controls="work-2" aria-selected="false">Passport reader</button>
+                            <button type="button" role="tab" class="lab2__tab" aria-controls="work-3" aria-selected="false">Career navigator</button>
+                            <button type="button" role="tab" class="lab2__tab" aria-controls="work-4" aria-selected="false">TradeDNA</button>
+                            <button type="button" role="tab" class="lab2__tab" aria-controls="work-5" aria-selected="false">SiteCompass</button>
                         </div>
                     </div>
-                    <div class="lab2__work" id="work-0" role="tabpanel" aria-label="TradeDNA">
+                    <div class="lab2__work" id="work-0" role="tabpanel" aria-label="Carbon tool">
                         <div class="lab2__work-head">
-                            <h3>TradeDNA | AI listing assistant for Alibaba sellers</h3>
+                            <h3>Carbon accounting tool “Ni Shuo De Suan” <span class="lab2__kind lab2__kind--teacher">Faculty-built</span></h3>
+                            <p class="lab2__work-tagline">Lightweight, real-time, reduction pathways</p>
+                        </div>
+                        <figure class="ib-video lab2__work-video">
+                            <button type="button" class="ib-video__frame" data-yt="epZr5-JSLLM" aria-label="Play: carbon tool demo">
+                                <img src="https://i.ytimg.com/vi/epZr5-JSLLM/hqdefault.jpg" alt="" loading="lazy">
+                                <span class="ib-video__play" aria-hidden="true"></span>
+                            </button>
+                        </figure>
+                        <div class="lab2__work-body">
+                            <p>An agile carbon-inventory and product-footprint calculator designed for small and medium-sized firms.</p>
+                            <ul>
+                                <li>Converts activity data into emissions automatically</li>
+                                <li>Visualises emission hotspots</li>
+                                <li>Simulates reduction scenarios (ISO 14064)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="lab2__work" id="work-1" role="tabpanel" aria-label="HelloIR" hidden>
+                        <div class="lab2__work-head">
+                            <h3>HelloIR · institutional research platform <span class="lab2__kind lab2__kind--teacher">Faculty-built</span></h3>
+                            <p class="lab2__work-tagline">Big-data mining, ML early warning, decision dashboards</p>
+                        </div>
+                        <figure class="ib-video lab2__work-video">
+                            <button type="button" class="ib-video__frame" data-yt="bP8hiMcb81g" aria-label="Play: HelloIR introduction">
+                                <img src="https://i.ytimg.com/vi/bP8hiMcb81g/hqdefault.jpg" alt="" loading="lazy">
+                                <span class="ib-video__play" aria-hidden="true"></span>
+                            </button>
+                        </figure>
+                        <div class="lab2__work-body">
+                            <p>Combines higher-education data, machine-learning early-warning models and dashboards to support data-driven planning at universities.</p>
+                            <ul>
+                                <li>Analyses student dropout risk across many dimensions</li>
+                                <li>Flags students who may need help early</li>
+                                <li>Dashboards for institutional indicators</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="lab2__work" id="work-2" role="tabpanel" aria-label="Passport reader" hidden>
+                        <div class="lab2__work-head">
+                            <h3>On-premise AI passport reader <span class="lab2__kind lab2__kind--teacher">Faculty-built</span></h3>
+                            <p class="lab2__work-tagline">Tested on 100 passports: 98% field accuracy</p>
+                        </div>
+                        <figure class="ib-video lab2__work-video">
+                            <button type="button" class="ib-video__frame" data-yt="WGZ9xWipHys" aria-label="Play: passport reader introduction">
+                                <img src="https://i.ytimg.com/vi/WGZ9xWipHys/hqdefault.jpg" alt="" loading="lazy">
+                                <span class="ib-video__play" aria-hidden="true"></span>
+                            </button>
+                        </figure>
+                        <div class="lab2__work-body">
+                            <p>Reads passport data pages with a vision-language model running on the local machine, so images and personal data never leave the computer.</p>
+                            <ul>
+                                <li>Runs locally: no data leaves the device</li>
+                                <li>ICAO machine-readable-zone check digits plus a second OCR engine</li>
+                                <li>Human sign-off, then batch export to Excel</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="lab2__work" id="work-3" role="tabpanel" aria-label="Career navigator" hidden>
+                        <div class="lab2__work-head">
+                            <h3>AI career navigator for business students <span class="lab2__kind lab2__kind--teacher">Faculty-built</span></h3>
+                            <p class="lab2__work-tagline">What are AI skills worth in salary?</p>
+                        </div>
+                        <a class="lab2__work-video lab2__site" href="https://nutc-ib-ai-jobs.netlify.app/" target="_blank" rel="noopener">
+                            <span class="lab2__site-num">5,286</span>
+                            <span class="lab2__site-sub">trade and business job ads (104 Job Bank)</span>
+                            <span class="lab2__site-btn">Open the site (Chinese) ↗</span>
+                        </a>
+                        <div class="lab2__work-body">
+                            <p>An econometric study of Taiwanese job ads for trade and business graduates, measuring what AI skills do for pay and careers.</p>
+                            <ul>
+                                <li>2,607 AI-related vs 2,679 non-AI postings</li>
+                                <li>Effect of AI skills on starting pay, negotiable-high-pay offers and senior pay ceilings</li>
+                                <li>Regional and industry premiums, plus a skills self-check and salary calculator</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="lab2__work" id="work-4" role="tabpanel" aria-label="TradeDNA" hidden>
+                        <div class="lab2__work-head">
+                            <h3>TradeDNA | AI listing assistant for Alibaba sellers <span class="lab2__kind lab2__kind--student">Student project</span></h3>
                             <p class="lab2__work-tagline">AI knows the market. TradeDNA teaches it your company.</p>
                         </div>
                         <figure class="ib-video lab2__work-video">
@@ -602,9 +684,9 @@
                             </details>
                         </div>
                     </div>
-                    <div class="lab2__work" id="work-1" role="tabpanel" aria-label="SiteCompass" hidden>
+                    <div class="lab2__work" id="work-5" role="tabpanel" aria-label="SiteCompass" hidden>
                         <div class="lab2__work-head">
-                            <h3>SiteCompass | Storefront history and closure-risk check</h3>
+                            <h3>SiteCompass | Storefront history and closure-risk check <span class="lab2__kind lab2__kind--student">Student project</span></h3>
                             <p class="lab2__work-tagline">Before you sign the lease, see how many shops this address has had.</p>
                         </div>
                         <figure class="ib-video lab2__work-video">
@@ -630,10 +712,11 @@
                         </div>
                     </div>
                     <div class="lab2__works-nav">
-                        <button type="button" class="lab2__arrow" data-dir="-1" aria-label="Previous project">‹</button>
-                        <span class="lab2__count">1 / 2</span>
-                        <button type="button" class="lab2__arrow" data-dir="1" aria-label="Next project">›</button>
+                        <button type="button" class="lab2__arrow" data-dir="-1" aria-label="Previous work">‹</button>
+                        <span class="lab2__count">1 / 6</span>
+                        <button type="button" class="lab2__arrow" data-dir="1" aria-label="Next work">›</button>
                     </div>
+                    <p class="en-note" style="text-align:center;margin-top:.4rem">Videos are narrated in Chinese.</p>
                 </div>
 
                 <div class="lab2__foot">
@@ -647,67 +730,6 @@
                     </div>
                 </div>
             </div>
-        </section>
-
-        <!--===== SOFTWARE =====-->
-        <section class="section bd-grid" id="software">
-            <h2 class="section-title">Software we built<small>In-house AI and decision tools</small></h2>
-            <div class="project-section">
-                <div class="project-grid">
-                    <div class="project-card">
-                        <div>
-                            <div class="project-card__header">
-                                <span class="project-card__title">On-premise AI passport reader</span>
-                                <span class="badge-status badge-active">On-premise</span>
-                            </div>
-                            <div class="project-meta"><span>Tested on 100 passports: 98% field accuracy</span></div>
-                            <p class="project-desc">Reads passport data pages with a vision-language model running on the local machine, so images and personal data never leave the computer. ICAO machine-readable-zone check digits, a second OCR engine for cross-checking and a human sign-off step catch errors; results export to Excel in batches.</p>
-                        </div>
-                        <figure class="ib-video project-video">
-                            <button type="button" class="ib-video__frame" data-yt="WGZ9xWipHys" aria-label="Play: On-premise AI passport reader">
-                                <img src="https://i.ytimg.com/vi/WGZ9xWipHys/hqdefault.jpg" alt="" loading="lazy">
-                                <span class="ib-video__play" aria-hidden="true"></span>
-                            </button>
-                        </figure>
-                        <span class="project-tag" style="align-self: flex-start;">Local LLM × OCR × Privacy</span>
-                    </div>
-                    <div class="project-card">
-                        <div>
-                            <div class="project-card__header">
-                                <span class="project-card__title">Carbon accounting tool “Ni Shuo De Suan”</span>
-                                <span class="badge-status badge-active">Carbon footprint</span>
-                            </div>
-                            <div class="project-meta"><span>Greenhouse-gas inventory for SMEs</span></div>
-                            <p class="project-desc">A lightweight carbon-inventory and product-footprint calculator for small firms: converts activity data automatically, shows emission hotspots and simulates reduction scenarios (ISO 14064).</p>
-                        </div>
-                        <figure class="ib-video project-video">
-                            <button type="button" class="ib-video__frame" data-yt="epZr5-JSLLM" aria-label="Play: Carbon accounting tool “Ni Shuo De Suan”">
-                                <img src="https://i.ytimg.com/vi/epZr5-JSLLM/hqdefault.jpg" alt="" loading="lazy">
-                                <span class="ib-video__play" aria-hidden="true"></span>
-                            </button>
-                        </figure>
-                        <span class="project-tag" style="align-self: flex-start;">ISO 14064 × Carbon footprint</span>
-                    </div>
-                    <div class="project-card">
-                        <div>
-                            <div class="project-card__header">
-                                <span class="project-card__title">HelloIR</span>
-                                <span class="badge-status badge-active">Institutional research</span>
-                            </div>
-                            <div class="project-meta"><span>Decision support for universities</span></div>
-                            <p class="project-desc">Combines higher-education data, machine-learning early-warning models and dashboards to flag students at risk of dropping out and support data-driven planning.</p>
-                        </div>
-                        <figure class="ib-video project-video">
-                            <button type="button" class="ib-video__frame" data-yt="bP8hiMcb81g" aria-label="Play: HelloIR">
-                                <img src="https://i.ytimg.com/vi/bP8hiMcb81g/hqdefault.jpg" alt="" loading="lazy">
-                                <span class="ib-video__play" aria-hidden="true"></span>
-                            </button>
-                        </figure>
-                        <span class="project-tag" style="align-self: flex-start;">Machine learning × Institutional research</span>
-                    </div>
-                </div>
-            </div>
-            <p class="en-note">Videos are narrated in Chinese.</p>
         </section>
 
         <!--===== AWARDS =====-->
@@ -758,7 +780,6 @@
                     <li><a href="#about" class="footer__link">About</a></li>
                     <li><a href="#research" class="footer__link">Research</a></li>
                     <li><a href="#laboratory" class="footer__link">ICMA Lab</a></li>
-                    <li><a href="#software" class="footer__link">Software</a></li>
                     <li><a href="index.html" class="footer__link" lang="zh-Hant">中文版</a></li>
                 </ul>
             </div>
@@ -772,7 +793,7 @@
     </footer>
 
     <script src="https://unpkg.com/scrollreveal"></script>
-    <script src="assets/js/main.js?v=7.0"></script>
+    <script src="assets/js/main.js?v=7.1"></script>
 </body>
 
 </html>
