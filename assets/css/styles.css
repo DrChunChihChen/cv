@@ -1794,3 +1794,5 @@ body .badge, body .badge-status, body .project-tag { border-radius: 999px; }
 
 .tl__threads { display: inline-block; margin-left: .35rem; padding: .1rem .6rem; border-radius: 999px; background: #e9f9f1; color: #0f7a4f !important; font-size: .78rem; font-weight: 700; text-decoration: none; }
 .tl__threads:hover { background: #d3f3e3; }
+
+@media screen and (min-width: 768px) { .ib-video--featured { grid-column: 1 / -1; } .ib-video--featured .ib-video__frame { max-width: 880px; margin: 0 auto; } .ib-video--featured figcaption { justify-content: center; } }
