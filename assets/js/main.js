@@ -241,15 +241,15 @@ document.querySelectorAll('.lab2__works').forEach(box => {
     const EN = (document.documentElement.lang || '').toLowerCase().startsWith('en');
     if (EN) BOTS.forEach((b, i) => { b.line = ['I’m the Listing Agent: product pages in English, Japanese and German in one go!', 'I’m the Sourcing Agent: I dig business ideas out of bad reviews.', 'I’m the Marketing Agent: short videos and ad campaigns are my thing!', 'I’m the Support Agent: overseas enquiries answered 24/7.', 'I’m the Pricing Agent: when exchange rates move, I protect your margin.', 'I’m the Logistics Agent: HS codes and freight booking, leave them to me.'][i]; });
     const T = EN ? {
-        hint: 'Click me to ask 💬', open: 'Chat with the ICMA Lab bot', title: 'ICMA Lab bot', swap: 'Next agent', close: 'Close', label: 'Your question',
+        hint: 'Xia Ge here 🦐 click me to ask!', open: 'Chat with Xia Ge, the ICMA Lab bot', title: 'Xia Ge 🦐 · ICMA Lab bot', hi: 'Hi, I’m Xia Ge 🦐! ', swap: 'Next agent', close: 'Close', label: 'Your question',
         ph: 'Ask me: what does the lab do?', send: 'Send', hello: ' Ask me anything about the lab!', thinking: 'Thinking…',
         slow: 'Too many questions at once. Give me a minute!', down: 'I can’t reach my brain right now. Please try later or email nutcelvischen@gmail.com.', offline: 'Looks like the network dropped. Please try again!',
-        extra: ['Click me to ask 💬', 'You bring the idea, we bring the tokens!', 'Questions? Let’s chat!', 'Welcome to ICMA Lab 👋'],
+        extra: ['I’m Xia Ge 🦐 Click me to ask!', 'You bring the idea, we bring the tokens!', 'Questions? Let’s chat!', 'Welcome to ICMA Lab 👋'],
     } : {
-        hint: '點我問問題 💬', open: '和實驗室機器人聊天', title: 'ICMA Lab 機器人', swap: '換一位 Agent', close: '關閉', label: '輸入問題',
+        hint: '蝦哥在這 🦐 點我問問題！', open: '和蝦哥（ICMA Lab 機器人）聊天', title: '蝦哥 🦐 · ICMA Lab 機器人', hi: '嗨，我是蝦哥 🦐！', swap: '換一位 Agent', close: '關閉', label: '輸入問題',
         ph: '問我：實驗室在做什麼？', send: '送出', hello: ' 想問實驗室什麼都可以問我！', thinking: '思考中…',
         slow: '問太快了，我喘口氣，一分鐘後再問我！', down: '我暫時連不上大腦，請稍後再試，或寫信到 nutcelvischen@gmail.com。', offline: '網路好像斷了，請稍後再試！',
-        extra: ['點我問問題 💬', '你有點子，老師有 Token！', '有問題？點我聊聊！', '歡迎加入 ICMA Lab 👋'],
+        extra: ['我是蝦哥 🦐 點我問問題！', '你有點子，老師有 Token！', '有問題？點我聊聊！', '歡迎加入 ICMA Lab 👋'],
     };
     const EXTRA = T.extra;
     const FUN = EN ? ['🍫 Fun fact: the professor loves chocolate.', '🚫 Fun fact: the professor is on a diet. Please do not feed him.', '🧋 Fun fact: the professor only drinks sugar-free drinks.', "💪 Fun fact: the professor can do 20 pull-ups in one go. Beat that and he’ll be very impressed.", '🎮 Fun fact: the professor is a homebody who plays with AI agents all day.', "😂 Why don’t AI agents mind overtime? The professor pays for the tokens.", '😂 Why are multi-agent meetings so efficient? Every agent only does its own job.', '😂 Why write clear prompts? Because AI, like professors, fills in the gaps on its own.'] : ['🍫 老師小八卦：老師非常喜歡吃巧克力。', '🤰 老師小八卦：老師的肚子很大，標準中年老頭身材。', '🤬 老師小八卦：老師講話很直接，激動起來偶爾會飆一下（聽到請假裝沒聽到）。', '💪 老師小八卦：老師可以拉單槓一次 20 下！你能挑戰成功，老師讓你 all pass（all pass 是開玩笑的啦，但老師真的會佩服你）。', '🚫 老師小八卦：老師減肥中，請勿餵食。', '🧋 老師小八卦：老師的飲料只喝無糖。', '🎮 老師小八卦：老師很宅，整天都在玩 Agent。', '😂 冷笑話：為什麼 AI Agent 都不怕加班？因為 Token 老師買單。', '😂 冷笑話：國貿系的浪漫是什麼？陪你從 FOB 一路算到 CIF。', '😂 冷笑話：AI 最怕哪種客戶？說「你懂我意思吧」的那種。', '😂 冷笑話：多代理人系統開會為什麼很有效率？因為每個 Agent 都只做自己的事。', '😂 冷笑話：報價 Agent 失戀了，因為對方說他「太看重毛利」。', '😂 冷笑話：為什麼 Prompt 要寫清楚？因為 AI 跟老師一樣，看不懂就自己腦補。', '😂 冷笑話：物流 Agent 最喜歡的歌？當然是《貨到付款》……沒有這首歌，所以它很難過。'];
@@ -400,7 +400,7 @@ document.querySelectorAll('.lab2__works').forEach(box => {
         chatOpen = true; panel.hidden = false; bot.setAttribute('aria-expanded', 'true');
         bubbleUntil = 0; place(); setBot();
         if (!log.childElementCount) {
-            addMsg('bot', BOTS[idx].line + T.hello);
+            addMsg('bot', T.hi + (EN ? 'Today I’m playing ' + BOTS[idx].line.replace(/^I’m the /, 'the ') : '今天的身分是' + BOTS[idx].line.replace(/^我是/, '')) + T.hello);
             // first visit only: add one joke or fun fact (remembered in this browser)
             let seen = true;
             try { seen = localStorage.getItem('icma_fun_seen') === '1'; localStorage.setItem('icma_fun_seen', '1'); } catch (_) { seen = false; }
