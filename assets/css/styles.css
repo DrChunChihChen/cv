@@ -1775,3 +1775,7 @@ body .badge, body .badge-status, body .project-tag { border-radius: 999px; }
 #software .project-meta span {display: flex; align-items: center; gap: 0.25rem; }
 #software .project-desc {font-size: 0.9rem; color: #4a5568; line-height: 1.5; margin-bottom: 0.8rem; }
 #software .project-tag {display: inline-block; background: #f0f4ff; color: var(--first-color); padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.78rem; font-weight: 500; }
+
+.lw-chat__chips { display: flex; padding: 0 .9rem .5rem; }
+.lw-chat__fun { border: 1px dashed #c9c4ff; background: #faf9ff; color: var(--c-purple); font: inherit; font-size: .78rem; font-weight: 700; padding: .3rem .75rem; border-radius: 999px; cursor: pointer; }
+.lw-chat__fun:hover { background: var(--c-purple-soft); }

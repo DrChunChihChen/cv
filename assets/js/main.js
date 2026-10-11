@@ -252,6 +252,9 @@ document.querySelectorAll('.lab2__works').forEach(box => {
         extra: ['點我問問題 💬', '你有點子，老師有 Token！', '有問題？點我聊聊！', '歡迎加入 ICMA Lab 👋'],
     };
     const EXTRA = T.extra;
+    const FUN = EN ? ['🍫 Fun fact: the professor loves chocolate.', '🚫 Fun fact: the professor is on a diet. Please do not feed him.', '🧋 Fun fact: the professor only drinks sugar-free drinks.', "💪 Fun fact: the professor can do 20 pull-ups in one go. Beat that and he’ll be very impressed.", '🎮 Fun fact: the professor is a homebody who plays with AI agents all day.', "😂 Why don’t AI agents mind overtime? The professor pays for the tokens.", '😂 Why are multi-agent meetings so efficient? Every agent only does its own job.', '😂 Why write clear prompts? Because AI, like professors, fills in the gaps on its own.'] : ['🍫 老師小八卦：老師非常喜歡吃巧克力。', '🤰 老師小八卦：老師的肚子很大，標準中年老頭身材。', '🤬 老師小八卦：老師講話很直接，激動起來偶爾會飆一下（聽到請假裝沒聽到）。', '💪 老師小八卦：老師可以拉單槓一次 20 下！你能挑戰成功，老師讓你 all pass（all pass 是開玩笑的啦，但老師真的會佩服你）。', '🚫 老師小八卦：老師減肥中，請勿餵食。', '🧋 老師小八卦：老師的飲料只喝無糖。', '🎮 老師小八卦：老師很宅，整天都在玩 Agent。', '😂 冷笑話：為什麼 AI Agent 都不怕加班？因為 Token 老師買單。', '😂 冷笑話：國貿系的浪漫是什麼？陪你從 FOB 一路算到 CIF。', '😂 冷笑話：AI 最怕哪種客戶？說「你懂我意思吧」的那種。', '😂 冷笑話：多代理人系統開會為什麼很有效率？因為每個 Agent 都只做自己的事。', '😂 冷笑話：報價 Agent 失戀了，因為對方說他「太看重毛利」。', '😂 冷笑話：為什麼 Prompt 要寫清楚？因為 AI 跟老師一樣，看不懂就自己腦補。', '😂 冷笑話：物流 Agent 最喜歡的歌？當然是《貨到付款》……沒有這首歌，所以它很難過。'];
+    let funLast = -1;
+    const pickFun = () => { let i; do { i = Math.floor(Math.random() * FUN.length); } while (FUN.length > 1 && i === funLast); funLast = i; return FUN[i]; };
     const svg = b => `<svg viewBox="0 0 200 220" aria-hidden="true">
         <g class="lw-legs"><rect class="lw-leg lw-leg--l" x="66" y="176" width="18" height="30" rx="8" fill="#17133a"/><rect class="lw-leg lw-leg--r" x="116" y="176" width="18" height="30" rx="8" fill="#17133a"/></g>
         <line x1="100" y1="42" x2="100" y2="20" stroke="#17133a" stroke-width="6" stroke-linecap="round"/>
@@ -365,6 +368,7 @@ document.querySelectorAll('.lab2__works').forEach(box => {
     panel.innerHTML = `<div class="lw-chat__head"><span class="lw-chat__dot"></span><strong>${T.title}</strong>
         <button type="button" class="lw-chat__swap">${T.swap}</button><button type="button" class="lw-chat__close" aria-label="${T.close}">×</button></div>
         <div class="lw-chat__log" aria-live="polite"></div>
+        <div class="lw-chat__chips"><button type="button" class="lw-chat__fun">${EN ? '🎲 Tell me a fun one' : '🎲 再來一則笑話／八卦'}</button></div>
         <form class="lw-chat__form"><label class="sr-only" for="lw-q">${T.label}</label><input id="lw-q" type="text" maxlength="300" autocomplete="off" placeholder="${T.ph}"><button type="submit">${T.send}</button></form>`;
     section.appendChild(panel);
     const log = panel.querySelector('.lw-chat__log'), input = panel.querySelector('input'), sendBtn = panel.querySelector('.lw-chat__form button'), dot = panel.querySelector('.lw-chat__dot');
@@ -395,7 +399,13 @@ document.querySelectorAll('.lab2__works').forEach(box => {
     function openChat() {
         chatOpen = true; panel.hidden = false; bot.setAttribute('aria-expanded', 'true');
         bubbleUntil = 0; place(); setBot();
-        if (!log.childElementCount) addMsg('bot', BOTS[idx].line + T.hello);
+        if (!log.childElementCount) {
+            addMsg('bot', BOTS[idx].line + T.hello);
+            // first visit only: add one joke or fun fact (remembered in this browser)
+            let seen = true;
+            try { seen = localStorage.getItem('icma_fun_seen') === '1'; localStorage.setItem('icma_fun_seen', '1'); } catch (_) { seen = false; }
+            if (!seen) addMsg('bot', pickFun());
+        }
         requestAnimationFrame(() => panel.classList.add('is-open'));
         input.focus({ preventScroll: true });
     }
@@ -406,6 +416,7 @@ document.querySelectorAll('.lab2__works').forEach(box => {
     }
     bot.addEventListener('click', () => { chatOpen ? closeChat() : openChat(); });
     bot.addEventListener('mouseenter', () => { if (!chatOpen && performance.now() > bubbleUntil) say(T.hint); });
+    panel.querySelector('.lw-chat__fun').addEventListener('click', () => { addMsg('bot', pickFun()); hopUntil = performance.now() + 420; });
     panel.querySelector('.lw-chat__close').addEventListener('click', () => { closeChat(); bot.focus({ preventScroll: true }); });
     panel.querySelector('.lw-chat__swap').addEventListener('click', () => {
         idx = (idx + 1) % BOTS.length; paint(); setBot(); addMsg('bot', BOTS[idx].line);
