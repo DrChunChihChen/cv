@@ -384,7 +384,7 @@ document.querySelectorAll('.lab2__works').forEach(box => {
             const own = m[0].startsWith('https://drchunchihchen.github.io/cv/');
             if (!own) a.target = '_blank';
             const key = m[0].replace('https://drchunchihchen.github.io/cv/', '').replace(/\.html.*$/, '').replace(/^#/, '');
-            a.textContent = own ? (EN ? `Open “${PAGE_NAMES_EN[key] || 'page'}” ↗` : `前往「${PAGE_NAMES[key] || '網站'}」↗`) : m[0];
+            a.textContent = m[0].startsWith('https://aisap.nutc.edu.tw/') ? (EN ? 'Teaching timetable ↗' : '查看老師課表 ↗') : own ? (EN ? `Open “${PAGE_NAMES_EN[key] || 'page'}” ↗` : `前往「${PAGE_NAMES[key] || '網站'}」↗`) : m[0];
             el.append(a); i = m.index + m[0].length;
         }
         el.append(text.slice(i));
