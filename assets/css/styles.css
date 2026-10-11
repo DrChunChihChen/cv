@@ -1796,3 +1796,12 @@ body .badge, body .badge-status, body .project-tag { border-radius: 999px; }
 .tl__threads:hover { background: #d3f3e3; }
 
 @media screen and (min-width: 768px) { .ib-video--featured { grid-column: 1 / -1; } .ib-video--featured .ib-video__frame { max-width: 880px; margin: 0 auto; } .ib-video--featured figcaption { justify-content: center; } }
+
+/* recruitment row: one landscape video + one vertical Short */
+.ib-recruit { display: grid; gap: 1.25rem; grid-column: 1 / -1; }
+.ib-video--short .ib-video__frame { aspect-ratio: 9 / 16; max-width: 220px; margin: 0 auto; }
+.ib-video--short figcaption { justify-content: center; }
+@media screen and (min-width: 768px) {
+    .ib-recruit { grid-template-columns: minmax(0, 1fr) minmax(0, .316fr); align-items: start; gap: 1.5rem; }
+    .ib-video--short .ib-video__frame { max-width: none; }
+}
