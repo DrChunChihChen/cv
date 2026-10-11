@@ -362,6 +362,10 @@ document.querySelectorAll('.lab2__works').forEach(box => {
     const API = 'https://icma-lab-chat.netlify.app/api/chat';
     let chatOpen = false, busy = false, nextHint = performance.now() + 4000, hintN = 0;
     const history = [];
+    // anonymous per-browser id so the server can count the 6-questions-a-day quota
+    let vid = '';
+    try { vid = localStorage.getItem('icma_vid') || ''; if (!vid) { vid = (crypto.randomUUID ? crypto.randomUUID() : String(Math.random()).slice(2) + Date.now()); localStorage.setItem('icma_vid', vid); } } catch (_) { vid = ''; }
+    let outOfQuota = false;
     const panel = document.createElement('div');
     panel.className = 'lw-chat'; panel.id = 'lw-chat'; panel.hidden = true;
     panel.setAttribute('role', 'dialog'); panel.setAttribute('aria-label', T.open);
@@ -433,15 +437,20 @@ document.querySelectorAll('.lab2__works').forEach(box => {
         const pending = addMsg('bot', T.thinking); pending.classList.add('is-loading');
         let answer;
         try {
-            const r = await fetch(API, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ question: q, history: history.slice(-8) }) });
+            const r = await fetch(API, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ question: q, history: history.slice(-8), vid }) });
             const d = await r.json().catch(() => ({}));
-            if (r.status === 429) answer = T.slow;
+            if (r.status === 429 && d.code === 'daily_limit') { answer = d.error; outOfQuota = true; }
+            else if (r.status === 429) answer = T.slow;
             else answer = d.answer || d.error || T.down;
             if (r.ok && d.answer) history.push({ role: 'user', content: q }, { role: 'assistant', content: d.answer });
+            if (r.ok && d.left === 0) { answer += EN ? '\n\n(That was your last question for today.)' : '\n\n（這是你今天的最後一題囉！）'; outOfQuota = true; }
+            else if (r.ok && d.left > 0 && d.left <= 2) answer += EN ? `\n\n(${d.left} question${d.left > 1 ? 's' : ''} left today)` : `\n\n（今天還可以問 ${d.left} 題）`;
         } catch (_) { answer = T.offline; }
         pending.classList.remove('is-loading'); fill(pending, answer); log.scrollTop = log.scrollHeight;
         hopUntil = performance.now() + 420;
-        busy = false; sendBtn.disabled = false; input.focus({ preventScroll: true });
+        busy = false;
+        if (outOfQuota) { sendBtn.disabled = true; input.disabled = true; input.placeholder = EN ? 'See you tomorrow 🦐' : '今天的 6 題用完囉，明天見 🦐'; }
+        else { sendBtn.disabled = false; input.focus({ preventScroll: true }); }
     });
 
     if (reduce) { state = 'idle'; draw(performance.now()); window.addEventListener('resize', () => draw(performance.now())); return; }
