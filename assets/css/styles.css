@@ -1789,3 +1789,5 @@ body .badge, body .badge-status, body .project-tag { border-radius: 999px; }
 .lab2__site-sub { font-size: .9rem; opacity: .9; }
 .lab2__site-btn { margin-top: .6rem; padding: .45rem 1rem; border-radius: 999px; background: #fff; color: var(--c-purple); font-weight: 700; font-size: .85rem; }
 .lab2__site:hover .lab2__site-btn { background: #f5f3ff; }
+
+.lw-chat__note { margin: -.35rem 0 0; padding: 0 1rem .7rem; font-size: .72rem; line-height: 1.45; color: #8a8aa3; }

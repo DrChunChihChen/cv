@@ -241,12 +241,12 @@ document.querySelectorAll('.lab2__works').forEach(box => {
     const EN = (document.documentElement.lang || '').toLowerCase().startsWith('en');
     if (EN) BOTS.forEach((b, i) => { b.line = ['I’m the Listing Agent: product pages in English, Japanese and German in one go!', 'I’m the Sourcing Agent: I dig business ideas out of bad reviews.', 'I’m the Marketing Agent: short videos and ad campaigns are my thing!', 'I’m the Support Agent: overseas enquiries answered 24/7.', 'I’m the Pricing Agent: when exchange rates move, I protect your margin.', 'I’m the Logistics Agent: HS codes and freight booking, leave them to me.'][i]; });
     const T = EN ? {
-        hint: 'Xia Ge here 🦐 click me to ask!', open: 'Chat with Xia Ge, the ICMA Lab bot', title: 'Xia Ge 🦐 · ICMA Lab bot', hi: 'Hi, I’m Xia Ge 🦐! ', swap: 'Next agent', close: 'Close', label: 'Your question',
+        note: '⚠️ AI can make mistakes. Please double-check important info. Chats are logged to improve the bot; don’t share personal data.', hint: 'Xia Ge here 🦐 click me to ask!', open: 'Chat with Xia Ge, the ICMA Lab bot', title: 'Xia Ge 🦐 · ICMA Lab bot', hi: 'Hi, I’m Xia Ge 🦐! ', swap: 'Next agent', close: 'Close', label: 'Your question',
         ph: 'Ask me: what does the lab do?', send: 'Send', hello: ' Ask me anything about the lab!', thinking: 'Thinking…',
         slow: 'Too many questions at once. Give me a minute!', down: 'I can’t reach my brain right now. Please try later or email nutcelvischen@gmail.com.', offline: 'Looks like the network dropped. Please try again!',
         extra: ['I’m Xia Ge 🦐 Click me to ask!', 'You bring the idea, we bring the tokens!', 'Questions? Let’s chat!', 'Welcome to ICMA Lab 👋'],
     } : {
-        hint: '蝦哥在這 🦐 點我問問題！', open: '和蝦哥（ICMA Lab 機器人）聊天', title: '蝦哥 🦐 · ICMA Lab 機器人', hi: '嗨，我是蝦哥 🦐！', swap: '換一位 Agent', close: '關閉', label: '輸入問題',
+        note: '‼️ AI 可能會有錯誤，請同學務必注意，重要資訊請再確認。對話會被記錄以改善服務，請勿輸入個資。', hint: '蝦哥在這 🦐 點我問問題！', open: '和蝦哥（ICMA Lab 機器人）聊天', title: '蝦哥 🦐 · ICMA Lab 機器人', hi: '嗨，我是蝦哥 🦐！', swap: '換一位 Agent', close: '關閉', label: '輸入問題',
         ph: '問我：實驗室在做什麼？', send: '送出', hello: ' 想問實驗室什麼都可以問我！', thinking: '思考中…',
         slow: '問太快了，我喘口氣，一分鐘後再問我！', down: '我暫時連不上大腦，請稍後再試，或寫信到 nutcelvischen@gmail.com。', offline: '網路好像斷了，請稍後再試！',
         extra: ['我是蝦哥 🦐 點我問問題！', '你有點子，老師有 Token！', '有問題？點我聊聊！', '歡迎加入 ICMA Lab 👋'],
@@ -369,7 +369,8 @@ document.querySelectorAll('.lab2__works').forEach(box => {
         <button type="button" class="lw-chat__swap">${T.swap}</button><button type="button" class="lw-chat__close" aria-label="${T.close}">×</button></div>
         <div class="lw-chat__log" aria-live="polite"></div>
         <div class="lw-chat__chips"><button type="button" class="lw-chat__fun">${EN ? '🎲 Tell me a fun one' : '🎲 再來一則笑話／八卦'}</button></div>
-        <form class="lw-chat__form"><label class="sr-only" for="lw-q">${T.label}</label><input id="lw-q" type="text" maxlength="300" autocomplete="off" placeholder="${T.ph}"><button type="submit">${T.send}</button></form>`;
+        <form class="lw-chat__form"><label class="sr-only" for="lw-q">${T.label}</label><input id="lw-q" type="text" maxlength="300" autocomplete="off" placeholder="${T.ph}"><button type="submit">${T.send}</button></form>
+        <p class="lw-chat__note">${T.note}</p>`;
     section.appendChild(panel);
     const log = panel.querySelector('.lw-chat__log'), input = panel.querySelector('input'), sendBtn = panel.querySelector('.lw-chat__form button'), dot = panel.querySelector('.lw-chat__dot');
     const PAGE_NAMES = { '': '首頁', publications: '著作論文', projects: '研究專案', talks: '演講講座', awards: '榮譽獲獎', teaching: '教學資源', laboratory: '實驗室', contact: '聯絡資訊', about: '關於老師', 'se/index': '軟體工程講義' };
