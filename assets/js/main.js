@@ -238,7 +238,20 @@ document.querySelectorAll('.lab2__works').forEach(box => {
         { c: '#f59e0b', icon: c => `<circle cx="158" cy="150" r="15" fill="${c}"/><text x="158" y="157.5" text-anchor="middle" font-size="21" font-weight="900" fill="#fff" font-family="Arial, sans-serif">€</text>`, line: '我是報價 Agent，匯率一變就幫你守住毛利。' },
         { c: '#f97316', icon: c => `<rect x="145" y="138" width="11" height="11" rx="1.5" fill="${c}"/><rect x="158" y="138" width="11" height="11" rx="1.5" fill="${c}"/><path d="M137 152h42l-7 13h-28z" fill="${c}"/>`, line: '我是物流關務 Agent，HS Code 和訂艙包在我身上。' },
     ];
-    const EXTRA = ['點我問問題 💬', '你有點子，老師有 Token！', '有問題？點我聊聊！', '歡迎加入 ICMA Lab 👋'];
+    const EN = (document.documentElement.lang || '').toLowerCase().startsWith('en');
+    if (EN) BOTS.forEach((b, i) => { b.line = ['I’m the Listing Agent: product pages in English, Japanese and German in one go!', 'I’m the Sourcing Agent: I dig business ideas out of bad reviews.', 'I’m the Marketing Agent: short videos and ad campaigns are my thing!', 'I’m the Support Agent: overseas enquiries answered 24/7.', 'I’m the Pricing Agent: when exchange rates move, I protect your margin.', 'I’m the Logistics Agent: HS codes and freight booking, leave them to me.'][i]; });
+    const T = EN ? {
+        hint: 'Click me to ask 💬', open: 'Chat with the ICMA Lab bot', title: 'ICMA Lab bot', swap: 'Next agent', close: 'Close', label: 'Your question',
+        ph: 'Ask me: what does the lab do?', send: 'Send', hello: ' Ask me anything about the lab!', thinking: 'Thinking…',
+        slow: 'Too many questions at once. Give me a minute!', down: 'I can’t reach my brain right now. Please try later or email nutcelvischen@gmail.com.', offline: 'Looks like the network dropped. Please try again!',
+        extra: ['Click me to ask 💬', 'You bring the idea, we bring the tokens!', 'Questions? Let’s chat!', 'Welcome to ICMA Lab 👋'],
+    } : {
+        hint: '點我問問題 💬', open: '和實驗室機器人聊天', title: 'ICMA Lab 機器人', swap: '換一位 Agent', close: '關閉', label: '輸入問題',
+        ph: '問我：實驗室在做什麼？', send: '送出', hello: ' 想問實驗室什麼都可以問我！', thinking: '思考中…',
+        slow: '問太快了，我喘口氣，一分鐘後再問我！', down: '我暫時連不上大腦，請稍後再試，或寫信到 nutcelvischen@gmail.com。', offline: '網路好像斷了，請稍後再試！',
+        extra: ['點我問問題 💬', '你有點子，老師有 Token！', '有問題？點我聊聊！', '歡迎加入 ICMA Lab 👋'],
+    };
+    const EXTRA = T.extra;
     const svg = b => `<svg viewBox="0 0 200 220" aria-hidden="true">
         <g class="lw-legs"><rect class="lw-leg lw-leg--l" x="66" y="176" width="18" height="30" rx="8" fill="#17133a"/><rect class="lw-leg lw-leg--r" x="116" y="176" width="18" height="30" rx="8" fill="#17133a"/></g>
         <line x1="100" y1="42" x2="100" y2="20" stroke="#17133a" stroke-width="6" stroke-linecap="round"/>
@@ -255,7 +268,7 @@ document.querySelectorAll('.lab2__works').forEach(box => {
     section.classList.add('has-walker');
     const layer = document.createElement('div');
     layer.className = 'lab-walker';
-    layer.innerHTML = '<div class="lw-bubble" role="status" aria-live="polite"></div><button type="button" class="lw-bot" aria-label="和實驗室機器人聊天" aria-expanded="false" aria-controls="lw-chat"></button>';
+    layer.innerHTML = `<div class="lw-bubble" role="status" aria-live="polite"></div><button type="button" class="lw-bot" aria-label="${T.open}" aria-expanded="false" aria-controls="lw-chat"></button>`;
     section.appendChild(layer);
     const bot = layer.querySelector('.lw-bot'), bubble = layer.querySelector('.lw-bubble');
     let idx = 0;
@@ -348,14 +361,15 @@ document.querySelectorAll('.lab2__works').forEach(box => {
     const history = [];
     const panel = document.createElement('div');
     panel.className = 'lw-chat'; panel.id = 'lw-chat'; panel.hidden = true;
-    panel.setAttribute('role', 'dialog'); panel.setAttribute('aria-label', '和 ICMA Lab 機器人聊天');
-    panel.innerHTML = `<div class="lw-chat__head"><span class="lw-chat__dot"></span><strong>ICMA Lab 機器人</strong>
-        <button type="button" class="lw-chat__swap">換一位 Agent</button><button type="button" class="lw-chat__close" aria-label="關閉">×</button></div>
+    panel.setAttribute('role', 'dialog'); panel.setAttribute('aria-label', T.open);
+    panel.innerHTML = `<div class="lw-chat__head"><span class="lw-chat__dot"></span><strong>${T.title}</strong>
+        <button type="button" class="lw-chat__swap">${T.swap}</button><button type="button" class="lw-chat__close" aria-label="${T.close}">×</button></div>
         <div class="lw-chat__log" aria-live="polite"></div>
-        <form class="lw-chat__form"><label class="sr-only" for="lw-q">輸入問題</label><input id="lw-q" type="text" maxlength="300" autocomplete="off" placeholder="問我：實驗室在做什麼？"><button type="submit">送出</button></form>`;
+        <form class="lw-chat__form"><label class="sr-only" for="lw-q">${T.label}</label><input id="lw-q" type="text" maxlength="300" autocomplete="off" placeholder="${T.ph}"><button type="submit">${T.send}</button></form>`;
     section.appendChild(panel);
     const log = panel.querySelector('.lw-chat__log'), input = panel.querySelector('input'), sendBtn = panel.querySelector('.lw-chat__form button'), dot = panel.querySelector('.lw-chat__dot');
     const PAGE_NAMES = { '': '首頁', publications: '著作論文', projects: '研究專案', talks: '演講講座', awards: '榮譽獲獎', teaching: '教學資源', laboratory: '實驗室', contact: '聯絡資訊', about: '關於老師', 'se/index': '軟體工程講義' };
+    const PAGE_NAMES_EN = { '': 'Home', en: 'English profile', publications: 'Publications', projects: 'Projects', talks: 'Talks', awards: 'Awards', teaching: 'Teaching', laboratory: 'ICMA Lab', contact: 'Contact', about: 'About', 'se/index': 'Textbook' };
     // render text, turning https links into safe anchors (built with DOM nodes, never innerHTML)
     const fill = (el, text) => {
         el.replaceChildren();
@@ -366,7 +380,7 @@ document.querySelectorAll('.lab2__works').forEach(box => {
             const own = m[0].startsWith('https://drchunchihchen.github.io/cv/');
             if (!own) a.target = '_blank';
             const key = m[0].replace('https://drchunchihchen.github.io/cv/', '').replace(/\.html.*$/, '').replace(/^#/, '');
-            a.textContent = own ? `前往「${PAGE_NAMES[key] || '網站'}」↗` : m[0];
+            a.textContent = own ? (EN ? `Open “${PAGE_NAMES_EN[key] || 'page'}” ↗` : `前往「${PAGE_NAMES[key] || '網站'}」↗`) : m[0];
             el.append(a); i = m.index + m[0].length;
         }
         el.append(text.slice(i));
@@ -381,7 +395,7 @@ document.querySelectorAll('.lab2__works').forEach(box => {
     function openChat() {
         chatOpen = true; panel.hidden = false; bot.setAttribute('aria-expanded', 'true');
         bubbleUntil = 0; place(); setBot();
-        if (!log.childElementCount) addMsg('bot', BOTS[idx].line + ' 想問實驗室什麼都可以問我！');
+        if (!log.childElementCount) addMsg('bot', BOTS[idx].line + T.hello);
         requestAnimationFrame(() => panel.classList.add('is-open'));
         input.focus({ preventScroll: true });
     }
@@ -391,7 +405,7 @@ document.querySelectorAll('.lab2__works').forEach(box => {
         nextHint = performance.now() + 9000;
     }
     bot.addEventListener('click', () => { chatOpen ? closeChat() : openChat(); });
-    bot.addEventListener('mouseenter', () => { if (!chatOpen && performance.now() > bubbleUntil) say('點我問問題 💬'); });
+    bot.addEventListener('mouseenter', () => { if (!chatOpen && performance.now() > bubbleUntil) say(T.hint); });
     panel.querySelector('.lw-chat__close').addEventListener('click', () => { closeChat(); bot.focus({ preventScroll: true }); });
     panel.querySelector('.lw-chat__swap').addEventListener('click', () => {
         idx = (idx + 1) % BOTS.length; paint(); setBot(); addMsg('bot', BOTS[idx].line);
@@ -404,15 +418,15 @@ document.querySelectorAll('.lab2__works').forEach(box => {
         if (!q || busy) return;
         busy = true; sendBtn.disabled = true; input.value = '';
         addMsg('user', q);
-        const pending = addMsg('bot', '思考中…'); pending.classList.add('is-loading');
+        const pending = addMsg('bot', T.thinking); pending.classList.add('is-loading');
         let answer;
         try {
             const r = await fetch(API, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ question: q, history: history.slice(-8) }) });
             const d = await r.json().catch(() => ({}));
-            if (r.status === 429) answer = '問太快了，我喘口氣，一分鐘後再問我！';
-            else answer = d.answer || d.error || '我暫時連不上大腦，請稍後再試，或寫信到 nutcelvischen@gmail.com。';
+            if (r.status === 429) answer = T.slow;
+            else answer = d.answer || d.error || T.down;
             if (r.ok && d.answer) history.push({ role: 'user', content: q }, { role: 'assistant', content: d.answer });
-        } catch (_) { answer = '網路好像斷了，請稍後再試！'; }
+        } catch (_) { answer = T.offline; }
         pending.classList.remove('is-loading'); fill(pending, answer); log.scrollTop = log.scrollHeight;
         hopUntil = performance.now() + 420;
         busy = false; sendBtn.disabled = false; input.focus({ preventScroll: true });
