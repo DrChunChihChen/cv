@@ -1684,8 +1684,8 @@ body .badge, body .badge-status, body .project-tag { border-radius: 999px; }
 .lw-chat__head strong { flex: 1; }
 .lw-chat__swap { border: 0; background: var(--c-purple-soft); color: var(--c-purple); font: inherit; font-size: .78rem; font-weight: 700; padding: .3rem .7rem; border-radius: 999px; cursor: pointer; }
 .lw-chat__close { border: 0; background: none; font-size: 1.4rem; line-height: 1; padding: 0 .3rem; cursor: pointer; color: #6b6890; }
-.lw-chat__log { display: flex; flex-direction: column; gap: .5rem; max-height: 260px; overflow-y: auto; padding: .9rem 1rem; }
-.lw-msg { max-width: 85%; padding: .55rem .85rem; border-radius: 16px; font-size: .9rem; line-height: 1.55; white-space: pre-wrap; }
+.lw-chat__log { display: flex; flex-direction: column; gap: .5rem; max-height: 260px; overflow-y: auto; overflow-x: hidden; padding: .9rem 1rem; }
+.lw-msg { max-width: 85%; min-width: 0; overflow-wrap: anywhere; padding: .55rem .85rem; border-radius: 16px; font-size: .9rem; line-height: 1.55; white-space: pre-wrap; }
 .lw-msg--bot { align-self: flex-start; background: #17133a; color: #fff; border-bottom-left-radius: 6px; }
 .lw-msg--user { align-self: flex-end; background: var(--c-purple); color: #fff; border-bottom-right-radius: 6px; }
 .lw-msg.is-loading { opacity: .65; }
