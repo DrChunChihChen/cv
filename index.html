@@ -75,7 +75,7 @@
     <link rel="alternate icon" href="favicon.ico">
 
     <!-- ===== CSS ===== -->
-    <link rel="stylesheet" href="assets/css/styles.css?v=6.9">
+    <link rel="stylesheet" href="assets/css/styles.css?v=7.0">
 
     <!-- ===== BOX ICONS ===== -->
     <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
@@ -668,15 +668,98 @@
 
                 <div class="lab2__works">
                     <div class="lab2__works-bar">
-                        <span class="lab2__work-label">🎓 學生作品</span>
-                        <div class="lab2__tabs" role="tablist" aria-label="學生作品">
-                            <button type="button" role="tab" class="lab2__tab" aria-controls="work-0" aria-selected="true">TradeDNA</button>
-                            <button type="button" role="tab" class="lab2__tab" aria-controls="work-1" aria-selected="false">址南針 SiteCompass</button>
+                        <span class="lab2__work-label">🛠️ 實驗室作品</span>
+                        <div class="lab2__tabs" role="tablist" aria-label="實驗室作品">
+                            <button type="button" role="tab" class="lab2__tab" aria-controls="work-0" aria-selected="true">你說的算</button>
+                            <button type="button" role="tab" class="lab2__tab" aria-controls="work-1" aria-selected="false">HelloIR</button>
+                            <button type="button" role="tab" class="lab2__tab" aria-controls="work-2" aria-selected="false">護照辨識</button>
+                            <button type="button" role="tab" class="lab2__tab" aria-controls="work-3" aria-selected="false">職涯導航</button>
+                            <button type="button" role="tab" class="lab2__tab" aria-controls="work-4" aria-selected="false">TradeDNA</button>
+                            <button type="button" role="tab" class="lab2__tab" aria-controls="work-5" aria-selected="false">址南針</button>
                         </div>
                     </div>
-                    <div class="lab2__work" id="work-0" role="tabpanel" aria-label="TradeDNA">
+                    <div class="lab2__work" id="work-0" role="tabpanel" aria-label="你說的算">
                         <div class="lab2__work-head">
-                            <h3>TradeDNA｜AI 商品上架輔助瀏覽器外掛</h3>
+                            <h3>碳盤查／足跡軟體「你說的算」 <span class="lab2__kind lab2__kind--teacher">老師自研</span></h3>
+                            <p class="lab2__work-tagline">輕量化、即時運算、減碳路徑模擬</p>
+                        </div>
+                        <figure class="ib-video lab2__work-video">
+                            <button type="button" class="ib-video__frame" data-yt="epZr5-JSLLM" aria-label="播放：你說的算 軟體操作影片">
+                                <img src="https://i.ytimg.com/vi/epZr5-JSLLM/hqdefault.jpg" alt="" loading="lazy">
+                                <span class="ib-video__play" aria-hidden="true"></span>
+                            </button>
+                        </figure>
+                        <div class="lab2__work-body">
+                            <p>專為中小企業與組織設計的敏捷型碳盤查與碳足跡計算工具。</p>
+                            <ul>
+                                <li>活動數據自動換算排放量</li>
+                                <li>碳排熱點可視化分析</li>
+                                <li>減碳情境模擬</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="lab2__work" id="work-1" role="tabpanel" aria-label="HelloIR" hidden>
+                        <div class="lab2__work-head">
+                            <h3>HelloIR 智慧校務分析與決策支援平台 <span class="lab2__kind lab2__kind--teacher">老師自研</span></h3>
+                            <p class="lab2__work-tagline">巨量數據挖掘、機器學習預警、戰情決策</p>
+                        </div>
+                        <figure class="ib-video lab2__work-video">
+                            <button type="button" class="ib-video__frame" data-yt="bP8hiMcb81g" aria-label="播放：HelloIR 產品介紹影片">
+                                <img src="https://i.ytimg.com/vi/bP8hiMcb81g/hqdefault.jpg" alt="" loading="lazy">
+                                <span class="ib-video__play" aria-hidden="true"></span>
+                            </button>
+                        </figure>
+                        <div class="lab2__work-body">
+                            <p>整合高等教育巨量數據、機器學習預警演算法與動態儀表板，支援校務發展的量化決策。</p>
+                            <ul>
+                                <li>跨維度分析學生休退學風險</li>
+                                <li>機器學習預警，及早發現需要協助的學生</li>
+                                <li>動態儀表板，校務指標即時掌握</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="lab2__work" id="work-2" role="tabpanel" aria-label="護照辨識" hidden>
+                        <div class="lab2__work-head">
+                            <h3>地端 AI 護照辨識系統 <span class="lab2__kind lab2__kind--teacher">老師自研</span></h3>
+                            <p class="lab2__work-tagline">實測 100 本護照，欄位正確率 98%</p>
+                        </div>
+                        <figure class="ib-video lab2__work-video">
+                            <button type="button" class="ib-video__frame" data-yt="WGZ9xWipHys" aria-label="播放：地端 AI 護照辨識系統介紹影片">
+                                <img src="https://i.ytimg.com/vi/WGZ9xWipHys/hqdefault.jpg" alt="" loading="lazy">
+                                <span class="ib-video__play" aria-hidden="true"></span>
+                            </button>
+                        </figure>
+                        <div class="lab2__work-body">
+                            <p>在本機以視覺語言模型辨識護照資料頁，影像與個資完全不離開電腦。</p>
+                            <ul>
+                                <li>地端執行，資料不外流</li>
+                                <li>ICAO 機讀碼（MRZ）檢查碼驗證＋雙引擎交叉比對</li>
+                                <li>人工確認後批次匯出 Excel，大幅減少人工輸入錯誤</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="lab2__work" id="work-3" role="tabpanel" aria-label="職涯導航" hidden>
+                        <div class="lab2__work-head">
+                            <h3>國貿與商管 AI 職涯實證導航 <span class="lab2__kind lab2__kind--teacher">老師自研</span></h3>
+                            <p class="lab2__work-tagline">用數據看 AI 技能值多少薪水</p>
+                        </div>
+                        <a class="lab2__work-video lab2__site" href="https://nutc-ib-ai-jobs.netlify.app/" target="_blank" rel="noopener">
+                            <span class="lab2__site-num">5,286</span>
+                            <span class="lab2__site-sub">筆 104 人力銀行國貿與商管職缺</span>
+                            <span class="lab2__site-btn">開啟互動網站 ↗</span>
+                        </a>
+                        <div class="lab2__work-body">
+                            <p>以 104 人力銀行國貿與商管職缺做計量研究，看 AI 技能對薪資與職涯的實際影響。</p>
+                            <ul>
+                                <li>AI 相關 2,607 筆、非 AI 2,679 筆職缺比較</li>
+                                <li>AI 技能對起薪、高薪面議機會與資深薪資天花板的影響</li>
+                                <li>地區與產業薪資溢價分析、技能自評與薪資試算工具</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="lab2__work" id="work-4" role="tabpanel" aria-label="TradeDNA" hidden>
+                        <div class="lab2__work-head">
+                            <h3>TradeDNA｜AI 商品上架輔助瀏覽器外掛 <span class="lab2__kind lab2__kind--student">學生作品</span></h3>
                             <p class="lab2__work-tagline">AI 懂市場，TradeDNA 讓 AI 懂你們公司。</p>
                         </div>
                         <figure class="ib-video lab2__work-video">
@@ -702,9 +785,9 @@
                             </details>
                         </div>
                     </div>
-                    <div class="lab2__work" id="work-1" role="tabpanel" aria-label="址南針 SiteCompass" hidden>
+                    <div class="lab2__work" id="work-5" role="tabpanel" aria-label="址南針" hidden>
                         <div class="lab2__work-head">
-                            <h3>址南針 SiteCompass｜店面選址與門牌履歷風險評估</h3>
+                            <h3>址南針 SiteCompass｜店面選址與門牌履歷風險評估 <span class="lab2__kind lab2__kind--student">學生作品</span></h3>
                             <p class="lab2__work-tagline">簽約前，先看這個門牌換過幾家。</p>
                         </div>
                         <figure class="ib-video lab2__work-video">
@@ -732,7 +815,7 @@
                     </div>
                     <div class="lab2__works-nav">
                         <button type="button" class="lab2__arrow" data-dir="-1" aria-label="上一個作品">‹</button>
-                        <span class="lab2__count">1 / 2</span>
+                        <span class="lab2__count">1 / 6</span>
                         <button type="button" class="lab2__arrow" data-dir="1" aria-label="下一個作品">›</button>
                     </div>
                 </div>
@@ -916,7 +999,7 @@
     <script src="https://unpkg.com/scrollreveal"></script>
 
     <!--===== MAIN JS =====-->
-    <script src="assets/js/main.js?v=6.9"></script>
+    <script src="assets/js/main.js?v=7.0"></script>
 
 </body>
 

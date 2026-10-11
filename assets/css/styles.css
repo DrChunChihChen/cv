@@ -1779,3 +1779,13 @@ body .badge, body .badge-status, body .project-tag { border-radius: 999px; }
 .lw-chat__chips { display: flex; padding: 0 .9rem .5rem; }
 .lw-chat__fun { border: 1px dashed #c9c4ff; background: #faf9ff; color: var(--c-purple); font: inherit; font-size: .78rem; font-weight: 700; padding: .3rem .75rem; border-radius: 999px; cursor: pointer; }
 .lw-chat__fun:hover { background: var(--c-purple-soft); }
+
+/* Lab works: owner tag + website preview tile */
+.lab2__kind { display: inline-block; vertical-align: middle; margin-left: .35rem; padding: .12rem .55rem; border-radius: 999px; font-size: .72rem; font-weight: 700; }
+.lab2__kind--teacher { background: #eef0ff; color: var(--c-purple); }
+.lab2__kind--student { background: #fff4e5; color: #c2410c; }
+.lab2__site { display: flex; flex-direction: column; justify-content: center; align-items: center; gap: .3rem; aspect-ratio: 16 / 9; border-radius: 1.1rem; color: #fff; text-decoration: none; background: linear-gradient(140deg, #6C63FF 0%, #38bdf8 100%); box-shadow: 0 10px 30px rgba(108, 99, 255, .18); }
+.lab2__site-num { font-size: 2.6rem; font-weight: 800; line-height: 1; }
+.lab2__site-sub { font-size: .9rem; opacity: .9; }
+.lab2__site-btn { margin-top: .6rem; padding: .45rem 1rem; border-radius: 999px; background: #fff; color: var(--c-purple); font-weight: 700; font-size: .85rem; }
+.lab2__site:hover .lab2__site-btn { background: #f5f3ff; }
