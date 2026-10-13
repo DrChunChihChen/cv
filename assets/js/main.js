@@ -203,6 +203,7 @@ document.querySelectorAll('.lab2__works').forEach(box => {
         i = (i + panels.length) % panels.length;
         if (i === cur) return;
         panels[cur].querySelectorAll('.ib-video__frame[data-yt]').forEach(resetYT);
+        panels[cur].querySelectorAll('video').forEach(v => v.pause());
         panels.forEach((p, k) => { p.hidden = k !== i; });
         tabs.forEach((t, k) => { t.setAttribute('aria-selected', k === i ? 'true' : 'false'); t.tabIndex = k === i ? 0 : -1; });
         cur = i;

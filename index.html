@@ -75,7 +75,7 @@
     <link rel="alternate icon" href="favicon.ico">
 
     <!-- ===== CSS ===== -->
-    <link rel="stylesheet" href="assets/css/styles.css?v=7.8">
+    <link rel="stylesheet" href="assets/css/styles.css?v=7.9">
 
     <!-- ===== BOX ICONS ===== -->
     <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
@@ -683,9 +683,10 @@
                             <button type="button" role="tab" class="lab2__tab" aria-controls="work-0" aria-selected="true">你說的算</button>
                             <button type="button" role="tab" class="lab2__tab" aria-controls="work-1" aria-selected="false">HelloIR</button>
                             <button type="button" role="tab" class="lab2__tab" aria-controls="work-2" aria-selected="false">宅護照</button>
-                            <button type="button" role="tab" class="lab2__tab" aria-controls="work-3" aria-selected="false">職涯導航</button>
-                            <button type="button" role="tab" class="lab2__tab" aria-controls="work-4" aria-selected="false">TradeDNA</button>
-                            <button type="button" role="tab" class="lab2__tab" aria-controls="work-5" aria-selected="false">址南針</button>
+                            <button type="button" role="tab" class="lab2__tab" aria-controls="work-3" aria-selected="false">數位孿生</button>
+                            <button type="button" role="tab" class="lab2__tab" aria-controls="work-4" aria-selected="false">職涯導航</button>
+                            <button type="button" role="tab" class="lab2__tab" aria-controls="work-5" aria-selected="false">TradeDNA</button>
+                            <button type="button" role="tab" class="lab2__tab" aria-controls="work-6" aria-selected="false">址南針</button>
                         </div>
                     </div>
                     <div class="lab2__work" id="work-0" role="tabpanel" aria-label="你說的算">
@@ -728,7 +729,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="lab2__work" id="work-2" role="tabpanel" aria-label="StayPass 宅護照" hidden>
+                    <div class="lab2__work" id="work-2" role="tabpanel" aria-label="宅護照" hidden>
                         <div class="lab2__work-head">
                             <h3>StayPass 宅護照｜地端 AI 護照辨識系統 <span class="lab2__kind lab2__kind--teacher">老師自研</span></h3>
                             <p class="lab2__work-tagline">資料宅在你電腦裡不出門 · 實測 100 本護照，欄位正確率 98%</p>
@@ -748,7 +749,34 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="lab2__work" id="work-3" role="tabpanel" aria-label="職涯導航" hidden>
+                    <div class="lab2__work" id="work-3" role="tabpanel" aria-label="數位孿生" hidden>
+                        <div class="lab2__work-head">
+                            <h3>CNC 工廠數位孿生 <span class="lab2__kind lab2__kind--teacher">老師自研</span></h3>
+                            <p class="lab2__work-tagline">看得見，才管得好：把整座工廠搬進瀏覽器</p>
+                        </div>
+                        <figure class="lab2__work-video lab2__mp4">
+                            <video controls playsinline preload="none" poster="assets/img/cnc-digital-twin-poster.jpg" aria-label="CNC 工廠數位孿生介紹影片">
+                                <source src="assets/video/cnc-digital-twin.mp4" type="video/mp4">
+                            </video>
+                        </figure>
+                        <div class="lab2__work-body">
+                            <p>電費帳單只給你一個數字。數位孿生把 CNC 廠區搬進瀏覽器，用 3D 即時呈現每台機台的狀態、用電與碳排，做決策前先模擬，把風險留在螢幕上。</p>
+                            <ul>
+                                <li>3D 廠區：點一下就看到單機轉速、功率、累積用電與加工進度</li>
+                                <li>電力圖層：太陽能自用、電網供電、餘電回送，電從哪來、往哪去一眼看清</li>
+                                <li>碳排圖層：每一度購電即時換算碳排（kgCO₂e），產能、電費、減碳同一個畫面管理</li>
+                            </ul>
+                            <details class="lab2__more">
+                                <summary>更多</summary>
+                                <ul>
+                                    <li>情境模擬：雲層遮蔽、機台故障，警示、事件紀錄與能源趨勢同步反應</li>
+                                    <li>產線擴充：新增機台，3D 廠區自動排位</li>
+                                    <li>下一步：透過 IoT Gateway 串接 CNC 控制器、智慧電錶、太陽能逆變器與環境感測，與真實產線同步（目前為展示畫面、模擬資料）</li>
+                                </ul>
+                            </details>
+                        </div>
+                    </div>
+                    <div class="lab2__work" id="work-4" role="tabpanel" aria-label="職涯導航" hidden>
                         <div class="lab2__work-head">
                             <h3>國貿與商管 AI 職涯實證導航 <span class="lab2__kind lab2__kind--teacher">老師自研</span></h3>
                             <p class="lab2__work-tagline">用數據看 AI 技能值多少薪水</p>
@@ -767,7 +795,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="lab2__work" id="work-4" role="tabpanel" aria-label="TradeDNA" hidden>
+                    <div class="lab2__work" id="work-5" role="tabpanel" aria-label="TradeDNA" hidden>
                         <div class="lab2__work-head">
                             <h3>TradeDNA｜AI 商品上架輔助瀏覽器外掛 <span class="lab2__kind lab2__kind--student">學生作品</span></h3>
                             <p class="lab2__work-tagline">AI 懂市場，TradeDNA 讓 AI 懂你們公司。</p>
@@ -795,7 +823,7 @@
                             </details>
                         </div>
                     </div>
-                    <div class="lab2__work" id="work-5" role="tabpanel" aria-label="址南針" hidden>
+                    <div class="lab2__work" id="work-6" role="tabpanel" aria-label="址南針" hidden>
                         <div class="lab2__work-head">
                             <h3>址南針 SiteCompass｜店面選址與門牌履歷風險評估 <span class="lab2__kind lab2__kind--student">學生作品</span></h3>
                             <p class="lab2__work-tagline">簽約前，先看這個門牌換過幾家。</p>
@@ -825,7 +853,7 @@
                     </div>
                     <div class="lab2__works-nav">
                         <button type="button" class="lab2__arrow" data-dir="-1" aria-label="上一個作品">‹</button>
-                        <span class="lab2__count">1 / 6</span>
+                        <span class="lab2__count">1 / 7</span>
                         <button type="button" class="lab2__arrow" data-dir="1" aria-label="下一個作品">›</button>
                     </div>
                 </div>
@@ -1079,7 +1107,7 @@
     <script src="https://unpkg.com/scrollreveal"></script>
 
     <!--===== MAIN JS =====-->
-    <script src="assets/js/main.js?v=7.8"></script>
+    <script src="assets/js/main.js?v=7.9"></script>
 
 </body>
 

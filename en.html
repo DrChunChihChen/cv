@@ -75,7 +75,7 @@
     <link rel="alternate icon" href="favicon.ico">
 
     <!-- ===== CSS ===== -->
-    <link rel="stylesheet" href="assets/css/styles.css?v=7.8">
+    <link rel="stylesheet" href="assets/css/styles.css?v=7.9">
 
     <!-- ===== BOX ICONS ===== -->
     <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
@@ -575,9 +575,10 @@
                             <button type="button" role="tab" class="lab2__tab" aria-controls="work-0" aria-selected="true">Carbon tool</button>
                             <button type="button" role="tab" class="lab2__tab" aria-controls="work-1" aria-selected="false">HelloIR</button>
                             <button type="button" role="tab" class="lab2__tab" aria-controls="work-2" aria-selected="false">StayPass</button>
-                            <button type="button" role="tab" class="lab2__tab" aria-controls="work-3" aria-selected="false">Career navigator</button>
-                            <button type="button" role="tab" class="lab2__tab" aria-controls="work-4" aria-selected="false">TradeDNA</button>
-                            <button type="button" role="tab" class="lab2__tab" aria-controls="work-5" aria-selected="false">SiteCompass</button>
+                            <button type="button" role="tab" class="lab2__tab" aria-controls="work-3" aria-selected="false">Digital twin</button>
+                            <button type="button" role="tab" class="lab2__tab" aria-controls="work-4" aria-selected="false">Career navigator</button>
+                            <button type="button" role="tab" class="lab2__tab" aria-controls="work-5" aria-selected="false">TradeDNA</button>
+                            <button type="button" role="tab" class="lab2__tab" aria-controls="work-6" aria-selected="false">SiteCompass</button>
                         </div>
                     </div>
                     <div class="lab2__work" id="work-0" role="tabpanel" aria-label="Carbon tool">
@@ -640,7 +641,34 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="lab2__work" id="work-3" role="tabpanel" aria-label="Career navigator" hidden>
+                    <div class="lab2__work" id="work-3" role="tabpanel" aria-label="Digital twin" hidden>
+                        <div class="lab2__work-head">
+                            <h3>CNC factory digital twin <span class="lab2__kind lab2__kind--teacher">Faculty-built</span></h3>
+                            <p class="lab2__work-tagline">See it to manage it: the whole factory in your browser</p>
+                        </div>
+                        <figure class="lab2__work-video lab2__mp4">
+                            <video controls playsinline preload="none" poster="assets/img/cnc-digital-twin-poster.jpg" aria-label="CNC digital twin video">
+                                <source src="assets/video/cnc-digital-twin.mp4" type="video/mp4">
+                            </video>
+                        </figure>
+                        <div class="lab2__work-body">
+                            <p>An electricity bill gives you one number. This digital twin puts the CNC shop floor in the browser and shows each machine’s status, power use and emissions in 3D, so you can simulate before you decide.</p>
+                            <ul>
+                                <li>3D floor: click a machine for spindle speed, power, cumulative kWh and job progress</li>
+                                <li>Power layer: solar self-use, grid supply and export to the grid at a glance</li>
+                                <li>Carbon layer: every purchased kWh converted to kgCO₂e, with output, cost and emissions on one screen</li>
+                            </ul>
+                            <details class="lab2__more">
+                                <summary>More</summary>
+                                <ul>
+                                    <li>Scenarios: cloud cover or a machine fault ripple through alerts, event logs and energy trends</li>
+                                    <li>Scale-up: add a machine and the 3D layout places it automatically</li>
+                                    <li>Next: an IoT gateway linking CNC controllers, smart meters, solar inverters and sensors to the live line (demo data for now)</li>
+                                </ul>
+                            </details>
+                        </div>
+                    </div>
+                    <div class="lab2__work" id="work-4" role="tabpanel" aria-label="Career navigator" hidden>
                         <div class="lab2__work-head">
                             <h3>AI career navigator for business students <span class="lab2__kind lab2__kind--teacher">Faculty-built</span></h3>
                             <p class="lab2__work-tagline">What are AI skills worth in salary?</p>
@@ -659,7 +687,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="lab2__work" id="work-4" role="tabpanel" aria-label="TradeDNA" hidden>
+                    <div class="lab2__work" id="work-5" role="tabpanel" aria-label="TradeDNA" hidden>
                         <div class="lab2__work-head">
                             <h3>TradeDNA | AI listing assistant for Alibaba sellers <span class="lab2__kind lab2__kind--student">Student project</span></h3>
                             <p class="lab2__work-tagline">AI knows the market. TradeDNA teaches it your company.</p>
@@ -686,7 +714,7 @@
                             </details>
                         </div>
                     </div>
-                    <div class="lab2__work" id="work-5" role="tabpanel" aria-label="SiteCompass" hidden>
+                    <div class="lab2__work" id="work-6" role="tabpanel" aria-label="SiteCompass" hidden>
                         <div class="lab2__work-head">
                             <h3>SiteCompass | Storefront history and closure-risk check <span class="lab2__kind lab2__kind--student">Student project</span></h3>
                             <p class="lab2__work-tagline">Before you sign the lease, see how many shops this address has had.</p>
@@ -715,7 +743,7 @@
                     </div>
                     <div class="lab2__works-nav">
                         <button type="button" class="lab2__arrow" data-dir="-1" aria-label="Previous work">‹</button>
-                        <span class="lab2__count">1 / 6</span>
+                        <span class="lab2__count">1 / 7</span>
                         <button type="button" class="lab2__arrow" data-dir="1" aria-label="Next work">›</button>
                     </div>
                     <p class="en-note" style="text-align:center;margin-top:.4rem">Videos are narrated in Chinese.</p>
@@ -863,7 +891,7 @@
     </footer>
 
     <script src="https://unpkg.com/scrollreveal"></script>
-    <script src="assets/js/main.js?v=7.8"></script>
+    <script src="assets/js/main.js?v=7.9"></script>
 </body>
 
 </html>
