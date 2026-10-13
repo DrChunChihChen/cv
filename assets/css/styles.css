@@ -1854,3 +1854,6 @@ body .badge, body .badge-status, body .project-tag { border-radius: 999px; }
 
 .lab2__mp4 { margin: 0; }
 .lab2__mp4 video { display: block; width: 100%; aspect-ratio: 16 / 9; border-radius: 1.1rem; background: #111; box-shadow: 0 10px 30px rgba(108,99,255,.12); }
+
+.lab2__demo { display: inline-block; margin: 0 0 .8rem; padding: .5rem 1rem; border-radius: 999px; background: var(--c-purple); color: #fff !important; font-weight: 700; font-size: .88rem; text-decoration: none; box-shadow: 0 6px 18px rgba(108,99,255,.25); }
+.lab2__demo:hover { transform: translateY(-1px); }
