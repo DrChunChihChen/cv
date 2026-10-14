@@ -10,7 +10,7 @@
 /*===== Colors =====*/
 :root {
     /* Premium Palette */
-    --first-color: #6C63FF; /* Vibrant Purple/Indigo */
+    --first-color: #5B52EE; /* brand purple, darkened slightly for 4.5:1 text contrast */
     --first-color-second: #4070F4; /* Blue accent */
     --first-color-alt: #5a52d5;
     --text-color: #3f4448; /* Dark Grey for text */
@@ -1169,7 +1169,7 @@ textarea.contact__input { resize: vertical; }
      sun    = honours & awards
    ===================================================================== */
 :root {
-    --c-purple: #6C63FF;
+    --c-purple: #5B52EE;
     --c-green: #10b981;
     --c-sky: #0ea5e9;
     --c-pink: #ec4899;
@@ -1857,3 +1857,86 @@ body .badge, body .badge-status, body .project-tag { border-radius: 999px; }
 
 .lab2__demo { display: inline-block; margin: 0 0 .8rem; padding: .5rem 1rem; border-radius: 999px; background: var(--c-purple); color: #fff !important; font-weight: 700; font-size: .88rem; text-decoration: none; box-shadow: 0 6px 18px rgba(108,99,255,.25); }
 .lab2__demo:hover { transform: translateY(-1px); }
+
+
+/* =====================================================================
+   Refinement pass (taste review, phase 1): contrast, type scale,
+   no resting shadows / gradients / hairlines, sentence-case sublabels.
+   Brand purple, emoji and the mascot are kept on purpose.
+   ===================================================================== */
+:root {
+    --ink-sky: #0369A1; --ink-green: #047857; --ink-pink: #BE185D; --ink-red: #B91C1C; --ink-muted: #5F6368;
+    --tone: #F5F5FA;          /* one tone step from the white page, replaces outlines */
+    --tone-2: #EFEEFB;        /* purple-tinted tone for highlighted surfaces */
+}
+
+/* 1. Contrast */
+.hero__stat--sky strong { color: var(--ink-sky); }
+.hero__stat--mint strong { color: var(--ink-green); }
+.hero__stat span, .footer__copy { color: var(--ink-muted); }
+.home__button--red, .pill-link--red { color: var(--ink-red) !important; border-color: var(--ink-red) !important; }
+.lab2__hot { color: var(--ink-red); }
+.ib-card__tag { color: var(--ink-pink); }
+
+/* 2. Type scale: 13 / 15 / 16 / 20 / 24 / 32 / display (hero left as is) */
+small, .tl__date, .tl__threads, .lab2__kind, .ib-card__tag, .ib-card__new, .biz__proof, .lab2__work-label, .lab2__hot,
+.lab2__work-en, .biz__partners, .footer__copy, .lw-chat__note, .lw-chat__swap, .lw-chat__fun { font-size: 13px !important; }
+.hero__eyebrow, .hero__tag, .chip, .pill-link, .skills__name, .lab2__tab, .lab2__demo, .lab2__count, .lab2__site-sub, .lab2__site-btn,
+.pf-card__sub, .pf-card__more, .ib-card__title, .nav__link-text-zh, .nav__link-content, .area summary, .lab2__more summary { font-size: 15px !important; }
+.l-main p, .l-main li, .tl__what, .lab2__work-tagline, .about__lead, .contact__text, .home__button, .ib-intro { font-size: 16px !important; }
+.l-main h3, .l-main h4, .skills__subtitle, .pf-card__title, .nav__logo, .about__h3 { font-size: 20px !important; }
+.hero__tagline, .biz__lead, .lab2__slogan, .footer__title, .biz__icon { font-size: 24px !important; }
+.about__subtitle, .lab2__site-num { font-size: 32px !important; }
+.hero__tagline .hero__hl, .about__subtitle .about__zh { font-size: inherit !important; }
+
+/* 3. No shadows on things at rest; no gradient fills */
+.l-main *:not(.lw-chat):not(.lw-bot):not(.lw-bubble):not(.nav__sub),
+.footer * { box-shadow: none !important; }
+.home__button, .home__button:hover { box-shadow: none !important; }
+.pf-card--c1 .pf-card__art { background: #5B52EE !important; }
+.pf-card--c2 .pf-card__art { background: #EC4899 !important; }
+.pf-card--c3 .pf-card__art { background: #10B981 !important; }
+.pf-card--c4 .pf-card__art { background: #F59E0B !important; }
+.pf-card--c5 .pf-card__art { background: #0EA5E9 !important; }
+.pf-card--c6 .pf-card__art { background: #8B5CF6 !important; }
+.book-card__cover { background: #5B52EE !important; }
+.book-card--py .book-card__cover { background: #10B981 !important; }
+.lab2__site { background: #5B52EE !important; }
+.biz__hook { background: var(--tone-2) !important; }
+.home { background: #fff !important; }
+
+/* 4. Surfaces by tone, not by outline */
+.skills__group, .area, .biz__card, .biz__steps li, .lab2__works, .en-box, .en-pub, .pub-card, .project-card, .talk-card, .course-card,
+.callout, .book-card, .chip, .lab2__tab, .lab2__arrow, .biz__hook, .pf-card, .contact__container, .contact__info, .tl__threads {
+    border-color: transparent !important; border-style: solid !important;
+}
+.skills__group, .area, .biz__card, .biz__steps li, .lab2__works, .en-box, .en-pub, .chip, .lab2__arrow { background: var(--tone) !important; }
+.lab2__tab { background: var(--tone) !important; color: #3d405b !important; }
+.lab2__tab[aria-selected="true"] { background: var(--c-purple) !important; color: #fff !important; }
+.skills__group { border-top: 0 !important; }
+.area { border-left: 4px solid var(--c-green) !important; }
+.area--sky { border-left-color: var(--c-sky) !important; }
+.biz__card--ask, .lw-chat__fun { background: var(--tone-2) !important; border: 0 !important; }
+.biz__card:hover, .ib-card:hover .ib-card__thumb img { transform: none; }
+.biz__card:hover { background: var(--tone-2) !important; }
+
+/* 6. English sub-labels: sentence case, no tracking */
+.section-title small, .skills__subtitle small, .pf-card__title small {
+    text-transform: none !important; letter-spacing: 0 !important; font-size: 15px !important; font-weight: 500 !important; color: var(--ink-muted) !important;
+}
+
+/* 7. Comfortable line length */
+.l-main p { max-width: 68ch; }
+.ib-intro, .biz__partners, .lab2__desc, .lab2__slogan { margin-left: auto; margin-right: auto; }
+.lab2__desc, .biz__answer, .about__lead, .ib-intro { max-width: 62ch; }
+.hero__stat strong { font-size: 32px !important; }
+.hero__stat span, .lab2__video figcaption, .lab2__poster span, .nav__sublink { font-size: 15px !important; }
+.biz__cta strong { font-size: 20px !important; }
+.biz__cta span { font-size: 16px !important; }
+.nav__header-mobile, .nav__footer-mobile, .footer { border-top: 0 !important; border-bottom: 0 !important; }
+.nav__footer-title { color: var(--ink-muted) !important; text-transform: none !important; letter-spacing: 0 !important; font-size: 13px !important; }
+.lab2__head p, .lab2__foot p { margin-left: 0; margin-right: 0; }
+.hero__stat span { font-size: 13px !important; }
+.skills__name { background: #fff !important; }
+/* sentence case for every small sub-label site-wide (page heroes, callouts, cards) */
+.l-main small, .page-hero__kicker, .page-hero small { text-transform: none !important; letter-spacing: 0 !important; }
