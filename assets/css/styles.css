@@ -1940,3 +1940,5 @@ small, .tl__date, .tl__threads, .lab2__kind, .ib-card__tag, .ib-card__new, .biz_
 .skills__name { background: #fff !important; }
 /* sentence case for every small sub-label site-wide (page heroes, callouts, cards) */
 .l-main small, .page-hero__kicker, .page-hero small { text-transform: none !important; letter-spacing: 0 !important; }
+
+.lab2__kind--joint { background: #E7F6EF; color: #047857; }
