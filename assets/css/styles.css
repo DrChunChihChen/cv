@@ -1956,3 +1956,9 @@ small, .tl__date, .tl__threads, .lab2__kind, .ib-card__tag, .ib-card__new, .biz_
 .lab2__rule { text-align: center; }
 .lab2__rule-eq { justify-content: center; }
 .lab2__rule-title, .lab2__rule-sub, .lab2__rule-note { margin-left: auto; margin-right: auto; }
+#laboratory .lab2__rule p.lab2__rule-title { font-size: 26px !important; }
+@media (max-width: 600px) {
+  #laboratory .lab2__rule p.lab2__rule-title { font-size: 21px !important; }
+  .lab2__rule-eq { flex-direction: column; gap: .35rem; }
+  .lab2__rule-op { line-height: 1; }
+}
