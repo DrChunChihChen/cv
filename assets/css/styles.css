@@ -1970,3 +1970,17 @@ small, .tl__date, .tl__threads, .lab2__kind, .ib-card__tag, .ib-card__new, .biz_
 .lab2__quote figcaption { margin-top: .6rem; font-size: 14px; color: #3f5f55; }
 .lab2__quote figcaption a { color: #047857; font-weight: 700; text-decoration: none; }
 @media (max-width: 600px) { #laboratory .lab2__quote p.lab2__quote-zh { font-size: 18px !important; } }
+/* Lab top: one centered axis (title → head → quote/rule) */
+#laboratory .lab2__head { text-align: center; margin-bottom: 0; }
+#laboratory .lab2__head p.lab2__desc { margin-left: auto; margin-right: auto; max-width: 44em; }
+#laboratory .lab2__rule { margin-top: 1.75rem; padding: 1.75rem 1.6rem 1.6rem; }
+/* quote = supporting epigraph, rule title = the headline */
+#laboratory .lab2__quote { max-width: 42rem; padding-bottom: 1.1rem; margin-bottom: 1.2rem; }
+#laboratory .lab2__quote blockquote { padding-top: 1.2rem; }
+#laboratory .lab2__quote blockquote::before { font-size: 52px; top: -.75rem; }
+#laboratory .lab2__quote p.lab2__quote-zh { font-size: 18px !important; font-weight: 600; color: #1f4d40; }
+#laboratory .lab2__quote p.lab2__quote-en { font-size: 13px !important; }
+#laboratory .lab2__quote figcaption { font-size: 13px; }
+@media (max-width: 600px) { #laboratory .lab2__quote p.lab2__quote-zh { font-size: 16px !important; } #laboratory .lab2__rule { padding: 1.4rem 1.1rem; } }
+#laboratory .lab2__head p, #laboratory .lab2__rule p, #laboratory .lab2__quote figcaption { text-wrap: balance; }
+#laboratory .lab2__head p { margin-left: auto; margin-right: auto; }
