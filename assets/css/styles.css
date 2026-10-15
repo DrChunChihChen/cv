@@ -1942,3 +1942,14 @@ small, .tl__date, .tl__threads, .lab2__kind, .ib-card__tag, .ib-card__new, .biz_
 .l-main small, .page-hero__kicker, .page-hero small { text-transform: none !important; letter-spacing: 0 !important; }
 
 .lab2__kind--joint { background: #E7F6EF; color: #047857; }
+
+/* Lab: capstone rule (competitions + product instead of a written project) */
+.lab2__rule { margin: 1.5rem 0; padding: 1.5rem 1.6rem; border-radius: 1.25rem; background: #E7F6EF; color: #14332a; }
+.lab2__rule-title { margin: 0 0 .35rem; font-size: 24px !important; font-weight: 800; line-height: 1.35; color: #064e3b; max-width: none; }
+.lab2__rule-sub { margin: 0 0 1rem; color: #14332a; }
+.lab2__rule-eq { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem .8rem; }
+.lab2__rule-item { padding: .7rem 1.1rem; border-radius: 999px; background: #fff; color: #064e3b; font-size: 20px; }
+.lab2__rule-item--done { background: #047857; color: #fff; }
+.lab2__rule-op { font-size: 24px; font-weight: 800; color: #047857; }
+.lab2__rule-note { margin: 1rem 0 0; color: #14332a; }
+@media (max-width: 600px) { .lab2__rule-item { font-size: 16px; padding: .55rem .9rem; } .lab2__rule-title { font-size: 20px !important; } }
