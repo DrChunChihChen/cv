@@ -484,6 +484,36 @@ document.querySelectorAll('.lab2__works').forEach(box => {
     if (forced >= 0) i = forced;
     if (i < 0) return;                       // outside the season: normal chibi + pull-ups
 
+    // Cute Halloween sky in the hero: candy rain, floating ghosts, flapping bats
+    (() => {
+        const home = document.getElementById('home');
+        if (!home || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        const R = (a, b) => a + Math.random() * (b - a);
+        const CANDY_C = [['#ff8fb1', '#ffd6e3'], ['#ffa94d', '#ffe0b8'], ['#b197fc', '#e5dbff'], ['#63e6be', '#c3fae8'], ['#ffd43b', '#fff3bf']];
+        const ink = '#3b2f4a';
+        const candy = (c) => `<svg viewBox="0 0 60 30"><path d="M14 15 2 5v20z M46 15 58 5v20z" fill="${c[0]}" stroke="${ink}" stroke-width="2" stroke-linejoin="round"/><ellipse cx="30" cy="15" rx="17" ry="11" fill="${c[0]}" stroke="${ink}" stroke-width="2"/><path d="M22 6q-4 9 0 18M30 4q-4 11 0 22M38 6q-4 9 0 18" stroke="${c[1]}" stroke-width="3" fill="none"/></svg>`;
+        const lolly = (c) => `<svg viewBox="0 0 40 60"><path d="M20 36v22" stroke="#e9e2d0" stroke-width="5" stroke-linecap="round"/><circle cx="20" cy="20" r="17" fill="${c[1]}" stroke="${ink}" stroke-width="2"/><path d="M20 20m-3 0a3 3 0 1 1 6 0a7 7 0 1 1-13 0a11 11 0 1 1 21 1" fill="none" stroke="${c[0]}" stroke-width="3.5" stroke-linecap="round"/></svg>`;
+        const corn = () => `<svg viewBox="0 0 40 44"><path d="M20 3 37 39q-17 6-34 0z" fill="#fff8e7" stroke="${ink}" stroke-width="2" stroke-linejoin="round"/><path d="M11.5 21 28.5 21 37 39q-17 6-34 0z" fill="#ffa94d"/><path d="M7 30 33 30 37 39q-17 6-34 0z" fill="#ffd43b"/><path d="M20 3 37 39q-17 6-34 0z" fill="none" stroke="${ink}" stroke-width="2" stroke-linejoin="round"/></svg>`;
+        const ghost = () => `<svg viewBox="0 0 80 90"><path d="M10 44a30 30 0 0 1 60 0v34l-8-6-8 8-7-8-7 8-8-8-8 6-8 6z" fill="#fff" stroke="${ink}" stroke-width="3" stroke-linejoin="round"/><ellipse cx="30" cy="42" rx="4.5" ry="6" fill="${ink}"/><ellipse cx="50" cy="42" rx="4.5" ry="6" fill="${ink}"/><circle cx="31.5" cy="40" r="1.5" fill="#fff"/><circle cx="51.5" cy="40" r="1.5" fill="#fff"/><ellipse cx="22" cy="52" rx="5" ry="3" fill="#ffc9d9"/><ellipse cx="58" cy="52" rx="5" ry="3" fill="#ffc9d9"/><path d="M36 54q4 4 8 0" fill="none" stroke="${ink}" stroke-width="2.5" stroke-linecap="round"/></svg>`;
+        const bat = () => `<svg viewBox="0 0 100 50"><g class="hwfx-wing hwfx-wing--l"><path d="M42 24Q24 2 4 14q10 2 8 10 8-3 12 5 6-6 12 1z" fill="#5b4b8a" stroke="${ink}" stroke-width="2.5" stroke-linejoin="round"/></g><g class="hwfx-wing hwfx-wing--r"><path d="M58 24Q76 2 96 14q-10 2-8 10-8-3-12 5-6-6-12 1z" fill="#5b4b8a" stroke="${ink}" stroke-width="2.5" stroke-linejoin="round"/></g><path d="M40 16l3-9 5 6h4l5-6 3 9" fill="#5b4b8a" stroke="${ink}" stroke-width="2.5" stroke-linejoin="round"/><ellipse cx="50" cy="26" rx="12" ry="13" fill="#5b4b8a" stroke="${ink}" stroke-width="2.5"/><circle cx="45" cy="23" r="3.2" fill="#fff"/><circle cx="55" cy="23" r="3.2" fill="#fff"/><circle cx="45.6" cy="23.6" r="1.6" fill="${ink}"/><circle cx="55.6" cy="23.6" r="1.6" fill="${ink}"/><path d="M47 31l1.5 2.5 1.5-2.5 1.5 2.5 1.5-2.5" fill="none" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/></svg>`;
+        const layer = document.createElement('div'); layer.className = 'hwfx'; layer.setAttribute('aria-hidden', 'true');
+        const small = innerWidth < 700, add = (cls, html, css) => { const d = document.createElement('div'); d.className = cls; d.innerHTML = html; Object.assign(d.style, css); layer.appendChild(d); return d; };
+        for (let n = 0; n < (small ? 9 : 16); n++) {
+            const c = CANDY_C[n % CANDY_C.length], kind = n % 5, dur = R(8, 14);
+            const html = kind === 3 ? lolly(c) : kind === 4 ? corn() : candy(c);
+            add('hwfx-fall', `<div class="hwfx-spin">${html}</div>`, { left: R(2, 96) + '%', width: (kind === 3 ? R(22, 30) : kind === 4 ? R(18, 24) : R(30, 42)) + 'px', animationDuration: dur + 's', animationDelay: -R(0, dur) + 's', '--sway': R(-40, 40) + 'px', '--spin': (R(0, 1) > .5 ? 1 : -1) * R(180, 540) + 'deg' });
+        }
+        for (let n = 0; n < (small ? 2 : 3); n++) {
+            const dur = R(20, 30);
+            add('hwfx-across hwfx-across--' + (n % 2 ? 'rtl' : 'ltr'), `<div class="hwfx-bob">${ghost()}</div>`, { top: R(10, 70) + '%', width: R(46, 64) + 'px', animationDuration: dur + 's', animationDelay: -R(0, dur) + 's' });
+        }
+        for (let n = 0; n < (small ? 2 : 3); n++) {
+            const dur = R(11, 17);
+            add('hwfx-across hwfx-bat hwfx-across--' + (n % 2 ? 'ltr' : 'rtl'), `<div class="hwfx-zig">${bat()}</div>`, { top: R(4, 40) + '%', width: R(54, 72) + 'px', animationDuration: dur + 's', animationDelay: -R(0, dur) + 's' });
+        }
+        home.prepend(layer);
+        if ('IntersectionObserver' in window) new IntersectionObserver(es => layer.classList.toggle('is-paused', !es[0].isIntersecting)).observe(home);
+    })();
     box.dataset.hw = '1';
     box.classList.add('is-halloween');
     const left = 31 - (parts[1] === 10 ? parts[2] : 31);

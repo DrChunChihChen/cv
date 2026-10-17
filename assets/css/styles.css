@@ -2031,3 +2031,25 @@ small, .tl__date, .tl__threads, .lab2__kind, .ib-card__tag, .ib-card__new, .biz_
 @keyframes hw-pop { 0% { transform: scale(.92) rotate(-3deg); opacity: .4; } 100% { transform: none; opacity: 1; } }
 @media (prefers-reduced-motion: reduce) { .hero__photo--chibi.hw-pop img { animation: none; } }
 .hero__photo--chibi.is-halloween .hero__tag--2 { top: 62%; }
+/* Halloween sky (hero only, behind content) */
+.hwfx { position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
+#home .home__container { position: relative; z-index: 1; }
+.hwfx.is-paused * { animation-play-state: paused !important; }
+.hwfx svg { display: block; width: 100%; height: auto; overflow: visible; }
+.hwfx-fall { position: absolute; top: 0; opacity: .8; animation: hwfx-fall linear infinite; will-change: transform; }
+.hwfx-spin { animation: hwfx-spin 6s linear infinite; }
+@keyframes hwfx-fall { from { transform: translate(0, -60px); } 50% { transform: translate(var(--sway, 0), 50vh); } to { transform: translate(0, 105vh); } }
+@keyframes hwfx-spin { to { transform: rotate(var(--spin, 360deg)); } }
+.hwfx-across { position: absolute; left: 0; animation: hwfx-ltr linear infinite; will-change: transform; }
+.hwfx-across--rtl { animation-name: hwfx-rtl; }
+.hwfx-across--rtl svg { transform: scaleX(-1); }
+@keyframes hwfx-ltr { from { transform: translateX(-120px); } to { transform: translateX(calc(100vw + 40px)); } }
+@keyframes hwfx-rtl { from { transform: translateX(calc(100vw + 40px)); } to { transform: translateX(-120px); } }
+.hwfx-bob { animation: hwfx-bob 3.2s ease-in-out infinite; opacity: .92; }
+@keyframes hwfx-bob { 0%, 100% { transform: translateY(0) rotate(-4deg); } 50% { transform: translateY(-18px) rotate(4deg); } }
+.hwfx-zig { animation: hwfx-zig 2.6s ease-in-out infinite; }
+@keyframes hwfx-zig { 0%, 100% { transform: translateY(0); } 25% { transform: translateY(-22px); } 75% { transform: translateY(16px); } }
+.hwfx-wing { transform-box: fill-box; animation: hwfx-flap .28s ease-in-out infinite alternate; }
+.hwfx-wing--l { transform-origin: 100% 60%; }
+.hwfx-wing--r { transform-origin: 0% 60%; }
+@keyframes hwfx-flap { from { transform: scaleY(1) rotate(0); } to { transform: scaleY(.45) rotate(0); } }
