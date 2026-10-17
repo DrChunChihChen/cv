@@ -1989,3 +1989,8 @@ small, .tl__date, .tl__threads, .lab2__kind, .ib-card__tag, .ib-card__new, .biz_
 #laboratory .lab2__desc strong { white-space: nowrap; }
 #laboratory .lab2__desc .nw { white-space: nowrap; }
 @media (max-width: 359px) { #laboratory .lab2__desc .nw, #laboratory .lab2__desc strong { white-space: normal; } }
+/* Contact: cartoon avatar */
+.contact__me { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.4rem; }
+.contact__me img { width: 88px; height: 88px; flex: none; border-radius: 50%; background: var(--tone-2, #EFEEFB); padding: 4px 6px 0; }
+.contact__me strong { display: block; font-size: 1.15rem; color: var(--title-color, #17133a); }
+.contact__me span { display: block; margin-top: .15rem; font-size: .92rem; color: var(--text-color); }
