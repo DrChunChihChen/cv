@@ -1,19 +1,39 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="16" fill="#5B52EE"/>
-  <svg x="2" y="4" width="60" height="60" viewBox="58 36 284 284">
-  <g stroke="#111" stroke-width="4" stroke-linecap="round"
-     stroke-linejoin="round" fill="white">
-    <!-- Neck -->
-    <path d="M157 315 Q160 341 156 366 Q200 386 245 366 Q241 341 244 315 Z"
-          stroke="none"/>
-    <path d="M157 315 Q160 341 156 366 M244 315 Q241 341 245 366"
-          fill="none"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="16" fill="#5B52EE"/><svg x="1" y="3" width="62" height="62" viewBox="102 80 276 276">
 
-    <!-- Collar (crew neck) -->
-    <path d="M136 362 Q200 388 264 362" fill="none"/>
-
+<g id="outfit" stroke="#252633" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+  <g id="short-jeans" fill="#537eab">
+    <path d="M184 450 Q240 464 296 450 L301 496 L300 546 L252 546 L247 508 L240 493 L233 508 L228 546 L180 546 L179 496 Z"/>
+    <path d="M190 468 Q240 478 290 468 M240 473 V494 M190 482 Q192 496 207 498 M290 482 Q288 496 273 498" fill="none" stroke="#304c6d" stroke-width="2.5"/>
+    <path d="M181 529 H229 L228 546 H180 Z M251 529 H299 L300 546 H252 Z" fill="#87a8c6"/>
+    <path d="M188 538 H221 M259 538 H292" stroke="#c4d5e3" stroke-width="2"/>
+  </g>
+  <g id="chunky-sneakers">
+    <path d="M184 545 H225 L229 564 Q237 575 227 582 H153 Q146 568 160 563 L178 558 Z" fill="#a3a7ae"/>
+    <path d="M255 545 H296 L302 558 L320 563 Q334 568 327 582 H253 Q243 575 251 564 Z" fill="#a3a7ae"/>
+    <path d="M153 574 Q191 578 231 574 L227 586 H154 Z M249 574 Q289 578 327 574 L326 586 H253 Z" fill="#f8f7f0"/>
+    <path d="M186 551 L204 553 M182 557 L203 560 M179 564 L202 566 M294 551 L276 553 M298 557 L277 560 M301 564 L278 566" fill="none" stroke="#f8f7f0" stroke-width="3"/>
+  </g>
+  <g id="short-sleeves" fill="#25262c">
+    <path d="M189 365 Q163 367 151 388 L139 418 Q137 427 147 436 L172 454 L186 435 L168 418 L184 397 Z"/>
+    <path d="M291 365 Q317 367 329 388 L341 418 Q343 427 333 436 L308 454 L294 435 L312 418 L296 397 Z"/>
+    <path d="M157 399 L153 412 M323 399 L327 412" fill="none" stroke="#51515a" stroke-width="2.5"/>
+  </g>
+  <g id="turtleneck">
+    <path d="M208 357 Q183 360 174 377 L178 407 L174 459 Q240 479 306 459 L302 407 L306 377 Q297 360 272 357 Z" fill="#25262c"/>
+    <path d="M211 343 Q240 349 269 343 L272 368 Q240 380 208 368 Z" fill="#303139"/>
+    <path d="M214 356 Q240 363 266 356 M182 453 Q240 468 298 453" fill="none" stroke="#51515a" stroke-width="2.5"/>
+    <path d="M186 390 L190 408 M294 390 L290 408" fill="none" stroke="#40414b" stroke-width="2.5"/>
+  </g>
+  <g id="hands" fill="#fff9ed">
+    <path d="M172 435 Q180 431 186 438 L194 449 Q197 456 191 456 L185 449 L185 460 Q180 465 175 459 L165 449 Z"/>
+    <path d="M308 435 Q300 431 294 438 L286 449 Q283 456 289 456 L295 449 L295 460 Q300 465 305 459 L315 449 Z"/>
+    <path d="M175 447 L180 456 M305 447 L300 456" fill="none" stroke-width="2"/>
+  </g>
+  <g id="cuffs" fill="#303139"><path d="M160 433 L171 424 L183 436 L171 449 Z"/><path d="M320 433 L309 424 L297 436 L309 449 Z"/></g>
+</g><path id="neck" d="M215 329 H265 V345 Q240 351 215 345 Z" fill="#fff9ed" stroke="#252633" stroke-width="3"/><g id="head" transform="translate(10.5 56) scale(1.1475 .85)">  <g stroke="#111" stroke-width="4" stroke-linecap="round"
+     stroke-linejoin="round" fill="#fff9ed">
     <!-- Ears -->
-    <g id="ears">
+    <g id="portrait-ears">
       <path d="M122 207 C97 185 91 211 101 240 Q110 264 127 252 Z"/>
       <path d="M278 207 C303 185 309 211 299 240 Q290 264 273 252 Z"/>
       <path d="M107 213 Q122 223 115 231 L117 240
@@ -21,12 +41,13 @@
     </g>
 
     <!-- Face -->
-    <path id="face" d="M120 157 Q124 110 200 109 Q276 110 280 157
+    <path id="portrait-face" d="M120 157 Q124 110 200 109 Q276 110 280 157
       L274 256 Q272 286 252 306 L226 329 Q201 345 176 331
       L148 307 Q127 287 125 260 Z"/>
 
+    <g id="portrait-cheeks" fill="#f1b7a7" fill-opacity=".40" stroke="none"><ellipse cx="145" cy="259" rx="11" ry="6"/><ellipse cx="255" cy="256" rx="11" ry="6"/></g>
     <!-- Hair: one solid silhouette -->
-    <path id="hair" fill="#111" d="
+    <path id="portrait-hair" fill="#111" stroke-width="2" d="
       M117 208 Q105 164 118 127 L116 113 L127 122
       L132 91 L142 103 L151 68 L162 82 L174 42
       Q197 46 216 65 L212 48 Q250 62 269 94
@@ -35,36 +56,38 @@
       Q213 121 194 125 Q143 119 130 153 Z"/>
 
     <!-- Brows -->
-    <g id="brows" fill="none" stroke-width="6">
-      <path d="M140 186 Q157 178 177 183"/>
-      <path d="M223 183 Q243 178 260 186"/>
+    <g id="portrait-brows" fill="none" stroke-width="6">
+      <path d="M140 187 Q157 179 177 184"/>
+      <path d="M222 182 Q243 175 260 183"/>
     </g>
 
-    <!-- Glasses: round frames -->
-    <g id="glasses" fill="none" stroke-width="3.5">
-      <circle cx="158" cy="217" r="27"/>
-      <circle cx="242" cy="217" r="27"/>
-      <path d="M185 214 Q200 207 215 214 M120 210 L131 213
-               M269 213 L280 210"/>
+    <!-- Glasses -->
+    <g id="portrait-glasses" fill="none" stroke-width="3.5">
+      <path d="M130 204 Q133 196 157 196 Q180 195 186 204
+        Q190 220 181 237 Q173 244 148 241 Q131 240 130 204 Z"/>
+      <path d="M213 203 Q218 193 243 193 Q267 192 270 202
+        Q271 227 261 236 Q247 243 227 237 Q215 234 213 203 Z"/>
+      <path d="M187 207 Q200 201 213 206 M120 202 L130 204
+               M270 200 L281 200"/>
     </g>
 
     <!-- Eyes -->
-    <g id="eyes">
-      <path d="M145 211 Q158 200 171 210 M229 210 Q242 200 255 211"
+    <g id="portrait-eyes">
+      <path d="M144 212 Q157 201 171 211 M229 208 Q243 197 256 208"
             fill="none" stroke-width="3"/>
       <g fill="#111" stroke="none">
-        <ellipse cx="159" cy="216" rx="4.5" ry="7"/>
-        <ellipse cx="241" cy="216" rx="4.5" ry="7"/>
+        <ellipse cx="159" cy="215" rx="5.5" ry="8"/>
+        <ellipse cx="241" cy="211" rx="5.5" ry="8"/>
       </g>
     </g>
 
     <!-- Nose and smile -->
     <g fill="none">
-      <path id="nose" d="M195 236 L188 256 Q187 261 208 258"/>
-      <path id="mouth" d="M176 282 Q201 287 225 276"/>
+      <path id="portrait-nose" d="M195 233 L188 255 Q187 260 208 257"/>
+      <path id="portrait-mouth" d="M176 282 Q201 287 225 276"/>
       <path d="M169 275 Q165 278 165 282 M232 271 Q237 274 237 279"
             stroke-width="2.5"/>
     </g>
   </g>
-  </svg>
-</svg>
+</g>
+</svg></svg>

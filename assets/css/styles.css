@@ -1994,3 +1994,9 @@ small, .tl__date, .tl__threads, .lab2__kind, .ib-card__tag, .ib-card__new, .biz_
 .contact__me img { width: 88px; height: 88px; flex: none; border-radius: 50%; background: var(--tone-2, #EFEEFB); padding: 4px 6px 0; }
 .contact__me strong { display: block; font-size: 1.15rem; color: var(--title-color, #17133a); }
 .contact__me span { display: block; margin-top: .15rem; font-size: .92rem; color: var(--text-color); }
+/* Hero: chibi portrait on a soft tone card */
+.hero__photo--chibi { aspect-ratio: 4 / 5; border-radius: 2rem; background: var(--tone-2, #EFEEFB); display: flex; align-items: flex-end; justify-content: center; }
+.hero__photo--chibi img { width: auto; height: 92%; aspect-ratio: auto; object-fit: contain; border-radius: 0; box-shadow: none; transform: none; margin-bottom: 4%; transition: transform .35s ease; transform-origin: 50% 100%; }
+.hero__photo--chibi:hover img { transform: rotate(-2deg) translateY(-4px); }
+@media (prefers-reduced-motion: reduce) { .hero__photo--chibi:hover img { transform: none; } }
+.contact__me img { padding: 0; }
