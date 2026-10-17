@@ -516,6 +516,25 @@ document.querySelectorAll('.lab2__works').forEach(box => {
     })();
     box.dataset.hw = '1';
     const homeEl = document.getElementById('home'); if (homeEl) homeEl.classList.add('hw-night');
+    // Halloween music: two tracks taking turns, starts only when the visitor taps the button
+    (() => {
+        const tracks = ['assets/audio/halloween-cute-pumpkin.mp3', 'assets/audio/halloween-waltz.mp3'];
+        const L = EN ? { on: '🎵 Halloween music', off: '🔇 Pause music', label: 'Play or pause Halloween music' }
+                     : { on: '🎵 播放萬聖節音樂', off: '🔇 暫停音樂', label: '播放或暫停萬聖節音樂' };
+        const audio = new Audio(); audio.preload = 'none'; audio.volume = .35;
+        let t = 0, playing = false, resumeOnShow = false;
+        const btn = document.createElement('button'); btn.type = 'button'; btn.className = 'hw-music';
+        btn.setAttribute('aria-label', L.label); btn.setAttribute('aria-pressed', 'false'); btn.textContent = L.on;
+        document.body.appendChild(btn);
+        const set = (on) => { playing = on; btn.textContent = on ? L.off : L.on; btn.setAttribute('aria-pressed', String(on)); btn.classList.toggle('is-on', on); };
+        const start = () => { if (!audio.src) audio.src = tracks[t]; audio.play().then(() => set(true)).catch(() => set(false)); };
+        audio.addEventListener('ended', () => { t = (t + 1) % tracks.length; audio.src = tracks[t]; audio.play().catch(() => set(false)); });
+        btn.addEventListener('click', () => { if (playing) { audio.pause(); set(false); } else start(); });
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden && playing) { resumeOnShow = true; audio.pause(); set(false); }
+            else if (!document.hidden && resumeOnShow) { resumeOnShow = false; start(); }
+        });
+    })();
     box.classList.add('is-halloween');
     const left = 31 - (parts[1] === 10 ? parts[2] : 31);
     const label = document.createElement('span'); label.className = 'hw-label'; label.setAttribute('aria-live', 'polite');

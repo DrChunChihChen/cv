@@ -2070,3 +2070,8 @@ small, .tl__date, .tl__threads, .lab2__kind, .ib-card__tag, .ib-card__new, .biz_
 #home.hw-night .hero__tag { background: rgba(255,255,255,.92); }
 #home.hw-night .home__buttons a + a { background: transparent !important; color: #e4e0ff !important; border-color: #8f86ff !important; }
 #home.hw-night .home__buttons .home__button--red { color: #ffb0b0 !important; border-color: #ff8080 !important; }
+/* Halloween music toggle */
+.hw-music { position: fixed; left: 16px; bottom: 16px; z-index: 60; padding: .55rem .95rem; border: 0; border-radius: 999px; background: #2b1d3a; color: #ffd08a; font: inherit; font-size: .85rem; font-weight: 800; cursor: pointer; box-shadow: 0 6px 18px rgba(23,19,58,.25); }
+.hw-music:hover { background: #3a2a6b; }
+.hw-music:focus-visible { outline: 3px solid #ffd08a; outline-offset: 3px; }
+.hw-music.is-on { background: #ffd08a; color: #2b1d3a; }
