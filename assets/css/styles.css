@@ -2053,3 +2053,20 @@ small, .tl__date, .tl__threads, .lab2__kind, .ib-card__tag, .ib-card__new, .biz_
 .hwfx-wing--l { transform-origin: 100% 60%; }
 .hwfx-wing--r { transform-origin: 0% 60%; }
 @keyframes hwfx-flap { from { transform: scaleY(1) rotate(0); } to { transform: scaleY(.45) rotate(0); } }
+/* Halloween night: hero only, 10/17–10/31 */
+#home.hw-night { background: radial-gradient(1200px 640px at 75% 30%, #3a2a6b 0%, #1b1532 45%, #120e22 100%) !important; }
+#home.hw-night::before, #home.hw-night::after { opacity: 0 !important; }
+#home.hw-night .hero__eyebrow { background: rgba(255,255,255,.1); color: #e4e0ff; }
+#home.hw-night .hero__title { color: #fff; }
+#home.hw-night .hero__title-accent { color: #b9b2ff; }
+#home.hw-night .hero__tagline, #home.hw-night .hero__tagline * { color: #f3f0ff; }
+#home.hw-night .hero__hl { background: none; color: #ffd08a !important; }
+#home.hw-night .hero__role, #home.hw-night .hero__role span { color: #c9c3e6; }
+#home.hw-night .home__button--ghost { background: transparent; color: #d9d4ff; border-color: #8f86ff; }
+#home.hw-night .home__button--red { background: transparent; color: #ffa3a3; border-color: #ff8080; }
+#home.hw-night .hero__photo--chibi::before { content: ""; position: absolute; left: 50%; top: 46%; width: 94%; aspect-ratio: 1; transform: translate(-50%, -50%); border-radius: 50%; background: radial-gradient(circle, #fff6d9 0 54%, rgba(255,246,217,.35) 63%, rgba(255,246,217,0) 72%); pointer-events: none; }
+#home.hw-night .hero__photo--chibi img { position: relative; }
+#home.hw-night .hw-label { background: #ffd08a; color: #2b1d3a; }
+#home.hw-night .hero__tag { background: rgba(255,255,255,.92); }
+#home.hw-night .home__buttons a + a { background: transparent !important; color: #e4e0ff !important; border-color: #8f86ff !important; }
+#home.hw-night .home__buttons .home__button--red { color: #ffb0b0 !important; border-color: #ff8080 !important; }

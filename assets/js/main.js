@@ -498,8 +498,8 @@ document.querySelectorAll('.lab2__works').forEach(box => {
         const bat = () => `<svg viewBox="0 0 100 50"><g class="hwfx-wing hwfx-wing--l"><path d="M42 24Q24 2 4 14q10 2 8 10 8-3 12 5 6-6 12 1z" fill="#5b4b8a" stroke="${ink}" stroke-width="2.5" stroke-linejoin="round"/></g><g class="hwfx-wing hwfx-wing--r"><path d="M58 24Q76 2 96 14q-10 2-8 10-8-3-12 5-6-6-12 1z" fill="#5b4b8a" stroke="${ink}" stroke-width="2.5" stroke-linejoin="round"/></g><path d="M40 16l3-9 5 6h4l5-6 3 9" fill="#5b4b8a" stroke="${ink}" stroke-width="2.5" stroke-linejoin="round"/><ellipse cx="50" cy="26" rx="12" ry="13" fill="#5b4b8a" stroke="${ink}" stroke-width="2.5"/><circle cx="45" cy="23" r="3.2" fill="#fff"/><circle cx="55" cy="23" r="3.2" fill="#fff"/><circle cx="45.6" cy="23.6" r="1.6" fill="${ink}"/><circle cx="55.6" cy="23.6" r="1.6" fill="${ink}"/><path d="M47 31l1.5 2.5 1.5-2.5 1.5 2.5 1.5-2.5" fill="none" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/></svg>`;
         const layer = document.createElement('div'); layer.className = 'hwfx'; layer.setAttribute('aria-hidden', 'true');
         const small = innerWidth < 700, add = (cls, html, css) => { const d = document.createElement('div'); d.className = cls; d.innerHTML = html; Object.assign(d.style, css); layer.appendChild(d); return d; };
-        for (let n = 0; n < (small ? 9 : 16); n++) {
-            const c = CANDY_C[n % CANDY_C.length], kind = n % 5, dur = R(8, 14);
+        for (let n = 0; n < (small ? 5 : 9); n++) {
+            const c = CANDY_C[n % CANDY_C.length], kind = n % 5, dur = R(8, 14) / .7;
             const html = kind === 3 ? lolly(c) : kind === 4 ? corn() : candy(c);
             add('hwfx-fall', `<div class="hwfx-spin">${html}</div>`, { left: R(2, 96) + '%', width: (kind === 3 ? R(22, 30) : kind === 4 ? R(18, 24) : R(30, 42)) + 'px', animationDuration: dur + 's', animationDelay: -R(0, dur) + 's', '--sway': R(-40, 40) + 'px', '--spin': (R(0, 1) > .5 ? 1 : -1) * R(180, 540) + 'deg' });
         }
@@ -515,6 +515,7 @@ document.querySelectorAll('.lab2__works').forEach(box => {
         if ('IntersectionObserver' in window) new IntersectionObserver(es => layer.classList.toggle('is-paused', !es[0].isIntersecting)).observe(home);
     })();
     box.dataset.hw = '1';
+    const homeEl = document.getElementById('home'); if (homeEl) homeEl.classList.add('hw-night');
     box.classList.add('is-halloween');
     const left = 31 - (parts[1] === 10 ? parts[2] : 31);
     const label = document.createElement('span'); label.className = 'hw-label'; label.setAttribute('aria-live', 'polite');
