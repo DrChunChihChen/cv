@@ -459,3 +459,71 @@ document.querySelectorAll('.lab2__works').forEach(box => {
     else visible = true;
     requestAnimationFrame(loop);
 })();
+
+/*===== Hero easter egg: the chibi does pull-ups (click / tap / Enter) =====*/
+(() => {
+    const box = document.querySelector('.hero__photo--chibi');
+    const img = box && box.querySelector('img');
+    if (!img) return;
+    const EN = (document.documentElement.lang || '').toLowerCase().startsWith('en');
+    const T = EN ? { hint: 'Tap me 💪', label: 'Watch Elvis do pull-ups', done: 'He can do 20 in a row 💪' }
+                 : { hint: '點我 💪', label: '看老師拉單槓', done: '老師一次能拉 20 下 💪' };
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    box.classList.add('has-pullup');
+    box.setAttribute('role', 'button'); box.tabIndex = 0; box.setAttribute('aria-label', T.label);
+    const stage = document.createElement('div'); stage.className = 'pu-stage'; stage.setAttribute('aria-hidden', 'true');
+    const bubble = document.createElement('span'); bubble.className = 'pu-bubble'; bubble.setAttribute('role', 'status'); bubble.setAttribute('aria-live', 'polite');
+    const hint = document.createElement('span'); hint.className = 'pu-hint'; hint.textContent = T.hint;
+    box.append(stage, bubble, hint);
+
+    let svg, body, arms = [], busy = false;
+    const SH = [[188, 388], [292, 388]], HAND = [[112, 70], [368, 70]], TOP = -285;
+    const L0 = Math.hypot(SH[0][0] - HAND[0][0], SH[0][1] - HAND[0][1]);
+    function pose(ty) {
+        body.setAttribute('transform', `translate(0 ${ty.toFixed(1)})`);
+        arms.forEach(p => {
+            const i = p.classList.contains('pu-arm--l') ? 0 : 1, dir = i ? 1 : -1;
+            const sx = SH[i][0], sy = SH[i][1] + ty, hx = HAND[i][0], hy = HAND[i][1];
+            const d = Math.hypot(sx - hx, sy - hy), bend = Math.sqrt(Math.max(0, L0 * L0 - d * d)) * .55;
+            const mx = (sx + hx) / 2 + dir * bend, my = (sy + hy) / 2;
+            p.setAttribute('d', `M${sx} ${sy} Q${mx.toFixed(1)} ${my.toFixed(1)} ${hx} ${hy}`);
+        });
+    }
+    async function load() {
+        if (svg) return true;
+        try {
+            const r = await fetch('assets/img/chibi-pullup.svg?v=2'); if (!r.ok) return false;
+            stage.innerHTML = await r.text(); svg = stage.querySelector('svg');
+            body = svg.querySelector('.pu-body'); arms = [...svg.querySelectorAll('.pu-arm, .pu-arm-in')];
+            pose(0); return true;
+        } catch (e) { return false; }
+    }
+    const say = (t) => { bubble.textContent = t; bubble.classList.toggle('is-on', !!t); };
+    const wait = (ms) => new Promise(r => setTimeout(r, ms));
+    function tween(from, to, ms) {
+        return new Promise(res => {
+            const t0 = performance.now();
+            const step = (now) => {
+                const k = Math.min(1, (now - t0) / ms), e = k < .5 ? 2 * k * k : 1 - Math.pow(-2 * k + 2, 2) / 2;
+                pose(from + (to - from) * e);
+                k < 1 ? requestAnimationFrame(step) : res();
+            };
+            requestAnimationFrame(step);
+        });
+    }
+    async function play() {
+        if (busy) return; busy = true;
+        if (!(await load())) { busy = false; return; }
+        hint.classList.add('is-gone');
+        box.classList.add('is-pulling');
+        await wait(250);
+        if (reduce) { pose(TOP); say(T.done); await wait(2200); }
+        else {
+            for (let n = 1; n <= 3; n++) { await tween(0, TOP, 520); say(String(n)); await wait(140); await tween(TOP, 0, 480); }
+            say(T.done); await wait(1700);
+        }
+        say(''); box.classList.remove('is-pulling'); await wait(300); pose(0); busy = false;
+    }
+    box.addEventListener('click', play);
+    box.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); play(); } });
+})();
