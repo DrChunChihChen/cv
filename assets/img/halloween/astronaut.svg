@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 520" width="400" height="520" role="img" aria-labelledby="astronaut-title">
+<title id="astronaut-title">Your portrait in the 太空人 Astronaut outfit</title>
+<g class="character" stroke="#22211f" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+<g class="outfit"><rect x="77" y="332" width="246" height="149" rx="26" fill="#a3b5b6"/><path d="M82 367H318" fill="none"/><defs><clipPath id="astronaut-neck-clip"><path class="neck-clip" d="M174 314 Q170 337 155 359 Q200 387 245 359 Q230 337 226 314 Z"/></clipPath></defs>
+<path class="neck-skin" fill="#f4eee2" d="M174 314 Q170 337 155 359 Q200 387 245 359 Q230 337 226 314 Z"/>
+<g clip-path="url(#astronaut-neck-clip)"><path class="neck-shadow" fill="#272724" fill-opacity=".12" stroke="none" d="M174 327 Q200 342 226 327 L231 346 Q200 360 169 346 Z"/></g><path fill="#ece9dc" d="M155 351 Q137 356 105 367 Q64 380 57 425 L49 487 Q200 506 351 487 L343 425 Q336 380 295 367 Q263 356 245 351 Q200 376 155 351 Z"/><defs><clipPath id="astronaut-body-clip"><path d="M155 351 Q137 356 105 367 Q64 380 57 425 L49 487 Q200 506 351 487 L343 425 Q336 380 295 367 Q263 356 245 351 Q200 376 155 351 Z"/></clipPath></defs><g clip-path="url(#astronaut-body-clip)"><path fill="#a3b5b6" d="M151 351Q200 377 249 351L261 370Q200 406 139 370Z"/><rect x="156" y="410" width="88" height="56" rx="8" fill="#728c98"/><rect x="167" y="420" width="40" height="21" rx="3" fill="#d3e8db"/><circle cx="226" cy="426" r="5" fill="#d5884e"/><circle cx="226" cy="448" r="5" fill="#eed395"/><path d="M167 453H204M83 425L111 430M79 439L107 444M317 425L289 430M321 439L293 444" fill="none"/><path d="M128 410Q113 448 141 478" fill="none" stroke="#d5b470" stroke-width="10"/><circle cx="285" cy="396" r="13" fill="#d5884e"/><path d="M281 387L279 398H289L284 406" fill="none" stroke="#fff7dc"/></g></g>
+<g class="head">  <g stroke="#111" stroke-width="4" stroke-linecap="round"
+     stroke-linejoin="round" fill="#f4eee2">
+    <!-- Ears -->
+    <g id="astronaut-ears" class="ears">
+      <path d="M122 207 C97 185 91 211 101 240 Q110 264 127 252 Z"/>
+      <path d="M278 207 C303 185 309 211 299 240 Q290 264 273 252 Z"/>
+      <path d="M107 213 Q122 223 115 231 L117 240
+               M293 213 Q278 223 285 231 L283 240" fill="none"/>
+    </g>
+
+    <!-- Face -->
+    <path id="astronaut-face" class="face" d="M120 157 Q124 110 200 109 Q276 110 280 157
+      L274 256 Q272 286 252 306 L226 329 Q201 345 176 331
+      L148 307 Q127 287 125 260 Z"/>
+
+    <!-- Hair: one solid silhouette -->
+    <path id="astronaut-hair" class="hair" fill="#111" stroke-width="2" d="
+      M117 208 Q105 164 118 127 L116 113 L127 122
+      L132 91 L142 103 L151 68 L162 82 L174 42
+      Q197 46 216 65 L212 48 Q250 62 269 94
+      L272 77 Q288 105 287 125 L293 116 Q302 156 285 207
+      L278 183 L265 133 Q249 122 231 119 L237 126
+      Q213 121 194 125 Q143 119 130 153 Z"/>
+
+    <!-- Brows -->
+    <g id="astronaut-brows" class="brows" fill="none" stroke-width="6">
+      <path d="M140 187 Q157 179 177 184"/>
+      <path d="M222 182 Q243 175 260 183"/>
+    </g>
+
+    <!-- Glasses -->
+    <g id="astronaut-glasses" class="glasses" fill="none" stroke-width="3.5">
+      <path d="M130 204 Q133 196 157 196 Q180 195 186 204
+        Q190 220 181 237 Q173 244 148 241 Q131 240 130 204 Z"/>
+      <path d="M213 203 Q218 193 243 193 Q267 192 270 202
+        Q271 227 261 236 Q247 243 227 237 Q215 234 213 203 Z"/>
+      <path d="M187 207 Q200 201 213 206 M120 202 L130 204
+               M270 200 L281 200"/>
+    </g>
+
+    <!-- Eyes -->
+    <g id="astronaut-eyes" class="eyes">
+      <path d="M144 212 Q157 201 171 211 M229 208 Q243 197 256 208"
+            fill="none" stroke-width="3"/>
+      <g fill="#111" stroke="none">
+        <ellipse cx="159" cy="215" rx="4.5" ry="7"/>
+        <ellipse cx="241" cy="211" rx="4.5" ry="7"/>
+      </g>
+    </g>
+
+    <!-- Nose and smile -->
+    <g fill="none">
+      <path id="astronaut-nose" class="nose" d="M195 233 L188 255 Q187 260 208 257"/>
+      <path id="astronaut-mouth" class="mouth" d="M176 282 Q201 287 225 276"/>
+      <path d="M169 275 Q165 278 165 282 M232 271 Q237 274 237 279"
+            stroke-width="2.5"/>
+    </g>
+  </g>
+<g class="headgear" data-hide="" opacity="1" stroke-width="3.5"><path fill="#e9e5d7" fill-rule="evenodd" d="M200 21C99 21 69 91 77 218Q79 304 151 342Q200 362 249 342Q321 304 323 218C331 91 301 21 200 21Z M200 46C119 46 95 106 99 210Q101 288 159 316Q200 337 241 316Q299 288 301 210C305 106 281 46 200 46Z"/><path d="M119 101Q145 62 188 61M111 116L107 132" stroke="#fffefa" stroke-width="9" fill="none"/><path d="M281 272L270 289" stroke="#9ebbc3" stroke-width="5" fill="none"/><rect x="67" y="171" width="32" height="69" rx="12" fill="#8ea6ac"/><rect x="301" y="171" width="32" height="69" rx="12" fill="#8ea6ac"/><circle cx="83" cy="205" r="8" fill="#d8c08d"/><circle cx="317" cy="205" r="8" fill="#d8c08d"/></g></g>
+</g></svg>

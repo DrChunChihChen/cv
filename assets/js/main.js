@@ -460,11 +460,58 @@ document.querySelectorAll('.lab2__works').forEach(box => {
     requestAnimationFrame(loop);
 })();
 
-/*===== Hero easter egg: the chibi does pull-ups (click / tap / Enter) =====*/
+/*===== Halloween wardrobe: a new costume every day from 10/17 to 10/31 (Taipei time) =====*/
 (() => {
     const box = document.querySelector('.hero__photo--chibi');
     const img = box && box.querySelector('img');
     if (!img) return;
+    const EN = (document.documentElement.lang || '').toLowerCase().startsWith('en');
+    // [file, 中文, English] — one per day, 10/17 … 10/31; the last two only appear when clicking through
+    const C = [
+        ['blackcat', '黑貓', 'Black Cat'], ['mushroom', '蘑菇精靈', 'Mushroom Sprite'], ['bee', '小蜜蜂', 'Bumblebee'],
+        ['astronaut', '太空人', 'Astronaut'], ['robot', '機器人', 'Robot'], ['dinosaur', '恐龍睡衣', 'Dino Onesie'],
+        ['pirate', '海盜', 'Pirate'], ['wizard', '巫師', 'Wizard'], ['jiangshi', '殭屍道長', 'Jiangshi'],
+        ['mummy', '木乃伊', 'Mummy'], ['skeleton', '骷髏', 'Skeleton'], ['frankenstein', '科學怪人', 'Frankenstein'],
+        ['pumpkin', '南瓜', 'Pumpkin'], ['vampire', '吸血鬼', 'Vampire'], ['pumpkinlord', '南瓜紳士', 'Pumpkin Lord'],
+        ['diver', '復古潛水員', 'Retro Diver'], ['ghostchef', '幽靈甜點師', 'Ghost Pastry Chef'],
+    ];
+    const q = new URLSearchParams(location.search).get('hw');
+    if (q === 'off') return;
+    const parts = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Taipei', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date()).split('-').map(Number);
+    let i = -1;
+    if (parts[1] === 10 && parts[2] >= 17 && parts[2] <= 31) i = parts[2] - 17;
+    const forced = C.findIndex(c => c[0] === q);
+    if (forced >= 0) i = forced;
+    if (i < 0) return;                       // outside the season: normal chibi + pull-ups
+
+    box.dataset.hw = '1';
+    box.classList.add('is-halloween');
+    const left = 31 - (parts[1] === 10 ? parts[2] : 31);
+    const label = document.createElement('span'); label.className = 'hw-label'; label.setAttribute('aria-live', 'polite');
+    box.appendChild(label);
+    const show = (k) => {
+        const c = C[k];
+        img.src = `assets/img/halloween/${c[0]}.svg?v=1`;
+        img.alt = EN ? `Elvis Chen dressed as a ${c[2]} for Halloween` : `陳俊智的萬聖節造型：${c[1]}`;
+        img.removeAttribute('width'); img.removeAttribute('height');
+        const name = EN ? c[2] : c[1];
+        const tail = left > 0 ? (EN ? ` · ${left} day${left > 1 ? 's' : ''} to Halloween` : ` · 萬聖節倒數 ${left} 天`) : (EN ? ' · Happy Halloween!' : ' · 萬聖節快樂！');
+        label.textContent = `🎃 ${k === i ? (EN ? 'Today: ' : '今日造型：') : ''}${name}${k === i ? tail : ''}`;
+    };
+    show(i);
+    let k = i;
+    box.setAttribute('role', 'button'); box.tabIndex = 0;
+    box.setAttribute('aria-label', EN ? 'Try another Halloween costume' : '換一套萬聖節造型');
+    const next = () => { k = (k + 1) % C.length; box.classList.remove('hw-pop'); void box.offsetWidth; box.classList.add('hw-pop'); show(k); };
+    box.addEventListener('click', next);
+    box.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); next(); } });
+})();
+
+/*===== Hero easter egg: the chibi does pull-ups (click / tap / Enter) =====*/
+(() => {
+    const box = document.querySelector('.hero__photo--chibi');
+    const img = box && box.querySelector('img');
+    if (!img || box.dataset.hw) return;
     const EN = (document.documentElement.lang || '').toLowerCase().startsWith('en');
     const T = EN ? { hint: 'Tap me 💪', label: 'Watch Elvis do pull-ups', done: 'He can do 20 in a row 💪' }
                  : { hint: '點我 💪', label: '看老師拉單槓', done: '老師一次能拉 20 下 💪' };

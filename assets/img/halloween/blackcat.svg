@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 520" width="400" height="520" role="img" aria-labelledby="blackcat-title">
+<title id="blackcat-title">Your portrait in the 黑貓 Black Cat outfit</title>
+<g class="character" stroke="#22211f" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+<g class="outfit"><path d="M311 475Q389 451 351 375Q333 347 341 330" stroke="#37363f" stroke-width="19" fill="none"/><defs><clipPath id="blackcat-neck-clip"><path class="neck-clip" d="M174 314 Q170 337 155 359 Q200 387 245 359 Q230 337 226 314 Z"/></clipPath></defs>
+<path class="neck-skin" fill="#f4eee2" d="M174 314 Q170 337 155 359 Q200 387 245 359 Q230 337 226 314 Z"/>
+<g clip-path="url(#blackcat-neck-clip)"><path class="neck-shadow" fill="#272724" fill-opacity=".12" stroke="none" d="M174 327 Q200 342 226 327 L231 346 Q200 360 169 346 Z"/></g><path fill="#37363f" d="M155 351 Q137 356 105 367 Q64 380 57 425 L49 487 Q200 506 351 487 L343 425 Q336 380 295 367 Q263 356 245 351 Q200 376 155 351 Z"/><defs><clipPath id="blackcat-body-clip"><path d="M155 351 Q137 356 105 367 Q64 380 57 425 L49 487 Q200 506 351 487 L343 425 Q336 380 295 367 Q263 356 245 351 Q200 376 155 351 Z"/></clipPath></defs><g clip-path="url(#blackcat-body-clip)"><path fill="#d6c6b7" d="M168 374Q200 391 232 374L245 480Q200 505 155 480Z"/><path fill="#976b75" d="M165 368L200 382L235 368V395L200 387L165 395Z"/><circle cx="200" cy="387" r="10" fill="#d1b46a"/></g></g>
+<g class="head">  <g stroke="#111" stroke-width="4" stroke-linecap="round"
+     stroke-linejoin="round" fill="#f4eee2">
+    <!-- Ears -->
+    <g id="blackcat-ears" class="ears">
+      <path d="M122 207 C97 185 91 211 101 240 Q110 264 127 252 Z"/>
+      <path d="M278 207 C303 185 309 211 299 240 Q290 264 273 252 Z"/>
+      <path d="M107 213 Q122 223 115 231 L117 240
+               M293 213 Q278 223 285 231 L283 240" fill="none"/>
+    </g>
+
+    <!-- Face -->
+    <path id="blackcat-face" class="face" d="M120 157 Q124 110 200 109 Q276 110 280 157
+      L274 256 Q272 286 252 306 L226 329 Q201 345 176 331
+      L148 307 Q127 287 125 260 Z"/>
+
+    <!-- Hair: one solid silhouette -->
+    <path id="blackcat-hair" class="hair" fill="#111" stroke-width="2" d="
+      M117 208 Q105 164 118 127 L116 113 L127 122
+      L132 91 L142 103 L151 68 L162 82 L174 42
+      Q197 46 216 65 L212 48 Q250 62 269 94
+      L272 77 Q288 105 287 125 L293 116 Q302 156 285 207
+      L278 183 L265 133 Q249 122 231 119 L237 126
+      Q213 121 194 125 Q143 119 130 153 Z"/>
+
+    <!-- Brows -->
+    <g id="blackcat-brows" class="brows" fill="none" stroke-width="6">
+      <path d="M140 187 Q157 179 177 184"/>
+      <path d="M222 182 Q243 175 260 183"/>
+    </g>
+
+    <!-- Glasses -->
+    <g id="blackcat-glasses" class="glasses" fill="none" stroke-width="3.5">
+      <path d="M130 204 Q133 196 157 196 Q180 195 186 204
+        Q190 220 181 237 Q173 244 148 241 Q131 240 130 204 Z"/>
+      <path d="M213 203 Q218 193 243 193 Q267 192 270 202
+        Q271 227 261 236 Q247 243 227 237 Q215 234 213 203 Z"/>
+      <path d="M187 207 Q200 201 213 206 M120 202 L130 204
+               M270 200 L281 200"/>
+    </g>
+
+    <!-- Eyes -->
+    <g id="blackcat-eyes" class="eyes">
+      <path d="M144 212 Q157 201 171 211 M229 208 Q243 197 256 208"
+            fill="none" stroke-width="3"/>
+      <g fill="#111" stroke="none">
+        <ellipse cx="159" cy="215" rx="4.5" ry="7"/>
+        <ellipse cx="241" cy="211" rx="4.5" ry="7"/>
+      </g>
+    </g>
+
+    <!-- Nose and smile -->
+    <g fill="none">
+      <path id="blackcat-nose" class="nose" d="M195 233 L188 255 Q187 260 208 257"/>
+      <path id="blackcat-mouth" class="mouth" d="M176 282 Q201 287 225 276"/>
+      <path d="M169 275 Q165 278 165 282 M232 271 Q237 274 237 279"
+            stroke-width="2.5"/>
+    </g>
+  </g>
+<g class="headgear" data-hide="" opacity="1" stroke-width="3.5"><g class="cat-ears"><path fill="#37363f" d="M117 130L100 47Q147 62 160 104Z M240 104Q253 62 300 47L283 130Z"/><path fill="#bc9195" stroke="none" d="M119 107L113 68L145 99Z M255 99L287 68L281 107Z"/></g><g fill="none" stroke="#685357" stroke-width="2.5"><path d="M137 263L89 252M139 273L90 277M263 263L311 252M261 273L310 277"/></g><path fill="#9f777d" d="M191 256Q200 251 209 256L200 264Z" stroke-width="2"/></g></g>
+</g></svg>

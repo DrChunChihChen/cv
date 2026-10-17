@@ -2023,3 +2023,11 @@ small, .tl__date, .tl__threads, .lab2__kind, .ib-card__tag, .ib-card__new, .biz_
 @media (prefers-reduced-motion: reduce) { .pu-hint { animation: none; } }
 .pu-bubble { top: 6%; left: auto; right: 2%; transform: translateY(6px); font-size: 1.15rem; }
 .pu-bubble.is-on { transform: translateY(0); }
+/* Halloween wardrobe */
+.hero__photo--chibi.is-halloween { cursor: pointer; }
+.hero__photo--chibi.is-halloween img { height: auto; width: 96%; margin-bottom: 8%; }
+.hw-label { position: absolute; left: 50%; bottom: 0; transform: translateX(-50%); padding: .4rem .9rem; border-radius: 999px; background: #2b1d3a; color: #ffd08a; font-size: .82rem; font-weight: 800; white-space: nowrap; z-index: 3; }
+.hero__photo--chibi.hw-pop img { animation: hw-pop .35s ease; }
+@keyframes hw-pop { 0% { transform: scale(.92) rotate(-3deg); opacity: .4; } 100% { transform: none; opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .hero__photo--chibi.hw-pop img { animation: none; } }
+.hero__photo--chibi.is-halloween .hero__tag--2 { top: 62%; }

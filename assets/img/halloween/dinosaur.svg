@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 520" width="400" height="520" role="img" aria-labelledby="dinosaur-title">
+<title id="dinosaur-title">Your portrait in the 恐龍睡衣 Dinosaur outfit</title>
+<g class="character" stroke="#22211f" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+<g class="outfit"><path fill="#d1bc78" d="M278 350L313 330L309 371L344 369L329 402L365 412L340 436L370 460L341 480Z"/><defs><clipPath id="dinosaur-neck-clip"><path class="neck-clip" d="M174 314 Q170 337 155 359 Q200 387 245 359 Q230 337 226 314 Z"/></clipPath></defs>
+<path class="neck-skin" fill="#f4eee2" d="M174 314 Q170 337 155 359 Q200 387 245 359 Q230 337 226 314 Z"/>
+<g clip-path="url(#dinosaur-neck-clip)"><path class="neck-shadow" fill="#272724" fill-opacity=".12" stroke="none" d="M174 327 Q200 342 226 327 L231 346 Q200 360 169 346 Z"/></g><path fill="#829778" d="M155 351 Q137 356 105 367 Q64 380 57 425 L49 487 Q200 506 351 487 L343 425 Q336 380 295 367 Q263 356 245 351 Q200 376 155 351 Z"/><defs><clipPath id="dinosaur-body-clip"><path d="M155 351 Q137 356 105 367 Q64 380 57 425 L49 487 Q200 506 351 487 L343 425 Q336 380 295 367 Q263 356 245 351 Q200 376 155 351 Z"/></clipPath></defs><g clip-path="url(#dinosaur-body-clip)"><path fill="#d9d7ab" d="M163 374Q200 390 237 374L250 492H150Z"/><path d="M200 386V492" fill="none" stroke="#74836a" stroke-width="2"/><g fill="#647e62" stroke="none"><circle cx="100" cy="417" r="10"/><circle cx="120" cy="454" r="7"/><circle cx="292" cy="426" r="11"/><circle cx="283" cy="466" r="7"/></g><circle cx="200" cy="409" r="5" fill="#b49e6e"/></g></g>
+<g class="head">  <g stroke="#111" stroke-width="4" stroke-linecap="round"
+     stroke-linejoin="round" fill="#f4eee2">
+    <!-- Ears -->
+    <g id="dinosaur-ears" class="ears">
+      <path d="M122 207 C97 185 91 211 101 240 Q110 264 127 252 Z"/>
+      <path d="M278 207 C303 185 309 211 299 240 Q290 264 273 252 Z"/>
+      <path d="M107 213 Q122 223 115 231 L117 240
+               M293 213 Q278 223 285 231 L283 240" fill="none"/>
+    </g>
+
+    <!-- Face -->
+    <path id="dinosaur-face" class="face" d="M120 157 Q124 110 200 109 Q276 110 280 157
+      L274 256 Q272 286 252 306 L226 329 Q201 345 176 331
+      L148 307 Q127 287 125 260 Z"/>
+
+    <!-- Hair: one solid silhouette -->
+    <path id="dinosaur-hair" class="hair" opacity="0" fill="#111" stroke-width="2" d="
+      M117 208 Q105 164 118 127 L116 113 L127 122
+      L132 91 L142 103 L151 68 L162 82 L174 42
+      Q197 46 216 65 L212 48 Q250 62 269 94
+      L272 77 Q288 105 287 125 L293 116 Q302 156 285 207
+      L278 183 L265 133 Q249 122 231 119 L237 126
+      Q213 121 194 125 Q143 119 130 153 Z"/>
+
+    <!-- Brows -->
+    <g id="dinosaur-brows" class="brows" fill="none" stroke-width="6">
+      <path d="M140 187 Q157 179 177 184"/>
+      <path d="M222 182 Q243 175 260 183"/>
+    </g>
+
+    <!-- Glasses -->
+    <g id="dinosaur-glasses" class="glasses" fill="none" stroke-width="3.5">
+      <path d="M130 204 Q133 196 157 196 Q180 195 186 204
+        Q190 220 181 237 Q173 244 148 241 Q131 240 130 204 Z"/>
+      <path d="M213 203 Q218 193 243 193 Q267 192 270 202
+        Q271 227 261 236 Q247 243 227 237 Q215 234 213 203 Z"/>
+      <path d="M187 207 Q200 201 213 206 M120 202 L130 204
+               M270 200 L281 200"/>
+    </g>
+
+    <!-- Eyes -->
+    <g id="dinosaur-eyes" class="eyes">
+      <path d="M144 212 Q157 201 171 211 M229 208 Q243 197 256 208"
+            fill="none" stroke-width="3"/>
+      <g fill="#111" stroke="none">
+        <ellipse cx="159" cy="215" rx="4.5" ry="7"/>
+        <ellipse cx="241" cy="211" rx="4.5" ry="7"/>
+      </g>
+    </g>
+
+    <!-- Nose and smile -->
+    <g fill="none">
+      <path id="dinosaur-nose" class="nose" d="M195 233 L188 255 Q187 260 208 257"/>
+      <path id="dinosaur-mouth" class="mouth" d="M176 282 Q201 287 225 276"/>
+      <path d="M169 275 Q165 278 165 282 M232 271 Q237 274 237 279"
+            stroke-width="2.5"/>
+    </g>
+  </g>
+<g class="headgear" data-hide="hair" opacity="1" stroke-width="3.5"><path fill="#839a79" d="M110 259Q78 210 99 141Q93 88 139 67Q201 34 260 68Q309 91 301 143Q322 210 290 259L276 246L279 158Q200 183 121 158L124 246Z"/><path fill="#9daf86" d="M106 133Q200 108 294 133L280 166Q201 182 120 166Z"/><g fill="#f2e7c8" stroke-width="2"><path d="M130 166L139 183L149 168M171 172L180 188L189 174M212 174L221 188L230 172M251 168L261 184L270 166"/></g><ellipse cx="142" cy="102" rx="15" ry="18" fill="#f1e4ba"/><ellipse cx="258" cy="102" rx="15" ry="18" fill="#f1e4ba"/><circle cx="145" cy="103" r="5"/><circle cx="255" cy="103" r="5"/><path fill="#c6b774" d="M181 65L200 30L219 65Z"/></g></g>
+</g></svg>

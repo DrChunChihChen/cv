@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 520" width="400" height="520" role="img" aria-labelledby="skeleton-title">
+<title id="skeleton-title">Your portrait in the 骷髏 Skeleton outfit</title>
+<g class="character" stroke="#22211f" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+<g class="outfit"><defs><clipPath id="skeleton-neck-clip"><path class="neck-clip" d="M174 314 Q170 337 155 359 Q200 387 245 359 Q230 337 226 314 Z"/></clipPath></defs>
+<path class="neck-skin" fill="#f4eee2" d="M174 314 Q170 337 155 359 Q200 387 245 359 Q230 337 226 314 Z"/>
+<g clip-path="url(#skeleton-neck-clip)"><path class="neck-shadow" fill="#272724" fill-opacity=".12" stroke="none" d="M174 327 Q200 342 226 327 L231 346 Q200 360 169 346 Z"/></g><path fill="#35383b" d="M155 351 Q137 356 105 367 Q64 380 57 425 L49 487 Q200 506 351 487 L343 425 Q336 380 295 367 Q263 356 245 351 Q200 376 155 351 Z"/><defs><clipPath id="skeleton-body-clip"><path d="M155 351 Q137 356 105 367 Q64 380 57 425 L49 487 Q200 506 351 487 L343 425 Q336 380 295 367 Q263 356 245 351 Q200 376 155 351 Z"/></clipPath></defs><g clip-path="url(#skeleton-body-clip)"><g stroke="#e9e3d4" stroke-width="9" fill="none"><path d="M200 377V486M179 388Q141 384 127 401Q145 418 183 408M221 388Q259 384 273 401Q255 418 217 408M181 423Q147 416 133 430Q153 448 185 442M219 423Q253 416 267 430Q247 448 215 442M183 456Q159 448 145 460Q163 475 186 474M217 456Q241 448 255 460Q237 475 214 474M94 410L81 467M306 410L319 467"/></g><circle cx="80" cy="475" r="8" fill="#e9e3d4"/><circle cx="320" cy="475" r="8" fill="#e9e3d4"/></g></g>
+<g class="head">  <g stroke="#111" stroke-width="4" stroke-linecap="round"
+     stroke-linejoin="round" fill="#f4eee2">
+    <!-- Ears -->
+    <g id="skeleton-ears" class="ears">
+      <path d="M122 207 C97 185 91 211 101 240 Q110 264 127 252 Z"/>
+      <path d="M278 207 C303 185 309 211 299 240 Q290 264 273 252 Z"/>
+      <path d="M107 213 Q122 223 115 231 L117 240
+               M293 213 Q278 223 285 231 L283 240" fill="none"/>
+    </g>
+
+    <!-- Face -->
+    <path id="skeleton-face" class="face" d="M120 157 Q124 110 200 109 Q276 110 280 157
+      L274 256 Q272 286 252 306 L226 329 Q201 345 176 331
+      L148 307 Q127 287 125 260 Z"/>
+
+    <!-- Hair: one solid silhouette -->
+    <path id="skeleton-hair" class="hair" fill="#111" stroke-width="2" d="
+      M117 208 Q105 164 118 127 L116 113 L127 122
+      L132 91 L142 103 L151 68 L162 82 L174 42
+      Q197 46 216 65 L212 48 Q250 62 269 94
+      L272 77 Q288 105 287 125 L293 116 Q302 156 285 207
+      L278 183 L265 133 Q249 122 231 119 L237 126
+      Q213 121 194 125 Q143 119 130 153 Z"/>
+
+    <!-- Brows -->
+    <g id="skeleton-brows" class="brows" fill="none" stroke-width="6">
+      <path d="M140 187 Q157 179 177 184"/>
+      <path d="M222 182 Q243 175 260 183"/>
+    </g>
+
+    <!-- Glasses -->
+    <g id="skeleton-glasses" class="glasses" fill="none" stroke-width="3.5">
+      <path d="M130 204 Q133 196 157 196 Q180 195 186 204
+        Q190 220 181 237 Q173 244 148 241 Q131 240 130 204 Z"/>
+      <path d="M213 203 Q218 193 243 193 Q267 192 270 202
+        Q271 227 261 236 Q247 243 227 237 Q215 234 213 203 Z"/>
+      <path d="M187 207 Q200 201 213 206 M120 202 L130 204
+               M270 200 L281 200"/>
+    </g>
+
+    <!-- Eyes -->
+    <g id="skeleton-eyes" class="eyes">
+      <path d="M144 212 Q157 201 171 211 M229 208 Q243 197 256 208"
+            fill="none" stroke-width="3"/>
+      <g fill="#111" stroke="none">
+        <ellipse cx="159" cy="215" rx="4.5" ry="7"/>
+        <ellipse cx="241" cy="211" rx="4.5" ry="7"/>
+      </g>
+    </g>
+
+    <!-- Nose and smile -->
+    <g fill="none">
+      <path id="skeleton-nose" class="nose" d="M195 233 L188 255 Q187 260 208 257"/>
+      <path id="skeleton-mouth" class="mouth" d="M176 282 Q201 287 225 276"/>
+      <path d="M169 275 Q165 278 165 282 M232 271 Q237 274 237 279"
+            stroke-width="2.5"/>
+    </g>
+  </g>
+<g class="headgear" data-hide="" opacity="1" stroke-width="3.5"><path fill="#eee8db" stroke-width="2" d="M129 248Q148 233 170 247L163 264L139 272Z M271 246Q252 231 230 245L237 262L261 270Z"/><path fill="#3c4140" stroke="none" d="M193 251L200 239L207 251L200 255Z"/><path d="M166 292Q200 311 237 286M179 291L176 304M193 295V310M207 293L209 307M221 289L225 301" stroke="#656861" stroke-width="2.5" fill="none"/></g></g>
+</g></svg>
