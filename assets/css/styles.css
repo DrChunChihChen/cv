@@ -2000,3 +2000,9 @@ small, .tl__date, .tl__threads, .lab2__kind, .ib-card__tag, .ib-card__new, .biz_
 .hero__photo--chibi:hover img { transform: rotate(-2deg) translateY(-4px); }
 @media (prefers-reduced-motion: reduce) { .hero__photo--chibi:hover img { transform: none; } }
 .contact__me img { padding: 0; }
+/* Hero: no backdrop behind the chibi; tags carry their own tint */
+.hero__photo--chibi { background: none; }
+.hero__photo--chibi .hero__tag { background: var(--tone-2, #EFEEFB); border: 1px solid rgba(91, 82, 238, .14); }
+.hero__photo--chibi .hero__tag--1 { left: 0; }
+.hero__photo--chibi .hero__tag--2 { right: 0; }
+.hero__photo--chibi .hero__tag--3 { left: 4%; }
