@@ -2075,3 +2075,20 @@ small, .tl__date, .tl__threads, .lab2__kind, .ib-card__tag, .ib-card__new, .biz_
 .hw-music:hover { background: #3a2a6b; }
 .hw-music:focus-visible { outline: 3px solid #ffd08a; outline-offset: 3px; }
 .hw-music.is-on { background: #ffd08a; color: #2b1d3a; }
+/* Halloween: chibi pumpkins running along the header */
+.hwpk { position: absolute; left: 0; right: 0; bottom: 3px; height: 28px; overflow: hidden; pointer-events: none; z-index: 0; }
+.l-header .nav { position: relative; z-index: 1; }
+.hwpk-run { position: absolute; left: 0; bottom: 0; width: 30px; animation: hwpk-ltr linear infinite; will-change: transform; }
+.hwpk-run--rtl { animation-name: hwpk-rtl; }
+.hwpk-run--rtl .hwpk-body { scale: -1 1; }
+@keyframes hwpk-ltr { from { transform: translateX(-40px); } to { transform: translateX(calc(100vw + 10px)); } }
+@keyframes hwpk-rtl { from { transform: translateX(calc(100vw + 10px)); } to { transform: translateX(-40px); } }
+.hwpk-body { animation: hwpk-bounce .32s ease-in-out infinite alternate; transform-origin: 50% 100%; }
+.hwpk-body svg { display: block; width: 100%; height: auto; }
+@keyframes hwpk-bounce { from { transform: translateY(0) rotate(-4deg); } to { transform: translateY(-3px) rotate(4deg); } }
+.hwpk-leg { transform-box: fill-box; transform-origin: 50% 0; animation: hwpk-step .16s ease-in-out infinite alternate; }
+.hwpk-leg--r { animation-direction: alternate-reverse; }
+@keyframes hwpk-step { from { transform: rotate(-28deg); } to { transform: rotate(28deg); } }
+.hwpk { bottom: 1px; }
+@media (max-width: 700px) { .hwpk { height: 22px; } .hwpk-run { width: 24px; } }
+.hwpk-run { bottom: 2px; }

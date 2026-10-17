@@ -516,6 +516,23 @@ document.querySelectorAll('.lab2__works').forEach(box => {
     })();
     box.dataset.hw = '1';
     const homeEl = document.getElementById('home'); if (homeEl) homeEl.classList.add('hw-night');
+    // Short-legged chibi pumpkins running along the bottom of the header
+    (() => {
+        const header = document.querySelector('.l-header');
+        if (!header || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        const ink = '#3b2f4a';
+        const pk = (mood) => `<svg viewBox="0 0 60 56"><g class="hwpk-leg hwpk-leg--l"><rect x="19" y="40" width="7" height="12" rx="3.5" fill="${ink}"/><ellipse cx="21" cy="52" rx="6" ry="3" fill="${ink}"/></g><g class="hwpk-leg hwpk-leg--r"><rect x="34" y="40" width="7" height="12" rx="3.5" fill="${ink}"/><ellipse cx="39" cy="52" rx="6" ry="3" fill="${ink}"/></g><path d="M30 10q-1-6 3-9" fill="none" stroke="#4d7c3a" stroke-width="4" stroke-linecap="round"/><path d="M33 6q8-6 12 0-6 4-12 0z" fill="#7cc35f" stroke="${ink}" stroke-width="1.5"/><ellipse cx="30" cy="28" rx="25" ry="18" fill="#ff9f43" stroke="${ink}" stroke-width="2.5"/><path d="M22 12q-6 16 0 33M38 12q6 16 0 33M30 10v36" fill="none" stroke="#e8792a" stroke-width="2"/><ellipse cx="30" cy="28" rx="25" ry="18" fill="none" stroke="${ink}" stroke-width="2.5"/>${mood ? `<path d="M20 24l4 3-4 3M40 24l-4 3 4 3" fill="none" stroke="${ink}" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>` : `<ellipse cx="22.5" cy="26" rx="2.6" ry="3.4" fill="${ink}"/><ellipse cx="37.5" cy="26" rx="2.6" ry="3.4" fill="${ink}"/><circle cx="23.4" cy="24.8" r=".9" fill="#fff"/><circle cx="38.4" cy="24.8" r=".9" fill="#fff"/>`}<ellipse cx="17" cy="33" rx="3.5" ry="2" fill="#ff6b6b" opacity=".45"/><ellipse cx="43" cy="33" rx="3.5" ry="2" fill="#ff6b6b" opacity=".45"/><path d="M26 34q4 4 8 0" fill="none" stroke="${ink}" stroke-width="2.2" stroke-linecap="round"/></svg>`;
+        const lane = document.createElement('div'); lane.className = 'hwpk'; lane.setAttribute('aria-hidden', 'true');
+        const n = innerWidth < 700 ? 2 : 4;
+        for (let k = 0; k < n; k++) {
+            const d = document.createElement('div'), dur = 16 + Math.random() * 12;
+            d.className = 'hwpk-run' + (k % 2 ? ' hwpk-run--rtl' : '');
+            d.style.animationDuration = dur + 's'; d.style.animationDelay = -(Math.random() * dur) + 's';
+            d.innerHTML = `<div class="hwpk-body">${pk(k === 1)}</div>`;
+            lane.appendChild(d);
+        }
+        header.appendChild(lane);
+    })();
     // Halloween music: two tracks taking turns, starts only when the visitor taps the button
     (() => {
         const tracks = ['assets/audio/halloween-cute-pumpkin.mp3', 'assets/audio/halloween-waltz.mp3'];
