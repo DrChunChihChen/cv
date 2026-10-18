@@ -2092,3 +2092,9 @@ small, .tl__date, .tl__threads, .lab2__kind, .ib-card__tag, .ib-card__new, .biz_
 .hwpk { bottom: 1px; }
 @media (max-width: 700px) { .hwpk { height: 22px; } .hwpk-run { width: 24px; } }
 .hwpk-run { bottom: 2px; }
+/* Campus tour links */
+.contact__map { display: inline-block; margin-top: .6rem; padding: .45rem .9rem; border-radius: 999px; background: var(--tone-2, #EFEEFB); color: var(--first-color, #5B52EE); font-weight: 700; font-size: .9rem; text-decoration: none; }
+.contact__map:hover { background: #e2e0fb; }
+.campus-thumb { display: block; margin: .8rem 0; border-radius: .9rem; overflow: hidden; }
+.campus-thumb img { display: block; width: 100%; height: auto; transition: transform .3s ease; }
+.campus-thumb:hover img { transform: scale(1.03); }
