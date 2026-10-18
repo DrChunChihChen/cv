@@ -2413,7 +2413,7 @@ function toggleMobileMenu() {
 </blockquote>
 <p>到目前為止，<strong>沒有任何一種提示寫法能百分之百擋住注入</strong>。所以防禦的重點不是「讓 AI 永遠不被騙」，而是<strong>層層設關卡，並讓最後一關由不會被語言說服的程式碼把守</strong>。這和第 8.2 節：計算交給程式，不讓 AI 心算，是同一個道理。</p>
 <h3 id="一張快速檢查表致命三要素">一張快速檢查表：「致命三要素」</h3>
-<p>資安研究者 Simon Willison 提出一個簡單好記的判斷法，稱為「<strong>致命三要素</strong>」（the lethal trifecta）。一個 AI 系統只要<strong>同時</strong>具備下面三項，就可能被提示注入騙走資料：</p>
+<p>開發者 Simon Willison 在 2025 年提出一個簡單好記的判斷法，稱為「<strong>致命三要素</strong>」（the lethal trifecta）。一個 AI 系統只要<strong>同時</strong>具備下面三項，就可能被提示注入騙走資料：</p>
 <table>
 <thead>
 <tr>
@@ -2440,7 +2440,7 @@ function toggleMobileMenu() {
 </tr>
 </tbody>
 </table>
-<p><strong>拿掉任何一項，這類攻擊就無法得逞。</strong> 例如：讀取外部詢價信的 Agent，不給它查底價的權限；能查底價的 Agent，不給它寄信的工具。曾有真實案例：一個能讀取私人程式庫的 AI 代理，讀到公開議題（issue）裡夾帶的指令後，把私密內容貼進了公開的修改請求中，三要素同時成立。</p>
+<p><strong>拿掉任何一項，這類攻擊就無法得逞。</strong> 例如：讀取外部詢價信的 Agent，不給它查底價的權限；能查底價的 Agent，不給它寄信的工具。2025 年，Invariant Labs 的研究人員做過一次示範：他們在公開專案的議題（issue）裡夾帶指令，一個同時能讀取私人程式庫的 AI 代理讀到後，就把私密內容貼進了公開的修改請求中，三要素同時成立。</p>
 <blockquote>
 <p>💡 <strong>每次替 Agent 新增一個工具，都問一句：這個工具補上了三要素中的哪一項？</strong> 第 13.2 節的最小授權，就是用來拆掉其中一項的方法。</p>
 </blockquote>

@@ -2371,7 +2371,7 @@ function toggleMobileMenu() {
 <tr>
 <td style="text-align: left;">前 15 分鐘</td>
 <td style="text-align: left;">先站在業務的角度想：「他每天怎麼用？什麼情況會讓他抓狂？」寫下一頁<strong>自己的決定</strong></td>
-<td style="text-align: left;">請 AI「寫一份完整的設計文件」，AI 寫了約 3,000 字</td>
+<td style="text-align: left;">請 AI「寫一份完整的設計文件」，AI 寫出一份數千字的長文件</td>
 </tr>
 <tr>
 <td style="text-align: left;">設計文件</td>
@@ -2390,8 +2390,8 @@ function toggleMobileMenu() {
 </tr>
 <tr>
 <td style="text-align: left;">修錯方式</td>
-<td style="text-align: left;">「我輸入 X，預期 Y，實際看到 Z」</td>
-<td style="text-align: left;">「修好它」「好了嗎？」「為什麼還是不行」，AI 只看到錯誤訊息，連續改錯三個檔案</td>
+<td style="text-align: left;">明確告訴 AI 錯在哪一邊（例如「是測試寫錯，不是主程式」）</td>
+<td style="text-align: left;">「修好它」「好了嗎？」「為什麼還是不行」，AI 只看到錯誤訊息，同一個啟動檔連改三次，都沒改到真正出錯的地方</td>
 </tr>
 <tr>
 <td style="text-align: left;">結果</td>
@@ -2400,7 +2400,7 @@ function toggleMobileMenu() {
 </tr>
 </tbody>
 </table>
-<p>最諷刺的是：B 其實完全照著「先設計、再實作」的流程走，只是<strong>每一步都是 AI 做的</strong>。A 則把三件事留在自己手上：做決定、親眼看結果、決定要告訴 AI 什麼。</p>
+<p>兩人用的工具、時間、題目完全相同。差別不在誰比較懂程式，而在<strong>誰在做判斷</strong>：B 形式上也是「先設計、再實作」，可是設計由 AI 寫、測試由 AI 跑、修正方向也由 AI 猜；A 的每一個轉折點，都是自己拍板。</p>
 <p><strong>本節要解決的問題：</strong> 怎麼和 AI 溝通，才能讓「決定權」留在人身上，又不會累到每一行都要自己看？</p>
 <hr />
 <h2 id="貳概念宣稱與驗證在對話視窗裡長得一模一樣">貳、概念：宣稱與驗證，在對話視窗裡長得一模一樣</h2>
@@ -2457,28 +2457,29 @@ function toggleMobileMenu() {
 </table>
 <p>AI 本身不會記得哪些是驗證過、哪些只是宣稱；<strong>記住這件事是你的工作</strong>。</p>
 <h3 id="3-判斷要站在剛好的距離">3. 判斷要站在「剛好的距離」</h3>
+<p>可以用主管審核部屬工作來想像：</p>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">距離</th>
-<th style="text-align: left;">做法</th>
-<th style="text-align: left;">問題</th>
+<th style="text-align: left;">審核方式</th>
+<th style="text-align: left;">像什麼</th>
+<th style="text-align: left;">結果</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">太近</td>
-<td style="text-align: left;">每一行程式、每一句話都自己讀</td>
-<td style="text-align: left;">用人的速度審 AI 的產量，永遠審不完</td>
+<td style="text-align: left;">逐字逐句改</td>
+<td style="text-align: left;">主管把每份報告都重寫一遍</td>
+<td style="text-align: left;">主管成了瓶頸，AI 的速度優勢消失</td>
 </tr>
 <tr>
-<td style="text-align: left;">太遠</td>
-<td style="text-align: left;">AI 說好就好，按「同意」蓋章</td>
-<td style="text-align: left;">等於沒有審</td>
+<td style="text-align: left;">只看結論就簽</td>
+<td style="text-align: left;">主管看到「已完成」就蓋章</td>
+<td style="text-align: left;">出事時才發現沒人真正看過</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>剛好</strong></td>
-<td style="text-align: left;">檢查<strong>約定與結果</strong>：交付了哪些條件？跑過什麼？哪些還沒驗證？</td>
+<td style="text-align: left;"><strong>看關鍵節點</strong></td>
+<td style="text-align: left;">主管只確認：答應的事交了沒？證據是什麼？哪裡還沒確認？</td>
 <td style="text-align: left;">需要一套雙方都看得懂的「溝通協定」，就是本節第參段</td>
 </tr>
 </tbody>
@@ -2562,7 +2563,7 @@ Q1 報價有效期限是幾天？
 【未驗證】匯率服務連線失敗時的行為（Q3：要停止報價，還是用昨天的匯率？）
 </code></pre>
 <p>B 看到【未驗證】，回答：「Q3：停止報價並顯示『匯率暫時無法取得』，<strong>不可</strong>用舊匯率（參考第 4.4 節的原則）。」接著他<strong>親自</strong>用業務的身分試了三筆詢價，才在進度狀態寫上「F1 完成」。</p>
-<p>這一次，B 用了 21 個指令完成。</p>
+<p>這一次（教學情境），B 在時間內完成了，指令數也少了一大半。</p>
 <hr />
 <h2 id="伍判斷看看這些訊息好不好">伍、判斷看看：這些訊息好不好？</h2>
 <table>
@@ -2580,7 +2581,7 @@ Q1 報價有效期限是幾天？
 <td style="text-align: left;">沒有編號、沒有對象，AI 只能猜哪裡要調</td>
 </tr>
 <tr>
-<td style="text-align: left;">「D1、D3 同意；D2 否決，理由：客戶不接受人民幣報價。」</td>
+<td style="text-align: left;">「D1 否決，理由：主要客戶要求以歐元報價；D2、D3 同意。」</td>
 <td style="text-align: center;">✅</td>
 <td style="text-align: left;">逐項批示並附理由，理由也能寫進設計文件的「被否決方案」（第 2.8 節）</td>
 </tr>
