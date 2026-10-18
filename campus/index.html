@@ -1531,7 +1531,7 @@ function updateWalkbar(){
 }
 function play(){
   if (!state.route) return;
-  if (state.routeLen - state.prog < 1){ const tg = BY[state.selected]; if (tg) return planRoute(tg, true); }
+  if (state.routeLen - state.prog < 1){ charPos.copy(state.route[0]); state.prog = 0; } // walk again: back to where this route started
   state.playing = true; followHold = -1e9;
   if (state.mode !== 'walk' && state.mode !== 'overview') setMode('overview', { noFly: true });
   if (state.mode === 'overview') tween = null; // follow camera eases in from wherever we are
