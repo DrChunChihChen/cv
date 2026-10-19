@@ -29,11 +29,11 @@
   --seal:#CF4A3E; --seal-ink:#1A0F0C; --wash:rgba(236,230,216,.06); --route:#E2B64A; color-scheme:dark;
 }
 *,*::before,*::after{box-sizing:border-box}
-html,body{height:100%}
+html,body{height:100%;overflow-x:clip}
 body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.6 var(--f-body);-webkit-font-smoothing:antialiased;
   background-image:radial-gradient(var(--wash) .6px,transparent .7px);background-size:5px 5px}
 button,input{font:inherit;color:inherit}
-.app{max-width:480px;margin:0 auto;min-height:100%;display:flex;flex-direction:column;
+.app{max-width:480px;margin:0 auto;min-height:100%;min-width:0;display:flex;flex-direction:column;
   padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px));
   padding-top:calc(14px + env(safe-area-inset-top,0px))}
 
@@ -43,9 +43,9 @@ button,input{font:inherit;color:inherit}
 .top a{color:var(--muted);text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:4px 10px}
 
 /* hero */
-.hero{display:grid;justify-items:center;text-align:center;padding:4vh 0 2vh;transition:padding .45s ease}
+.hero{display:grid;grid-template-columns:minmax(0,1fr);justify-items:center;text-align:center;padding:2.5vh 0 1.5vh;transition:padding .45s ease}
 .wen-wrap{position:relative;line-height:1;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
-.wen{display:block;width:clamp(210px,66vw,300px);aspect-ratio:1;transition:width .45s cubic-bezier(.2,.8,.2,1)}
+.wen{display:block;width:clamp(150px,min(48vw,30vh),250px);aspect-ratio:1;transition:width .45s cubic-bezier(.2,.8,.2,1)}
 .wen-mark{display:inline-block;background:currentColor;-webkit-mask:var(--wen-img) center/contain no-repeat;mask:var(--wen-img) center/contain no-repeat}
 .splat{position:absolute;inset:0;pointer-events:none;overflow:visible}
 .splat circle{fill:var(--ink)}
@@ -54,7 +54,7 @@ button,input{font:inherit;color:inherit}
   box-shadow:inset 0 0 0 2px color-mix(in srgb,var(--seal-ink) 35%,transparent);opacity:0}
 .seal.on{animation:stamp .35s both cubic-bezier(.3,1.6,.5,1)}
 @keyframes stamp{from{transform:rotate(-4deg) scale(1.6);opacity:0}to{transform:rotate(-4deg) scale(1);opacity:1}}
-.lead{margin:6px 0 0;font-family:var(--f-hand);font-size:clamp(19px,5.4vw,23px);line-height:1.55;color:var(--ink-2);text-wrap:balance}
+.lead{margin:4px 0 0;font-family:var(--f-hand);font-size:clamp(17px,4.8vw,21px);line-height:1.55;color:var(--ink-2);text-wrap:balance}
 .lead b{display:block;color:var(--ink);font-size:1.18em;letter-spacing:.06em}
 
 .kb{width:100%;max-width:420px;margin:14px auto 0;text-align:left;border:1px solid var(--line);border-radius:14px;background:var(--card)}
@@ -119,12 +119,12 @@ body.chatting .lead b{font-size:17px;letter-spacing:.03em}
 .miss p{margin:0;color:var(--ink-2)}
 
 /* ask bar */
-.dock{position:sticky;bottom:0;padding:10px 0 calc(12px + env(safe-area-inset-bottom,0px));background:linear-gradient(to top,var(--paper) 72%,transparent);display:grid;gap:10px}
+.dock{position:sticky;bottom:0;grid-template-columns:minmax(0,1fr);min-width:0;padding:10px 0 calc(12px + env(safe-area-inset-bottom,0px));background:linear-gradient(to top,var(--paper) 72%,transparent);display:grid;gap:10px}
 .chips{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin:0 calc(-1 * max(18px,env(safe-area-inset-left,0px)));padding:0 max(18px,env(safe-area-inset-left,0px))}
 .chips::-webkit-scrollbar{display:none}
 .chip{flex:none;border:1px solid var(--line);background:var(--card);border-radius:999px;padding:8px 13px;font-size:13.5px;cursor:pointer;white-space:nowrap}
-.ask{display:flex;align-items:center;gap:8px;background:var(--card);border:1.5px solid var(--ink);border-radius:999px;padding:6px 6px 6px 18px;box-shadow:0 10px 30px rgba(26,25,22,.12)}
-.ask input{flex:1;min-width:0;border:0;background:none;outline:none;font-size:16px;padding:8px 0}
+.ask{min-width:0;display:flex;align-items:center;gap:8px;background:var(--card);border:1.5px solid var(--ink);border-radius:999px;padding:6px 6px 6px 18px;box-shadow:0 10px 30px rgba(26,25,22,.12)}
+.ask input{flex:1;min-width:0;width:100%;border:0;background:none;outline:none;font-size:16px;padding:8px 0}
 .ask input::placeholder{color:var(--muted)}
 .send{flex:none;width:46px;height:46px;border-radius:50%;border:0;background:var(--ink);color:var(--paper);cursor:pointer;display:grid;place-items:center}
 .send .wen-mark{width:26px;height:26px}
