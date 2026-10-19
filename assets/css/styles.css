@@ -2076,8 +2076,8 @@ small, .tl__date, .tl__threads, .lab2__kind, .ib-card__tag, .ib-card__new, .biz_
 .hw-music:focus-visible { outline: 3px solid #ffd08a; outline-offset: 3px; }
 .hw-music.is-on { background: #ffd08a; color: #2b1d3a; }
 /* Halloween: chibi pumpkins running along the header */
-.hwpk { position: absolute; left: 0; right: 0; bottom: 3px; height: 28px; overflow: hidden; pointer-events: none; z-index: 0; }
-.l-header .nav { position: relative; z-index: 1; }
+.hwpk { position: absolute; left: 0; right: 0; bottom: 3px; height: 28px; overflow: hidden; pointer-events: none; z-index: -1; }
+/* (pumpkin lane sits behind the nav via z-index:-1; do not give .nav its own stacking context — it traps the mobile menu under the backdrop) */
 .hwpk-run { position: absolute; left: 0; bottom: 0; width: 30px; animation: hwpk-ltr linear infinite; will-change: transform; }
 .hwpk-run--rtl { animation-name: hwpk-rtl; }
 .hwpk-run--rtl .hwpk-body { scale: -1 1; }
