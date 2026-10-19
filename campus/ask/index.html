@@ -112,6 +112,7 @@ body.chatting .lead b{font-size:17px;letter-spacing:.03em}
 .steps b{display:block;font-size:15px}
 .steps small{color:var(--muted);font-size:12.5px}
 .steps a{font-size:12.5px;color:var(--ink);text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:5px 10px;white-space:nowrap}
+.swap{border:0;background:none;padding:0;color:var(--ink);text-decoration:underline;text-underline-offset:3px;cursor:pointer;font-size:12.5px}
 .also{font-size:13px;color:var(--muted)}
 .also button{border:0;background:none;padding:0;color:var(--ink);text-decoration:underline;text-underline-offset:3px;cursor:pointer;font-size:13px}
 .miss{background:var(--card);border:1px dashed var(--line);border-radius:4px 18px 18px 18px;padding:14px 16px;display:grid;gap:10px}
@@ -362,6 +363,9 @@ function esc(t){ return String(t ?? '').replace(/[&<>"]/g, c => ({ '&':'&amp;', 
 let busy = false;
 async function ask(text){
   if (busy) return; busy = true;
+  // a start point named in the question (我在正門… / 從中華路…) wins over the saved one, and is remembered
+  const from = /中華路|後門/.test(text) ? 'zhonghua' : /正門|校門|大門|前門|三民路/.test(text) ? 'sanmin' : null;
+  if (from) setStart(from);
   document.body.classList.add('chatting');
   q.value = ''; send.disabled = true;
   thread.insertAdjacentHTML('beforeend', `<div class="me">${esc(text)}</div>`);
@@ -371,6 +375,13 @@ async function ask(text){
   const t0 = performance.now(), r = await getAnswer(text);
   await new Promise(res => setTimeout(res, Math.max(0, 500 - (performance.now() - t0))));
   renderAnswer(ai, r, text); busy = false;
+}
+function setStart(k){ ENTRY = k; try { localStorage.setItem('nutc-entry', k); } catch (e) {} }
+// 「換成中華路出發」: redraw this answer from the other entrance
+function startSwitch(ai, r, question){
+  const other = ENTRY === 'zhonghua' ? 'sanmin' : 'zhonghua';
+  return Object.assign(document.createElement('button'), { type: 'button', className: 'swap', textContent: `改從${ENTRIES[other].n}出發`,
+    onclick: () => { setStart(other); ai.innerHTML = '<div class="ai-who"><span class="wen-mark"></span>校園小幫手</div><div class="thinking"></div>'; renderAnswer(ai, r, question); } });
 }
 function scrollDown(){ requestAnimationFrame(() => window.scrollTo({ top: document.body.scrollHeight, behavior: matchMedia('(prefers-reduced-motion:reduce)').matches ? 'auto' : 'smooth' })); }
 function dist(id){ const s = ENTRIES[ENTRY].at, d = B[id].d, m = Math.hypot(d[0] - s[0], d[1] - s[1]) * .37 * 1.25; return { m: Math.round(m / 10) * 10, min: Math.max(1, Math.round(m / 1.3 / 60)) }; }
@@ -396,6 +407,7 @@ function renderAnswer(ai, r, question){
     <div class="meta">從${ENTRIES[ENTRY].n}出發 · 約 ${dd.m} 公尺 · 步行 ${dd.min} 分鐘</div>
     <div class="acts"><a class="go" href="../?to=${r.place}${r.floor ? '.' + r.floor : ''}">帶我去 →</a><button class="ghost" type="button" data-fb="1" aria-label="有幫助">👍</button><button class="ghost" type="button" data-fb="0" aria-label="沒幫助">👎</button></div>`;
   ai.appendChild(card);
+  card.querySelector('.meta').append(' · ', startSwitch(ai, r, question));
   card.querySelectorAll('[data-fb]').forEach(btn => btn.onclick = () => {
     sendFeedback(r, question, btn.dataset.fb === '1');
     card.querySelector('.acts').insertAdjacentHTML('afterend', `<div class="meta" style="padding:0 16px 12px">${btn.dataset.fb === '1' ? '謝謝！' : '收到，我們會補強這題。'}</div>`);
@@ -425,6 +437,7 @@ function renderSteps(ai, r, question, steps){
     <div class="meta">從${ENTRIES[ENTRY].n}出發，依序走完 ${steps.length} 站</div>
     <div class="acts"><a class="go" href="../?flow=${flow}">依序帶我走 →</a><button class="ghost" type="button" data-fb="1" aria-label="有幫助">👍</button><button class="ghost" type="button" data-fb="0" aria-label="沒幫助">👎</button></div>`;
   ai.appendChild(card);
+  card.querySelector('.meta').append(' · ', startSwitch(ai, r, question));
   card.querySelectorAll('[data-fb]').forEach(btn => btn.onclick = () => {
     sendFeedback(r, question, btn.dataset.fb === '1');
     card.querySelector('.acts').insertAdjacentHTML('afterend', `<div class="meta" style="padding:0 16px 12px">${btn.dataset.fb === '1' ? '謝謝！' : '收到，我們會補強這題。'}</div>`);
