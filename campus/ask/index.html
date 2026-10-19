@@ -65,7 +65,10 @@ button,input{font:inherit;color:inherit}
 .kb[open] summary i{transform:rotate(90deg)}
 .kb-body{padding:0 14px 12px;display:grid;gap:10px;max-height:46vh;overflow-y:auto}
 .kb-body p{margin:0;font-size:12.5px;color:var(--muted)}
-.kb-b h4{margin:0 0 4px;font-size:13px;color:var(--ink)}
+.kb-b h4{margin:0 0 5px;font-size:13px;color:var(--ink)}
+.kb-b h4 small{font-weight:400;color:var(--muted);margin-left:6px;font-size:12px}
+.kb-b.main button{background:var(--ink);color:var(--paper);border-color:var(--ink);font-size:13.5px;padding:5px 11px}
+.kb-b.main button.tbc{background:none;color:var(--ink-2);border-color:var(--line)}
 .kb-b div{display:flex;flex-wrap:wrap;gap:5px}
 .kb-b button{border:1px solid var(--line);background:none;border-radius:999px;padding:3px 9px;font-size:12.5px;cursor:pointer;color:var(--ink-2)}
 .kb-b button small{color:var(--muted);margin-left:4px}
@@ -333,16 +336,24 @@ $('#chips').addEventListener('click', e => { const b = e.target.closest('.chip')
 q.addEventListener('input', () => { send.disabled = !q.value.trim(); });
 $('#ask').addEventListener('submit', e => { e.preventDefault(); if (q.value.trim()) ask(q.value.trim()); });
 
-/* ---------- 問 v1.0: what the knowledge base covers, built live from knowledge.json ---------- */
+/* ---------- 問 v1.0: what the knowledge base covers, grouped by category, built live from knowledge.json ---------- */
 kbReady.then(() => {
   const box = $('#kb-body'); if (!KB){ box.innerHTML = '<p>暫時無法載入清單。</p>'; return; }
-  const groups = new Map();
-  for (const e of KB.entries){ const k = KB.places[e.place] || '其他'; if (!groups.has(k)) groups.set(k, []); groups.get(k).push(e); }
   const name = e => e.office.replace(/（.*?）/g, '');
+  const short = id => (KB.places[id] || '').replace(/大樓|樓|館$/g, '') || '';
+  const order = KB.cats || [], groups = new Map(order.map(c => [c, new Map()]));
+  for (const e of KB.entries){
+    const c = e.cat || '其他'; if (!groups.has(c)) groups.set(c, new Map());
+    const k = e.label || name(e), g = groups.get(c), o = g.get(k);
+    if (!o || (!o.verified && e.verified)) g.set(k, e);
+  }
+  const tip = { '辦事': '要辦什麼事？', '系所': '系辦', '處室・學院': '行政處室與學院辦公室' };
   box.innerHTML = `<p>共 ${KB.entries.length} 項，點一下就幫你問。虛線框是資料還在確認中。輸入教室編號（如 3705）也能直接定位。</p>` +
-    [...groups].map(([b, es]) => `<div class="kb-b"><h4>${esc(b)}</h4><div>${
-      [...es.reduce((m, e) => { const k = name(e) + e.floor, o = m.get(k); if (!o || (!o.verified && e.verified)) m.set(k, e); return m; }, new Map()).values()].sort((a, c) => (a.floor ?? 99) - (c.floor ?? 99))
-        .map(e => `<button type="button" class="${e.verified ? '' : 'tbc'}" data-q="${esc(name(e))}在哪？">${esc(name(e))}${e.floor != null ? `<small>${e.floor}F</small>` : ''}</button>`).join('')
+    [...groups].filter(([, g]) => g.size).map(([c, g]) => `<div class="kb-b${c === '辦事' ? ' main' : ''}"><h4>${esc(c)}${tip[c] ? `<small>${tip[c]}</small>` : ''}</h4><div>${
+      [...g].map(([k, e]) => {
+        const where = !e.label && e.floor != null ? `${short(e.place)} ${e.floor}F` : '';
+        return `<button type="button" class="${e.verified ? '' : 'tbc'}" data-q="${esc(e.q || name(e) + '在哪？')}">${esc(k)}${where ? `<small>${esc(where)}</small>` : ''}</button>`;
+      }).join('')
     }</div></div>`).join('');
   box.addEventListener('click', ev => { const b = ev.target.closest('button[data-q]'); if (b) ask(b.dataset.q); });
 });
