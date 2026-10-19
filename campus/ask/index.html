@@ -446,6 +446,14 @@ function dist(id){ const s = ENTRIES[ENTRY].at, d = B[id].d, m = Math.hypot(d[0]
 
 function renderAnswer(ai, r, question){
   ai.querySelector('.thinking').remove();
+  if ((!r.place || !B[r.place]) && r.office && r.entryId){ // a real answer without a place yet: card, no map
+    const card = document.createElement('div'); card.className = 'card';
+    card.innerHTML = `<div class="card-in" style="padding-bottom:12px"><h3>${esc(r.office)}</h3><p>${esc(r.answer)}</p></div>
+      <div class="acts" style="padding-top:0"><button class="ghost" type="button" data-fb="1" aria-label="有幫助">👍</button><button class="ghost" type="button" data-fb="0" aria-label="沒幫助">👎</button></div>`;
+    ai.appendChild(card);
+    card.querySelectorAll('[data-fb]').forEach(btn => btn.onclick = () => { sendFeedback(r, question, btn.dataset.fb === '1'); card.querySelector('.acts').innerHTML = `<div class="meta" style="padding:0">${btn.dataset.fb === '1' ? '謝謝！' : '收到，我們會補強這題。'}</div>`; });
+    scrollDown(); return;
+  }
   if (!r.place || !B[r.place]){
     ai.insertAdjacentHTML('beforeend', `<div class="miss"><p>${esc(r.answer)}</p><div class="chips" style="margin:0;padding:0">${['健康中心','課指組','註冊組','國際事務處'].map(c => `<button class="chip" type="button">${c}</button>`).join('')}</div></div>`);
     ai.querySelectorAll('.chip').forEach(b => b.onclick = () => ask(b.textContent));
