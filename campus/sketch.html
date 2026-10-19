@@ -1518,7 +1518,7 @@ function updateWalkbar(){
   const wb = $('#walkbar'); document.body.classList.toggle('has-route', !!state.route); if (!state.route){ if (!wb.hidden){ wb.hidden = true; syncOffset(); } return; }
   if (wb.hidden){ wb.hidden = false; syncOffset(); } $('#wbChip').textContent = state.speed + '×';
   const left = Math.max(0, state.routeLen - state.prog);
-  $('#wbTitle').textContent = state.tour >= 0 ? L(`新生路線 ${state.tour + 1}/${TOUR.length} · ${state.dest}`, `Tour ${state.tour + 1}/${TOUR.length} · ${state.destEn}`) : L(`前往 ${state.dest}`, `To ${state.destEn}`);
+  $('#wbTitle').textContent = state.tour >= 0 ? L(`${state.tourName || '新生路線'} ${state.tour + 1}/${TOUR.length} · ${state.dest}`, `${state.tourName ? 'Step' : 'Tour'} ${state.tour + 1}/${TOUR.length} · ${state.destEn}`) : L(`前往 ${state.dest}`, `To ${state.destEn}`);
   $('#wbSub').textContent = (step.lastInside && state.playing ? L(`正在穿過${step.lastInside.name} · `, `Walking through ${step.lastInside.en} · `) : '') + (left < 1 ? L('已抵達', 'Arrived') : fmtDist(left)) + (state.entrance ? ` · ${L(state.entrance, state.entranceEn)}` : '');
   $('#walkbar').classList.toggle('thru', !!(step.lastInside && state.playing));
   $('#wbPlay').textContent = state.playing ? L('❚❚ 暫停', '❚❚ Pause') : (left < 1 ? L('↻ 再走一次', '↻ Walk again') : L('▶ 繼續', '▶ Resume'));
@@ -1546,9 +1546,9 @@ $('#speed').oninput = e => { state.speed = +e.target.value; $('#speedOut').textC
 function arrive(){
   state.playing = false; updateWalkbar(); toast(L(`已抵達 ${state.dest}`, `Arrived at ${state.destEn}`));
   if (state.selected && (card.hidden || state.tour >= 0)) renderCard(BY[state.selected]);
-  if (state.tour >= 0 && state.tour === TOUR.length - 1){ toast(L('新生路線走完了，歡迎自由探索！', 'Tour complete. Feel free to explore!')); state.tour = -1; updateWalkbar(); }
+  if (state.tour >= 0 && state.tour === TOUR.length - 1){ toast(state.tourName ? L(`${state.tourName}的每一站都走完了！`, 'All stops done!') : L('新生路線走完了，歡迎自由探索！', 'Tour complete. Feel free to explore!')); state.tourName = null; state.tourFloors = null; state.tour = -1; updateWalkbar(); }
 }
-function nextTourStop(){ state.tour++; if (state.tour >= TOUR.length){ state.tour = -1; clearRoute(); return; } select(TOUR[state.tour], { autoplay: true, fly: false }); }
+function nextTourStop(){ state.tour++; if (state.tour >= TOUR.length){ state.tour = -1; clearRoute(); return; } select(TOUR[state.tour], { autoplay: true, fly: false, floor: state.tourFloors ? state.tourFloors[state.tour] : null }); }
 function setEntry(key, quiet){
   const e = ENTRIES[key]; if (!e) return; state.entry = key; TOUR = TOURS[key];
   document.querySelectorAll('[class^="en-"]').forEach(b => b.setAttribute('aria-pressed', b.classList.contains('en-' + key)));
@@ -1604,7 +1604,7 @@ function setStyle(st, quiet){
   if (!quiet) toast(STYLE === 'sketch' ? L('已切換成鉛筆手繪風', 'Pencil sketch style') : L('已切換成 3D 模型風', '3D model style'));
 }
 $('#st-model').onclick = () => setStyle('model'); $('#st-sketch').onclick = () => setStyle('sketch');
-$('#startTour').onclick = () => { hideIntro(); state.tour = -1; const e = ENTRIES[state.entry || 'sanmin']; charPos.copy(W(e.at[0], e.at[1])); nextTourStop(); };
+$('#startTour').onclick = () => { hideIntro(); TOUR = TOURS[state.entry || 'sanmin']; state.tourName = null; state.tourFloors = null; state.tour = -1; const e = ENTRIES[state.entry || 'sanmin']; charPos.copy(W(e.at[0], e.at[1])); nextTourStop(); };
 $('#freeExplore').onclick = hideIntro;
 $('#introSearch').onclick = () => { hideIntro(); openSearch(); };
 
@@ -2026,7 +2026,24 @@ loop();
 
 // deep link from the CV site: ?q=3705 (room) or ?q=國貿 (place) opens that spot directly
 { const v = new URLSearchParams(location.search).get('q'); if (v){ q.value = v; runSearch(); if (sItems.length && !sItems[0].none) pick(0); } }
+
+// entry points for the separate 「問」 service (campus/ask/) — see campus/bot.js
+//   ?to=changming.1                      open one place (and floor) with its route
+//   ?flow=xuehuo.3~xingzheng~xunxi       a multi-stop errand; 「跟我走」, then 「下一站」 at each stop
+function parseStop(t){ const m = String(t || '').match(/^([a-z]+)(?:\.(\d))?$/); return m && BY[m[1]] ? { id: m[1], floor: m[2] ? +m[2] : null } : null; }
+function goStop(t){ const s = parseStop(t); if (!s) return false; hideIntro(); select(s.id, { floor: s.floor }); return true; }
+function startFlow(list, name){
+  const stops = list.map(parseStop).filter(Boolean); if (!stops.length) return false;
+  hideIntro(); TOUR = stops.map(s => s.id); state.tourFloors = stops.map(s => s.floor); state.tourName = name || L('辦理流程', 'Errand');
+  state.tour = 0; select(stops[0].id, { floor: stops[0].floor });
+  if (stops.length > 1) toast(L(`共 ${stops.length} 站：按「跟我走」出發，到站後按「下一站」`, `${stops.length} stops: tap “Follow me”, then “Next stop” on arrival`));
+  return true;
+}
+window.campusMap = { goStop, startFlow, places: () => Object.fromEntries(PLACES.map(p => [p.id, p.name])), lang: () => LANG };
+{ const sp = new URLSearchParams(location.search), to = sp.get('to'), flow = sp.get('flow');
+  if (flow) startFlow(flow.split('~')); else if (to) goStop(to); }
 </script>
+<script src="bot.js?v=1" defer></script>
 
 </body>
 </html>
