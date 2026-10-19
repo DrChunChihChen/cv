@@ -75,6 +75,19 @@ button,input{font:inherit;color:inherit}
 .kb-b button.tbc{border-style:dashed}
 body.chatting .kb{display:none}
 
+/* 太極小人: a stick figure doing very slow tai chi beside 問 — 打太極 */
+.taiji{position:absolute;left:-74px;bottom:2%;width:72px;height:84px;pointer-events:none;opacity:0;transition:opacity 1.2s ease}
+.taiji.on{opacity:1}
+.taiji svg{width:100%;height:100%;overflow:visible}
+.taiji path,.taiji line{stroke:var(--ink);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;fill:none}
+.taiji circle{fill:var(--paper);stroke:var(--ink);stroke-width:2.2}
+.taiji .ground{stroke:var(--muted);stroke-width:1;opacity:.5}
+.bubble{position:absolute;bottom:calc(100% + 2px);left:-6px;white-space:nowrap;font:500 12px/1.3 var(--f-body);color:var(--ink-2);
+  background:var(--card);border:1px solid var(--line);border-radius:10px 10px 10px 2px;padding:5px 9px;opacity:0;transform:translateY(4px);transition:opacity .8s ease,transform .8s ease}
+.bubble.on{opacity:1;transform:none}
+@media (max-width:360px){.taiji{left:-58px;width:58px;height:68px}}
+body.chatting .taiji{display:none}
+
 /* compact header once chatting */
 body.chatting .hero{grid-template-columns:auto 1fr;justify-items:start;text-align:left;align-items:center;gap:12px;padding:8px 0 4px}
 body.chatting .wen{width:64px}
@@ -146,6 +159,7 @@ body.chatting .lead b{font-size:17px;letter-spacing:.03em}
       <svg class="splat" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
         <circle cx="88" cy="18" r="1.3"/><circle cx="92" cy="24" r=".7"/><circle cx="8" cy="80" r="1"/><circle cx="4" cy="72" r=".5"/><circle cx="80" cy="96" r=".8"/>
       </svg>
+      <div class="taiji" id="taiji" aria-hidden="true"><div class="bubble" id="bubble"></div><svg viewBox="-36 -76 72 84"><line class="ground" x1="-30" y1="0.5" x2="30" y2="0.5"/><path id="tj-body"/><circle id="tj-head" r="6"/></svg></div>
       <div class="seal" aria-hidden="true"><span>臺</span><span>中</span><span>科</span><span>大</span></div>
     </div>
     <p class="lead">要去哪裡？要做什麼事？<b>問就對了。</b></p>
@@ -360,6 +374,57 @@ kbReady.then(() => {
     }</div></div>`).join('');
   box.addEventListener('click', ev => { const b = ev.target.closest('button[data-q]'); if (b) ask(b.dataset.q); });
 });
+
+/* ---------- 太極小人：慢慢打太極（諷刺：辦事常被「打太極」，問直接回答）---------- */
+{
+  const el = $('#taiji'), body = $('#tj-body'), head = $('#tj-head'), bub = $('#bubble');
+  // pose: hip x/y, lean (deg), feet x, arms [shoulder, elbow] angles in degrees from straight down (+ = toward +x)
+  const P = {
+    stand: { hx: 0, hy: -30, lean: 0, fl: -7, fr: 7, la: [-16, 6], ra: [16, -6] },
+    rise:  { hx: 0, hy: -29, lean: 0, fl: -9, fr: 9, la: [-80, -6], ra: [80, 6] },
+    sink:  { hx: 0, hy: -25, lean: 0, fl: -11, fr: 11, la: [-50, 50], ra: [50, -50] },
+    cloudL:{ hx: -4, hy: -24, lean: -4, fl: -12, fr: 10, la: [-115, 30], ra: [40, -85] },
+    cloudR:{ hx: 4, hy: -24, lean: 4, fl: -10, fr: 12, la: [-40, 85], ra: [115, -30] },
+    whip:  { hx: 2, hy: -23, lean: 2, fl: -14, fr: 10, la: [-100, 10], ra: [95, 55] },
+  };
+  const SEQ = ['stand', 'rise', 'sink', 'cloudL', 'cloudR', 'cloudL', 'cloudR', 'whip', 'sink', 'stand'];
+  const SEG = 2600; // ms per move — slow on purpose
+  const LINES = ['這不是我們這組的喔', '你先去問別的單位', '承辦人今天請假', '表單要先蓋章', '明天再來看看', '這要簽呈耶', '系統維護中', '你先填單'];
+  const lerp = (a, b, t) => a + (b - a) * t, ease = t => .5 - .5 * Math.cos(Math.PI * t);
+  const mix = (a, b, t) => ({ hx: lerp(a.hx, b.hx, t), hy: lerp(a.hy, b.hy, t), lean: lerp(a.lean, b.lean, t), fl: lerp(a.fl, b.fl, t), fr: lerp(a.fr, b.fr, t),
+    la: [lerp(a.la[0], b.la[0], t), lerp(a.la[1], b.la[1], t)], ra: [lerp(a.ra[0], b.ra[0], t), lerp(a.ra[1], b.ra[1], t)] });
+  const R = d => d * Math.PI / 180, at = (p, L, a) => [p[0] + L * Math.sin(R(a)), p[1] + L * Math.cos(R(a))];
+  // two-bone IK for a leg: hip → knee → foot on the ground, knee bends outward
+  function leg(h, fx, out){
+    const f = [fx, 0], dx = f[0] - h[0], dy = f[1] - h[1], d = Math.min(Math.hypot(dx, dy), 27.6), L = 14;
+    const m = [(h[0] + f[0]) / 2, (h[1] + f[1]) / 2], k = Math.sqrt(Math.max(0, L * L - (d / 2) ** 2));
+    const nx = -dy / Math.hypot(dx, dy), ny = dx / Math.hypot(dx, dy), s = (nx * out > 0) ? 1 : -1;
+    return [[m[0] + nx * k * s, m[1] + ny * k * s], f];
+  }
+  function draw(p){
+    const H = [p.hx, p.hy], N = at(H, 24, 180 + p.lean), S = at(H, 20, 180 + p.lean);
+    const f = n => (Math.abs(n) < .05 ? 0 : n).toFixed(1);
+    const arm = (sh, el) => { const e = at(S, 11, sh), w = at(e, 10, sh + el); return `M${f(S[0])},${f(S[1])}L${f(e[0])},${f(e[1])}L${f(w[0])},${f(w[1])}`; };
+    const [kl, fl] = leg(H, p.fl, -1), [kr, fr] = leg(H, p.fr, 1);
+    body.setAttribute('d', `M${f(H[0])},${f(H[1])}L${f(N[0])},${f(N[1])}` + arm(p.la[0], p.la[1]) + arm(p.ra[0], p.ra[1]) +
+      `M${f(H[0])},${f(H[1])}L${f(kl[0])},${f(kl[1])}L${f(fl[0])},${f(fl[1])}M${f(H[0])},${f(H[1])}L${f(kr[0])},${f(kr[1])}L${f(fr[0])},${f(fr[1])}`);
+    const hd = at(H, 31, 180 + p.lean * 1.4); head.setAttribute('cx', f(hd[0])); head.setAttribute('cy', f(hd[1]));
+  }
+  const reduce = matchMedia('(prefers-reduced-motion:reduce)').matches;
+  let line = 0, lastSeg = -1;
+  function frame(now){
+    if (document.body.classList.contains('chatting')) return requestAnimationFrame(frame);
+    const total = SEG * (SEQ.length - 1), t = now % total, i = Math.floor(t / SEG), u = ease((t % SEG) / SEG);
+    draw(mix(P[SEQ[i]], P[SEQ[i + 1]], u));
+    if (i !== lastSeg){ lastSeg = i;
+      if (SEQ[i] === 'cloudL' && i === 3){ bub.textContent = LINES[line++ % LINES.length]; bub.classList.add('on'); }
+      if (SEQ[i] === 'whip') bub.classList.remove('on');
+    }
+    requestAnimationFrame(frame);
+  }
+  draw(P.stand);
+  setTimeout(() => { el.classList.add('on'); if (!reduce) requestAnimationFrame(frame); else { draw(P.cloudL); } }, reduce ? 0 : 2200);
+}
 
 function esc(t){ return String(t ?? '').replace(/[&<>"]/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;' }[c])); }
 let busy = false;
