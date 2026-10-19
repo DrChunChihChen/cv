@@ -446,6 +446,11 @@ function dist(id){ const s = ENTRIES[ENTRY].at, d = B[id].d, m = Math.hypot(d[0]
 
 function renderAnswer(ai, r, question){
   ai.querySelector('.thinking').remove();
+  if (r.options && r.options.length){ // the assistant asks back: which one did you mean?
+    ai.insertAdjacentHTML('beforeend', `<div class="miss"><p>${esc(r.answer)}</p><div class="chips" style="margin:0;padding:0;flex-wrap:wrap">${r.options.map(o => `<button class="chip" type="button" data-q="${esc(o.q)}">${esc(o.label)}</button>`).join('')}</div></div>`);
+    ai.querySelectorAll('.chip').forEach(b => b.onclick = () => ask(b.dataset.q));
+    scrollDown(); return;
+  }
   if ((!r.place || !B[r.place]) && r.office && r.entryId){ // a real answer without a place yet: card, no map
     const card = document.createElement('div'); card.className = 'card';
     card.innerHTML = `<div class="card-in" style="padding-bottom:12px"><h3>${esc(r.office)}</h3><p>${esc(r.answer)}</p></div>
