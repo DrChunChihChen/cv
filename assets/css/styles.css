@@ -2098,3 +2098,21 @@ small, .tl__date, .tl__threads, .lab2__kind, .ib-card__tag, .ib-card__new, .biz_
 .campus-thumb { display: block; margin: .8rem 0; border-radius: .9rem; overflow: hidden; }
 .campus-thumb img { display: block; width: 100%; height: auto; transition: transform .3s ease; }
 .campus-thumb:hover img { transform: scale(1.03); }
+
+/* Teaching: AI explainer videos */
+.vid-block { margin-bottom: 2.2rem; }
+.vid-block__head h3 { font-size: 1.15rem; font-weight: 700; color: #1f2333; margin-bottom: .3rem; }
+.vid-block__head h3 small { display: block; font-size: .68rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--text-color-light); }
+.vid-block__head p { font-size: .9rem; color: var(--text-color); line-height: 1.6; margin: 0 0 1.2rem; }
+.vid-grid { display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
+@media screen and (min-width: 768px) { .vid-grid { grid-template-columns: repeat(2, 1fr); } }
+@media screen and (min-width: 1100px) { .vid-grid { grid-template-columns: repeat(3, 1fr); } }
+.vid-card { display: flex; flex-direction: column; gap: .9rem; background: #fff; border: 1px solid var(--line-color); border-radius: 1.5rem; padding: 1rem; box-shadow: 0 10px 36px rgba(108, 99, 255, .09); }
+.vid-card__body { display: flex; flex-direction: column; gap: .55rem; padding: 0 .25rem .25rem; }
+.vid-card__title { font-size: 1.05rem; font-weight: 800; color: #1f2333; line-height: 1.4; margin: 0; }
+.vid-card__title small { display: block; font-size: .7rem; font-weight: 600; letter-spacing: .04em; color: var(--text-color-light); margin-top: .2rem; }
+.vid-card__desc { font-size: .88rem; color: var(--text-color); line-height: 1.6; margin: 0; }
+.vid-card__pts { margin: 0; padding-left: 1.1rem; font-size: .84rem; line-height: 1.65; color: var(--text-color); list-style: disc; }
+.vid-card__key { margin: .2rem 0 0; padding: .55rem .8rem; border-radius: .8rem; background: var(--c-purple-soft); font-size: .84rem; font-weight: 700; color: #1f2333; line-height: 1.5; }
+.vid-card__tags { display: flex; flex-wrap: wrap; gap: .35rem; margin-top: auto; }
+.vid-card__tags span { font-size: .72rem; font-weight: 600; color: var(--first-color); background: rgba(108, 99, 255, .08); padding: .2rem .55rem; border-radius: 999px; }
