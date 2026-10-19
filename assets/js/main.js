@@ -360,7 +360,7 @@ document.querySelectorAll('.lab2__works').forEach(box => {
     }
     const say = text => { const t = performance.now(); bubble.textContent = text; bubbleUntil = t + 3200; hopUntil = t + 420; if (reduce) draw(t); };
     // ---- Chat: click the bot to open a small chat panel ----
-    const API = 'https://icma-lab-chat.netlify.app/api/chat';
+    const API = 'https://jolly-puffpuff-c06994.netlify.app/api/chat';
     let chatOpen = false, busy = false, nextHint = performance.now() + 4000, hintN = 0;
     const history = [];
     // anonymous per-browser id so the server can count the 6-questions-a-day quota
