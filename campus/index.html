@@ -512,10 +512,14 @@ const PLACES = [
     note:'兩面全場籃球場，位在昌明樓北側、靠近中商大樓這一邊。' },
   { id:'vball', name:'排球場', kind:'place', group:'sport', at:[569,377], door:[569,428],
     note:'兩面排球場，位在學生活動中心東側、昌明樓北側。' },
+  { id:'vball2', name:'排球場（運動場北側）', kind:'place', group:'sport', at:[852,446], door:[852,430],
+    note:'運動場北側、翰英樓前有四面排球場，中間是司令台：由西到東為兩面排球場、司令台、兩面排球場。' },
+  { id:'stand', name:'司令台', kind:'place', group:'sport', at:[925,446], door:[925,430],
+    note:'運動場北側中央、面向跑道，兩側各有兩面排球場。' },
   { id:'tennis', name:'網球場', kind:'place', group:'sport', at:[924,557], door:[924,610],
     note:'位在運動場跑道中間的網球場，從跑道內側進出。' },
   { id:'track', name:'運動場', kind:'place', group:'sport', at:[924,472], door:[924,472],
-    note:'田徑跑道環繞，中間是網球場。北側是翰英樓，南側是體育館與奇秀樓。' },
+    note:'田徑跑道環繞，中間是網球場。北側有司令台與四面排球場，再過去是翰英樓；南側是體育館與奇秀樓。' },
   { id:'gym', name:'體育館', group:'sport', floors:3, est:true, roof:'barrel', poly:R(810,685,912,875), door:[861,676],
     note:'室內運動場館，拱形屋頂。西側與弘業樓相鄰。' },
   { id:'qixiu', name:'奇秀樓', group:'sport', floors:4, code:8, poly:R(912,700,1088,770), door:[1000,783],
@@ -568,6 +572,8 @@ const EN_DATA = {
   vball: { n:'Volleyball Courts', note:'Two volleyball courts east of the Student Activity Center, north of Changming Building.' },
   hanying: { n:'Hanying Building', note:'Mostly general classrooms (37), facing the sports field.',
     fl:['General classrooms 5101–5111, faculty lounge', 'General classrooms 5201–5211', 'General classrooms 5301–5311', 'General classrooms 5401–5411, specialty classroom'] },
+  vball2: { n:'Volleyball Courts (north of track)', note:'Four volleyball courts in front of Hanying Building, two on each side of the reviewing stand.' },
+  stand: { n:'Reviewing Stand', note:'At the middle of the north side of the sports field, facing the track, with two volleyball courts on each side.' },
   tennis: { n:'Tennis Courts', note:'Tennis courts in the middle of the sports field, reached from the inside of the track.' },
   track: { n:'Sports Field', note:'A running track with tennis courts in the middle, Hanying Building to the north, and the Gymnasium and Qixiu Building to the south.' },
   gym: { n:'Gymnasium', note:'Indoor sports hall with an arched roof, next to Hongye Building on the west.' },
@@ -814,12 +820,24 @@ for (let k = 0; k < 4; k++){
   const net = new THREE.Mesh(new THREE.BoxGeometry(12.6, 1, .05), new THREE.MeshStandardMaterial({ color: 0xffffff, transparent: true, opacity: .6 })); net.position.set(p.x, .5, p.z); scene.add(net);
   [-1, 1].forEach(sg => { const post = new THREE.Mesh(new THREE.CylinderGeometry(.05, .05, 1.07, 6), poleMat); post.position.set(p.x + sg * 6.4, .53, p.z); scene.add(post); });
 }
+[[826, 446], [879, 446], [971, 446], [1024, 446]].forEach(([x, y]) => {
+  const p = W(x, y);
+  [-1, 1].forEach(sg => { const post = new THREE.Mesh(new THREE.CylinderGeometry(.06, .06, 2.45, 6), poleMat); post.position.set(p.x, 1.22, p.z + sg * 4.4); scene.add(post); });
+  const net = new THREE.Mesh(new THREE.BoxGeometry(.04, .9, 8.6), new THREE.MeshStandardMaterial({ color: 0xffffff, transparent: true, opacity: .55 })); net.position.set(p.x, 1.95, p.z); scene.add(net);
+});
+{ const standMat = new THREE.MeshStandardMaterial({ color: 0xd9d4c7, roughness: .85 }), c = W(925, 446);
+  const plat = new THREE.Mesh(new THREE.BoxGeometry(11.5, 1.3, 7.5), standMat); plat.position.set(c.x, .65, c.z);
+  const wall = new THREE.Mesh(new THREE.BoxGeometry(11.5, 4.6, .45), standMat); wall.position.set(c.x, 3.6, c.z - 3.5);
+  const roof = new THREE.Mesh(new THREE.BoxGeometry(12.6, .45, 8.4), new THREE.MeshStandardMaterial({ color: 0x9a6a52, roughness: .8 })); roof.position.set(c.x, 6.1, c.z - .2);
+  const step = new THREE.Mesh(new THREE.BoxGeometry(6, .6, 1.4), standMat); step.position.set(c.x, .3, c.z + 4.4);
+  [plat, wall, roof, step].forEach(m => { m.castShadow = m.receiveShadow = true; scene.add(m); });
+  [-1, 1].forEach(sg => { const col = new THREE.Mesh(new THREE.BoxGeometry(.4, 4.6, .4), standMat); col.position.set(c.x + sg * 5.6, 3.6, c.z + 3.4); col.castShadow = true; scene.add(col); }); }
 const fount = new THREE.Mesh(new THREE.CylinderGeometry(4.6, 5.2, .7, 32), decoMat); fount.position.copy(W(630, 700, .35)); scene.add(fount);
 
 /* --- trees --- */
 const TREES = [];
 const row = (x1, y1, x2, y2, n) => { for (let i = 0; i < n; i++){ const t = n === 1 ? .5 : i / (n - 1); TREES.push([x1 + (x2 - x1) * t, y1 + (y2 - y1) * t]); } };
-row(752,95,752,295,8); row(948,95,948,295,8); row(522,334,742,334,8); row(782,440,1062,440,11); row(782,672,800,672,1);
+row(752,95,752,295,8); row(948,95,948,295,8); row(522,334,742,334,8); row(782,428,1062,428,11); row(782,672,800,672,1);
 row(778,455,778,650,6); row(1068,455,1068,650,6); row(528,612,528,850,7); row(737,612,737,850,7); row(392,352,392,512,5);
 row(300,560,300,750,6); row(212,762,212,892,4); row(145,600,290,600,5); row(1182,342,1182,770,13); row(980,795,1170,795,5); row(1005,890,1170,890,6);
 row(1258,430,1258,630,6); row(1384,430,1384,630,6); row(1272,422,1372,422,4); row(530,876,575,876,2); row(690,876,735,876,2); row(500,325,500,345,1); row(590,460,590,500,2);row(670,460,670,500,2);
@@ -892,6 +910,10 @@ function paintGround(dark){
   rect(522, 340, 744, 424, T.pave);
   court(610, 344, 652, 420, dark ? '#2C4A66' : '#5C8DBE', 'bv'); court(660, 344, 702, 420, dark ? '#2C4A66' : '#5C8DBE', 'bv');
   court(540, 352, 564, 402, dark ? '#5A4636' : '#C98F62', 'vv'); court(574, 352, 598, 402, dark ? '#5A4636' : '#C98F62', 'vv');
+  // north of the track (west → east): 2 volleyball courts, 司令台, 2 volleyball courts — long side east–west
+  rect(796, 432, 1054, 460, T.pave);
+  court(802, 436, 850, 456, dark ? '#5A4636' : '#C98F62', 'v'); court(855, 436, 903, 456, dark ? '#5A4636' : '#C98F62', 'v'); court(947, 436, 995, 456, dark ? '#5A4636' : '#C98F62', 'v'); court(1000, 436, 1048, 456, dark ? '#5A4636' : '#C98F62', 'v');
+  rect(910, 434, 940, 458, dark ? '#3A4248' : '#CFCBC0');
   // track
   const stadium = (x1, y1, x2, y2) => { const r = (y2 - y1) / 2; g.beginPath(); g.moveTo(x1 + r, y1); g.lineTo(x2 - r, y1); g.arc(x2 - r, y1 + r, r, -Math.PI / 2, Math.PI / 2); g.lineTo(x1 + r, y2); g.arc(x1 + r, y1 + r, r, Math.PI / 2, Math.PI * 1.5); g.closePath(); };
   rect(782, 452, 1066, 662, T.lawn);
@@ -962,6 +984,8 @@ function paintGroundSketch(chalk){
   // basketball + volleyball courts
   [[610, 344, 652, 420], [660, 344, 702, 420]].forEach(([x1, y1, x2, y2]) => { hatch(rp(x1, y1, x2, y2), blue, 4); rectS(x1, y1, x2, y2, .6); line(x1, (y1 + y2) / 2, x2, (y1 + y2) / 2, .5, 1); g.strokeStyle = ink(.5); g.beginPath(); g.arc((x1 + x2) / 2, (y1 + y2) / 2, 6, 0, Math.PI * 2); g.stroke(); });
   [[540, 352, 564, 402], [574, 352, 598, 402]].forEach(([x1, y1, x2, y2]) => { hatch(rp(x1, y1, x2, y2), orange, 4); rectS(x1, y1, x2, y2, .6); line(x1, (y1 + y2) / 2, x2, (y1 + y2) / 2, .5, 1); });
+  [[802, 436, 850, 456], [855, 436, 903, 456], [947, 436, 995, 456], [1000, 436, 1048, 456]].forEach(([x1, y1, x2, y2]) => { hatch(rp(x1, y1, x2, y2), orange, 4); rectS(x1, y1, x2, y2, .6); line((x1 + x2) / 2, y1, (x1 + x2) / 2, y2, .5, 1); });
+  rectS(910, 434, 940, 458, .7, 1.3); hatch(rp(910, 434, 940, 458), ink(.12), 5);
   // parking
   [[170, 605, 280, 680], [722, 100, 746, 290], [955, 100, 996, 290], [1000, 812, 1165, 885], [1255, 650, 1390, 705]].forEach(([x1, y1, x2, y2]) => { rectS(x1, y1, x2, y2, .35, 1); g.strokeStyle = ink(.18); g.lineWidth = .8; g.beginPath(); if (y2 - y1 > x2 - x1) for (let y = y1 + 8; y < y2; y += 8){ g.moveTo(x1 + 2, y); g.lineTo(x2 - 2, y); } else for (let x = x1 + 8; x < x2; x += 8){ g.moveTo(x, y1 + 2); g.lineTo(x, y2 - 2); } g.stroke(); });
   // campus fence + 中技 block
@@ -1800,6 +1824,7 @@ function drawMiniBase(){
   for (let i = 0; i < 4; i++) rect(852 + i * 38, 525, 882 + i * 38, 589, T.court);
   rect(610, 344, 652, 420, T.court); rect(660, 344, 702, 420, T.court);
   rect(540, 352, 564, 402, dark ? '#5A4636' : '#C98F62'); rect(574, 352, 598, 402, dark ? '#5A4636' : '#C98F62');
+  rect(802, 436, 850, 456, dark ? '#5A4636' : '#C98F62'); rect(855, 436, 903, 456, dark ? '#5A4636' : '#C98F62'); rect(947, 436, 995, 456, dark ? '#5A4636' : '#C98F62'); rect(1000, 436, 1048, 456, dark ? '#5A4636' : '#C98F62');
   g.beginPath(); g.arc(X(630), Y(700), 16 * k, 0, Math.PI * 2); g.fillStyle = dark ? '#2B4A5E' : '#9CC7DD'; g.fill();
   for (const b of OBST){ const col = new THREE.Color(css(GROUPS[b.group].v)); if (STYLE === 'sketch') col.lerp(new THREE.Color(dark ? 0x3a4642 : 0xfdfcf7), .45); else if (dark) col.multiplyScalar(.75); poly(b.poly, '#' + col.getHexString(), T.edge); }
   miniBase = c;
