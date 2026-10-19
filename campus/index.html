@@ -473,7 +473,7 @@ const PLACES = [
   { id:'xingzheng', name:'行政大樓', group:'admin', floors:6, est:true, access:true, poly:R(412,765,498,830), door:[512,798],
     note:'學校行政單位集中的大樓，緊鄰花園廣場，室內與資訊館相通，可從這裡進入資訊館。其他單位所在樓層待補。',
     fl:[ [1,'出納組、事務組'], [3,'主計室'] ] },
-  { id:'xunxi', name:'資訊館', alt:'資訊大樓', group:'info', floors:12, est:true, access:true,
+  { id:'xunxi', name:'資訊館', alt:'資訊大樓', group:'info', floors:12, code:2, est:true, access:true,
     poly:[[318,758],[412,758],[412,830],[498,830],[498,888],[318,888]], door:[306,830],
     doors:[ { at:[306,830], label:'資訊館正門' }, { at:[512,798], label:'從行政大樓進入，內部相通' }, { at:[395,751], label:'中科大樓側入口（兩棟之間）' } ],
     note:'資訊流通學院與智慧產業學院所在（總務處資料稱「資訊大樓」）。建築較複雜，共有 3 處入口：資訊館正門、從行政大樓進入後內部相通，以及中科大樓與資訊館之間的側入口。地下室是車牌辨識的機車停車場，由西側汽機車車道進出。' },
@@ -503,7 +503,7 @@ const PLACES = [
       [5,'商設所系辦公室、MAC／PC 電腦教室、攝影棚'] ] },
   { id:'xuehuo', name:'學生活動中心', group:'life', floors:4, est:true, access:true, poly:R(402,365,485,520), door:[498,440],
     note:'社團與學生活動空間。各樓層用途待補。' },
-  { id:'zhongshang', name:'中商大樓', alt:'圖書館', group:'biz', floors:10, est:true, access:true, poly:R(775,97,912,285), door:[843,302],
+  { id:'zhongshang', name:'中商大樓', alt:'圖書館', group:'biz', floors:10, code:7, est:true, access:true, poly:R(775,97,912,285), door:[843,302],
     doors:[ { at:[843,302], label:'南側入口（校園內）' }, { at:[843,90], label:'北側入口（中華路）' } ], onlyDoors:true, preferThrough:true,
     note:'商學院所在大樓，圖書館也在這裡，普通教室 27 間。北側面向中華路，南側面向校園，<b>可以直接穿越大樓</b>：從中華路走進北側入口，穿過大樓從南側出來就進到校園。對外收費停車位也在這裡，車輛由中華路進入。' },
   { id:'hanying', name:'翰英樓', group:'admin', floors:4, code:5, poly:R(752,352,1055,420), door:[820,435],
@@ -594,7 +594,7 @@ const gname = k => L(GROUPS[k].name, GROUPS_EN[k]);
 const nm = p => L(p.name, p.en);
 const SRC_FLOORS_EN = 'Floors and units come from the classroom floor plans dated Aug 10, 2021; some units may have moved.';
 
-const CODE = { 3:'zhongke', 4:'changming', 5:'hanying', 6:'hongye', 8:'qixiu' };
+const CODE = { 2:'xunxi', 3:'zhongke', 4:'changming', 5:'hanying', 6:'hongye', 7:'zhongshang', 8:'qixiu' };
 const ENTRIES = {
   sanmin:   { name:'三民路校門', en:'the Sanmin Rd. gate', short:'三民路', at:[630,878] },
   zhonghua: { name:'中華路入口（中商大樓）', en:'the Zhonghua Rd. entrance (Zhongshang Bldg.)', short:'中華路', at:[843,72] },
@@ -1672,7 +1672,7 @@ function runSearch(){
   if (m){
     const id = CODE[m[1]];
     if (id && BY[id].floors >= +m[2] && +m[2] > 0) sItems.push({ id, floor: +m[2], label: L(`${v.toUpperCase()} → ${BY[id].name} ${m[2]} 樓`, `${v.toUpperCase()} → ${BY[id].en}, ${m[2]}F`), sub: L('依教室編號規則：第 1 碼大樓、第 2 碼樓層', 'Room code: 1st digit = building, 2nd digit = floor') });
-    else sItems.push({ none: true, label: L(`查不到 ${v} 的大樓`, `No building found for ${v}`), sub: L('目前收錄 3 開頭（中科）、4（昌明）、5（翰英）、6（弘業）、8（奇秀）', 'Covered codes: 3 (Zhongke), 4 (Changming), 5 (Hanying), 6 (Hongye), 8 (Qixiu)') });
+    else sItems.push({ none: true, label: L(`查不到 ${v} 的大樓`, `No building found for ${v}`), sub: L('目前收錄 2 開頭（資訊館）、3（中科）、4（昌明）、5（翰英）、6（弘業）、7（中商）、8（奇秀）', 'Covered codes: 2 (Information Bldg), 3 (Zhongke), 4 (Changming), 5 (Hanying), 6 (Hongye), 7 (Zhongshang), 8 (Qixiu)') });
   }
   const lv = v.toLowerCase();
   for (const p of PLACES){
