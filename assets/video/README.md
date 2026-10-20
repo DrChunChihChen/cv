@@ -1,12 +1,13 @@
 # AI 小白教學影片 · 檔案與 YouTube 文案
 
-教學專區（teaching.html → #ai-videos）用到的三支影片。網站上的是 720p 壓縮版；原始 1080p 檔放在 Mac。
+教學專區（teaching.html → #ai-videos）用到的四支影片。網站上的是 720p 壓縮版；原始 1080p 檔放在 Mac。
 
 | 影片 | 網站檔案 | 封面 | Mac 原始檔 |
 |---|---|---|---|
 | MCP 與 Skill | `assets/video/ai-mcp-skill.mp4` | `assets/img/ai-mcp-skill-poster.jpg` | `~/Documents/ChatGPT/MCP與Skill影片/MCP與Skill_小白版_ICMA-Lab.mp4` |
 | 小白裝機教學 | `assets/video/ai-pc-build.mp4` | `assets/img/ai-pc-build-poster.jpg` | `~/Documents/ChatGPT/裝機教學影片/小白裝機教學.mp4` |
 | Mac vs Windows | `assets/video/ai-mac-win.mp4` | `assets/img/ai-mac-win-poster.jpg` | `~/Documents/ChatGPT/MacWin影片/MacvsWindows_AI時代怎麼選.mp4` |
+| 前端・後端・API | `assets/video/ai-api-basics.mp4` | `assets/img/ai-api-basics-poster.jpg` | `~/Documents/ChatGPT/API入門影片/前端後端API_新手必懂.mp4` |
 
 ---
 
@@ -73,4 +74,31 @@ AI 時代買電腦，Mac 還是 Windows？先問自己「AI 在哪裡跑」｜3 
 ※ 規格資訊截至 2026 年 10 月，購買前請以官方最新資料為準。
 
 #Mac #Windows #AI電腦 #筆電推薦 #本機AI #NVIDIA #MacBook #ICMALab
+```
+
+---
+
+## 4. 前端・後端・API・API key｜vibe coding 新手必懂（約 3 分鐘）
+
+**標題**
+前端、後端、API、API key 是什麼？用一間餐廳搞懂｜Vibe Coding 新手必看
+
+**說明**
+```
+用 AI 寫了一個網站，貼上 API key 就部署，隔天收到好幾萬的帳單？
+這支影片用「餐廳」比喻，帶你搞懂 vibe coding 新手一定要懂的四個詞：
+✅ 前端＝外場：瀏覽器看得到的一切，按 F12 誰都看得到程式碼
+✅ 後端＝廚房：在伺服器上執行，登入、付款、資料庫（冰箱）都在這
+✅ API＝點餐規則：點什麼、怎麼點、回給你什麼（JSON）
+✅ API key＝綁了信用卡的會員卡：誰拿到，誰就能刷你的卡
+
+vibe coding 四件事：
+1. 跟 AI 說「API key 放後端，用環境變數讀取」
+2. key 存在 .env，並加進 .gitignore，不要推上 GitHub
+3. 到 API 平台設定用量上限和預算警示
+4. 萬一外洩，馬上撤銷舊 key、換新的
+
+記住一句話：卡，永遠放在廚房。
+
+#API #APIkey #前端 #後端 #VibeCoding #AI寫程式 #資安 #ICMALab
 ```
