@@ -470,9 +470,9 @@ const SRC_FLOORS = '樓層與單位依 110 年 8 月 10 日〈上課教室平面
 const PLACES = [
   { id:'gate', name:'校門', kind:'place', group:'admin', at:[630,902], door:[630,888],
     note:'三民路三段 129 號主要出入口，旁邊是警衛室。往左沿三民路走、過 7-ELEVEN 後左轉錦平街，約 350 公尺可到中技大樓。' },
-  { id:'xingzheng', name:'行政大樓', group:'admin', floors:6, est:true, access:true, poly:R(412,765,498,830), door:[512,798],
+  { id:'xingzheng', name:'行政大樓', group:'admin', floors:6, code:1, est:true, access:true, poly:R(412,765,498,830), door:[512,798],
     note:'學校行政單位集中的大樓，緊鄰花園廣場，室內與資訊館相通，可從這裡進入資訊館。其他單位所在樓層待補。',
-    fl:[ [1,'出納組、事務組'], [3,'主計室'] ] },
+    fl:[ [1,'出納組、事務組'], [2,'人事室（1205–1208）'], [3,'主計室'] ] },
   { id:'xunxi', name:'資訊館', alt:'資訊大樓', group:'info', floors:12, code:2, est:true, access:true,
     poly:[[318,758],[412,758],[412,830],[498,830],[498,888],[318,888]], door:[306,830],
     doors:[ { at:[306,830], label:'資訊館正門' }, { at:[512,798], label:'從行政大樓進入，內部相通' }, { at:[395,751], label:'中科大樓側入口（兩棟之間）' } ],
@@ -548,7 +548,7 @@ const L = (zh, en) => LANG === 'en' ? en : zh;
 const EN_DATA = {
   gate: { n:'Main Gate', note:'Main entrance at No. 129, Sec. 3, Sanmin Rd., with the guard booth beside it. Turn left along Sanmin Rd., pass 7-Eleven and turn left onto Jinping St. to reach Zhongji Building in about 350 m.' },
   xingzheng: { n:'Administration Building', note:'Home to the university’s administrative offices, next to the Garden Plaza. It connects indoors to the Information Building. Other office floors to be added.',
-    fl:['Cashier Section, General Affairs Section', 'Accounting Office'] },
+    fl:['Cashier Section, General Affairs Section', 'Personnel Office (1205–1208)', 'Accounting Office'] },
   xunxi: { n:'Information Building', note:'Home to the College of Information and Distribution Science and the College of Intelligence. It has three entrances: the main entrance, via the Administration Building (connected indoors), and a side entrance between Zhongke Building and this building. The basement is a scooter park with plate recognition, reached from the west driveway.',
     doors:['Main entrance', 'Via Administration Building (connected indoors)', 'Side entrance from Zhongke Building'] },
   zhongke: { n:'Zhongke Building', alt:'formerly Zhongzheng Building', note:'Main building of the College of Languages, formerly called the Zhongzheng Building. International Business, the Office of International Affairs and the Language Center are here too. It has the most general classrooms on campus (41). An entrance on its south side leads straight to the Information Building.',
@@ -596,7 +596,7 @@ const gname = k => L(GROUPS[k].name, GROUPS_EN[k]);
 const nm = p => L(p.name, p.en);
 const SRC_FLOORS_EN = 'Floors and units come from the classroom floor plans dated Aug 10, 2021; some units may have moved.';
 
-const CODE = { 2:'xunxi', 3:'zhongke', 4:'changming', 5:'hanying', 6:'hongye', 7:'zhongshang', 8:'qixiu' };
+const CODE = { 1:'xingzheng', 2:'xunxi', 3:'zhongke', 4:'changming', 5:'hanying', 6:'hongye', 7:'zhongshang', 8:'qixiu' };
 const ENTRIES = {
   sanmin:   { name:'三民路校門', en:'the Sanmin Rd. gate', short:'三民路', at:[630,878] },
   zhonghua: { name:'中華路入口（中商大樓）', en:'the Zhonghua Rd. entrance (Zhongshang Bldg.)', short:'中華路', at:[843,72] },
@@ -1674,7 +1674,7 @@ function runSearch(){
   if (m){
     const id = CODE[m[1]];
     if (id && BY[id].floors >= +m[2] && +m[2] > 0) sItems.push({ id, floor: +m[2], label: L(`${v.toUpperCase()} → ${BY[id].name} ${m[2]} 樓`, `${v.toUpperCase()} → ${BY[id].en}, ${m[2]}F`), sub: L('依教室編號規則：第 1 碼大樓、第 2 碼樓層', 'Room code: 1st digit = building, 2nd digit = floor') });
-    else sItems.push({ none: true, label: L(`查不到 ${v} 的大樓`, `No building found for ${v}`), sub: L('目前收錄 2 開頭（資訊館）、3（中科）、4（昌明）、5（翰英）、6（弘業）、7（中商）、8（奇秀）', 'Covered codes: 2 (Information Bldg), 3 (Zhongke), 4 (Changming), 5 (Hanying), 6 (Hongye), 7 (Zhongshang), 8 (Qixiu)') });
+    else sItems.push({ none: true, label: L(`查不到 ${v} 的大樓`, `No building found for ${v}`), sub: L('目前收錄 1 開頭（行政大樓）、2（資訊館）、3（中科）、4（昌明）、5（翰英）、6（弘業）、7（中商）、8（奇秀）', 'Covered codes: 1 (Administration Bldg), 2 (Information Bldg), 3 (Zhongke), 4 (Changming), 5 (Hanying), 6 (Hongye), 7 (Zhongshang), 8 (Qixiu)') });
   }
   const lv = v.toLowerCase();
   for (const p of PLACES){
