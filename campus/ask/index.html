@@ -357,6 +357,7 @@ kbReady.then(() => {
   const short = id => (KB.places[id] || '').replace(/大樓|樓|館$/g, '') || '';
   const order = KB.cats || [], groups = new Map(order.map(c => [c, new Map()]));
   for (const e of KB.entries){
+    if ((e.cat || '').startsWith('_')) continue; // internal summaries, not shown in the list
     const c = e.cat || '其他'; if (!groups.has(c)) groups.set(c, new Map());
     const k = e.label || name(e), g = groups.get(c), o = g.get(k);
     if (!o || (!o.verified && e.verified)) g.set(k, e);
