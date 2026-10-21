@@ -109,7 +109,7 @@ body.chatting .lead b{font-size:17px;letter-spacing:.03em}
 .tag{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;padding:3px 10px 3px 8px;border-radius:999px;background:color-mix(in srgb,var(--seal) 12%,transparent);color:var(--seal);font-weight:500}
 .tag::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--seal)}
 .card h3{margin:0;font:700 22px/1.3 var(--f-hand);letter-spacing:.02em}
-.card p{margin:0;color:var(--ink-2)}
+.card p{margin:0;color:var(--ink-2);white-space:pre-line}
 .map{display:block;width:100%;aspect-ratio:1320/960;margin-top:8px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .meta{font-size:12.5px;color:var(--muted);padding:8px 16px 0;font-variant-numeric:tabular-nums}
 .acts{display:flex;gap:8px;padding:10px 16px 14px}
@@ -445,7 +445,7 @@ function startSwitch(ai, r, question){
 function scrollDown(){ requestAnimationFrame(() => window.scrollTo({ top: document.body.scrollHeight, behavior: matchMedia('(prefers-reduced-motion:reduce)').matches ? 'auto' : 'smooth' })); }
 function dist(id){ const s = ENTRIES[ENTRY].at, d = B[id].d, m = Math.hypot(d[0] - s[0], d[1] - s[1]) * .37 * 1.25; return { m: Math.round(m / 10) * 10, min: Math.max(1, Math.round(m / 1.3 / 60)) }; }
 
-function renderAnswer(ai, r, question){
+async function renderAnswer(ai, r, question){
   ai.querySelector('.thinking').remove();
   if (r.options && r.options.length){ // the assistant asks back: which one did you mean?
     ai.insertAdjacentHTML('beforeend', `<div class="miss"><p>${esc(r.answer)}</p><div class="chips" style="margin:0;padding:0;flex-wrap:wrap">${r.options.map(o => `<button class="chip" type="button" data-q="${esc(o.q)}">${esc(o.label)}</button>`).join('')}</div></div>`);
@@ -453,6 +453,7 @@ function renderAnswer(ai, r, question){
     scrollDown(); return;
   }
   if ((!r.place || !B[r.place]) && r.office && r.entryId){ // a real answer without a place yet: card, no map
+    if (r.entryId === 'help'){ await kbReady; const h = KB?.entries.find(e => e.id === 'help'); if (h) r = { ...r, answer: h.answer }; } // full overview, not the model's 80-char summary
     const card = document.createElement('div'); card.className = 'card';
     card.innerHTML = `<div class="card-in" style="padding-bottom:12px"><h3>${esc(r.office)}</h3><p>${esc(r.answer)}</p></div>
       <div class="acts" style="padding-top:0"><button class="ghost" type="button" data-fb="1" aria-label="有幫助">👍</button><button class="ghost" type="button" data-fb="0" aria-label="沒幫助">👎</button></div>`;
