@@ -2115,3 +2115,6 @@ small, .tl__date, .tl__threads, .lab2__kind, .ib-card__tag, .ib-card__new, .biz_
 .vid-card__key { margin: .2rem 0 0; padding: .55rem .8rem; border-radius: .8rem; background: var(--c-purple-soft); font-size: .84rem; font-weight: 700; color: #1f2333; line-height: 1.5; }
 .vid-card__tags { display: flex; flex-wrap: wrap; gap: .35rem; margin-top: auto; }
 .vid-card__tags span { font-size: .72rem; font-weight: 600; color: var(--first-color); background: rgba(108, 99, 255, .08); padding: .2rem .55rem; border-radius: 999px; }
+
+/* Lab works: vertical (9:16) self-hosted video */
+.lab2__mp4--v video { aspect-ratio: 9 / 16; width: auto; max-width: 100%; max-height: 560px; margin: 0 auto; object-fit: contain; }
