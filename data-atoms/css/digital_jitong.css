@@ -1,0 +1,901 @@
+/**
+ * 🔮 數位乩童（Digital Jitong）AI 客服小工具樣式
+ */
+:root {
+  --jitong-primary: #7c3aed;
+  --jitong-primary-hover: #6d28d9;
+  --jitong-accent: #f59e0b;
+  --jitong-bg-gradient: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #4c1d95 100%);
+  --jitong-card-bg: #ffffff;
+  --jitong-text-dark: #0f172a;
+  --jitong-text-muted: #64748b;
+  --jitong-radius: 16px;
+  --jitong-shadow: 0 16px 40px -8px rgba(124, 58, 237, 0.35), 0 8px 20px -4px rgba(0, 0, 0, 0.15);
+}
+
+/* 懸浮按鈕 */
+.jitong-floating-trigger {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--jitong-bg-gradient);
+  color: #ffffff;
+  padding: 10px 18px 10px 12px;
+  border-radius: 50px;
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  box-shadow: var(--jitong-shadow);
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.jitong-floating-trigger:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 20px 45px -6px rgba(124, 58, 237, 0.5);
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
+.jitong-avatar-halo {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fde047 0%, #a855f7 60%, #6366f1 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 15px rgba(253, 224, 71, 0.65), 0 0 25px rgba(168, 85, 247, 0.45);
+  position: relative;
+  animation: jitongPulse 2.8s infinite ease-in-out;
+  padding: 2px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.jitong-avatar-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+@keyframes jitongPulse {
+  0%, 100% {
+    box-shadow: 0 0 12px rgba(253, 224, 71, 0.5), 0 0 20px rgba(168, 85, 247, 0.4);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 22px rgba(253, 224, 71, 0.8), 0 0 32px rgba(168, 85, 247, 0.6);
+    transform: scale(1.06);
+  }
+}
+
+.jitong-trigger-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.jitong-trigger-name {
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.jitong-online-dot {
+  width: 7px;
+  height: 7px;
+  background: #10b981;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #10b981;
+}
+
+.jitong-trigger-sub {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+/* 聊天視窗主體 */
+.jitong-chat-window {
+  position: fixed;
+  bottom: 84px;
+  right: 24px;
+  width: 390px;
+  height: 580px;
+  max-width: calc(100vw - 32px);
+  max-height: calc(100vh - 110px);
+  z-index: 10000;
+  background: var(--jitong-card-bg);
+  border-radius: var(--jitong-radius);
+  box-shadow: 0 24px 60px -10px rgba(15, 23, 42, 0.35), 0 0 0 1px rgba(124, 58, 237, 0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(20px) scale(0.96);
+  pointer-events: none;
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.jitong-chat-window.open {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+/* 頂部 Header */
+.jitong-header {
+  background: var(--jitong-bg-gradient);
+  color: #ffffff;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.jitong-header-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.jitong-header-avatar-wrap {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  padding: 2px;
+  background: linear-gradient(135deg, #fde047 0%, #a855f7 70%, #6366f1 100%);
+  box-shadow: 0 0 12px rgba(253, 224, 71, 0.45);
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.jitong-header-avatar-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+.jitong-header-avatar {
+  font-size: 22px;
+}
+
+.jitong-header-title {
+  font-size: 15px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.jitong-model-pill {
+  font-size: 9.5px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-family: monospace;
+}
+
+.jitong-header-sub {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.jitong-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.jitong-icon-btn {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 16px;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 6px;
+  transition: all 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.jitong-icon-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+/* 訊息滾動區 */
+.jitong-messages-stream {
+  flex: 1;
+  padding: 16px 14px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: #fafaf9;
+}
+
+.jitong-msg {
+  display: flex;
+  gap: 8px;
+  max-width: 90%;
+  font-size: 13.5px;
+  line-height: 1.55;
+}
+
+.jitong-msg.user {
+  align-self: flex-end;
+  flex-direction: row-reverse;
+}
+
+.jitong-msg.bot {
+  align-self: flex-start;
+}
+
+.jitong-msg-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 1.5px solid #a855f7;
+  box-shadow: 0 2px 6px rgba(124, 58, 237, 0.25);
+  margin-top: 3px;
+  display: block;
+}
+
+.jitong-msg-bubble {
+  padding: 10px 14px;
+  border-radius: 14px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  word-break: break-word;
+}
+
+.jitong-msg.user .jitong-msg-bubble {
+  background: var(--jitong-primary);
+  color: #ffffff;
+  border-bottom-right-radius: 2px;
+}
+
+.jitong-msg.bot .jitong-msg-bubble {
+  background: #ffffff;
+  color: #1e293b;
+  border: 1px solid #e2e8f0;
+  border-bottom-left-radius: 2px;
+}
+
+/* 乩童靈光思考推導卡 (Reasoning Details) */
+.jitong-reasoning-card {
+  margin-bottom: 8px;
+  background: #f5f3ff;
+  border: 1px dashed #c4b5fd;
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 11.5px;
+  color: #5b21b6;
+}
+
+.jitong-reasoning-summary {
+  cursor: pointer;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  user-select: none;
+}
+
+.jitong-reasoning-body {
+  margin-top: 6px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: #6b21a8;
+  white-space: pre-wrap;
+  line-height: 1.45;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 6px 8px;
+  border-radius: 4px;
+  max-height: 140px;
+  overflow-y: auto;
+}
+
+/* 快捷問題推薦膠囊 */
+.jitong-chips-row {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding: 6px 14px 10px 14px;
+  background: #fafaf9;
+  scrollbar-width: none;
+}
+
+.jitong-chips-row::-webkit-scrollbar {
+  display: none;
+}
+
+.jitong-chip-btn {
+  white-space: nowrap;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  color: #475569;
+  padding: 5px 11px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+
+.jitong-chip-btn:hover {
+  background: #f5f3ff;
+  border-color: #c4b5fd;
+  color: #6d28d9;
+}
+
+.jitong-chip-btn.highlight {
+  background: linear-gradient(135deg, #fefce8 0%, #fef08a 100%);
+  border-color: #eab308;
+  color: #854d0e;
+  font-weight: 800;
+  box-shadow: 0 1px 4px rgba(234, 179, 8, 0.25);
+}
+
+.jitong-chip-btn.highlight:hover {
+  background: #fde047;
+  border-color: #ca8a04;
+  color: #713f12;
+}
+
+/* 底部輸入列 */
+.jitong-footer {
+  padding: 10px 12px;
+  background: #ffffff;
+  border-top: 1px solid #e2e8f0;
+  display: flex;
+  gap: 8px;
+  align-items: flex-end;
+}
+
+/* 截圖附加預覽列 */
+.jitong-image-preview-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  background: #f8fafc;
+  border-top: 1px dashed #cbd5e1;
+  border-bottom: 1px solid #f1f5f9;
+  animation: jitongSlideUp 0.2s ease-out;
+}
+
+.jitong-preview-thumb-wrap {
+  position: relative;
+  width: 52px;
+  height: 52px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1.5px solid #8b5cf6;
+  box-shadow: 0 2px 6px rgba(139, 92, 246, 0.25);
+  flex-shrink: 0;
+  background: #000;
+}
+
+.jitong-preview-thumb-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.jitong-preview-remove-btn {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: rgba(15, 23, 42, 0.8);
+  color: #fff;
+  border: none;
+  font-size: 11px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  transition: background 0.15s;
+}
+
+.jitong-preview-remove-btn:hover {
+  background: #ef4444;
+}
+
+.jitong-preview-meta {
+  flex: 1;
+  min-width: 0;
+}
+
+.jitong-preview-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: #7c3aed;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.jitong-preview-sub {
+  font-size: 11px;
+  color: #64748b;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 工具按鈕 (上傳截圖) */
+.jitong-tool-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: #f1f5f9;
+  color: #64748b;
+  border: 1px solid #e2e8f0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+  flex-shrink: 0;
+  font-size: 17px;
+}
+
+.jitong-tool-btn:hover {
+  background: #f5f3ff;
+  border-color: #c4b5fd;
+  color: #7c3aed;
+  transform: scale(1.05);
+}
+
+/* 使用者訊息內之截圖縮圖 */
+.jitong-user-attached-img-wrap {
+  margin-bottom: 6px;
+  position: relative;
+}
+
+.jitong-user-attached-img {
+  max-width: 100%;
+  max-height: 180px;
+  border-radius: 8px;
+  display: block;
+  cursor: zoom-in;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.15s ease;
+}
+
+.jitong-user-attached-img:hover {
+  transform: scale(1.02);
+}
+
+.jitong-attached-badge {
+  display: inline-block;
+  font-size: 10.5px;
+  padding: 2px 6px;
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: 4px;
+  margin-top: 3px;
+  color: #e2e8f0;
+}
+
+/* 拖曳截圖時的 Drop Zone Overlay */
+.jitong-drop-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(124, 58, 237, 0.92);
+  backdrop-filter: blur(4px);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  border-radius: 16px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.jitong-chat-window.drag-over .jitong-drop-overlay {
+  opacity: 1;
+}
+
+.jitong-drop-icon {
+  font-size: 42px;
+  margin-bottom: 10px;
+  animation: jitongPulse 1s infinite alternate;
+}
+
+.jitong-drop-text {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.jitong-textarea {
+  flex: 1;
+  resize: none;
+  height: 38px;
+  max-height: 90px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  padding: 8px 12px;
+  font-size: 13px;
+  line-height: 1.4;
+  outline: none;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+.jitong-textarea:focus {
+  border-color: var(--jitong-primary);
+  box-shadow: 0 0 0 2px rgba(124, 58, 237, 0.15);
+}
+
+.jitong-send-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: var(--jitong-primary);
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+  flex-shrink: 0;
+}
+
+.jitong-send-btn:hover {
+  background: var(--jitong-primary-hover);
+  transform: scale(1.05);
+}
+
+.jitong-send-btn:disabled {
+  background: #cbd5e1;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ==========================================================================
+   行動版響應式優化 (Mobile Responsive Design <= 640px)
+   讓手機瀏覽時緊湊、美觀、流暢不擋字
+   ========================================================================== */
+@media (max-width: 640px) {
+  /* 懸浮喚醒按鈕：轉為緊湊圓形 FAB，帶賽博霓虹光暈 */
+  .jitong-floating-trigger {
+    bottom: 16px;
+    right: 16px;
+    padding: 0;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    justify-content: center;
+    box-shadow: 0 8px 24px -4px rgba(124, 58, 237, 0.55), 0 0 16px rgba(253, 224, 71, 0.4);
+  }
+
+  .jitong-floating-trigger .jitong-trigger-text {
+    display: none;
+  }
+
+  .jitong-avatar-halo {
+    width: 48px;
+    height: 48px;
+    padding: 1.5px;
+  }
+
+  /* 當聊天視窗開啟時，隱藏右下角懸浮按鈕避免重疊擋住輸入框 */
+  .jitong-floating-trigger.hidden-by-chat {
+    display: none !important;
+  }
+
+  /* 聊天視窗主體：轉為現代 App 級別的 Bottom-Sheet 底部抽屜 */
+  .jitong-chat-window {
+    inset: auto 0 0 0 !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    height: 85vh !important;
+    height: 85dvh !important;
+    max-height: 85dvh !important;
+    border-radius: 20px 20px 0 0 !important;
+    border: none !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.25) !important;
+    box-shadow: 0 -12px 40px rgba(0, 0, 0, 0.45) !important;
+    transform: translateY(100%) scale(1) !important;
+  }
+
+  .jitong-chat-window.open {
+    transform: translateY(0) scale(1) !important;
+  }
+
+  /* 頂部 Header 與抽屜拖曳指示條 (Drag Handle) */
+  .jitong-header {
+    padding: 12px 14px 10px 14px;
+    position: relative;
+  }
+
+  .jitong-header::before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 36px;
+    height: 4px;
+    border-radius: 2px;
+    background: rgba(255, 255, 255, 0.4);
+  }
+
+  .jitong-header-brand {
+    gap: 8px;
+  }
+
+  .jitong-header-avatar-wrap {
+    width: 34px;
+    height: 34px;
+  }
+
+  .jitong-header-title {
+    font-size: 13.5px;
+  }
+
+  .jitong-header-sub {
+    font-size: 10px;
+  }
+
+  .jitong-icon-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+  }
+
+  /* 快捷推薦膠囊：觸控左右橫滑 */
+  .jitong-chips-row {
+    padding: 8px 12px;
+    gap: 6px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .jitong-chip-btn {
+    font-size: 11.5px;
+    padding: 5px 10px;
+  }
+
+  /* 訊息區塊 */
+  .jitong-messages-stream {
+    padding: 12px 10px;
+    gap: 10px;
+  }
+
+  .jitong-msg {
+    max-width: 94%;
+    font-size: 13px;
+  }
+
+  .jitong-msg-bubble {
+    padding: 8px 12px;
+  }
+
+  .jitong-msg-avatar {
+    width: 26px;
+    height: 26px;
+  }
+
+  /* 底部輸入區塊相容 iOS 底部安全距離 (Home Indicator) */
+  .jitong-footer {
+    padding: 8px 10px max(12px, env(safe-area-inset-bottom)) 10px;
+  }
+}
+
+/* ==================== 螢幕框選截圖工具 (Snipping Tool Overlay) ==================== */
+.jitong-snip-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483647;
+  cursor: crosshair;
+  user-select: none;
+  background: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
+  animation: jitongFadeIn 0.2s ease-out;
+}
+
+.jitong-snip-bar {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(15, 23, 42, 0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  padding: 8px 16px 8px 18px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+  pointer-events: auto;
+  z-index: 10;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  white-space: nowrap;
+}
+
+.jitong-snip-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #f8fafc;
+}
+
+.jitong-snip-icon {
+  font-size: 16px;
+}
+
+.jitong-snip-key-hint {
+  font-size: 10.5px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 4px;
+  padding: 1px 6px;
+  color: #cbd5e1;
+  font-family: monospace;
+}
+
+.jitong-snip-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.jitong-snip-action-btn {
+  background: #7c3aed;
+  color: #ffffff;
+  border: none;
+  border-radius: 20px;
+  padding: 5px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.jitong-snip-action-btn:hover {
+  background: #6d28d9;
+  transform: scale(1.04);
+}
+
+.jitong-snip-action-btn.cancel {
+  background: rgba(255, 255, 255, 0.12);
+  color: #e2e8f0;
+}
+
+.jitong-snip-action-btn.cancel:hover {
+  background: #ef4444;
+  color: #ffffff;
+}
+
+/* 框選矩形框 */
+.jitong-snip-box {
+  position: absolute;
+  border: 2px dashed #38bdf8;
+  background: rgba(56, 189, 248, 0.12);
+  /* 超大 box-shadow 將框外區域暗化，框內區域明亮高光！ */
+  box-shadow: 0 0 0 99999px rgba(0, 0, 0, 0.45);
+  pointer-events: none;
+  z-index: 5;
+}
+
+.jitong-snip-size-badge {
+  position: absolute;
+  top: -28px;
+  left: 0;
+  background: #0284c7;
+  color: #ffffff;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  white-space: nowrap;
+}
+
+/* 4 個角把手 */
+.jitong-snip-handle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: #ffffff;
+  border: 2px solid #0284c7;
+  border-radius: 2px;
+}
+.jitong-snip-handle.nw { top: -5px; left: -5px; }
+.jitong-snip-handle.ne { top: -5px; right: -5px; }
+.jitong-snip-handle.sw { bottom: -5px; left: -5px; }
+.jitong-snip-handle.se { bottom: -5px; right: -5px; }
+
+/* 截圖處理中 Toast */
+.jitong-snip-toast {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(15, 23, 42, 0.92);
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 600;
+  z-index: 2147483647;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  animation: jitongPulse 1.2s infinite;
+}
+
+/* 框選工具按鈕樣式 */
+.jitong-snip-tool-btn {
+  background: #fdf4ff !important;
+  border-color: #f0abfc !important;
+  color: #c026d3 !important;
+  font-size: 16px !important;
+}
+.jitong-snip-tool-btn:hover {
+  background: #fae8ff !important;
+  border-color: #d946ef !important;
+  color: #a21caf !important;
+  transform: scale(1.08) !important;
+}
+
+.jitong-header-tool-btn {
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  color: #ffffff;
+  border-radius: 20px;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.jitong-header-tool-btn:hover {
+  background: #c026d3;
+  border-color: #f0abfc;
+  transform: scale(1.05);
+}
