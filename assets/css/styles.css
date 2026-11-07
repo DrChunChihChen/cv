@@ -2118,3 +2118,6 @@ small, .tl__date, .tl__threads, .lab2__kind, .ib-card__tag, .ib-card__new, .biz_
 
 /* Lab works: vertical (9:16) self-hosted video */
 .lab2__mp4--v video { aspect-ratio: 9 / 16; width: auto; max-width: 100%; max-height: 560px; margin: 0 auto; object-fit: contain; }
+
+/* Lab works: award ribbon */
+.lab2__award { display: inline-block; margin: .5rem 0 0; padding: .35rem .8rem; border-radius: .8rem; background: #FFF6D6; color: #8a5a00; font-size: .88rem; font-weight: 600; line-height: 1.5; }
